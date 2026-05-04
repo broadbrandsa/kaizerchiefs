@@ -6,6 +6,7 @@ export { Strategy } from "./strategy";
 export { TierComparison } from "./tier-comparison";
 export { SponsorMap } from "./sponsor-map";
 export { ActivationIdeas } from "./activation-ideas";
+export { Loyalty } from "./loyalty";
 export { Suppliers } from "./suppliers";
 export { RetailFuture } from "./retail-future";
 export { Timing } from "./timing";

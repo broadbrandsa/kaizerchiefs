@@ -9,6 +9,7 @@ import {
   TierComparison,
   SponsorMap,
   ActivationIdeas,
+  Loyalty,
   Suppliers,
   RetailFuture,
   Timing,
@@ -27,6 +28,7 @@ export default function Home() {
       <TierComparison />
       <SponsorMap />
       <ActivationIdeas />
+      <Loyalty />
       <Suppliers />
       <RetailFuture />
       <Timing />

@@ -102,7 +102,7 @@ export const NIELSEN_INSIGHTS = [
   {
     headline: "Camaraderie #1 stadium attendance driver",
     detail:
-      "48.1% of KC fans attend matches to experience camaraderie among passionate fans (13.4% above the SA football fan average). KC Mobile activations should sit inside that camaraderie, not next to it.",
+      "48.1% of KC fans attend matches to experience camaraderie among passionate fans (14.5% above the SA football fan average). KC Mobile activations should sit inside that camaraderie, not next to it.",
     source: "Nielsen NFI SA March 2025",
   },
   {
@@ -112,9 +112,9 @@ export const NIELSEN_INSIGHTS = [
     source: "Nielsen NFI SA March 2025",
   },
   {
-    headline: "44.1% earn under R5,000/month",
+    headline: "Over-indexed on low-income households",
     detail:
-      "12 percentage points higher than the SA average. Affordability has to be the front of every CTA — pricing simplicity is non-negotiable.",
+      "KC fans show a 12-percentage-point over-index versus the SA average for households earning under R5,000/month. Affordability has to be the front of every CTA — pricing simplicity is non-negotiable.",
     source: "Nielsen NFI SA March 2025",
   },
   {
@@ -378,13 +378,15 @@ export const TIERS: Tier[] = [
             cost: 425_000,
             reach: "≈25,000 fans engaged across 5 match-days",
             execution: [
-              "Pre-match (3 hours before kick-off): KC Village fan zone live; SIM port-in stations open",
-              "Kick-off window: 800–1,200 SIM activations target per match; 150–250 eSIM activations",
-              "Half-time: in-stadium PA reads + big-screen ad (KC-controlled inventory)",
-              "Post-match: continued activation as fans exit the bowls; supporter-pack queue",
-              "Mechanic: every port-in gets a KC supporter pack (T-shirt + scarf + 2GB activation voucher) and is entered into the next-match home-ticket draw",
-              "Conversion target: ≥20% of fan-zone visitors complete an activation; ≥25% give an opted-in WhatsApp number",
-              "Daily report: activation count, NPS via post-match SMS survey, eSIM scan-rate",
+              "Pre-match (3 hours before kick-off): KC Village fan zone goes live with port-in tablets at every gate. Wristbands handed out for the Port-in Pole Position queue — first 100 activations get free 2GB and an entry into the next-match ticket draw",
+              "KC Anthem Sing-Along Booth opens at the activation booth — sing the KC anthem, walk away with a SIM and a sticker pack. Becomes the loudest point at the fan zone",
+              "Kappa & SIM Bundle pop-up at the in-stadium Digistore — every kit purchase gets a free KC Mobile SIM + 2GB activation in the bag",
+              "Kick-off — every activation in the 90-minute pre-match window enters the Stadium Suite Upgrade Draw; one winner per match announced on the big screen at T-5. Pre-Match Data Drop auto-pushes 20MB of Khosi-to-Khosi on-net data to every active KC Mobile SIM at kick-off",
+              "When KC scores: Goal QR Boost flashes on the big screen for 90 seconds — existing KC Mobile customers scan, get 100MB instantly via the MVNO core system. PA announcement fronts the moment",
+              "Half-time: in-stadium PA reads + big-screen ad. Live draw for the Player Meet-and-Greet prize among port-in entrants",
+              "Post-match: continued activation as fans exit; supporter-pack queue",
+              "Activation target: 800–1,200 SIM activations + 150–250 eSIMs per match. Conversion target: ≥20% of fan-zone visitors complete an activation; ≥25% opt-in to WhatsApp",
+              "Daily report: activation count, NPS via post-match SMS survey, eSIM scan-rate, Goal QR Boost redemptions",
             ],
           },
           {
@@ -461,6 +463,8 @@ export const TIERS: Tier[] = [
               "2GB credit pushed automatically on activation via the MVNO core system",
               "Validity: 30 days — drives recharge by day 30",
               "Co-fund agreement: KC Mobile and MTN split the cost of the data 50/50 against agreed activation thresholds",
+              "Pilot also activates the always-on rewards from day one: Khosi Birthday Boost (500MB on birthday) and Refer a Khosi (500MB to each side on successful conversion). Both fire automatically through the MVNO core system",
+              "Engagement layer: Pre-Match Data Drop (20MB Khosi-to-Khosi at kick-off) and Goal QR Boost (100MB on big-screen QR scan) live in stadium from day one",
             ],
           },
           {
@@ -655,12 +659,13 @@ export const TIERS: Tier[] = [
             category: "Stadium fan zone × 10 matches",
             supplier: "KC Stadium Ops + DSG",
             detail:
-              "Match-day stack as Tier 1, optimised: kit owned not rented, R45K per match average.",
+              "Match-day stack as Tier 1, scaled to 10 home games. Kit owned not rented, R45K per match average.",
             cost: 450_000,
             execution: [
-              "Same pre-match / kick-off / half-time / post-match flow as Tier 1",
-              "Big-screen ad inventory negotiated separately with KC commercial",
+              "Full launch-ideas playbook on every match: Port-in Pole Position queue at the gate, KC Anthem Sing-Along Booth, Kappa & SIM Bundle Digistore pop-up, Stadium Suite Upgrade Draw, Pre-Match Data Drop at kick-off, Goal QR Boost on every goal, Player Meet-and-Greet half-time draw",
               "Add: scan-to-win mechanic on a 60-second hold-and-watch SMS-keyword game during half-time",
+              "Soweto Derby home fixture: switch on Soweto Derby Power Hour — derby-week port-ins unlock 4 weeks of double data on the next bundle, co-funded with MTN wholesale",
+              "Big-screen ad inventory negotiated separately with KC commercial; Goal QR Boost gets a guaranteed 90-second window on every score",
             ],
           },
           {
@@ -759,8 +764,8 @@ export const TIERS: Tier[] = [
             cost: 100_000,
             execution: [
               "Entry: every SIM activation between week 4 and week 20 enters automatically",
-              "Promoted across all paid channels + match-day fan zones",
-              "Live draw at Soweto Derby with KC Chairman or senior player",
+              "Promoted across all paid channels + match-day fan zones (Port-in Pole Position queue, Stadium Suite Upgrade Draw, Friday Pay-day Taxi Rank Truck)",
+              "Live draw at Soweto Derby with KC Chairman or senior player — same match-day as the Soweto Derby Pre-Match Festival",
               "Post-trip content captured for organic + earned reuse in Tier 3",
             ],
           },
@@ -930,8 +935,14 @@ export const TIERS: Tier[] = [
             category: "Stadium fan zone — every home match",
             supplier: "KC Stadium Ops + DSG",
             detail:
-              "15 match-days × R40K (kit owned, multi-year contracts).",
+              "15 match-days × R40K (kit owned, multi-year contracts). Full launch-ideas playbook executed at every home fixture.",
             cost: 600_000,
+            execution: [
+              "Every match: Port-in Pole Position queue, KC Anthem Sing-Along Booth, Kappa & SIM Bundle Digistore pop-up, Stadium Suite Upgrade Draw, Pre-Match Data Drop, Goal QR Boost, Player Meet-and-Greet draw",
+              "Soweto Derby home fixtures: Soweto Derby Power Hour active for the full derby week",
+              "Gold-tier customers eligible for the monthly suite-upgrade draw (5 winners per home match) — sourced from KC complimentary inventory",
+              "Always-on engagement layer: Pre-Match Data Drop (20MB on-net) auto-pushed at every kick-off; Goal QR Boost (100MB) on every score; Win-Streak Reward (1GB to all active SIMs after 3 league wins in a row) triggered manually by KC commercial",
+            ],
           },
           {
             category: "Regional-car activation days",
@@ -1445,19 +1456,6 @@ export const ACTIVATION_IDEAS: ActivationIdea[] = [
     costBand: "low",
   },
   {
-    name: "Vuvuzela Trade-Up",
-    setting: "match-day",
-    audienceType: "activation",
-    simType: "physical",
-    whatHappens:
-      "Bring an old vuvuzela to the booth; trade it for a KC Mobile SIM. The vuvuzelas get repurposed into supporter art at the fan zone gate.",
-    whyItWorks:
-      "Drives stadium volume + activation in one ritual. Creates a physical art installation that is itself shareable content.",
-    mechanic:
-      "Vuvuzela-for-SIM swap at the activation booth. The 'vuvuzela tower' grows over the season and becomes a recognised landmark.",
-    costBand: "medium",
-  },
-  {
     name: "Soweto Derby Power Hour",
     setting: "match-day",
     audienceType: "activation",
@@ -1553,19 +1551,6 @@ export const ACTIVATION_IDEAS: ActivationIdea[] = [
 
   // ---- Always-on engagement / retention ideas ----
   {
-    name: "Refer a Khosi",
-    setting: "off-stadium",
-    audienceType: "both",
-    simType: "both",
-    whatHappens:
-      "Existing KC Mobile customers refer a friend; both get 500MB free when the referred friend completes their first recharge.",
-    whyItWorks:
-      "Network-effect engagement. The Amakhosi base is dense and connected — friend-of-friend acquisition is the cheapest CPA we'll ever access. Existing customers stay engaged because they keep earning.",
-    mechanic:
-      "Unique referral code per active SIM, surfaced in the KC Mobile WhatsApp flow + KC.com account page. Friend ports in using the code, recharges within 14 days, both customers get 500MB pushed via core system.",
-    costBand: "low",
-  },
-  {
     name: "Win-Streak Reward",
     setting: "off-stadium",
     audienceType: "engagement",
@@ -1579,42 +1564,16 @@ export const ACTIVATION_IDEAS: ActivationIdea[] = [
     costBand: "medium",
   },
   {
-    name: "Khosi Birthday Boost",
+    name: "Zero-Rated KC App",
     setting: "off-stadium",
     audienceType: "engagement",
     simType: "both",
     whatHappens:
-      "Every active KC Mobile SIM holder gets 500MB free on their birthday — as captured at activation.",
+      "Everything inside the KC app — match streams, news, KC TV, ticket purchases, KC Digistore, fan content — doesn't count against a KC Mobile customer's data balance. Ever.",
     whyItWorks:
-      "Personal touch from a brand most telcos can't deliver. Costs the same as a low-spend Meta campaign per user but lands as a branded moment in the most personal day of the year.",
+      "A hard, structural value-add only the team-MVNO can offer. Reframes KC Mobile from 'a SIM' to 'the SIM that gives you free access to everything KC' — and turns the KC app into the daily home of the Amakhosi base. The more the customer uses the KC app, the more entrenched the SIM becomes. Sticky retention plus a direct feed into KC's first-party data.",
     mechanic:
-      "Birthday captured in the WhatsApp port-in flow as an opt-in field. On the day, 500MB auto-pushed by core system; SMS notifies. Optional: KC player birthday video for the most-tenured tier.",
-    costBand: "low",
-  },
-  {
-    name: "KC TV Free Streaming",
-    setting: "off-stadium",
-    audienceType: "engagement",
-    simType: "both",
-    whatHappens:
-      "Streaming any KC TV content (matches, highlights, behind-the-scenes) doesn't count against a KC Mobile customer's data balance — ever.",
-    whyItWorks:
-      "A hard, structural value-add only the team-MVNO can offer. Reframes KC Mobile from 'a SIM' to 'the SIM that lets you watch your team for free'. Sticky retention mechanic.",
-    mechanic:
-      "Zero-rated traffic to KC TV domain configured at the MTN MVNO core network level. No customer action required. Promoted in onboarding SMS + every match-day comms.",
-    costBand: "medium",
-  },
-  {
-    name: "Khosi Loyalty Tiers",
-    setting: "off-stadium",
-    audienceType: "engagement",
-    simType: "both",
-    whatHappens:
-      "KC Mobile customers move through Bronze (1+ month), Silver (6+ months), Gold (12+ months) tiers based on tenure + monthly recharge. Each tier unlocks priority match-ticket access, exclusive merch drops, and hospitality draw entries.",
-    whyItWorks:
-      "Tenure becomes a status. Status becomes the reason not to churn. Costs almost nothing — most rewards are KC-owned inventory (tickets, hospitality, merch).",
-    mechanic:
-      "Tiering logic in the KC Mobile CRM. Tier badge surfaced in the WhatsApp account view + onboarding. Monthly Gold-tier hospitality draw. Quarterly Silver-tier merch drop. All tiers get priority access (Bronze: 24h, Silver: 48h, Gold: 1 week) to next-match ticket releases.",
+      "Zero-rated traffic to the entire KC app domain set (web + iOS + Android), configured at the MTN MVNO core network level. Covers match streaming, news, KC TV, ticketing, Digistore commerce, push notifications and any future KC-owned surfaces. No customer action required. Promoted in onboarding SMS + every match-day comms with the line 'KC on us. Always.'",
     costBand: "medium",
   },
   {
@@ -1623,11 +1582,300 @@ export const ACTIVATION_IDEAS: ActivationIdea[] = [
     audienceType: "engagement",
     simType: "both",
     whatHappens:
-      "KC's top 5 players each design their own one-off jersey — 5 individual designs, 1 of each ever produced. KC Mobile customers with at least 3 months of tenure and 5+ recharges go into a draw to win one of the five 1-of-1 jerseys.",
+      "KC's top 10 players each design their own jersey — 10 individual designs × 10 jerseys per design = 100 player-designed jerseys produced in total. KC Mobile customers with at least 3 months of tenure and 5+ recharges go into a draw to win one of the 100.",
     whyItWorks:
-      "Loyalty-gated grail prize. Combines the rarest possible piece of fan merchandise with a hard tenure-and-spend gate that rewards exactly the customer KC Mobile most wants to keep. Player creative authorship makes it press-worthy: 5 separate stories, 5 player content drops, 5 social moments.",
+      "Loyalty-gated grail prize. Combines limited-edition fan merchandise with a hard tenure-and-spend gate that rewards exactly the customer KC Mobile most wants to keep. Player creative authorship makes it press-worthy: 10 separate stories, 10 player content drops, 10 social moments. 100 winners = 100 brand-evangelist-for-life supporters wearing KC Mobile-tagged jerseys in their feeds for years.",
     mechanic:
-      "5 KC players selected by KC commercial each design a jersey via a 4-week creative process with the Kappa design team. Each jersey produced as a single 1-of-1 piece, certified and numbered. Eligibility: KC Mobile SIM active for 3+ months and 5+ successful recharges in that window. Draw run from the MVNO core system on a defined date; 5 winners drawn (one per jersey design); winners notified by SMS + KC.com announcement; presentation event at the next home fixture with the player handing over the jersey on the pitch pre-match.",
-    costBand: "medium",
+      "10 KC players selected by KC commercial each design a jersey via a 4-week creative process with the Kappa design team. Each design produced as a 10-piece limited run, certified and numbered (#1/10 through #10/10). Eligibility: KC Mobile SIM active for 3+ months and 5+ successful recharges in that window. Draw run from the MVNO core system on a defined date; 100 winners drawn (10 per design); winners notified by SMS + KC.com announcement; presentation event at a home fixture with the 10 players collectively handing over their designs on the pitch pre-match.",
+    costBand: "high",
   },
 ];
+
+// ============================================================================
+// Khosi Loyalty Programme — the retention spine of KC Mobile
+// Was previously listed as an activation idea; now framed as a standalone
+// programme that overlays the engagement mechanics in the activation library.
+// ============================================================================
+
+export interface LoyaltyTier {
+  name: string;
+  position: "01" | "02" | "03";
+  qualification: string;
+  monthlyDataBonus: string;
+  benefits: string[];
+}
+
+export const LOYALTY_PROGRAMME: {
+  name: string;
+  oneLine: string;
+  intro: string;
+  tiers: LoyaltyTier[];
+  alwaysOnRewards: {
+    name: string;
+    summary: string;
+    detail: string;
+    mechanic: string;
+    eligibility: string;
+  }[];
+  retention: { title: string; detail: string }[];
+  economics: { tier: string; annualCostPerCustomer: string; notes: string }[];
+  economicsSources: {
+    verified: { input: string; value: string; source: string }[];
+    estimated: { input: string; assumption: string; needs: string }[];
+  };
+  mechanics: { title: string; detail: string }[];
+  whyItMatters: { title: string; detail: string }[];
+} = {
+  name: "Khosi Loyalty Programme",
+  oneLine:
+    "A three-tier retention programme that turns tenure and recharge into status — and status into the reason not to churn.",
+  intro:
+    "Loyalty is the spine of an MVNO. Acquisition gets the SIM in the hand; loyalty keeps it active for years. The Khosi Loyalty Programme is a tier ladder built on tenure and recharge cadence, with each step up the ladder unlocking richer KC-owned inventory (priority tickets, hospitality, exclusive merch). Most rewards cost KC Mobile nothing in cash — they're privileged access to assets KC already owns. The programme runs alongside, not in place of, the engagement mechanics in the activation library — those mechanics feed customers into the tiers; the tiers reward them for staying.",
+  tiers: [
+    {
+      name: "Bronze",
+      position: "01",
+      qualification: "Active KC Mobile SIM for 1+ month",
+      monthlyDataBonus: "100MB",
+      benefits: [
+        "Digital welcome pack — KC Mobile lock-screen wallpapers, ringtone, sticker pack",
+        "Priority match-ticket access — 24 hours before public sale",
+        "Access to all base KC Mobile data and voice bundles",
+        "Eligible for the always-on rewards (Birthday Boost + Refer a Khosi — see below)",
+      ],
+    },
+    {
+      name: "Silver",
+      position: "02",
+      qualification: "Active KC Mobile SIM for 6+ months · 4+ recharges per quarter",
+      monthlyDataBonus: "300MB",
+      benefits: [
+        "All Bronze benefits",
+        "Priority match-ticket access — 48 hours before public sale",
+        "Quarterly digital drop (exclusive content, wallpapers) + one physical KC Mobile cap per year",
+        "Entry into the monthly hospitality draw (5 Silver winners per home match get fan-zone hospitality)",
+        "5% off KC Digistore",
+        "Early access window on away-match travel packages",
+      ],
+    },
+    {
+      name: "Gold",
+      position: "03",
+      qualification: "Active KC Mobile SIM for 12+ months · 6+ recharges per 6 months",
+      monthlyDataBonus: "700MB",
+      benefits: [
+        "All Silver benefits",
+        "Priority match-ticket access — 1 full week before public sale",
+        "Eligibility for the monthly suite-upgrade draw (5 Gold winners per home match) — draw-based, not entitlement",
+        "Eligibility for the Player-Designed Jersey Draw (100 jerseys, draw-based, Gold-only gate)",
+        "Annual Kappa player-edition merch drop — while stocks last",
+        "10% off KC Digistore",
+        "Priority access window on Soweto Derby tickets (1 week before public sale)",
+      ],
+    },
+  ],
+  alwaysOnRewards: [
+    {
+      name: "Khosi Birthday Boost",
+      summary:
+        "Every active KC Mobile customer gets 500MB free on their birthday.",
+      detail:
+        "A personal touch from a brand most telcos can't deliver. Costs the same as a low-spend Meta campaign per user but lands as a branded moment in the most personal day of the year. Builds emotional bond at zero cognitive friction.",
+      mechanic:
+        "Birthday captured in the WhatsApp port-in flow as an opt-in field. On the day, 500MB auto-pushed by the MVNO core system; SMS notifies the customer ('Happy Birthday from KC Mobile. 500MB on us. Amakhosi 4 Life.'). Optional uplift for Gold-tier: a personalised KC player birthday video.",
+      eligibility:
+        "All tiers (Bronze, Silver, Gold). Birthday must have been captured at activation or in subsequent CRM updates.",
+    },
+    {
+      name: "Refer a Khosi",
+      summary:
+        "Refer a friend; both customers get 500MB when the friend completes their first recharge.",
+      detail:
+        "Network-effect engagement. The Amakhosi base is dense and connected — friend-of-friend acquisition is the cheapest CPA available to KC Mobile. Existing customers stay engaged because every successful referral earns them more value, and accelerates their path through the loyalty tiers.",
+      mechanic:
+        "Unique referral code per active SIM, surfaced in the KC Mobile WhatsApp flow + KC.com account view. Friend ports in using the code, recharges within 14 days, both customers get 500MB pushed via the core system. Every 5 successful conversions counts as one extra month of qualifying tenure for tier progression (see 'tier accelerator' under How the programme runs).",
+      eligibility:
+        "All tiers (Bronze, Silver, Gold). Functions as a tier accelerator — referrals shorten the path to Silver and Gold.",
+    },
+  ],
+  retention: [
+    {
+      title: "Data Wallet — unused data rolls forward",
+      detail:
+        "Unused monthly tier-bonus data rolls over for up to 6 months, capped at 2GB stored. The wallet is forfeited if the customer ports out. Real switching cost — leaving means walking away from accumulated value.",
+    },
+    {
+      title: "Anniversary airtime — R20 every 12 months",
+      detail:
+        "Every 12 months of continuous active service, R20 airtime is auto-credited on the SIM's activation anniversary. Anchored to the original port-in date — switching networks resets the clock entirely.",
+    },
+    {
+      title: "Locked match-ticket priority",
+      detail:
+        "Priority ticket-access windows (Bronze 24h, Silver 48h, Gold 1 week) are non-transferable and tied to an active KC Mobile MSISDN. Switching means losing tier-priority access — your only route to derby tickets becomes the public sale.",
+    },
+    {
+      title: "Khosi network effect",
+      detail:
+        "The on-net Khosi-to-Khosi 20MB at every home-match kick-off, plus Refer-a-Khosi rewards, mean every additional friend on KC Mobile increases your value. The denser the Khosi base around you gets, the more painful it is to leave.",
+    },
+    {
+      title: "Tier reset on switch",
+      detail:
+        "Cancel and re-port within 12 months and you start at Bronze again — no credit for previous tenure. Rebuilding to Gold from scratch is a 12-month commitment. The switching cost is time, not just airtime.",
+    },
+    {
+      title: "Match-day SMS — free to KC Mobile only",
+      detail:
+        "KC Mobile customers get free match-day SMS alerts (starting line-up, half-time, full-time, away results). Small utility, daily reminder of why you're with KC Mobile, and an SMS-stream you'd lose if you switched.",
+    },
+    {
+      title: "KC App account binding (Phase 2)",
+      detail:
+        "Once the KC App ties personal accounts to the KC Mobile MSISDN, your fan history (tickets bought, fan-zone activity, KC TV watch history, draw entries) lives at your KC Mobile number. Switching means rebuilding that history elsewhere.",
+    },
+  ],
+  economics: [
+    {
+      tier: "Bronze",
+      annualCostPerCustomer: "≈R8–R15 / customer / year",
+      notes:
+        "Variable data cost: 100MB/month × 12 = 1.2GB at MVNO wholesale (~R3–R8/GB) ≈ R4–R10. Plus a digital welcome pack (≈R0). Plus a share of always-on rewards (Birthday 500MB ≈ R3, Refer-a-Khosi reciprocal ≈ R3 per conversion). Materially below the typical R15–R30/month MVNO gross profit per active sub.",
+    },
+    {
+      tier: "Silver",
+      annualCostPerCustomer: "≈R30–R55 / customer / year",
+      notes:
+        "Includes Bronze costs + 200MB extra per month (≈R7–R15) + one Kappa cap per year (≈R20 at cost) + small digital quarterly drops. Hospitality draw is opportunity-cost only — KC fan-zone seats not otherwise sold commercially.",
+    },
+    {
+      tier: "Gold",
+      annualCostPerCustomer: "≈R80–R140 / customer / year + draw inventory",
+      notes:
+        "Includes Silver costs + 400MB extra per month (≈R14–R30) + Kappa player-edition piece if won (≈R350–R500 at cost, but stocked-limited and not all Gold customers receive). Suite-upgrade draws (5 winners per home match) are KC-owned inventory — opportunity cost rather than cash. Designed to be aspirational not entitlement.",
+    },
+    {
+      tier: "All-tier always-on",
+      annualCostPerCustomer: "≈R5–R10 / active customer / year (blended)",
+      notes:
+        "Birthday Boost (500MB) and Refer-a-Khosi (500MB to each side per successful conversion) — averaged across the active base. Birthday hits once a year per customer; Refer-a-Khosi rewards only fire on successful first-recharge conversion. Most affordable acquisition mechanic in the plan.",
+    },
+  ],
+  economicsSources: {
+    verified: [
+      {
+        input: "MVNO wholesale data cost",
+        value: "R3–R8 / GB",
+        source:
+          "BMIT SA MVNO Report 2025 + industry analyst commentary on Cell C / MTN wholesale tiers. Capitec Connect's published per-GB cost sits inside this band.",
+      },
+      {
+        input: "SA prepaid ARPU",
+        value: "R63 (Vodacom) – R76 (MTN) / month",
+        source:
+          "Operator financial disclosures (latest annual reports). The relevant figure for KC Mobile (MTN-hosted) is R76.",
+      },
+      {
+        input: "MVNO gross profit per active sub",
+        value: "≈R15–R30 / month → R180–R360 / year",
+        source:
+          "Derived from prepaid ARPU × industry-typical 20–40% MVNO gross margin band. Used as the envelope the loyalty programme must sit inside.",
+      },
+      {
+        input: "SA MVNO market trajectory",
+        value: "$505M → $750M (CAGR 8.25%) · 5.91M → 8.45M subs by 2030",
+        source: "Mordor Intelligence SA MVNO market report 2025-30.",
+      },
+    ],
+    estimated: [
+      {
+        input: "Kappa cap wholesale cost",
+        assumption: "≈R20 / cap at MOQ wholesale",
+        needs:
+          "Confirm with Kappa commercial. Real number depends on order quantity and exclusivity terms.",
+      },
+      {
+        input: "Kappa player-edition piece — unit cost",
+        assumption: "R350–R500 / piece at limited-edition production volume",
+        needs:
+          "Confirm with Kappa + KC commercial once production volume is locked.",
+      },
+      {
+        input: "Kappa player-edition piece — Gold reach",
+        assumption: "≈15–20% of Gold-tier customers receive in any given year",
+        needs:
+          "Set the actual production cap with KC commercial. Higher reach increases Gold per-customer cost roughly linearly.",
+      },
+      {
+        input: "Average Refer-a-Khosi conversions",
+        assumption: "0.3–0.7 successful conversions / customer / year",
+        needs:
+          "Validate against actual referral programme data after the first 6 months. SA telco benchmarks suggest this band is realistic.",
+      },
+      {
+        input: "KC-owned inventory (suite seats, hospitality, derby priority)",
+        assumption:
+          "Treated as zero cash cost — opportunity cost only against commercial seat sales",
+        needs:
+          "KC commercial to confirm: (a) the annual cap on suite-upgrade-draw inventory; (b) whether complimentary / sponsor-allocation seats can be used; (c) the opportunity-cost number for finance reporting.",
+      },
+      {
+        input: "Always-on data cost averaging",
+        assumption:
+          "Birthday Boost (500MB) fires once per customer per year; Refer-a-Khosi reciprocal (500MB × 2 sides) at 0.3–0.7 referrals/year",
+        needs:
+          "Re-baseline once we have 3–6 months of actual core-system push data after launch.",
+      },
+    ],
+  },
+  mechanics: [
+    {
+      title: "Auto-tiering via the MVNO core system",
+      detail:
+        "Tier status calculated from MSISDN-level activation date and rolling-recharge data. No customer action required — promotions and demotions happen automatically. The CRM pushes a tier-promotion SMS at the moment the customer crosses each threshold.",
+    },
+    {
+      title: "Status visible in WhatsApp + KC Mobile app",
+      detail:
+        "The customer's current tier badge is surfaced in the WhatsApp account view and (Phase 2) inside the KC app. Tier-progress bar shows how close they are to the next promotion.",
+    },
+    {
+      title: "Lapse protection — 30-day grace",
+      detail:
+        "Missed a recharge? You don't drop a tier instantly. A 30-day grace period applies before the system demotes a customer; they'll receive an SMS warning at day 21 and a recovery offer at day 28.",
+    },
+    {
+      title: "Refer-a-Khosi as a tier accelerator",
+      detail:
+        "Every 5 successful Refer-a-Khosi conversions counts as one extra month of qualifying tenure when calculating tier progression. Drives both retention and acquisition through the same mechanic.",
+    },
+    {
+      title: "Tier-locked Player-Designed Jersey Draw",
+      detail:
+        "The 100-piece Player-Designed Jersey Draw is gated to Gold-tier customers only — making the jersey itself a Gold-tier perk and reinforcing the value of staying long enough to reach Gold.",
+    },
+  ],
+  whyItMatters: [
+    {
+      title: "Retention beats acquisition on unit economics",
+      detail:
+        "Acquiring a new SIM costs ~R150 blended CPA in this plan. Keeping an existing customer for an extra 6 months costs almost nothing. The loyalty programme is the cheapest growth lever KC Mobile has — and the highest leverage one.",
+    },
+    {
+      title: "KC-owned inventory is the cost-light reward layer",
+      detail:
+        "Most of the rewards in the programme — priority tickets, hospitality, derby access, KC Gala invitations, Digistore discounts — are KC-owned. The cash cost is in the data bonuses and merch drops; the prestige cost is essentially zero.",
+    },
+    {
+      title: "Status as a self-reinforcing mechanic",
+      detail:
+        "Once a customer hits Gold, the cost of switching networks isn't just the SIM — it's losing tier status and the perks built up over 12 months. The longer they stay, the harder it is to leave.",
+    },
+    {
+      title: "Data feed for KC's first-party CRM",
+      detail:
+        "Every tier transition is a signal. The Loyalty Programme feeds tenure, recharge cadence and engagement data straight into KC's CRM — useful well beyond mobile (ticketing, kit launches, hospitality marketing).",
+    },
+  ],
+};
+

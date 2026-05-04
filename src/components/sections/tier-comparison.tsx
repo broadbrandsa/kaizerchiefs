@@ -7,6 +7,12 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,6 +26,7 @@ import {
 } from "@/components/ui/dialog";
 import { Section } from "@/components/section";
 import { TIERS, type Tier, type TierKey } from "@/data/proposal";
+import { TierAllocationChart } from "@/components/charts/tier-allocation";
 import { formatRand, formatRandFull } from "@/lib/format";
 
 export function TierComparison() {
@@ -42,6 +49,11 @@ export function TierComparison() {
             onSelect={() => setActive(t.key)}
           />
         ))}
+      </div>
+
+      {/* Tier allocation comparison chart */}
+      <div className="mt-10">
+        <TierAllocationChart />
       </div>
 
       {/* Tabs detail */}
@@ -282,22 +294,31 @@ function TierDetail({ tier }: { tier: Tier }) {
                         </div>
                       ) : null}
                       {li.execution && li.execution.length > 0 ? (
-                        <div className="mt-3 rounded-lg bg-[var(--kc-ink)]/60 p-4">
-                          <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
-                            How we execute
-                          </div>
-                          <ul className="mt-2 space-y-1.5">
-                            {li.execution.map((e, ei) => (
-                              <li
-                                key={ei}
-                                className="flex gap-2 text-xs leading-relaxed text-[var(--kc-paper)]/85"
-                              >
-                                <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-[var(--kc-gold)]" />
-                                <span>{e}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        <Accordion
+                          type="single"
+                          collapsible
+                          className="mt-3 rounded-lg border border-[var(--kc-line)] bg-[var(--kc-ink)]/60 px-4"
+                        >
+                          <AccordionItem value="execute" className="border-b-0">
+                            <AccordionTrigger className="py-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)] hover:text-[var(--kc-gold)] hover:no-underline">
+                              How we execute · {li.execution.length} step
+                              {li.execution.length === 1 ? "" : "s"}
+                            </AccordionTrigger>
+                            <AccordionContent className="pb-4 pt-1">
+                              <ul className="space-y-1.5">
+                                {li.execution.map((e, ei) => (
+                                  <li
+                                    key={ei}
+                                    className="flex gap-2 text-xs leading-relaxed text-[var(--kc-paper)]/85"
+                                  >
+                                    <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-[var(--kc-gold)]" />
+                                    <span>{e}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
                       ) : null}
                     </li>
                   ))}

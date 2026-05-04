@@ -11,7 +11,7 @@ const NAV = [
   { label: "Tiers", href: "#tiers" },
   { label: "Sponsors", href: "#sponsors-collab" },
   { label: "Ideas", href: "#ideas" },
-  { label: "Suppliers", href: "#suppliers" },
+  { label: "Loyalty", href: "#loyalty" },
   { label: "Retail", href: "#retail-future" },
   { label: "Measure", href: "#measure" },
 ];
