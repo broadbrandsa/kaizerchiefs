@@ -8,7 +8,7 @@ export function Timing() {
       id="timing"
       eyebrow="Phasing"
       title="How the plan unfolds across the year"
-      intro="The R9M plan runs in four phases. The R5M plan compresses Phases 1–2 into 6 months. The R2.5M Pilot is essentially Phase 1 only — heavy in retail, OOH, radio and production at the front."
+      intro="The 12-month plan rolls in four rhythm-led waves anchored to the football year — kickoff, the first Soweto Derby, the EPL run-in, and finals season. Marketing investment is flat across the year by default; what shifts is *what* the spend is doing in each window."
     >
       {/* Horizontal timeline strip */}
       <div className="mb-10 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
@@ -19,27 +19,27 @@ export function Timing() {
           <div className="flex h-9 w-full overflow-hidden rounded-md border border-[var(--kc-line)]">
             <div
               className="flex items-center justify-center bg-[var(--kc-gold)] text-xs font-semibold text-[var(--kc-black)]"
-              style={{ width: "25%" }}
+              style={{ width: "16.66%" }}
             >
-              Spark · M1–M3
+              Kickoff · M1–2
             </div>
             <div
-              className="flex items-center justify-center bg-[var(--kc-gold)]/70 text-xs font-semibold text-[var(--kc-black)]"
+              className="flex items-center justify-center bg-[var(--kc-gold)]/75 text-xs font-semibold text-[var(--kc-black)]"
               style={{ width: "25%" }}
             >
-              Sustain · M4–M6
+              Momentum · M3–5
             </div>
             <div
-              className="flex items-center justify-center bg-[var(--kc-gold)]/40 text-xs font-semibold text-[var(--kc-paper)]"
+              className="flex items-center justify-center bg-[var(--kc-gold)]/45 text-xs font-semibold text-[var(--kc-paper)]"
               style={{ width: "25%" }}
             >
-              Scale · M7–M9
+              Anchor · M6–8
             </div>
             <div
-              className="flex items-center justify-center bg-[var(--kc-gold)]/15 text-xs font-semibold text-[var(--kc-paper)]"
-              style={{ width: "25%" }}
+              className="flex items-center justify-center bg-[var(--kc-gold)]/20 text-xs font-semibold text-[var(--kc-paper)]"
+              style={{ width: "33.33%" }}
             >
-              Convert · M10–M12
+              Lock-in · M9–12
             </div>
           </div>
           <div className="mt-3 flex w-full justify-between text-[10px] uppercase tracking-wider text-[var(--kc-mute)]">
@@ -51,10 +51,13 @@ export function Timing() {
           </div>
         </div>
         <p className="mt-4 max-w-3xl text-xs text-[var(--kc-paper)]/65">
-          Spend weight is heaviest at the front (Spark) when launch noise needs
-          to land, then tapers as paid digital and trade momentum sustain
-          themselves. Scale phase coincides with the SS PSL second half + EPL
-          run-in. Convert closes the season with a retention push.
+          Base marketing spend is split evenly across the year (whatever the
+          slider is set to, divided by 12). What shifts between phases is the
+          focus — Kickoff owns the launch story, Momentum captures the first
+          Soweto Derby and activates engagement mechanics, Anchor leans into
+          retention as the base matures, and Lock-in closes the season with
+          the Player-Designed Jersey Draw and the PEP / Shoprite Phase-2
+          go-live.
         </p>
       </div>
 

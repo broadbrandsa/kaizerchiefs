@@ -1,13 +1,15 @@
 export { Hero } from "./hero";
 export { Overview } from "./overview";
-export { MarketContext } from "./market-context";
 export { Audience } from "./audience";
 export { Strategy } from "./strategy";
-export { TierComparison } from "./tier-comparison";
+export { InvestmentCalculator } from "./investment-calculator";
 export { SponsorMap } from "./sponsor-map";
+export { EarnedVoices } from "./earned-voices";
 export { ActivationIdeas } from "./activation-ideas";
 export { Loyalty } from "./loyalty";
 export { Suppliers } from "./suppliers";
 export { RetailFuture } from "./retail-future";
+export { Waitlist } from "./waitlist";
 export { Timing } from "./timing";
 export { Measure } from "./measure";
+export { YearTwo } from "./year-two";

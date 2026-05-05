@@ -8,12 +8,12 @@ import { ChiefMark } from "@/components/chief-mark";
 const NAV = [
   { label: "Overview", href: "#overview" },
   { label: "Audience", href: "#audience" },
-  { label: "Tiers", href: "#tiers" },
-  { label: "Sponsors", href: "#sponsors-collab" },
+  { label: "Model", href: "#model" },
+  { label: "Voices", href: "#earned-voices" },
   { label: "Ideas", href: "#ideas" },
   { label: "Loyalty", href: "#loyalty" },
-  { label: "Retail", href: "#retail-future" },
-  { label: "Measure", href: "#measure" },
+  { label: "Waitlist", href: "#waitlist" },
+  { label: "Year 2", href: "#year-2" },
 ];
 
 export function Header() {

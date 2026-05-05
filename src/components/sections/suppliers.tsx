@@ -7,6 +7,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/section";
 import { SUPPLIER_DIRECTORY } from "@/data/proposal";
+import { SmartText } from "@/components/smart-text";
 
 export function Suppliers() {
   return (
@@ -23,7 +24,7 @@ export function Suppliers() {
               <div className="flex flex-1 items-center justify-between gap-4 pr-4">
                 <div className="text-left">
                   <div className="text-base font-semibold text-[var(--kc-paper)]">{s.name}</div>
-                  <div className="text-sm text-[var(--kc-paper)]/75">{s.role}</div>
+                  <div className="text-sm text-[var(--kc-paper)]/75"><SmartText>{s.role}</SmartText></div>
                 </div>
                 <Badge variant="outline" className="hidden md:inline-flex">
                   Rate card
@@ -38,7 +39,7 @@ export function Suppliers() {
                     className="flex gap-3 rounded-lg bg-[var(--kc-ink)]/40 p-3 text-sm text-[var(--kc-paper)]/85"
                   >
                     <span className="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--kc-gold)]" />
-                    <span>{p}</span>
+                    <span><SmartText>{p}</SmartText></span>
                   </li>
                 ))}
               </ul>

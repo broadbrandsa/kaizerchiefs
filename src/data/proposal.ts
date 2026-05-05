@@ -2,47 +2,11 @@
 // Sources: KC Mobile MVNO Draft V3, Nielsen Sports SA NFI March 2025,
 // DMS Rate Card March 2026, Mediamark Digital Rate Card Sept 2025,
 // OnsideZA Show Deck, Polygon Network DOOH inventory,
-// SA MVNO market context (industry trade press, 2025).
-
-export type TierKey = "pilot" | "targeted" | "full";
-
-export interface LineItem {
-  category: string;
-  supplier: string;
-  detail: string;
-  cost: number;
-  reach?: string;
-  /** How this line is actually delivered — week-by-week, daily, mechanic, KPI */
-  execution?: string[];
-}
-
-export interface CategoryBudget {
-  category: string;
-  allocation: number;
-  pct: number;
-  rationale: string;
-  lineItems: LineItem[];
-}
-
-export interface Tier {
-  key: TierKey;
-  name: string;
-  total: number;
-  durationMonths: number;
-  positioning: string;
-  monthlySimTarget: string;
-  monthlyEsimTarget: string;
-  geoFocus: string;
-  oneLine: string;
-  /** Three or four headline pillars for this tier */
-  pillars: string[];
-  categories: CategoryBudget[];
-}
 
 export const BRIEF_HIGHLIGHTS = {
   client: "Kaizer Chiefs Mobile (KC Mobile)",
   duration:
-    "12 months (R9M tier) / 6 months (R5M tier) / 3 months (R2.5M tier)",
+    "12 months — single plan with marketing investment slider from R1.5M to R5M",
   monthlyTargetPhysical: 16000,
   monthlyTargetEsim: 200,
   goToMarket:
@@ -61,30 +25,6 @@ export const BRIEF_HIGHLIGHTS = {
     "Limited physical points of distribution and weak in-store POS",
   ],
 };
-
-// SA MVNO market context — informs the plan without naming specific competitors
-export const MARKET_CONTEXT = [
-  {
-    headline: "SA MVNO market is $505M USD in 2025 → $750M by 2030",
-    detail:
-      "5.91M MVNO subscribers in 2025 growing to 8.45M by 2030 (CAGR 7.4%). The category is in expansion mode and the prepaid segment dominates volume. KC Mobile sits inside a tailwind, not a headwind.",
-  },
-  {
-    headline: "The winning MVNO playbook is distribution + simplicity",
-    detail:
-      "The leading SA MVNOs aren't winning on data price — they're winning on shelf space, transparent bundles, and effortless port-in. The lesson for KC Mobile: out-execute on retail and onboarding, not on cents-per-meg.",
-  },
-  {
-    headline: "Prepaid ARPU sits at R63–R76",
-    detail:
-      "Across the major networks, prepaid ARPU sits at R63–R76. The Amakhosi base over-indexes on prepaid. KC Mobile's pricing logic must work at this ARPU — bundles, recharge cadence, and retention mechanics all design around it.",
-  },
-  {
-    headline: "Retail-rewards models are emerging fast",
-    detail:
-      "Other SA retailers are now bundling mobile data with grocery and clothing purchases. PEP and Checkers represent the same strategic option for KC Mobile — see the Retail Futures section.",
-  },
-];
 
 export const NIELSEN_INSIGHTS = [
   {
@@ -144,7 +84,7 @@ export const STRATEGIC_PILLARS = [
   {
     pillar: "Always-on retail visibility",
     summary:
-      "POS at MTN shops, independent dealers, and (Phase 2) PEP / Checkers keeps KC Mobile in the field of view between match-days. The product needs to be reachable on a Tuesday afternoon, not just on a derby night.",
+      "POS at MTN shops, independent dealers, and (Phase 2) PEP / Shoprite keeps KC Mobile in the field of view between match-days. The product needs to be reachable on a Tuesday afternoon, not just on a derby night.",
   },
 ];
 
@@ -195,7 +135,7 @@ export const SUPPLIER_DIRECTORY = [
   },
   {
     name: "SABC African-language radio",
-    role: "Mass-reach broadcast in vernacular — drives township and peri-urban awareness (Tier 3 only)",
+    role: "Mass-reach broadcast in vernacular — drives township and peri-urban awareness (only relevant if marketing investment supports broadcast in addition to digital + retail)",
     sourceDoc: "Industry standard reach figures",
     standoutPackages: [
       "Ukhozi FM (isiZulu) — ~6.6M weekly listeners, KZN/Gauteng/MP",
@@ -205,924 +145,14 @@ export const SUPPLIER_DIRECTORY = [
     ],
   },
 ];
-
-const ZAR = (n: number) => Math.round(n);
-
 // ============================================================================
-// TIERS — restructured per direction:
-// Tier 1 (Pilot): Digital + In-store + Match-day are the three big buckets.
-//   No OOH, no Radio. Production + Incentives are supporting.
-// Tier 2 (Targeted): No Radio. Everything else expanded.
-// Tier 3 (Full): Everything in, plus an explicit nod to PEP / Checkers under
-//   the Trade Partner & Retail POS line (Phase 2 — see RETAIL_FUTURE).
-// ============================================================================
-
-export const TIERS: Tier[] = [
-  {
-    key: "pilot",
-    name: "Pilot Spark",
-    total: 2_500_000,
-    durationMonths: 3,
-    positioning:
-      "Three months. Three channels. Three high-density KC catchments. Prove the sell-through model before scaling.",
-    monthlySimTarget: "2,500–4,000",
-    monthlyEsimTarget: "≈50",
-    geoFocus: "Gauteng + Mpumalanga + KZN concentrated burst",
-    oneLine:
-      "A 90-day proof-of-model focused on three engines: high-conversion paid digital, dense in-store activation in priority MTN and independent dealers, and full match-day fan-zone activation at every KC home game in the window.",
-    pillars: [
-      "Digital paid — supporter look-alikes + WhatsApp port-in flow",
-      "In-store activation — 200 priority dealers, R20/SIM dealer top-up, brand-ambassador rotation",
-      "Match-day activation — full KC fan-zone at 5 home games with port-in tablets",
-    ],
-    categories: [
-      {
-        category: "Digital Paid Media",
-        allocation: ZAR(900_000),
-        pct: 36,
-        rationale:
-          "The biggest single bucket. Always-on Meta + TikTok + Google for 12 weeks, geo-fenced to Gauteng/MP/KZN, with KC supporter look-alikes seeded off the KC.com newsletter consent list and warm KC social followers. Direct-response creative pointed at the eSIM activation funnel and a 'find a store' locator. WhatsApp click-to-chat builds the start of the CRM list.",
-        lineItems: [
-          {
-            category: "Meta (Facebook + Instagram) Ads",
-            supplier: "Direct buy via Meta Ads Manager",
-            detail:
-              "12 weeks always-on. Reach + frequency phase weeks 1–2; performance phase weeks 3–10; retargeting + LAL build weeks 11–12.",
-            cost: 280_000,
-            reach: "≈4.5M impressions / 1.0M unique reach (GP/MP/KZN)",
-            execution: [
-              "Audience: KC supporter look-alikes built off the KC.com newsletter consent list, warm Facebook/Instagram followers of @kaizerchiefs, plus interest layer for 'PSL', 'Showmax', 'SuperSportBet'",
-              "Creative: 4 × 9:16 hero videos (15s) shot with KC players in vernacular; 6 × 1:1 statics (jersey-week, port-in, eSIM, FAQ); WhatsApp click-to-chat ads on weeks 5–12",
-              "CTA: QR code + WhatsApp deep-link → 'Chat to KC Mobile' → automated port-in flow",
-              "Geo: GP/MP/KZN province targeting + 5km radius around 200 priority MTN shops",
-              "Reporting: weekly CPM, CPL, CPA, ROAS in a single dashboard. Bottom-quartile creative killed every Friday.",
-            ],
-          },
-          {
-            category: "TikTok Ads",
-            supplier: "Direct buy via TikTok Ads Manager",
-            detail:
-              "12-week always-on with creator partnerships. Heaviest weight against 18–29 KC fan affinity.",
-            cost: 280_000,
-            reach: "≈3.0M impressions / 700K unique reach",
-            execution: [
-              "Spark Ads boosting KC players' organic posts about the SIM (3 player partnerships included via Production line)",
-              "5 × Spark variants — handheld, vernacular hooks (e.g. \"Yebo Khosi, sim entsha\"), 3-second hook test",
-              "Hashtag #KCMobile2026 launched with 2 lead creators from PNC roster",
-              "Mid-burst in week 6: TopView one-day takeover during a Soweto Derby week",
-            ],
-          },
-          {
-            category: "Google Ads (Search + YouTube)",
-            supplier: "Direct buy via Google Ads",
-            detail:
-              "Search defends 'KC Mobile', 'Kaizer Chiefs SIM', 'port to KC Mobile'. YouTube TrueView and 6s bumpers tied to KC match windows.",
-            cost: 220_000,
-            reach: "≈600K YouTube views / branded search top spot",
-            execution: [
-              "Search: 4 ad groups — brand defence, port-in intent, eSIM intent, store locator",
-              "YouTube: 15s skippable + 6s bumpers seeded onto KC TV channel and PSL highlight content",
-              "Custom-intent audiences targeting users who've searched for 'PSL', 'Soweto Derby', 'eSIM activation'",
-              "Negative keyword list excludes content/reseller traffic",
-            ],
-          },
-          {
-            category: "WhatsApp Business + CRM",
-            supplier: "Yalo / MessageBird + DSG dev",
-            detail:
-              "WhatsApp is the #1 reach platform for KC fans (+24.9% YoY usage for sports). Spend is split between platform fees and the chatbot flow that completes a port-in.",
-            cost: 120_000,
-            execution: [
-              "WhatsApp Business API setup + green-tick verification",
-              "Conversational port-in flow: greeting → ID number → SIM ICCID → confirmation in <90 seconds",
-              "Auto-response template messages for 24/7 lead handling",
-              "CRM list piped into Tier 2 retargeting + email/SMS journeys",
-              "Spend: R60K platform fees + R60K dev/integration",
-            ],
-          },
-        ],
-      },
-      {
-        category: "In-Store / Trade Activation",
-        allocation: ZAR(900_000),
-        pct: 36,
-        rationale:
-          "The other 36% goes to physical visibility. 200 priority stores in GP/MP/KZN get a full KC Mobile takeover: A2 jersey-week posters, riser cards, wobblers, branded SIM holders, dealer cheat-sheets, and a R20/SIM commission top-up paid weekly to drive dealer push. A DSG-managed field force of 8 brand ambassadors rotates through 50 stores per week with photo-evidence reporting.",
-        lineItems: [
-          {
-            category: "Priority store footprint setup",
-            supplier: "DSG account team + KC Mobile commercial",
-            detail:
-              "200 priority stores selected on foot-traffic weight: 140 MTN shops + 50 indie dealers + 10 Pep test sites (subject to PEP early-access negotiation — see Retail Futures).",
-            cost: 350_000,
-            execution: [
-              "Store-grade audit: foot-traffic by hour, KC fan density (proxied by Soweto Derby ticket sales by ward), competitor SIM share-of-shelf",
-              "200 stores ranked A/B/C — A-tier gets full POS suite + window decals, B/C gets riser + wobbler",
-              "Per-store activation log set up: daily sell-through reporting, weekly dealer call",
-              "Cost includes 2 round-trips of an account manager per province for relationship-building",
-            ],
-          },
-          {
-            category: "POS material — production + install",
-            supplier: "DSG production + 3rd-party installer network",
-            detail:
-              "Riser cards, wobblers, A2 jersey-week posters, KC-branded SIM holders, dealer cheat-sheet flip-cards.",
-            cost: 250_000,
-            execution: [
-              "POS suite v1 designed in week 1, printed week 2, installed weeks 3–4",
-              "Refresh wave at week 8 — derby-week creative + new champion-of-the-week dealer leaderboard",
-              "All POS includes a unique QR code per store so we can attribute eSIM activations back to dealer",
-              "Photo-evidence library — every store visit logs a before/after image into Slack-bot",
-            ],
-          },
-          {
-            category: "Dealer commission top-up",
-            supplier: "KC Mobile / DSG-managed",
-            detail:
-              "R20 per activation paid weekly (not monthly) — speed-of-cash drives dealer push. Estimated 10,000 activations × R20.",
-            cost: 200_000,
-            execution: [
-              "Weekly Friday payout cycle directly to dealer banking",
-              "Top-3 dealer leaderboard published every Monday in the dealer WhatsApp group",
-              "Bonus tier: any dealer hitting >100 SIMs in a month gets a R1,500 gift card",
-              "All payouts reconciled against KC Mobile core-system activation feed",
-            ],
-          },
-          {
-            category: "Field-force activation days",
-            supplier: "DSG field-force (8 brand ambassadors)",
-            detail:
-              "8 ambassadors in pairs, cycling through 50 stores/week with branded T-shirts. Daily reporting via app, photo evidence of POS, on-the-spot training of dealer staff.",
-            cost: 100_000,
-            execution: [
-              "Pair-based deployment Mon–Sat, focused on Thurs/Fri/Sat (highest foot-traffic)",
-              "30-minute dealer staff micro-training: KC Mobile FAQ, port-in steps, how to use the activation tablet",
-              "Daily check-ins via the field-force app — geofenced clock-in/out, photo of POS, count of activations",
-              "Each ambassador carries 2 portable activation tablets and a vuvuzela / supporter-pack stash for in-store giveaways",
-            ],
-          },
-        ],
-      },
-      {
-        category: "Match-day Activation",
-        allocation: ZAR(500_000),
-        pct: 20,
-        rationale:
-          "5 KC home games during the 3-month burst (based on the published fixture list). Each match-day gets a full fan-zone activation: gazebo, branded counter, 4 port-in tablets, branded merch, prize draws for KC home tickets, music. Pre-match, half-time and post-match windows all monetised. Match-days are also our richest data-capture moment for the CRM list that fuels Tier 2.",
-        lineItems: [
-          {
-            category: "Fan-zone setup × 5 matches",
-            supplier: "KC Stadium Ops + DSG activation team",
-            detail:
-              "Per-match stack: gazebo + branded counter + 4 port-in tablets + 8 brand ambassadors + DJ + prize draw stock + concession fee. R85K per match.",
-            cost: 425_000,
-            reach: "≈25,000 fans engaged across 5 match-days",
-            execution: [
-              "Pre-match (3 hours before kick-off): KC Village fan zone goes live with port-in tablets at every gate. Wristbands handed out for the Port-in Pole Position queue — first 100 activations get free 2GB and an entry into the next-match ticket draw",
-              "KC Anthem Sing-Along Booth opens at the activation booth — sing the KC anthem, walk away with a SIM and a sticker pack. Becomes the loudest point at the fan zone",
-              "Kappa & SIM Bundle pop-up at the in-stadium Digistore — every kit purchase gets a free KC Mobile SIM + 2GB activation in the bag",
-              "Kick-off — every activation in the 90-minute pre-match window enters the Stadium Suite Upgrade Draw; one winner per match announced on the big screen at T-5. Pre-Match Data Drop auto-pushes 20MB of Khosi-to-Khosi on-net data to every active KC Mobile SIM at kick-off",
-              "When KC scores: Goal QR Boost flashes on the big screen for 90 seconds — existing KC Mobile customers scan, get 100MB instantly via the MVNO core system. PA announcement fronts the moment",
-              "Half-time: in-stadium PA reads + big-screen ad. Live draw for the Player Meet-and-Greet prize among port-in entrants",
-              "Post-match: continued activation as fans exit; supporter-pack queue",
-              "Activation target: 800–1,200 SIM activations + 150–250 eSIMs per match. Conversion target: ≥20% of fan-zone visitors complete an activation; ≥25% opt-in to WhatsApp",
-              "Daily report: activation count, NPS via post-match SMS survey, eSIM scan-rate, Goal QR Boost redemptions",
-            ],
-          },
-          {
-            category: "Match-day activation kit (one-off, re-used into Tier 2/3)",
-            supplier: "DSG procurement",
-            detail:
-              "Branded gazebo, telescopics, table-throws, podiums, tablet docking stations. Owned not rented — amortised across all future tiers and seasons.",
-            cost: 75_000,
-            execution: [
-              "2 × 3m × 3m branded gazebos (MTN yellow + KC gold + black)",
-              "6 × telescopic banners (Soweto / GP / MP / KZN provincial variants)",
-              "4 × tablet docking stations with chargers",
-              "4 × portable Bluetooth speakers + microphones",
-              "Stored at KC Naturena HQ between match-days, transported by KC ops",
-            ],
-          },
-        ],
-      },
-      {
-        category: "Production & Creative",
-        allocation: ZAR(150_000),
-        pct: 6,
-        rationale:
-          "One light shoot day with 2 KC players plus a 4-week edit. The output feeds every Digital line above and the in-store POS. Vernacular voice-over (isiZulu, isiXhosa, Setswana) baked in from day one — not added as a translation layer at the end.",
-        lineItems: [
-          {
-            category: "Player content shoot",
-            supplier: "DSG production",
-            detail:
-              "1-day shoot at KC Village with 2 senior players + 1 ladies-team player. Hero film + vertical cut-downs + POS hero photography.",
-            cost: 80_000,
-            execution: [
-              "Pre-production: scripts + storyboards locked 1 week before shoot",
-              "Shoot: 9-hour day, 4 setups: jersey-up (action), in-Sandton-flat (everyday), with-the-fans (community), port-in (mechanic explainer)",
-              "Player rights agreed on a 12-month assignable basis",
-            ],
-          },
-          {
-            category: "Edit + finishing",
-            supplier: "DSG creative team",
-            detail:
-              "4-week post: 1 × 30s hero, 6 × 9:16 cut-downs, 4 × 1:1 statics, 1 × 60s long-form, full POS hero artwork.",
-            cost: 50_000,
-            execution: [
-              "Week 1: rough cuts → KC stakeholder review",
-              "Week 2: V2 + colour-grade + sound design",
-              "Week 3: vernacular VO recording (isiZulu, isiXhosa, Setswana)",
-              "Week 4: master delivery to Meta / TikTok / Google + POS print-ready files",
-            ],
-          },
-          {
-            category: "Vernacular VO + finishing",
-            supplier: "DSG / vendor",
-            detail:
-              "isiZulu, isiXhosa, Setswana voice-over recording + lip-sync where needed.",
-            cost: 20_000,
-          },
-        ],
-      },
-      {
-        category: "Customer Incentives",
-        allocation: ZAR(50_000),
-        pct: 2,
-        rationale:
-          "Removes friction at the moment of activation. Free 2GB on activation (co-funded with MTN wholesale) plus 50 KC home-game tickets as the prize pool for fan-zone draws. Tight at this tier — incentives scale up materially in Tier 2 / 3.",
-        lineItems: [
-          {
-            category: "Free activation data (DSG-paid portion)",
-            supplier: "MTN wholesale (co-funded)",
-            detail:
-              "2GB at wholesale cost × est. 3,000 activations during the burst. Gross cost ≈R130K — the line below shows the DSG-funded portion only; the balance is MTN co-fund.",
-            cost: 30_000,
-            execution: [
-              "2GB credit pushed automatically on activation via the MVNO core system",
-              "Validity: 30 days — drives recharge by day 30",
-              "Co-fund agreement: KC Mobile and MTN split the cost of the data 50/50 against agreed activation thresholds",
-              "Pilot also activates the always-on rewards from day one: Khosi Birthday Boost (500MB on birthday) and Refer a Khosi (500MB to each side on successful conversion). Both fire automatically through the MVNO core system",
-              "Engagement layer: Pre-Match Data Drop (20MB Khosi-to-Khosi at kick-off) and Goal QR Boost (100MB on big-screen QR scan) live in stadium from day one",
-            ],
-          },
-          {
-            category: "Match-day prize pool",
-            supplier: "KC Tickets",
-            detail:
-              "50 home-game tickets (R400 face value) used as fan-zone activation prize draws across 5 matches.",
-            cost: 20_000,
-            execution: [
-              "10 tickets per match-day, drawn live at the KC fan zone half-time",
-              "Entry: every port-in/SIM activation enters the draw automatically",
-              "Tickets distributed via SMS QR + collected at the next-match Khosi Passion gate",
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    key: "targeted",
-    name: "Targeted National",
-    total: 5_000_000,
-    durationMonths: 6,
-    positioning:
-      "Six months, national footprint, with the proven Pilot mechanics scaled and supplemented by SuperSport PSL on-air, OnsideZA watchalong sponsorship, and Polygon DOOH expanded to 350+ screens.",
-    monthlySimTarget: "8,000–10,000",
-    monthlyEsimTarget: "≈120",
-    geoFocus: "All 9 provinces, weighted to Gauteng/MP/KZN/EC/NW",
-    oneLine:
-      "Take what worked in the Pilot national. Add premium broadcast inventory inside the SS PSL window, a Soweto Derby watchalong title sponsorship with OnsideZA, the Polygon DOOH expansion to 350+ screens, and PEP / Checkers Phase-2 partnership scoping.",
-    pillars: [
-      "Digital paid + DStv Stream LIVE inside SS PSL coverage",
-      "500-store national trade footprint with twin POS-refresh waves",
-      "10 home-game fan zones + 4 sponsor co-activations + regional cars in MP & EC",
-      "OOH (Polygon DOOH) — 350+ screens including taxi-rank and minibus fleet",
-      "PEP / Checkers retail-partnership scoping (Phase 2 prep)",
-    ],
-    categories: [
-      {
-        category: "Digital Paid Media",
-        allocation: ZAR(1_300_000),
-        pct: 26,
-        rationale:
-          "Always-on for the full 6 months across Meta, TikTok and Google. Adds DStv Stream LIVE non-skip mid-rolls inside SS PSL coverage to bridge brand and performance, plus Outstream native and Showmax EPL placements for KC fans on streaming.",
-        lineItems: [
-          {
-            category: "Performance social — Meta + TikTok",
-            supplier: "Direct (Meta + TikTok)",
-            detail:
-              "26-week always-on. R30K/week each platform. Heavier TikTok weight (where KC fans are growing fastest).",
-            cost: 600_000,
-            reach: "≈8M impressions / 1.6M unique reach",
-            execution: [
-              "Audience expanded nationally with provincial weighting (GP/MP/KZN/EC/NW) — each province gets its own creative cluster",
-              "Spark Ads scaled to 6 KC players + 4 PNC creators",
-              "WhatsApp click-to-chat retained as primary CTA — flow now multilingual",
-              "Mid-burst week 8 + week 16: TopView TikTok takeover for derby weekends",
-            ],
-          },
-          {
-            category: "YouTube + Search",
-            supplier: "Google Ads + YouTube",
-            detail:
-              "Search defence + custom-intent. YouTube TrueView + bumpers + masthead test on Soweto Derby week.",
-            cost: 280_000,
-            reach: "≈900K YouTube views",
-            execution: [
-              "Custom-intent audiences expanded to PSL second-screen behaviour",
-              "TrueView for Action used to drive eSIM signup directly",
-              "Masthead test: 1-day desktop + mobile takeover on YouTube SA homepage on Derby Saturday",
-            ],
-          },
-          {
-            category: "DStv Stream LIVE non-skip mid-roll",
-            supplier: "DMS (DStv Stream LIVE)",
-            detail:
-              "30s non-skip mid-roll inside SS PSL channels at R250 CPM (50% off rate-card per March 2026).",
-            cost: 150_000,
-            reach: "600,000 impressions",
-            execution: [
-              "Inventory: SS PSL + SS Premier League + SS Variety 1 mid-rolls between 17h00–22h00 weekdays + match windows weekends",
-              "Creative: 30s hero film cut-down with end-card eSIM CTA",
-              "Reporting: DMS impressions report + matched-customer audience extension where available",
-            ],
-          },
-          {
-            category: "Showmax EPL mid-rolls",
-            supplier: "DMS (Showmax)",
-            detail:
-              "Mid-rolls during EPL match streams on Showmax mobile (high mobile-first KC fan index).",
-            cost: 120_000,
-            reach: "≈350K impressions",
-            execution: [
-              "Inventory: Showmax EPL Mobile package — partial allocation",
-              "Frequency cap: 3/week per user to avoid fatigue",
-              "End-card CTA: install KC Mobile WhatsApp port-in deep-link",
-            ],
-          },
-          {
-            category: "Outstream native video (Mediamark)",
-            supplier: "Mediamark (MSN + ECR + WMG network)",
-            detail:
-              "Outstream + native at R450 CPM × ~220K impressions.",
-            cost: 100_000,
-            reach: "≈220K video views",
-            execution: [
-              "Premium SA editorial environments — MSN news, sport sections",
-              "Native in-feed on East Coast Radio + Jacaranda FM digital properties",
-              "Outstream auto-play with sound-off; sound-on on tap",
-            ],
-          },
-          {
-            category: "WhatsApp Business + CRM",
-            supplier: "Yalo / MessageBird",
-            detail:
-              "Scale the WhatsApp port-in chatbot, multilingual, plus retention / re-engagement journeys for the Pilot CRM list.",
-            cost: 50_000,
-            execution: [
-              "Add isiZulu, isiXhosa, Setswana flows to the chatbot",
-              "Re-engagement journey for users who started but didn't complete a port-in (24h, 72h, 7d touches)",
-              "Win-back template messages for low-recharge users in the CRM list",
-            ],
-          },
-        ],
-      },
-      {
-        category: "In-Store / Trade & Retail POS",
-        allocation: ZAR(1_300_000),
-        pct: 26,
-        rationale:
-          "500 priority stores nationwide, twin POS-refresh waves, dealer-incentive trip for top sellers, and a dedicated PEP / Checkers partnership-scoping budget that funds the discovery work needed before any commercial agreement (Phase 2).",
-        lineItems: [
-          {
-            category: "Store footprint expansion",
-            supplier: "DSG account team",
-            detail:
-              "500 priority stores nationwide: 320 MTN + 130 indie + 50 PEP test sites (subject to early-access agreement).",
-            cost: 600_000,
-            execution: [
-              "Province-weighted footprint: GP 180 / KZN 90 / EC 70 / MP 60 / NW 50 / Limpopo 30 / WC 10 / FS 10",
-              "Quarterly dealer roundtable per province with KC Mobile commercial",
-              "PEP test sites used to validate the Phase-2 retail partnership case (see Retail Futures)",
-            ],
-          },
-          {
-            category: "POS production + 2 install waves",
-            supplier: "DSG production + installer network",
-            detail:
-              "500 stores × 2 refresh waves × R750/store install + production.",
-            cost: 400_000,
-            execution: [
-              "Wave 1: launch creative (week 1)",
-              "Wave 2: derby + finals creative refresh (week 13)",
-              "Each wave: A2 poster, riser, wobbler, jersey-week leaderboard sticker",
-              "QR codes per store retained for sell-through attribution",
-            ],
-          },
-          {
-            category: "Dealer commission top-up",
-            supplier: "KC Mobile",
-            detail:
-              "R20 per activation × ~17,500 activations across 6 months.",
-            cost: 200_000,
-            execution: [
-              "Weekly Friday payouts retained",
-              "Bonus structure: top-25 dealers nationally get hospitality at a KC home game (see line below)",
-              "Mid-month league table published in the dealer WhatsApp group",
-            ],
-          },
-          {
-            category: "Top-25 dealer hospitality trip",
-            supplier: "DSG hospitality",
-            detail:
-              "Top-25 sellers + a partner each travel to a KC home game with VIP hospitality. Loyalty mechanic for the field force.",
-            cost: 100_000,
-            execution: [
-              "Hospitality suite at FNB Stadium for the Soweto Derby weekend",
-              "Travel + accommodation + match tickets included for out-of-province dealers",
-              "Photo opportunity with KC players + brand-ambassador-of-the-quarter award",
-            ],
-          },
-        ],
-      },
-      {
-        category: "Stadium & Sponsor Activation",
-        allocation: ZAR(900_000),
-        pct: 18,
-        rationale:
-          "Every KC home game in the 6-month window (≈10 matches) gets a fan-zone activation, plus 4 sponsor co-activations (MTN + Toyota days) and the regional-car activation programme rolled out to MP and EC provinces.",
-        lineItems: [
-          {
-            category: "Stadium fan zone × 10 matches",
-            supplier: "KC Stadium Ops + DSG",
-            detail:
-              "Match-day stack as Tier 1, scaled to 10 home games. Kit owned not rented, R45K per match average.",
-            cost: 450_000,
-            execution: [
-              "Full launch-ideas playbook on every match: Port-in Pole Position queue at the gate, KC Anthem Sing-Along Booth, Kappa & SIM Bundle Digistore pop-up, Stadium Suite Upgrade Draw, Pre-Match Data Drop at kick-off, Goal QR Boost on every goal, Player Meet-and-Greet half-time draw",
-              "Add: scan-to-win mechanic on a 60-second hold-and-watch SMS-keyword game during half-time",
-              "Soweto Derby home fixture: switch on Soweto Derby Power Hour — derby-week port-ins unlock 4 weeks of double data on the next bundle, co-funded with MTN wholesale",
-              "Big-screen ad inventory negotiated separately with KC commercial; Goal QR Boost gets a guaranteed 90-second window on every score",
-            ],
-          },
-          {
-            category: "Sponsor co-activations",
-            supplier: "MTN + Toyota co-funded",
-            detail:
-              "4 dealership / MTN shop activation Saturdays — KC players make appearances; SIM activation booth lives inside.",
-            cost: 200_000,
-            execution: [
-              "1 × MTN flagship activation per province (4 total)",
-              "Players signed up via KC commercial — typically 1 senior player + 1 reserve",
-              "Joint social content live during activation — KC + MTN + KC Mobile co-branded",
-              "Toyota Cross test-drive booth alongside (replicates the 2022 mechanic)",
-            ],
-          },
-          {
-            category: "Regional cars — MP and EC",
-            supplier: "KC Mobile regional team",
-            detail:
-              "2 branded vehicles + activation kit, deployed to Mpumalanga and Eastern Cape on a monthly rotation.",
-            cost: 250_000,
-            execution: [
-              "Monthly route: Mbombela → White River → KaNyamazane (MP); East London → Mthatha → Bisho (EC)",
-              "Activation at taxi ranks, Saturday markets, dealer driveways",
-              "Each region car runs 8 activation days/month",
-              "Vehicles wrapped in KC Mobile + MTN co-branded livery",
-            ],
-          },
-        ],
-      },
-      {
-        category: "Out-of-Home (Polygon DOOH)",
-        allocation: ZAR(500_000),
-        pct: 10,
-        rationale:
-          "Polygon expanded from 120 (Pilot would have, if used) to 350+ screens nationwide for 6 months. Adds the Cape Town Tafelsig/Grassy Park minibus fleet, Planet Fitness gyms, and a tactical billboard burst around derby and finals weekends.",
-        lineItems: [
-          {
-            category: "Polygon DOOH — 350+ screens",
-            supplier: "Polygon Network",
-            detail:
-              "26 weeks across 350+ screens — Sport Nodes + Emerging Investor Corridors + minibus fleet.",
-            cost: 380_000,
-            reach: "≈42M plays",
-            execution: [
-              "Heavy-up windows: pre-derby Mondays, kick-off Saturdays, finals weeks",
-              "Dynamic creative: scoreboard on derby day; player/match-up creative pre-game",
-              "Coverage: Bree, Noord, Bara, Polokwane, Bloem Central, Mbombela, KZN minibus, Tafelsig fleet",
-              "Daily play-out logs reconciled against Polygon API",
-            ],
-          },
-          {
-            category: "Tactical billboards",
-            supplier: "Outdoor Network (or equivalent)",
-            detail:
-              "4-week burst in FNB Stadium / Soweto / Mamelodi catchments around derby weeks.",
-            cost: 120_000,
-            execution: [
-              "8 × prime-position digital billboards on M1, N1, N3 corridors during derby fortnight",
-              "Creative: KC + KC Mobile co-branded with strict 3-second message limit",
-              "Booking lead-time: minimum 4 weeks — confirm in Vercel deploy week",
-            ],
-          },
-        ],
-      },
-      {
-        category: "Customer Incentives & Competitions",
-        allocation: ZAR(400_000),
-        pct: 8,
-        rationale:
-          "Free activation data + a port-in airtime incentive + a major prize-pool competition mechanic ('travel-with-the-team'). The competition is the headline; the incentives are the engine.",
-        lineItems: [
-          {
-            category: "Free activation data",
-            supplier: "MTN wholesale (co-funded)",
-            detail:
-              "2GB × est. 25,000 activations over 6 months. DSG-funded portion shown.",
-            cost: 200_000,
-          },
-          {
-            category: "Port-in airtime incentive",
-            supplier: "KC Mobile",
-            detail:
-              "R50 airtime credit when porting from another network × est. 2,000 ports.",
-            cost: 100_000,
-            execution: [
-              "Port-completion bonus pushed within 24h of port",
-              "Used to unlock first recharge (drives day-30 retention)",
-            ],
-          },
-          {
-            category: "Travel-with-the-team competition",
-            supplier: "KC Mobile + Toyota co-funded",
-            detail:
-              "Headline competition: one supporter + family travel with the squad to an away match.",
-            cost: 100_000,
-            execution: [
-              "Entry: every SIM activation between week 4 and week 20 enters automatically",
-              "Promoted across all paid channels + match-day fan zones (Port-in Pole Position queue, Stadium Suite Upgrade Draw, Friday Pay-day Taxi Rank Truck)",
-              "Live draw at Soweto Derby with KC Chairman or senior player — same match-day as the Soweto Derby Pre-Match Festival",
-              "Post-trip content captured for organic + earned reuse in Tier 3",
-            ],
-          },
-        ],
-      },
-      {
-        category: "Promo / Branding kits",
-        allocation: ZAR(350_000),
-        pct: 7,
-        rationale:
-          "Replenishes match-day kits, adds vehicle branding for the regional cars, and produces 5,000 supporter packs for activations.",
-        lineItems: [
-          {
-            category: "Supporter packs",
-            supplier: "DSG procurement",
-            detail:
-              "5,000 supporter packs × R55 average (T-shirt + scarf + 2GB activation voucher + sticker pack).",
-            cost: 275_000,
-          },
-          {
-            category: "Match-day kit replenishment",
-            supplier: "DSG procurement",
-            detail:
-              "Replacement gazebos, table-throws, telescopics for nationwide rotation.",
-            cost: 75_000,
-          },
-        ],
-      },
-      {
-        category: "Production & Influencer Creative",
-        allocation: ZAR(250_000),
-        pct: 5,
-        rationale:
-          "One full shoot day with 3 KC players + 1 ladies-team player, plus paid integration with PNC creators across 8 episodes. The shoot covers brand and performance variants for tier 2's national push.",
-        lineItems: [
-          {
-            category: "Player content shoot — full",
-            supplier: "DSG production",
-            detail:
-              "1-day shoot × 4 players. Full content suite + radio reads (held in reserve until Tier 3 radio is on).",
-            cost: 180_000,
-          },
-          {
-            category: "Influencer integration (PNC + Onside)",
-            supplier: "PNC Network via Mediamark",
-            detail:
-              "Sponsored reads on 8 episodes across OnsideZA + Spreading Humours. KC Mobile mention + watchalong title sponsorship for 2 watchalongs.",
-            cost: 70_000,
-            execution: [
-              "Live reads scripted by DSG, performed by hosts in their voice",
-              "Watchalong title sponsor card + 30s mid-stream takeover",
-              "Reuse rights on YouTube cut-downs for 90 days",
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    key: "full",
-    name: "Full Launch",
-    total: 9_000_000,
-    durationMonths: 12,
-    positioning:
-      "The brief in full — 12 months always-on national across every channel. Hits the 16,000 monthly physical SIM target, opens the door for the PEP / Checkers retail partnership at scale.",
-    monthlySimTarget: "16,000",
-    monthlyEsimTarget: "200",
-    geoFocus: "National — all 9 provinces, sustained always-on",
-    oneLine:
-      "All eight channels active. Premier League Tactical Sponsorship anchor on SS Premier League, Showmax EPL Season Pass, full Pause Screen, full SABC vernacular radio, 800-store retail footprint primed for PEP / Checkers Phase 2 launch in months 9–12.",
-    pillars: [
-      "Premium TV / streaming anchor — DMS Premier League Tactical + Showmax EPL Season Pass",
-      "800-store national trade footprint, primed for PEP / Checkers Phase 2 in H2",
-      "Full SABC African-language radio + Jacaranda + ECR + OnsideZA full-season title",
-      "12 months of stadium + sponsor + regional activation",
-      "Polygon DOOH 600+ screens + tactical billboard bursts",
-    ],
-    categories: [
-      {
-        category: "Digital Paid Media",
-        allocation: ZAR(1_980_000),
-        pct: 22,
-        rationale:
-          "Always-on for 12 months across Meta, Google, TikTok, plus DStv Stream LIVE/VOD inside SS PSL and SS Premier League broadcasts. Showmax EPL Season Pass anchors the streaming layer.",
-        lineItems: [
-          {
-            category: "Performance social — Meta + TikTok",
-            supplier: "Direct (Meta + TikTok)",
-            detail: "52 weeks always-on, R20K/week each platform.",
-            cost: 800_000,
-            reach: "≈18M impressions",
-          },
-          {
-            category: "YouTube + Search",
-            supplier: "Google Ads + YouTube",
-            detail: "TrueView, bumpers, search — 12 months always-on.",
-            cost: 380_000,
-            reach: "≈2M YouTube views",
-          },
-          {
-            category: "DStv Stream LIVE + VOD",
-            supplier: "DMS (DStv Stream)",
-            detail:
-              "Mid-roll non-skip + skippable VOD pre-roll inside SS PSL/Premier League windows.",
-            cost: 380_000,
-            reach: "≈1.6M impressions",
-          },
-          {
-            category: "Showmax EPL Season Pass (partial)",
-            supplier: "DMS",
-            detail:
-              "Per rate card: full season exposure across 200+ live games. Cost split with PR/Media line.",
-            cost: 363_000,
-          },
-          {
-            category: "Outstream + native (Mediamark)",
-            supplier: "Mediamark",
-            detail:
-              "MSN, WMG, ECR network outstream video for sustained mid-funnel pressure.",
-            cost: 57_000,
-          },
-        ],
-      },
-      {
-        category: "Trade Partner & Retail POS",
-        allocation: ZAR(1_980_000),
-        pct: 22,
-        rationale:
-          "800 priority stores nationwide, 4 POS refresh waves, dealer commission top-up for 12 months, top-100 dealer hospitality programme. The footprint is sized to absorb the PEP / Checkers Phase-2 partnership in H2 (months 9–12) — see Retail Futures.",
-        lineItems: [
-          {
-            category: "POS production + install (4 waves)",
-            supplier: "DSG production + installer network",
-            detail: "800 stores × 4 waves × R600/store",
-            cost: 1_200_000,
-            execution: [
-              "Wave 1 (M1): launch creative",
-              "Wave 2 (M4): derby refresh",
-              "Wave 3 (M7): mid-season player refresh",
-              "Wave 4 (M10): finals + PEP / Checkers Phase-2 launch creative",
-            ],
-          },
-          {
-            category: "Trade commission top-up",
-            supplier: "KC Mobile",
-            detail:
-              "R30 per activation × est. 16,000/month × 12 months (capped to budget).",
-            cost: 580_000,
-          },
-          {
-            category: "Top-100 dealer hospitality",
-            supplier: "DSG hospitality",
-            detail:
-              "Quarterly home-game hospitality for top sellers across the network.",
-            cost: 200_000,
-          },
-        ],
-      },
-      {
-        category: "Stadium & National Activations",
-        allocation: ZAR(1_080_000),
-        pct: 12,
-        rationale:
-          "Every KC home league match (≈15) gets a fan-zone activation. 4 nationwide regional-car activation days/month. One major Soweto Derby fan-festival anchored to KC Mobile.",
-        lineItems: [
-          {
-            category: "Stadium fan zone — every home match",
-            supplier: "KC Stadium Ops + DSG",
-            detail:
-              "15 match-days × R40K (kit owned, multi-year contracts). Full launch-ideas playbook executed at every home fixture.",
-            cost: 600_000,
-            execution: [
-              "Every match: Port-in Pole Position queue, KC Anthem Sing-Along Booth, Kappa & SIM Bundle Digistore pop-up, Stadium Suite Upgrade Draw, Pre-Match Data Drop, Goal QR Boost, Player Meet-and-Greet draw",
-              "Soweto Derby home fixtures: Soweto Derby Power Hour active for the full derby week",
-              "Gold-tier customers eligible for the monthly suite-upgrade draw (5 winners per home match) — sourced from KC complimentary inventory",
-              "Always-on engagement layer: Pre-Match Data Drop (20MB on-net) auto-pushed at every kick-off; Goal QR Boost (100MB) on every score; Win-Streak Reward (1GB to all active SIMs after 3 league wins in a row) triggered manually by KC commercial",
-            ],
-          },
-          {
-            category: "Regional-car activation days",
-            supplier: "KC Mobile regional team",
-            detail:
-              "48 activation days/year across all 9 provinces.",
-            cost: 280_000,
-          },
-          {
-            category: "Soweto Derby fan-festival",
-            supplier: "KC Mobile + MTN co-funded",
-            detail:
-              "One major derby-weekend fan festival anchored to KC Mobile.",
-            cost: 200_000,
-          },
-        ],
-      },
-      {
-        category: "Out-of-Home",
-        allocation: ZAR(900_000),
-        pct: 10,
-        rationale:
-          "Polygon DOOH at full 600+ screen footprint for 12 months, supplemented by Outdoor Network billboards in Soweto/Mamelodi/Mbombela/Durban CBD for derby and finals weeks.",
-        lineItems: [
-          {
-            category: "Polygon DOOH — full footprint",
-            supplier: "Polygon Network",
-            detail:
-              "12 months across 600+ screens (taxi ranks, gyms, hotels, minibus fleet, malls).",
-            cost: 650_000,
-            reach: "≈110M plays",
-          },
-          {
-            category: "Tactical billboards",
-            supplier: "Outdoor Network",
-            detail:
-              "8 weeks of bursts in derby + finals windows (Soweto, Mamelodi, Mbombela, Durban CBD).",
-            cost: 250_000,
-          },
-        ],
-      },
-      {
-        category: "PR & Media (SABC + Local Radio)",
-        allocation: ZAR(900_000),
-        pct: 10,
-        rationale:
-          "12 months of SABC African-language radio, Jacaranda/ECR sustained presence, OnsideZA full-season title, balance of Showmax EPL Season Pass, plus a PR retainer for ongoing earned media.",
-        lineItems: [
-          {
-            category: "SABC African-language",
-            supplier: "Ukhozi + Umhlobo + Lesedi + Motsweding",
-            detail:
-              "12 months always-on, weighted to derby + finals weeks.",
-            cost: 480_000,
-          },
-          {
-            category: "Jacaranda + ECR",
-            supplier: "Mediamark",
-            detail:
-              "12 months of audio + display + live reads.",
-            cost: 200_000,
-          },
-          {
-            category: "OnsideZA full-season title",
-            supplier: "OnsideZA (Mediamark)",
-            detail:
-              "Title sponsor of all watchalongs + monthly integration episodes.",
-            cost: 130_000,
-          },
-          {
-            category: "PR retainer",
-            supplier: "Specialist PR partner (TBC)",
-            detail:
-              "12-month retainer for press releases, broadcast booking, crisis comms.",
-            cost: 90_000,
-          },
-        ],
-      },
-      {
-        category: "Customer Incentives, Promotions & Competitions",
-        allocation: ZAR(900_000),
-        pct: 10,
-        rationale:
-          "Sustained free activation data, monthly competition mechanics (Toyota giveaway tradition), port-in incentives, members' rewards.",
-        lineItems: [
-          {
-            category: "Free activation data",
-            supplier: "MTN wholesale (co-funded)",
-            detail:
-              "2GB × ~80,000 activations across 12 months.",
-            cost: 480_000,
-          },
-          {
-            category: "Port-in airtime incentive",
-            supplier: "KC Mobile",
-            detail:
-              "R50 airtime × est. 5,000 ports.",
-            cost: 250_000,
-          },
-          {
-            category: "Toyota Cross + monthly comps",
-            supplier: "KC Mobile + Toyota co-funded",
-            detail:
-              "Annual Toyota Cross + monthly KC supporter prizes.",
-            cost: 170_000,
-          },
-        ],
-      },
-      {
-        category: "Branding Material & Promotion Kits",
-        allocation: ZAR(900_000),
-        pct: 10,
-        rationale:
-          "Strong KC branding across the entire physical retail and activation footprint.",
-        lineItems: [
-          {
-            category: "Activation hardware",
-            supplier: "DSG procurement",
-            detail:
-              "Gazebos, telescopics, A-frames, table-throws, podiums (×4 sets nationwide).",
-            cost: 350_000,
-          },
-          {
-            category: "Supporter packs",
-            supplier: "DSG procurement",
-            detail:
-              "15,000 supporter packs (T-shirt + scarf + activation voucher).",
-            cost: 350_000,
-          },
-          {
-            category: "POS replenishment",
-            supplier: "DSG production",
-            detail:
-              "Wobblers, posters, riser cards, jersey-week posters — 4 print runs.",
-            cost: 200_000,
-          },
-        ],
-      },
-      {
-        category: "Design, Production & Content",
-        allocation: ZAR(360_000),
-        pct: 4,
-        rationale:
-          "Two production days with KC players (pre-season + mid-season), full content suite, vernacular VO recording.",
-        lineItems: [
-          {
-            category: "Player shoot — pre-season",
-            supplier: "DSG production",
-            detail:
-              "1-day shoot, 4-week edit, full content suite.",
-            cost: 180_000,
-          },
-          {
-            category: "Player shoot — mid-season refresh",
-            supplier: "DSG production",
-            detail:
-              "1-day shoot, 3-week edit.",
-            cost: 130_000,
-          },
-          {
-            category: "Vernacular VO + finishing",
-            supplier: "DSG / vendor",
-            detail:
-              "isiZulu, isiXhosa, Setswana, English VO + translations.",
-            cost: 50_000,
-          },
-        ],
-      },
-    ],
-  },
-];
-
-// ============================================================================
-// Retail Futures — Phase 2 (PEP / Checkers) callout
+// Retail Futures — Phase 2 (PEP / Shoprite) callout
 // ============================================================================
 
 export const RETAIL_FUTURE = {
-  headline: "Retail futures · the PEP and Checkers opportunity",
+  headline: "Retail futures · the PEP and Shoprite opportunity",
   intro:
-    "KC Mobile is exploring a Phase-2 retail partnership with PEP and/or Checkers. Both unlock distribution scale that takes years to build organically — PEP alone has 5,700+ stores across the Pepkor footprint, and Checkers' Flash kiosk network blankets the country. The proposal sets the trade footprint up to absorb a partnership of either kind in H2 of the Full Launch.",
+    "KC Mobile is exploring a Phase-2 retail partnership with PEP and/or Shoprite. Both unlock distribution scale that takes years to build organically — PEP alone has 5,700+ stores across the Pepkor footprint, and Shoprite' Flash kiosk network blankets the country. The proposal sets the trade footprint up to absorb a partnership of either kind in H2 of the 12-month plan.",
   bullets: [
     {
       title: "PEP — 5,700+ store footprint",
@@ -1130,59 +160,59 @@ export const RETAIL_FUTURE = {
         "PEP already sells SIM starter packs from major networks. The model: PEP earns a percentage of airtime loaded throughout the SIM's active life. KC Mobile slots into that model with a co-branded starter pack on PEP shelves. Footprint match: dominantly township and peri-urban — exactly the KC fan over-index.",
     },
     {
-      title: "Checkers — Flash kiosks + Sixty60",
+      title: "Shoprite — Flash kiosks + Sixty60",
       detail:
-        "Checkers and the Flash kiosk network give KC Mobile recharge and starter-pack access at every Shoprite/Checkers/Usave point of sale. Sixty60 unlocks delivery — a SIM with the groceries.",
+        "Shoprite and the Flash kiosk network give KC Mobile recharge and starter-pack access at every Shoprite/Shoprite/Usave point of sale. Sixty60 unlocks delivery — a SIM with the groceries.",
     },
     {
       title: "What happens in this proposal",
       detail:
-        "Tier 1 (Pilot) reserves 10 PEP test sites for early-access negotiations. Tier 2 (Targeted) funds the partnership-scoping work and launches 50 PEP test sites if access is granted. Tier 3 (Full) absorbs the partnership at scale in months 9–12 — the 800-store footprint and 4 POS refresh waves are sized to take it on.",
+        "In the first 3 months we reserve 10 PEP test sites for early-access negotiations. By month 6 the partnership-scoping work funds 50 PEP test sites if access is granted. From month 9 onwards the partnership goes live at scale — the trade footprint and POS refresh cadence are sized to absorb it.",
     },
     {
       title: "Why now",
       detail:
-        "SA retailers are already moving on this — grocery-linked mobile rewards have launched at one major retailer in 2025. PEP and Checkers are the natural next moves. KC Mobile has a 12–18 month window to lock in shelf space before category becomes contested.",
+        "SA retailers are already moving on this — grocery-linked mobile rewards have launched at one major retailer in 2025. PEP and Shoprite are the natural next moves. KC Mobile has a 12–18 month window to lock in shelf space before category becomes contested.",
     },
   ],
 };
 
 export const TIMING_FRAMEWORK = [
   {
-    phase: "Phase 1 — Spark (Months 1–3)",
-    weight: "60% Trade POS, 70% Production, 50% Stadium",
+    phase: "Kickoff — Months 1–2",
+    weight: "Go-live + retail flood + match-day fan zones",
     purpose:
-      "Generate launch noise. Heavy in physical visibility (POS + match-day) so distributors see the brand pull immediately. Production weight up-front because creative needs to land before paid digital can scale behind it.",
+      "Launch noise. The brand lands in the stadium, on the supporters' bus, and on the shop floor. POS goes up at every priority dealer. Fan zones run at every home match. Paid digital warms up the supporter look-alikes. Goal: 16,000+ SIM activations in Month 1.",
   },
   {
-    phase: "Phase 2 — Sustain (Months 4–6)",
-    weight: "40% Digital, 30% Trade POS, 25% Stadium",
+    phase: "Momentum — Months 3–5",
+    weight: "First Soweto Derby + engagement mechanics live",
     purpose:
-      "Maintain visibility while paid digital takes over the daily heavy-lifting. Sponsor co-activations (MTN + Toyota) roll out across other clubs' fixtures. Refresh POS to avoid fatigue. Begin PEP / Checkers Phase-2 scoping.",
+      "First Soweto Derby week activates the full launch-ideas playbook — Goal QR Boost, Pre-Match Data Drop, Stadium Suite Upgrade Draw, Player Meet-and-Greet. Refer-a-Khosi gets seeded into the early base. Paid digital scales as performance creative finds its winners.",
   },
   {
-    phase: "Phase 3 — Scale (Months 7–9)",
-    weight: "30% Digital, 25% Stadium, 35% Customer Incentives",
+    phase: "Anchor — Months 6–8",
+    weight: "Mid-season + EPL run-in · retention takes over",
     purpose:
-      "Scale what's working. Push competition mechanics during the SS PSL second half + EPL run-in. Lean into derby weeks. Initiate PEP / Checkers Phase-2 store fit-out.",
+      "Mid-season. The loyalty programme shifts from acquisition to retention — Bronze customers start hitting the Silver tier qualification window. Win-Streak Reward fires the first time KC win 3 league matches in a row. EPL run-in adds a second wave of paid-digital intent.",
   },
   {
-    phase: "Phase 4 — Convert & Lock (Months 10–12)",
-    weight: "25% Digital, 25% Stadium, 25% Trade POS, PEP / Checkers go-live",
+    phase: "Lock-in — Months 9–12",
+    weight: "Finals + retention push · PEP / Shoprite Phase-2 go-live",
     purpose:
-      "Convert latent intent into volume in the run-up to season-end. Trade-partner final push for retention reorders. PEP / Checkers Phase-2 goes live nationally. Prepare ground for year 2 with a new shelf-space partner in the network.",
+      "Finals season + year-end retention push. The Player-Designed Jersey Draw runs in Month 12 (Gold-tier only). PEP / Shoprite Phase-2 goes live nationally if commercial terms close in the prior phase. Trade-partner final push for retention reorders. The data layer (CRM, KC App account binding) is the foundation for year 2.",
   },
 ];
 
 export const MEASUREMENT_KPIS = [
   {
     kpi: "Monthly physical SIM activations",
-    target: "16,000 (Full) · 8,000 (Targeted) · 3,000 (Pilot)",
+    target: "16,000 monthly net adds — M1 target per the KCM model, scales with the marketing investment slider",
     measure: "MVNO core system reporting, weekly cadence",
   },
   {
     kpi: "Monthly eSIM activations",
-    target: "200 (Full) · 120 (Targeted) · 50 (Pilot)",
+    target: "200 monthly net adds — M1 target per the KCM model, scales with the marketing investment slider",
     measure: "MVNO core system + KC.com / app activation funnel",
   },
   {
@@ -1217,13 +247,13 @@ export const MEASUREMENT_KPIS = [
 ];
 
 export const NEXT_STEPS = [
-  "Confirm preferred budget tier with KC leadership (Pilot R2.5M / Targeted R5M / Full R9M).",
+  "Confirm the preferred Y1 marketing investment with KC leadership using the interactive model (R1.5M–R5M slider).",
   "Lock the MTN and Toyota co-funded line items — both already exist as KC sponsors and sit in the plan as co-funded, not net new spend.",
-  "Initiate PEP and Checkers Phase-2 partnership conversations (relevant in Tier 2 and Tier 3).",
+  "Initiate PEP and Shoprite Phase-2 partnership conversations (relevant from month 4 onwards).",
   "Confirm DMS (Showmax EPL Season Pass, PSL Tactical) and Polygon DOOH bookings — both have lead times of 6–8 weeks.",
   "Sign off on the player content shoot day(s) — required before paid media can spend behind launch creative.",
   "Stand up the WhatsApp Business port-in chatbot + measurement dashboard before week 1 of paid media.",
-  "Agree the 200-store (Pilot) / 500-store (Targeted) / 800-store (Full) priority lists by province with KC commercial.",
+  "Agree the priority store list by province with KC commercial — sized to the marketing investment chosen on the model slider (200 stores at the floor, 500 in the middle, 800+ at the ceiling).",
 ];
 
 // ============================================================================
@@ -1258,7 +288,7 @@ export const SPONSOR_MAP: SponsorCollab[] = [
       "Buy KC Kit → free KC Mobile SIM at the Digistore checkout (online + in-stadium pop-up)",
       "Co-branded supporter pack — Kappa Classic Cotton Tee + KC Mobile SIM + 2GB activation in one box, R299 retail",
       "Jersey-week posters carry a Kappa + KC Mobile co-brand lock-up — same hero artwork in stores and on POS",
-      "Kappa retail outlet pilot — 5 standalone Kappa stores stock KC Mobile starter packs (Tier 2/3)",
+      "Kappa retail outlet pilot — 5 standalone Kappa stores stock KC Mobile starter packs (from month 4 onwards)",
     ],
     tierFit: ["pilot", "targeted", "full"],
   },
@@ -1286,7 +316,7 @@ export const SPONSOR_MAP: SponsorCollab[] = [
     mechanics: [
       "CBLB Cup match-day fan zones — KC Mobile activation booth alongside the Carling activation",
       "Township sports-bar takeovers during away-match viewings — Carling barman runs a 'Cheers to Connection' moment, gives a SIM to the loudest table",
-      "Soweto Derby fan-festival co-fund — 50/50 split with CBLB on the Tier 3 fan festival in months 7–12",
+      "Soweto Derby fan-festival co-fund — 50/50 split with CBLB on the fan festival in months 7–12",
       "Limited-edition CBLB-branded SIM pack — collector edition handed out at Cup matches only",
     ],
     tierFit: ["targeted", "full"],
@@ -1298,12 +328,12 @@ export const SPONSOR_MAP: SponsorCollab[] = [
     headline:
       "SuperSport carries the PSL into 6.6M+ SA homes weekly. KC Mobile rides the same broadcast feed where KC fans already are.",
     exchange:
-      "KC Mobile gets premium adjacency to PSL match coverage. SuperSport gets multi-million rand commitment in the Tier 2/3 buys.",
+      "KC Mobile gets premium adjacency to PSL match coverage. SuperSport gets multi-million rand commitment when the marketing investment scales to support broadcast.",
     mechanics: [
       "DStv Stream LIVE non-skip mid-rolls inside SS PSL coverage — KC Mobile lives in the broadcast",
       "Halftime SMS-keyword competition — fans SMS 'KC' to a short-code during halftime to enter a free-SIM draw, results announced post-match",
       "KC TV (the club's video platform) — KC Mobile pre-roll on every KC TV video, evergreen",
-      "SuperSport Schools long-tail — KC Mobile sponsors the KC youth development tournaments shown on SuperSport Schools (Tier 3)",
+      "SuperSport Schools long-tail — KC Mobile sponsors the KC youth development tournaments shown on SuperSport Schools (year-2 add-on)",
     ],
     tierFit: ["targeted", "full"],
   },
@@ -1330,7 +360,7 @@ export const SPONSOR_MAP: SponsorCollab[] = [
     exchange:
       "KC Mobile gets a mid-funnel value-add. Kaelo gets an SIM-acquired user base for cross-sell into Kaelo's health products.",
     mechanics: [
-      "KC Mobile + Kaelo wellness bundle — SIM + 30-day Kaelo wellness benefit trial for new activations (Tier 3)",
+      "KC Mobile + Kaelo wellness bundle — SIM + 30-day Kaelo wellness benefit trial for new activations (year-2 add-on)",
       "Wellness-day data drops — 1GB data on World Mental Health Day, Heart Awareness Month for KC Mobile users on Kaelo's plan",
       "Kaelo employer onboarding — KC Mobile starter SIM offered as a welcome benefit through Kaelo's B2B channel",
     ],
@@ -1628,7 +658,7 @@ export const LOYALTY_PROGRAMME: {
 } = {
   name: "Khosi Loyalty Programme",
   oneLine:
-    "A three-tier retention programme that turns tenure and recharge into status — and status into the reason not to churn.",
+    "A three-level retention programme — Bronze, Silver and Gold — that turns tenure and recharge into status, and status into the reason not to churn.",
   intro:
     "Loyalty is the spine of an MVNO. Acquisition gets the SIM in the hand; loyalty keeps it active for years. The Khosi Loyalty Programme is a tier ladder built on tenure and recharge cadence, with each step up the ladder unlocking richer KC-owned inventory (priority tickets, hospitality, exclusive merch). Most rewards cost KC Mobile nothing in cash — they're privileged access to assets KC already owns. The programme runs alongside, not in place of, the engagement mechanics in the activation library — those mechanics feed customers into the tiers; the tiers reward them for staying.",
   tiers: [
@@ -1771,7 +801,7 @@ export const LOYALTY_PROGRAMME: {
       },
       {
         input: "SA prepaid ARPU",
-        value: "R63 (Vodacom) – R76 (MTN) / month",
+        value: "R63–R76 / month",
         source:
           "Operator financial disclosures (latest annual reports). The relevant figure for KC Mobile (MTN-hosted) is R76.",
       },
@@ -1875,6 +905,171 @@ export const LOYALTY_PROGRAMME: {
       title: "Data feed for KC's first-party CRM",
       detail:
         "Every tier transition is a signal. The Loyalty Programme feeds tenure, recharge cadence and engagement data straight into KC's CRM — useful well beyond mobile (ticketing, kit launches, hospitality marketing).",
+    },
+  ],
+};
+
+// ============================================================================
+// Earned voices — KC Legends + SA football media editorial.
+// Borrowed channels with cultural authority and editorial reach.
+// ============================================================================
+
+export const EARNED_VOICES = {
+  intro:
+    "The cheapest, highest-credibility distribution KC Mobile can access is the people and publications that already have the Amakhosi base's attention. KC Legends carry decades of cultural authority — diaspora fans recognise them in Botswana, Zim and Zambia as much as in Soweto. SA football media editorial gets the launch into the hands of fans who don't follow KC's owned channels. Both layers are inexpensive to activate; both are time-sensitive (legends are not always available, and editorial windows close).",
+  legends: [
+    {
+      name: "Doctor Khumalo",
+      era: "KC midfield · 1990s · 16. The Doc",
+      role: "Cultural anchor + launch-event spokesperson",
+      angle:
+        "Khumalo speaks for the heritage of the club. His voice on launch day signals 'this is real KC' to every supporter who came of age in the 1990s — i.e. today's 35–55 buying decision-makers in households.",
+      ask:
+        "Anchor the launch event press conference at Naturena. Record a 60-second hero film opening: 'Amakhosi 4 Life — and now, Amakhosi on the network.' Featured in the Founder Khosi onboarding email.",
+    },
+    {
+      name: "Lucas Radebe",
+      era: "Bafana captain · Leeds United · global Amakhosi voice",
+      role: "Diaspora and international authority",
+      angle:
+        "Radebe is the most globally-recognised KC voice. He's the right ambassador for the Botswana / Zim / Zambia / Mozambique cross-border story (Year-2 expansion narrative) and for any international media moment.",
+      ask:
+        "Pre-record video for the diaspora launch (Year 2). Headline endorsement video for KC Mobile pitched to international football media. KC Legends Founder Khosi feature.",
+    },
+    {
+      name: "Brian Baloyi",
+      era: "KC goalkeeper legend · 11 KC trophies",
+      role: "Soweto + supporter-club voice",
+      angle:
+        "Baloyi is the township's KC voice. His authenticity lands harder in Soweto, on Ukhozi FM drive-time, and inside the Khosi 4 Life supporter club community. Less metro media, more grassroots reach.",
+      ask:
+        "SABC African-language radio live-read partner. Featured speaker at the Saturday Soccer Schools community activations. Brian Baloyi-signed Founder Khosi welcome card for first-100 alpha members.",
+    },
+    {
+      name: "Marks Maponyane",
+      era: "KC striker legend · Soweto Derby goalscorer",
+      role: "Soweto Derby narrative voice",
+      angle:
+        "Maponyane is the Soweto Derby authority. His voice anchors Soweto Derby Power Hour and the pre-derby fan festival. Match-day media trail bookings (SuperSport, OnsideZA, Marawa Sports Worldwide if back) tap his profile.",
+      ask:
+        "Paid integration on every Soweto Derby week — broadcast trail, podcast spots, social cut-downs. Player Meet-and-Greet Draw winner gets time with him on derby weekend.",
+    },
+  ],
+  media: [
+    {
+      title: "Soccer Laduma",
+      role: "SA's biggest football weekly · cover-feature target",
+      angle:
+        "Embargoed exclusive: cover feature week of launch. Print + digital + WhatsApp Channel hits the heart of the KC base. Fan culture coverage with a player-led narrative.",
+      ask:
+        "Cover feature with KC Chairman + senior player + KC Mobile commercial lead. Exclusive product photos. Guaranteed insert page in the Soccer Laduma physical edition.",
+    },
+    {
+      title: "KickOff Magazine",
+      role: "Competitor weekly · feature placement",
+      angle:
+        "Feature article (not cover, not exclusive) the same week as the Soccer Laduma cover. Reaches the KickOff-loyal fan segment that Soccer Laduma may not.",
+      ask:
+        "Feature article on KC Mobile + the Founder Khosi mechanic. Player profile sidebar.",
+    },
+    {
+      title: "Idiski Times",
+      role: "Youth-skewing football media",
+      angle:
+        "16–29 KC fan over-index reads Idiski Times. Reaches the audience that may not see the Soccer Laduma cover. TikTok-friendly content.",
+      ask:
+        "Sponsored content + organic editorial. Player-led TikTok co-creation.",
+    },
+  ],
+};
+
+// ============================================================================
+// Pre-launch waitlist phase — the build-up before M1 Kickoff.
+// 8–12 weeks of demand-generation that primes the first-week numbers.
+// ============================================================================
+
+export const WAITLIST_PHASE = {
+  intro:
+    "The 12-month plan starts at M1 Kickoff, but the launch starts 8–12 weeks before. A pre-launch waitlist captures intent, builds scarcity, and primes the first 1,000 customers as a permanent lever for the rest of the campaign. Without this layer, M1 paid digital is starting cold; with it, M1 has 30,000–50,000 warm leads waiting for activation.",
+  duration: "8–12 weeks before M1 Kickoff",
+  goal: "30,000–50,000 waitlist signups · 1,000 Founder Khosi alpha members",
+  pillars: [
+    {
+      title: "Coming-soon landing page",
+      detail:
+        "On KC.com — under /kc-mobile or as a takeover banner across the site. Email + WhatsApp opt-in. Hero video, Founder Khosi explainer, countdown to launch. Sponsor co-promotion if MTN + Kappa + Toyota agree to surface it on their owned channels.",
+    },
+    {
+      title: "Founder Khosi mechanic",
+      detail:
+        "First 1,000 signups become Founder Khosis: permanent badge in the KC Mobile app, double data forever (within the network), exclusive Founder-only Player-Designed Jersey Draw, name listed on the Founder Khosi roll at the KC Naturena entrance. Scarcity is the lever — once 1,000 is reached, the door closes.",
+    },
+    {
+      title: "Khosi 4 Life Supporters Club closed alpha",
+      detail:
+        "Active Khosi 4 Life members (the existing KC supporter database) get a closed alpha 4 weeks before public launch. They become the first activation cohort, the first content creators, and the first source of customer service feedback.",
+    },
+    {
+      title: "Press embargo + announcement layering",
+      detail:
+        "Soccer Laduma exclusive announcement at week 6 before launch (waitlist opens). KickOff feature week 4. Idiski Times youth-led editorial at week 1 before launch. Each press hit drives waitlist signups.",
+    },
+    {
+      title: "KC family rollout (internal)",
+      detail:
+        "All KC employees, senior squad, KC Ladies, KC Reserves, Youth Academy on KC Mobile in week 8–6. Stress-tests activation + customer service flow under realistic conditions. Generates organic 'I'm on KC Mobile' content from players for the public launch.",
+    },
+    {
+      title: "Influencer + KC Legends seeding",
+      detail:
+        "30 macro SA football influencers, 200 micro KC fan creators, and 5 KC Legends (Khumalo, Radebe, Baloyi, Maponyane, plus the Khosi 4 Life supporter-club leadership) receive Founder Khosi SIMs in week 4. Their organic content seeds the launch buzz.",
+    },
+  ],
+  whyItMatters: [
+    "Cold paid digital in M1 is the most expensive media you'll buy. Warm waitlist conversion is among the cheapest. The math improves dramatically if you start M1 with 30,000+ warm leads.",
+    "Scarcity (1,000 Founder Khosi spots) does the work of paid media. The closing window creates the urgency that paid creative would otherwise need to manufacture.",
+    "Internal launch protects the brand. If activation fails for the first 1,000 customers — better that they're KC employees and Founder Khosis (resilient, forgiving) than first-time supporters with no patience.",
+    "Press embargoes are easier to land when you have a hook (waitlist opens) plus a reveal (full launch) plus a moment (launch event). One press push at M1 has half the surface area of three press pushes spaced across the build-up.",
+  ],
+};
+
+// ============================================================================
+// Year-2 outlook — slim. Where this goes after the 12-month plan closes.
+// ============================================================================
+
+export const YEAR_2_OUTLOOK = {
+  intro:
+    "The 12-month plan delivers KC Mobile to ~150,000 active subscribers and a stable retention curve. Year 2 is where the platform earns out — wider footprint, deeper product, harder retention, and the first cross-border step. The five themes below frame the conversation; each one is a one-pager away from a full Year-2 plan when the time comes.",
+  themes: [
+    {
+      title: "Cross-border expansion · Botswana, Zimbabwe, Zambia, Mozambique",
+      detail:
+        "KC supporter base extends beyond SA. Once Year-1 retention is locked, MVNE partnerships in neighbouring markets (likely on different host networks) unlock 1–3M additional addressable supporters. Lucas Radebe is the natural diaspora ambassador for this phase.",
+    },
+    {
+      title: "KC Mobile Insurance · funeral cover bundled with the SIM",
+      detail:
+        "The KC Membership page on the official website already references the supporter funeral policy as a fan asset. A bundled SIM + insurance product (sub-R30/month) hits the same affordability sweet spot as the prepaid base and creates a much higher LTV per customer.",
+    },
+    {
+      title: "KC Mobile Money · fintech extension via the WhatsApp port-in flow",
+      detail:
+        "The WhatsApp port-in flow + RICA database is the foundation for a basic FSP licensed product — peer-to-peer sends to other KC Mobile customers (Khosi-to-Khosi mechanic extended), ticket purchases, Digistore wallet. Adjacent to and competitive with Capitec Connect's bank-led model.",
+    },
+    {
+      title: "eSIM-default positioning · smartphone refresh cycle",
+      detail:
+        "By Year 2, eSIM-capable phones are mainstream in SA's mid-market. KC Mobile flips its default from physical SIM to eSIM, halving SIM logistics costs. Tap-to-Activate eSIM Posters (originally a launch idea) become the primary acquisition surface.",
+    },
+    {
+      title: "PEP / Shoprite at scale · 800+ stores national",
+      detail:
+        "Year-1 PEP / Shoprite Phase-2 is a partnership pilot in months 9–12. Year 2 scales it to the full Pepkor (5,700+ stores) + Shoprite (1,500+ stores) footprint. Distribution becomes the moat.",
+    },
+    {
+      title: "Year-1 retention narrative as Year-2 fuel",
+      detail:
+        "Whatever the Year-1 retention numbers are — Bronze→Silver progression rate, churn, ARPU growth — they become the Year-2 acquisition story for the next cohort. 'X% of KC Mobile customers stayed for 12 months' is the line that converts the marginal supporter on month 13.",
     },
   ],
 };

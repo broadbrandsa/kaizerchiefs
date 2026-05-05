@@ -9,6 +9,8 @@ export interface BarDatum {
   sub?: string;
   /** Override colour — defaults to KC gold */
   tone?: "gold" | "muted" | "ink";
+  /** Mark this row as retired (Showmax-style: line-through + 50% opacity + tooltip) */
+  retired?: boolean;
 }
 
 /**
@@ -41,7 +43,15 @@ export function BarChart({
                 ? "bg-[var(--kc-charcoal)]"
                 : "bg-[var(--kc-gold)]";
           return (
-            <li key={d.label}>
+            <li
+              key={d.label}
+              className={d.retired ? "line-through opacity-50" : ""}
+              title={
+                d.retired
+                  ? "No longer relevant — service is being shut down"
+                  : undefined
+              }
+            >
               <div className="flex items-baseline justify-between gap-3 text-sm">
                 <span className="font-medium text-[var(--kc-paper)]">
                   {d.label}

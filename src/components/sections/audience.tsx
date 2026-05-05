@@ -2,10 +2,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/section";
 import { NIELSEN_INSIGHTS } from "@/data/proposal";
+import { SmartText } from "@/components/smart-text";
 import { BarChart, type BarDatum } from "@/components/charts/bar-chart";
 
 const YOY_DATA: BarDatum[] = [
-  { label: "Showmax PL Mobile", value: 88.5, display: "+88.5% YoY", sub: "28.8% → 54.3% (2024 → 2025)" },
+  { label: "Showmax PL Mobile", value: 88.5, display: "+88.5% YoY", sub: "28.8% → 54.3% (2024 → 2025)", retired: true },
   { label: "DStv Compact Stream", value: 50.2, display: "+50.2% YoY", sub: "53.4% → 80.2%" },
   { label: "TikTok (sports content)", value: 37.9, display: "+37.9% YoY", sub: "62.0% → 85.5%" },
   { label: "Google (sports search)", value: 28.2, display: "+28.2% YoY", sub: "72.8% → 93.3%" },
@@ -33,10 +34,10 @@ export function Audience() {
                 </span>
               </div>
               <h3 className="mt-5 text-xl font-semibold leading-snug text-[var(--kc-paper)]">
-                {insight.headline}
+                <SmartText>{insight.headline}</SmartText>
               </h3>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-[var(--kc-paper)]/80">
-                {insight.detail}
+                <SmartText>{insight.detail}</SmartText>
               </p>
               <div className="mt-6 border-t border-[var(--kc-line)] pt-4 text-[11px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
                 {insight.source}
