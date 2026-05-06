@@ -26,8 +26,6 @@ export function ChapterOverview() {
           label: "Brief, success metrics & sources",
           blurb:
             "The challenges, the success picture, the audience — and the 10 sources every figure on this site is traceable to.",
-          readMin: 2,
-          defaultOpen: true,
           content: <Overview />,
         },
       ]}

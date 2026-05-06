@@ -93,9 +93,15 @@ export function SideMenu() {
                   </span>
                 </a>
 
-                {/* Sub-sections — only visible when nav is hovered + this chapter is active */}
+                {/*
+                  Sub-section list. Hidden entirely when the rail is collapsed
+                  (so chapter dots stay evenly spaced) — only renders when the
+                  user hovers the rail and expands it. Using `hidden` instead
+                  of opacity so the list contributes no vertical space when
+                  collapsed.
+                */}
                 {subSections.length > 1 ? (
-                  <ul className="ml-5 mt-0.5 space-y-0.5 border-l border-[var(--kc-line)]/60 pl-2 opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100">
+                  <ul className="ml-5 mt-0.5 hidden space-y-0.5 border-l border-[var(--kc-line)]/60 pl-2 group-hover/nav:block">
                     {subSections.map((s) => (
                       <li key={s.id}>
                         <a

@@ -36,8 +36,6 @@ export function ChapterPhasing() {
           label: "Phasing detail — the full launch arc",
           blurb:
             "Pre-launch waitlist (M-2 → M0) · 6-month Gantt (M0 → M6) · 12-month football-rhythm phases · tribal phasing (CVPs come live in waves).",
-          readMin: 8,
-          defaultOpen: true,
           content: <Timing />,
         },
         {
@@ -45,7 +43,6 @@ export function ChapterPhasing() {
           label: "Retail futures — Year-2 outlook",
           blurb:
             "PEP and Shoprite explored as prospective Year-2 partners. Not in Yr-1 plan. Conversations open M9–12.",
-          readMin: 3,
           content: <RetailFuture />,
         },
       ]}

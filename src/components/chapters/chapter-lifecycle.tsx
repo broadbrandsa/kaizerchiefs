@@ -37,8 +37,6 @@ export function ChapterLifecycle() {
           label: "Customer journey — the lifecycle engine",
           blurb:
             "Awareness → Consideration → Acquisition → Activation → Engagement. Trigger-treatment automation via Xanite. CDP architecture. 14-dimension data grid.",
-          readMin: 7,
-          defaultOpen: true,
           content: <CustomerJourney />,
         },
         {
@@ -46,7 +44,6 @@ export function ChapterLifecycle() {
           label: "Loyalty programme — Khosi tier ladder + AmaCoin",
           blurb:
             "Three tiers (Bronze, Silver, Gold). Always-on rewards (Birthday Boost, Refer-a-Khosi). Match-day mechanics. Tier-bonus data wallet — leaving means walking away from value.",
-          readMin: 5,
           content: <Loyalty />,
         },
       ]}

@@ -43,8 +43,6 @@ export function ChapterPlan() {
           label: "Plan detail — allocation, funnel, line items",
           blurb:
             "Allocation strip · conversion funnel (impressions → activations → M12 active) · 7 category accordions with every line item, supplier, cost share and reach.",
-          readMin: 8,
-          defaultOpen: true,
           content: <ExecutionPlan />,
         },
         {
@@ -52,7 +50,6 @@ export function ChapterPlan() {
           label: "Voices & Players — three layers of human reach",
           blurb:
             "KC Legends programme · current squad as paid + organic influencers · SA football media partners (Soccer Laduma, KickOff, Idiski Times, OnsideZA, Bafana Republic).",
-          readMin: 8,
           content: <VoicesAndPlayers />,
         },
         {
@@ -60,7 +57,6 @@ export function ChapterPlan() {
           label: "Sponsors — current KC partner map",
           blurb:
             "Where each current KC sponsor (MTN, Toyota, Castle, etc.) sits in relation to KC Mobile — collaboration angles, not competition.",
-          readMin: 3,
           content: <SponsorMap />,
         },
         {
@@ -68,7 +64,6 @@ export function ChapterPlan() {
           label: "Launch ideas — 23 activation mechanics",
           blurb:
             "Match-day, retail, AmaCoin, CVP-led — every mechanic tagged with persona, channel, sim type, KPI.",
-          readMin: 8,
           content: <ActivationIdeas />,
         },
       ]}

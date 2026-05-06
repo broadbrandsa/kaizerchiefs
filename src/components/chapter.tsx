@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { getChapterPosition } from "@/data/section-registry";
 import { SectionLayoutProvider } from "@/components/section-layout-context";
@@ -21,8 +20,6 @@ export type ChapterSubSection = {
   blurb: string;
   /** the rendered section component */
   content: ReactNode;
-  /** estimated read minutes (small badge) */
-  readMin?: number;
   /** if true, this sub-section is open by default */
   defaultOpen?: boolean;
 };
@@ -220,15 +217,8 @@ export function Chapter({
                   <div className="flex w-full items-start gap-4 text-left">
                     <span className="inline-block h-10 w-1 shrink-0 rounded-sm bg-[var(--kc-gold)]" />
                     <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                        <span className="text-base font-semibold tracking-tight text-[var(--kc-paper)]">
-                          {s.label}
-                        </span>
-                        {s.readMin ? (
-                          <Badge variant="outline" className="text-[11px]">
-                            {s.readMin} min
-                          </Badge>
-                        ) : null}
+                      <div className="text-base font-semibold tracking-tight text-[var(--kc-paper)]">
+                        {s.label}
                       </div>
                       <p className="mt-1 text-sm text-[var(--kc-paper)]/70">
                         {s.blurb}

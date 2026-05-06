@@ -36,7 +36,6 @@ export function ChapterAudienceStrategy() {
           label: "Audience — Nielsen + the 8 personas",
           blurb:
             "Nielsen Sports SA NFI (n=487, March 2025) plus the 8-persona breakdown. Diehard → Sister → Born-Free → Family → Hustler → Diaspora → Junior → Elder.",
-          readMin: 8,
           content: <Audience />,
         },
         {
@@ -44,7 +43,6 @@ export function ChapterAudienceStrategy() {
           label: "Strategy — the 5 pillars",
           blurb:
             "Distribution-led · Fan-fuelled · Always-on · 1-to-1 lifecycle · Self-funding. Each pillar laddered to the Product CVPs it powers.",
-          readMin: 3,
           content: <Strategy />,
         },
       ]}

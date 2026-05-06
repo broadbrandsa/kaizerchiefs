@@ -4,7 +4,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   SECTION_REGISTRY,
   SECTION_GROUP_LABELS,
-  TOTAL_READ_MIN,
   type SectionMeta,
 } from "@/data/section-registry";
 
@@ -189,7 +188,7 @@ export function QuickJump() {
                     Jump to section
                   </div>
                   <div className="mt-1 text-[16px] text-[var(--kc-paper)]/70">
-                    {completedCount} of {SECTION_REGISTRY.length} sections viewed · {completedPct}% · ~{TOTAL_READ_MIN} min total
+                    {completedCount} of {SECTION_REGISTRY.length} sections viewed · {completedPct}%
                   </div>
                 </div>
                 <button

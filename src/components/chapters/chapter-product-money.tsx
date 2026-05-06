@@ -40,8 +40,6 @@ export function ChapterProductMoney() {
           label: "Investment model — V2 numbers",
           blurb:
             "Monthly subs / revenue / GP / EBIT through M12 · 5-year output · key milestones (M5 EBIT positive · M8 loan cleared · M12 +R1.05M monthly EBIT).",
-          readMin: 5,
-          defaultOpen: true,
           content: <InvestmentModel />,
         },
         {
@@ -49,7 +47,6 @@ export function ChapterProductMoney() {
           label: "Product CVPs — 8 products",
           blurb:
             "The eight customer value propositions, each owned by a persona. Diaspora travel, Sister Circle, Born-Free creator fund, Hustler pay-day, Junior safe family, plus the core 3.",
-          readMin: 6,
           content: <ProductCvps />,
         },
         {
@@ -57,7 +54,6 @@ export function ChapterProductMoney() {
           label: "Pricing & packages",
           blurb:
             "Seven core packages + one Diaspora travel pack + five VAS add-ons. Every line at ≥50% gross margin under V2 wholesale.",
-          readMin: 4,
           content: <Pricing />,
         },
       ]}
