@@ -126,13 +126,14 @@ export function Timing() {
           </div>
         </div>
         <p className="mt-4 max-w-3xl text-xs text-[var(--kc-paper)]/65">
-          Base marketing spend is split evenly across the year (whatever the
-          is committed in the V2 model, divided by 12). What shifts between phases is the
-          focus — Kickoff owns the launch story, Momentum captures the first
-          Soweto Derby and activates engagement mechanics, Anchor leans into
-          retention as the base matures, and Lock-in closes the season with
-          the Player-Designed Jersey Draw and the PEP / Shoprite Phase-2
-          go-live.
+          Base marketing spend is split evenly across the year (whatever is
+          committed in the V2 model, divided by 12). What shifts between phases
+          is the focus — Kickoff owns the launch story, Momentum captures the
+          first Soweto Derby and activates engagement mechanics, Anchor leans
+          into retention as the base matures, and Lock-in closes the season
+          with the Player-Designed Jersey Draw and the opening of Year-2
+          retail expansion conversations (PEP / Shoprite explored as
+          prospective partners only).
         </p>
       </div>
 

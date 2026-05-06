@@ -87,11 +87,16 @@ export function Audience() {
       </div>
 
       {/* Headline summary band */}
-      <div className="mt-12 grid grid-cols-2 gap-4 rounded-2xl border border-[var(--kc-gold)]/20 bg-[var(--kc-gold)]/5 p-6 md:grid-cols-4">
-        <Headline value="58%" label="KC fans aged 16–34" />
-        <Headline value="+38%" label="TikTok usage YoY" />
-        <Headline value="63%" label="top-2 sports betting interest" />
-        <Headline value="48%" label="attend for camaraderie" />
+      <div className="mt-12 rounded-2xl border border-[var(--kc-gold)]/20 bg-[var(--kc-gold)]/5 p-6">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <Headline value="58%" label="KC fans aged 16–34" />
+          <Headline value="+37.9%" label="TikTok usage YoY" />
+          <Headline value="62.85%" label="top-2 sports betting interest" />
+          <Headline value="48.1%" label="attend for camaraderie" />
+        </div>
+        <div className="mt-4 border-t border-[var(--kc-gold)]/20 pt-3 text-[12px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+          Source · Nielsen Sports NFI SA · n=487 KC fans · March 2025
+        </div>
       </div>
 
       {/* The 8 personas — drilling into the composite above */}

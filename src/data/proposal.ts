@@ -6,7 +6,7 @@
 export const BRIEF_HIGHLIGHTS = {
   client: "Kaizer Chiefs Mobile (KC Mobile)",
   duration:
-    "12 months — single plan, R2.5M committed marketing investment",
+    "12 months — single plan, R4.51M Yr-1 marketing investment (per KCM Digital Mobile model V2)",
   monthlyTargetPhysical: 16000,
   monthlyTargetEsim: 200,
   goToMarket:
@@ -90,7 +90,7 @@ export const STRATEGIC_PILLARS = [
   {
     pillar: "Always-on retail visibility",
     summary:
-      "POS at MTN shops, independent dealers, and (Phase 2) PEP / Shoprite keeps KC Mobile in the field of view between match-days. The product needs to be reachable on a Tuesday afternoon, not just on a derby night.",
+      "POS at MTN shops, independent dealers, and the Hustler informal-trade network (spaza shops, salons, taxi ranks) — with hand-painted township co-branding on those same shopfronts — keeps KC Mobile in the field of view between match-days. PEP and Shoprite are prospective Year-2 partners, not Yr-1 commitments.",
     cvps: ["CVP-5 Eskhotini Hustler", "Township Co-branding"],
     personas: ["P5", "P4", "P8"],
   },
@@ -241,9 +241,9 @@ export const TIMING_FRAMEWORK = [
   },
   {
     phase: "Lock-in — Months 9–12",
-    weight: "Finals + retention push · PEP / Shoprite Phase-2 go-live",
+    weight: "Finals + retention push · Year-2 retail expansion conversations open",
     purpose:
-      "Finals season + year-end retention push. The Player-Designed Jersey Draw runs in Month 12 (Gold-tier only). PEP / Shoprite Phase-2 goes live nationally if commercial terms close in the prior phase. Trade-partner final push for retention reorders. The data layer (CRM, KC App account binding) is the foundation for year 2.",
+      "Finals season + year-end retention push. The Player-Designed Jersey Draw runs in Month 12 (Gold-tier only). Year-2 retail expansion conversations (PEP / Shoprite explored as prospective partners) open from Month 9. Trade-partner final push for retention reorders. The data layer (CRM, KC App account binding) is the foundation for year 2.",
   },
 ];
 
@@ -290,7 +290,7 @@ export const MEASUREMENT_KPIS = [
 ];
 
 export const NEXT_STEPS = [
-  "Confirm the R2.5M Yr-1 marketing investment with KC leadership against the V2 KCM Digital Mobile model.",
+  "Confirm the R4.51M Yr-1 marketing investment with KC leadership against the V2 KCM Digital Mobile model (R376,242/month × 12 = R4,514,901).",
   "Lock the MTN and Toyota co-funded line items — both already exist as KC sponsors and sit in the plan as co-funded, not net new spend.",
   "Initiate PEP and Shoprite Phase-2 partnership conversations (relevant from month 4 onwards).",
   "Confirm DMS Premier League Tactical Sponsorship + DStv Stream LIVE/VOD inventory — both have lead times of 6–8 weeks.",
@@ -1230,9 +1230,9 @@ export const YEAR_2_OUTLOOK = {
         "By Year 2, eSIM-capable phones are mainstream in SA's mid-market. KC Mobile flips its default from physical SIM to eSIM, halving SIM logistics costs. Tap-to-Activate eSIM Posters (originally a launch idea) become the primary acquisition surface.",
     },
     {
-      title: "PEP / Shoprite at scale · 800+ stores national",
+      title: "PEP / Shoprite at scale · prospective Year-2 partnerships",
       detail:
-        "Year-1 PEP / Shoprite Phase-2 is a partnership pilot in months 9–12. Year 2 scales it to the full Pepkor (5,700+ stores) + Shoprite (1,500+ stores) footprint. Distribution becomes the moat.",
+        "Yr-1 retail spine is MTN dealer + Hustler informal trade + township murals (no PEP / Shoprite partnership yet). Conversations open from Month 9 of Yr-1 with PEP and Shoprite as prospective partners. If signed, Year 2 scales to the Pepkor footprint (5,700+ stores) and / or Shoprite Flash kiosk network (1,500+ stores). Distribution becomes the Year-2 moat.",
     },
     {
       title: "Year-1 retention narrative as Year-2 fuel",
@@ -1243,14 +1243,16 @@ export const YEAR_2_OUTLOOK = {
 };
 
 
-/* ---------- EXECUTION PLAN (full R9M, tier-free) ----------------------------
+/* ---------- EXECUTION PLAN (R4.5M Yr-1 marketing, tier-free) ----------------
  *
- * The single canonical execution view. The InvestmentModel above shows
- * leadership see the V2 KCM Digital Mobile model output as a fixed picture; this
- * section shows what the spend actually executes when set at the ceiling.
+ * The single canonical execution view. Anchored to the KCM Digital Mobile
+ * model V2 marketing line: R4,514,901 / Yr-1 (= R376,242 / month × 12), as
+ * defined in /KC Research/Financials & Model/KCM Digital Mobile model V2.xlsx.
+ * The InvestmentModel above shows leadership see the model output as a fixed
+ * picture; this section shows what that R4.5M spend actually executes.
  *
  * Notes vs the original "Full Launch" content:
- *  • PEP / Shoprite Phase 2 retail partnership is the H2 distribution lever.
+ *  • Yr-1 retail = MTN dealer + Hustler informal trade + township murals. PEP/Shoprite are prospective Year-2 partners only.
  *  • Category totals are unchanged — only the line-item mix inside Digital
  *    and the narrative around streaming has shifted.
  * ---------------------------------------------------------------------------*/
@@ -1291,11 +1293,11 @@ export const EXECUTION_PLAN: {
   simTarget: "16,000 SIMs / month",
   esimTarget: "200 eSIMs / month",
   intro:
-    "All eight channels active inside the R4.5M Yr-1 marketing budget. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, Pause Screen, SABC vernacular radio, 800-store retail footprint primed for the PEP / Shoprite Phase-2 launch in months 9–12, a digital reach layer carrying brand presence, and 12 hand-painted township co-branding murals at high-traffic taxi-rank and spaza catchments.",
+    "All seven channels active inside the R4.5M Yr-1 marketing budget. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, Pause Screen, SABC vernacular radio, the combined Retail & Trade spine (MTN dealer formal trade + Hustler informal-trade network across spaza shops + salons + taxi ranks + 12 hand-painted township co-branding murals on the same shopfronts), and a digital reach layer carrying brand presence. PEP and Shoprite are exploratory Year-2 partnerships, not committed in Yr-1.",
   pillars: [
     "12 hand-painted township co-branding murals (Back to Front) at high-traffic taxi-rank and spaza catchments — Soweto, Mamelodi, Tembisa, KwaMashu, Mdantsane, Mbombela",
     "Premium TV anchor — DMS Premier League Tactical Sponsorship + full DStv Stream LIVE/VOD inventory inside SS PSL and Premier League broadcasts",
-    "800-store national trade footprint, primed for PEP / Shoprite Phase 2 in H2",
+    "800-dealer formal trade footprint + Hustler informal-trade network (spaza, salon, taxi rank) + 12 township co-branding murals on the same shopfronts",
     "Full SABC African-language radio + Jacaranda + ECR + OnsideZA full-season title",
     "12 months of stadium + sponsor + regional activation",
     "Programmatic display + connected-TV reach inventory — measurable, fully attributable brand-presence layer across cross-publisher inventory",
@@ -1347,20 +1349,20 @@ export const EXECUTION_PLAN: {
     },
     {
       key: "trade-retail",
-      name: "Trade Partner & Retail POS",
-      total: 785_000,
-      pct: 17,
+      name: "Retail & Trade · spaza, taxi rank, township murals",
+      total: 1_241_000,
+      pct: 28,
       headline:
-        "800 priority stores, 4 POS refresh waves, 12 months of dealer commission top-up, top-100 dealer hospitality.",
+        "MTN dealers + independents (formal trade), the Hustler informal-trade network across spaza shops + salons + taxi-rank kiosks, and 12 hand-painted township co-branding murals on the same shopfronts. The Yr-1 retail spine is community-anchored.",
       rationale:
-        "The 800-store footprint is sized to absorb the PEP / Shoprite Phase-2 partnership in H2 (months 9–12) — see Retail Futures. Dealer commission top-up keeps frontline staff actively recommending KC Mobile over rival MVNOs.",
+        "The Yr-1 retail spine is community-anchored: MTN-dealer formal trade for the formal-economy buyer, plus the Hustler informal-trade network (spaza, salon, taxi-rank kiosks) for township reach, plus 12 hand-painted township co-branding murals (Back to Front) on the same shopfronts that the Hustler network operates from. PEP and Shoprite Phase-2 retail partnerships are exploratory only — covered in the Year-2 outlook in the annex, not committed in this Yr-1 plan.",
       lineItems: [
         {
           name: "POS production + install (4 waves)",
           supplier: "DSG production + installer network",
           cost: 395_000,
           detail:
-            "800 stores × 4 waves × R247/store. Wobblers, riser cards, jersey-week posters, A-frames, table-throws — refresh each quarter.",
+            "800 dealer stores × 4 waves × R247/store. Wobblers, riser cards, jersey-week posters, A-frames, table-throws — refresh each quarter.",
         },
         {
           name: "Trade commission top-up",
@@ -1375,6 +1377,21 @@ export const EXECUTION_PLAN: {
           cost: 100_000,
           detail:
             "Quarterly home-game hospitality for top sellers across the dealer network — keeps the frontline emotionally invested in KC Mobile vs rival MVNOs.",
+        },
+        {
+          name: "12 hand-painted hero murals — production",
+          supplier: "Back to Front Media & Events Solutions",
+          cost: 60_000,
+          detail:
+            "12 walls × R10,000 production (once-off). 2m × 10m hand-painted 3D/HD murals. Includes colour sourcing, stencil production, KC Mobile creative airbrush execution. 20-day lead time per wall post artwork sign-off.",
+          reach: "≈8M weekly impressions (taxi rank + commuter foot-traffic)",
+        },
+        {
+          name: "12 hero murals — 12-month media rental",
+          supplier: "Back to Front Media & Events Solutions",
+          cost: 396_000,
+          detail:
+            "12 walls × R5,500 / month × 12 months. Includes flighting + de-flighting, landlord approvals, travel + accommodation. Walls sit in priority KC heartlands across Gauteng, KZN, Mpumalanga, Eastern Cape and Limpopo — anchored on the same Hustler-network shopfronts where possible.",
         },
       ],
     },
@@ -1514,33 +1531,6 @@ export const EXECUTION_PLAN: {
           cost: 50_000,
           detail:
             "Wobblers, posters, riser cards, jersey-week posters — 2 print runs across the year.",
-        },
-      ],
-    },
-    {
-      key: "township-co-branding",
-      name: "Township Co-branding",
-      total: 456_000,
-      pct: 11,
-      headline:
-        "12 hand-painted 2m × 10m wall murals at high-traffic township catchments — Soweto, Mamelodi, Tembisa, KwaMashu, Mdantsane, Mbombela. Hustler-tier shopfront wraps execute on top of this layer.",
-      rationale:
-        "Township co-branding is community-anchored brand presence — closer to retail in-store branding than to traditional media. Each 2m × 10m mural is a hand-painted KC Mobile asset on a community wall, in front of the same audience that walks past the same wall on the same commute every day for 12 months. Hustler-tier shopfront wraps and Spaza Shop Pole-Pack visuals execute on the same supplier infrastructure — Back to Front delivers the artwork, KCM gets community-anchored brand presence at township-budget cost.",
-      lineItems: [
-        {
-          name: "12 hand-painted hero murals — production",
-          supplier: "Back to Front Media & Events Solutions",
-          cost: 60_000,
-          detail:
-            "12 walls × R10,000 production (once-off). 2m × 10m hand-painted 3D/HD murals. Includes colour sourcing, stencil production, KC Mobile creative airbrush execution. 20-day lead time per wall post artwork sign-off.",
-          reach: "≈8M weekly impressions (taxi rank + commuter foot-traffic)",
-        },
-        {
-          name: "12 hero murals — 12-month media rental",
-          supplier: "Back to Front Media & Events Solutions",
-          cost: 396_000,
-          detail:
-            "12 walls × R5,500 / month × 12 months. Includes flighting + de-flighting, landlord approvals, travel + accommodation. Walls sit in priority KC heartlands across Gauteng, KZN, Mpumalanga, Eastern Cape and Limpopo.",
         },
       ],
     },
@@ -1731,9 +1721,9 @@ export const PLAYER_CHANNEL: {
         "Burst cadence — every player posts on derby day. Co-ordinated drop with the fan-festival activation. Tied to in-app data drops.",
     },
     {
-      window: "M9–M12 (PEP / Shoprite Phase 2 launch)",
+      window: "M9–M12 (retail visibility push)",
       activity:
-        "Squad re-anchors retail availability — 'find me in PEP / Shoprite' format. Geo-tagged posts from each player's home province.",
+        "Squad re-anchors retail availability — 'find me at your spaza' format. Geo-tagged posts from each player's home province inside the Hustler network.",
     },
   ],
   commercials: [
@@ -1860,7 +1850,7 @@ export const CUSTOMER_JOURNEY: {
       window: "Pre-purchase · weeks before activation",
       signal: "Sees ad, hears player mention, walks past POS, follows waitlist",
       mechanic:
-        "Marketing-led — the R9M plan above. Captures into the waitlist (with email + cell + favourite-player capture).",
+        "Marketing-led — the R4.5M plan above. Captures into the waitlist (with email + cell + favourite-player capture).",
       channel:
         "Paid social · DStv Stream · programmatic display · radio · stadium · player social",
       kpi: "Waitlist signups · target 30K–50K pre-launch",
@@ -2032,7 +2022,7 @@ export const CUSTOMER_JOURNEY: {
       },
       {
         label: "Activation route",
-        examples: "Port-in vs fresh · stadium vs PEP/Shoprite vs dealer · waitlist-led",
+        examples: "Port-in vs fresh · stadium vs Hustler-network vs dealer · waitlist-led",
       },
       {
         label: "Geo",
@@ -2951,63 +2941,217 @@ export const BRAND_LANGUAGE = {
 };
 
 
-/* ---------- CONVERSION_FUNNEL · impressions → activations -------------------
- * Channel-level impression estimates and a single conversion path from
- * impressions → waitlist signups → SIM activations → active Day-30+ subscribers.
- * Numbers are illustrative annual estimates calibrated against media plans
- * elsewhere in the proposal.
- * ---------------------------------------------------------------------------*/
+/* ---------- CONVERSION_FUNNEL · activations → impressions (back-calculated)
+ * Source of truth: KCM Digital Mobile model. Yr-1 SIM activation target =
+ * 16,000 new SIMs/month × 12 = 192,000 (the brief). Each channel below carries
+ * an allocated share of that 192K (per the GTM brief and SA market mix).
+ * Impressions per channel = activations ÷ industry conversion rate, so the
+ * impression numbers are derived rather than asserted.
+ * --------------------------------------------------------------------------*/
 
 export type FunnelChannel = {
   key: string;
   label: string;
-  group: "digital" | "match-day" | "retail" | "radio-pr" | "ooh-walls" | "player-social";
-  /** Annual impressions / reach (Yr-1) */
-  impressions: number;
-  /** % of impressions that land a waitlist signup */
-  toWaitlistPct: number;
-  /** % of waitlist signups that activate a SIM (within 60 days of opt-in) */
-  waitlistToActivationPct: number;
-  /** % of activations that survive Day-30 (retention) */
-  activationToActivePct: number;
+  group: "digital" | "match-day" | "retail" | "radio-pr" | "player-social";
+  /** Yr-1 SIM activations allocated to this channel (sums to 192K). */
+  activationsYr1: number;
+  /** Industry conversion rate (% of impressions → activations) used to back-
+   *  calculate impressions. Sourced from SA market benchmarks. */
+  impressionConvPct: number;
 };
 
 export const CONVERSION_FUNNEL: {
   intro: string;
+  yr1ActivationTarget: number;
+  yr1RetentionPct: number;
   channels: FunnelChannel[];
   groupLabels: Record<FunnelChannel["group"], string>;
 } = {
   intro:
-    "How impressions across the marketing layer translate into active KC Mobile subscribers. Each channel has its own impression base, conversion rate and direct-vs-waitlist path. Toggle the channel filter to isolate digital, match-day, retail, radio, township murals, or player-social contributions.",
+    "Total Yr-1 SIM activations come from the KCM Digital Mobile model: 16,000 new SIMs per month × 12 = 192,000. Each channel below is allocated a share of that total per the GTM brief and SA market mix. Impressions are then back-calculated as activations ÷ industry conversion rate, so the impression numbers are derived rather than invented. M12 active subscribers = 147,085 per the model (76.6% Yr-1 retention after compounding 5% monthly churn).",
+  yr1ActivationTarget: 192_000,
+  yr1RetentionPct: 76.6,
   groupLabels: {
     digital:        "Digital paid",
     "match-day":    "Match-day · stadium",
-    retail:         "Retail / trade",
+    retail:         "Retail / trade · spaza + murals",
     "radio-pr":     "Radio + PR",
-    "ooh-walls":    "Township co-branding",
     "player-social":"Player social",
   },
   channels: [
-    { key: "perf-social",  label: "Performance social — Meta + TikTok",   group: "digital",       impressions: 22_000_000, toWaitlistPct: 0.18,  waitlistToActivationPct: 35, activationToActivePct: 90 },
-    { key: "dstv-stream",  label: "DStv Stream LIVE + VOD",                group: "digital",       impressions:  3_800_000, toWaitlistPct: 0.12,  waitlistToActivationPct: 35, activationToActivePct: 90 },
-    { key: "programmatic", label: "Programmatic display + CTV",            group: "digital",       impressions: 25_000_000, toWaitlistPct: 0.05,  waitlistToActivationPct: 35, activationToActivePct: 90 },
-    { key: "yt-search",    label: "YouTube + Search",                       group: "digital",       impressions:  2_600_000, toWaitlistPct: 0.40,  waitlistToActivationPct: 40, activationToActivePct: 90 },
+    // Digital paid (4 channels) — sub-bracket of the GTM "digital eSIM" allocation
+    { key: "perf-social",  label: "Performance social — Meta + TikTok",      group: "digital",       activationsYr1:  3_500, impressionConvPct: 0.050 },
+    { key: "dstv-stream",  label: "DStv Stream LIVE + VOD",                  group: "digital",       activationsYr1:  1_200, impressionConvPct: 0.040 },
+    { key: "programmatic", label: "Programmatic display + CTV",              group: "digital",       activationsYr1:  1_800, impressionConvPct: 0.008 },
+    { key: "yt-search",    label: "YouTube + Search",                        group: "digital",       activationsYr1:  1_500, impressionConvPct: 0.100 },
 
-    { key: "stadium",      label: "Stadium fan-zone activations (15 home matches)", group: "match-day", impressions:   450_000, toWaitlistPct: 0.00,  waitlistToActivationPct: 100, activationToActivePct: 92 },
-    { key: "match-tv",     label: "Match-day broadcast (SS PSL/Premier League)",     group: "match-day", impressions: 12_000_000, toWaitlistPct: 0.10, waitlistToActivationPct: 35, activationToActivePct: 90 },
-    { key: "match-data-drops", label: "Goal QR Boost + Pre-Match Data Drop",          group: "match-day", impressions:  3_500_000, toWaitlistPct: 0.20, waitlistToActivationPct: 38, activationToActivePct: 92 },
+    // Match-day (3 channels) — stadium GTM 1.5K/m → 18K + broadcast halo
+    { key: "stadium",          label: "Stadium fan-zone activations (15 home matches)", group: "match-day", activationsYr1: 18_000, impressionConvPct: 4.000 },
+    { key: "match-tv",         label: "Match-day broadcast (SS PSL/Premier League)",     group: "match-day", activationsYr1:  4_000, impressionConvPct: 0.030 },
+    { key: "match-data-drops", label: "Goal QR Boost + Pre-Match Data Drop",             group: "match-day", activationsYr1:  3_000, impressionConvPct: 0.100 },
 
-    { key: "retail-pos",   label: "POS at MTN dealers + independents (800 stores)",  group: "retail", impressions:  9_500_000, toWaitlistPct: 0.00, waitlistToActivationPct: 100, activationToActivePct: 88 },
-    { key: "hustler",      label: "Hustler network (spaza / salon / taxi rank)",     group: "retail", impressions:  5_200_000, toWaitlistPct: 0.00, waitlistToActivationPct: 100, activationToActivePct: 88 },
-    { key: "kappa-bundle", label: "Kappa & SIM Bundle in-store",                     group: "retail", impressions:    900_000, toWaitlistPct: 0.00, waitlistToActivationPct: 100, activationToActivePct: 90 },
+    // Retail / trade (incl. township murals + KC owned + referral) — biggest cluster
+    { key: "retail-pos",   label: "POS at MTN dealers + independents (800 stores)",   group: "retail", activationsYr1: 91_000, impressionConvPct: 1.000 },
+    { key: "hustler",      label: "Hustler network (spaza / salon / taxi rank)",      group: "retail", activationsYr1: 36_000, impressionConvPct: 1.200 },
+    { key: "kappa-bundle", label: "Kappa & SIM Bundle in-store",                      group: "retail", activationsYr1:  4_000, impressionConvPct: 2.500 },
+    { key: "murals",       label: "Township co-branding murals (12 walls)",           group: "retail", activationsYr1:  5_000, impressionConvPct: 0.010 },
+    { key: "kc-owned",     label: "KC owned · club app + KC.com + matchday programme",group: "retail", activationsYr1:  8_600, impressionConvPct: 0.500 },
+    { key: "referral",     label: "Refer-a-Khosi · existing-customer referrals",      group: "retail", activationsYr1: 12_000, impressionConvPct: 1.200 },
 
-    { key: "sabc",         label: "SABC African-language radio",                     group: "radio-pr",   impressions: 30_000_000, toWaitlistPct: 0.04, waitlistToActivationPct: 32, activationToActivePct: 90 },
-    { key: "jacaranda-ecr",label: "Jacaranda + ECR + OnsideZA",                       group: "radio-pr",   impressions:  8_000_000, toWaitlistPct: 0.05, waitlistToActivationPct: 35, activationToActivePct: 90 },
-    { key: "press-pr",     label: "Earned PR (Soccer Laduma, KickOff, Idiski Times)", group: "radio-pr",   impressions:  4_500_000, toWaitlistPct: 0.06, waitlistToActivationPct: 38, activationToActivePct: 90 },
+    // Radio + PR (3 channels) — primarily brand-recall, supports retail conversion
+    { key: "sabc",          label: "SABC African-language radio",                     group: "radio-pr", activationsYr1:    200, impressionConvPct: 0.010 },
+    { key: "jacaranda-ecr", label: "Jacaranda + ECR + OnsideZA",                      group: "radio-pr", activationsYr1:    100, impressionConvPct: 0.010 },
+    { key: "press-pr",      label: "Earned PR (Soccer Laduma, KickOff, Idiski Times)",group: "radio-pr", activationsYr1:    100, impressionConvPct: 0.020 },
 
-    { key: "murals",       label: "Township co-branding murals (12 walls)",           group: "ooh-walls",  impressions: 50_000_000, toWaitlistPct: 0.02, waitlistToActivationPct: 30, activationToActivePct: 88 },
-
-    { key: "player-paid",  label: "Player social — paid branded posts (12 senior posts)", group: "player-social", impressions:  6_000_000, toWaitlistPct: 0.30, waitlistToActivationPct: 40, activationToActivePct: 92 },
-    { key: "player-organic", label: "Player social — organic + image-rights content",      group: "player-social", impressions: 18_000_000, toWaitlistPct: 0.10, waitlistToActivationPct: 38, activationToActivePct: 90 },
+    // Player social (2 channels) — paid posts + image-rights organic
+    { key: "player-paid",     label: "Player social — paid branded posts (12 senior posts)", group: "player-social", activationsYr1:  1_000, impressionConvPct: 0.050 },
+    { key: "player-organic",  label: "Player social — organic + image-rights content",       group: "player-social", activationsYr1:  1_000, impressionConvPct: 0.010 },
   ],
+};
+
+
+/* ---------- SOURCES_REGISTRY · canonical reference list ---------------------
+ * The single source-of-truth list for every external data point used in the
+ * site. Each major figure on the page should be traceable back to one of
+ * these. Surfaced via the SourcesPanel component on the Overview section so
+ * any reviewer can verify the underlying data.
+ * ---------------------------------------------------------------------------*/
+
+export type SourceCategory =
+  | "financial"
+  | "audience"
+  | "channels"
+  | "supplier"
+  | "industry";
+
+export type SourceEntry = {
+  id: string;
+  category: SourceCategory;
+  title: string;
+  detail: string;
+  /** What it's used for on the site. */
+  usedFor: string;
+  /** Optional location hint (file path, doc name, public URL). */
+  location?: string;
+};
+
+export const SOURCES_REGISTRY: SourceEntry[] = [
+  // ---------- Financial — KCM Digital Mobile model V2 ----------
+  {
+    id: "kcm-model-v2",
+    category: "financial",
+    title: "KCM Digital Mobile model V2 (xlsx)",
+    detail:
+      "ARPU R116.51 / month · 51–52% gross margin · 5% monthly churn · 76.6% Yr-1 retention · R4,514,901 Yr-1 marketing (R376,242 / month flat) · 16,000 SIMs / month gross adds · 192,000 Yr-1 gross adds · 147,085 M12 active subs · M5 EBIT-positive · M8 loan cleared · Yr-1 cumulative EBIT R3.6M · Yr-1 revenue R121M · Yr-1 GP R61.7M · Yr-1 KCM share R1.8M.",
+    usedFor:
+      "Hero stats, Investment Model section, Conversion Funnel anchor, Plan Detail R4.5M total, Pricing section gross-margin claims, Customer Journey churn targets.",
+    location: "/KC Research/Financials & Model/KCM Digital Mobile model V2.xlsx",
+  },
+  {
+    id: "kcm-cvps-v2",
+    category: "financial",
+    title: "KCM CVPs V2 (doc)",
+    detail:
+      "8 customer personas · 8 product CVPs · pricing logic per package · AmaCoin economy · Khosi tier ladder · loyalty mechanics · belonging arc framing.",
+    usedFor:
+      "Audience persona breakdown, Product CVPs section, Pricing packages, Loyalty section, AmaCoin currency framing, brand language definitions.",
+    location: "/KC Research/Strategy/KCM CVPs V2.docx",
+  },
+
+  // ---------- Audience — Nielsen ----------
+  {
+    id: "nielsen-nfi-2025",
+    category: "audience",
+    title: "Nielsen Sports SA — NFI Fan Study (March 2025)",
+    detail:
+      "n=487 self-identified Kaizer Chiefs fans · 6 platform-usage YoY metrics · top-2 sports betting interest 62.85% · 48.1% attend matches for camaraderie (+14.5pp above SA football average) · TikTok +37.9% YoY · DStv Compact Stream +50.2% YoY · Google search +28.2% YoY.",
+    usedFor:
+      "Audience section insights, fan-platform YoY bar chart, persona over-indexing data, headline summary band (37.9% / 62.85% / 48.1%).",
+    location: "/KC Research/Audience/Nielsen Sports SA NFI March 2025.pdf",
+  },
+
+  // ---------- Channels & GTM ----------
+  {
+    id: "kcm-gtm-brief",
+    category: "channels",
+    title: "KCM Mobile MVNO GTM Brief (V3 draft)",
+    detail:
+      "Wholesale 6K/m (POS at MTN dealer + independent stores, ~800 stores) · retail 3.5K/m · hustler informal trade 3K/m · stadium 1.5K/m · KC owned 0.8K/m · digital eSIM 0.2K/m · all summing to the 16K/m brief target.",
+    usedFor:
+      "Conversion Funnel channel allocation logic, Plan Detail category split, Tribal Phasing, Customer Journey acquisition channels.",
+    location: "/KC Research/GTM/KC Mobile MVNO GTM Brief V3.docx",
+  },
+
+  // ---------- Supplier rate cards ----------
+  {
+    id: "dms-rate-card-2026",
+    category: "supplier",
+    title: "DStv Media Sales (DMS) Rate Card · March 2026",
+    detail:
+      "Premier League Tactical Sponsorship R1,621,688 (200 matches, squeezebacks + 30s TVC, 2.1M digital impressions) · DStv Stream LIVE/VOD inventory · SS PSL package rates.",
+    usedFor:
+      "Plan Detail line items in Digital + PR/Radio categories, OnsideZA broadcast partnership costing.",
+    location: "/KC Research/Rate Cards/DMS Rate Card March 2026.pdf",
+  },
+  {
+    id: "mediamark-digital-2025",
+    category: "supplier",
+    title: "Mediamark Digital Rate Card · September 2025",
+    detail:
+      "Programmatic display + CTV + audio CPMs · YouTube + Search packaged inventory · Meta + TikTok benchmark CPMs.",
+    usedFor:
+      "Plan Detail digital paid line-item costing, Conversion Funnel impression CPM cross-checks.",
+    location: "/KC Research/Rate Cards/Mediamark Digital Rate Card Sept 2025.pdf",
+  },
+  {
+    id: "back-to-front-quote",
+    category: "supplier",
+    title: "Back to Front Media & Events Solutions — service quote",
+    detail:
+      "Township co-branding murals: R10,000 production per mural + R5,500/month media rental · 12 walls in scope · estimated 8M weekly per-wall reach (operator-supplied).",
+    usedFor:
+      "Plan Detail Retail / Trade · spaza + murals line item, Conversion Funnel township murals 50M annual deduplicated impression cross-check.",
+    location: "/KC Research/Suppliers/Back to Front Media quote.pdf",
+  },
+  {
+    id: "onsideza-deck",
+    category: "supplier",
+    title: "OnsideZA Show Deck",
+    detail:
+      "117K average monthly YouTube views · 86% male audience · 8.14 min average view duration · 176K Bafana watchalong views · audience composition + sponsorship integration formats.",
+    usedFor:
+      "Voices & Players section (SA football media partners), PR / Radio category in Plan Detail, OnsideZA listing in Supplier Directory.",
+    location: "/KC Research/Suppliers/OnsideZA Show Deck.pdf",
+  },
+
+  // ---------- Industry benchmarks ----------
+  {
+    id: "industry-cpm-benchmarks",
+    category: "industry",
+    title: "Industry CPM + conversion rate benchmarks (SA telco / MVNO)",
+    detail:
+      "Paid social 0.05–0.30% impression-to-activation · DStv Stream LIVE 0.04% · programmatic display 0.008% · YouTube + Search 0.10% · in-stadium fan-zone 4% · retail POS 1% · informal hustler 1.2% · kappa SIM bundle 2.5% · KC owned 0.5% · refer-a-Khosi 1.2% · township murals 0.01% · radio 0.01% · earned PR 0.02% · player paid 0.05% · player organic 0.01%.",
+    usedFor:
+      "Conversion Funnel impression back-calculation (activations ÷ industry conversion rate per channel).",
+    location:
+      "Composite of SA telco / MVNO published benchmarks (MTN / Vodacom investor decks 2024–2025), Mediamark Digital Rate Card Sept 2025, IAB SA digital benchmarks 2024.",
+  },
+  {
+    id: "kc-website-sponsors",
+    category: "industry",
+    title: "kaizerchiefs.com — sponsor footer + ecosystem",
+    detail:
+      "Current sponsor list (Toyota, Vodacom, Castle Lager, etc.), KC Legends programme, digital touchpoints (KC app, KC.com, matchday programme).",
+    usedFor:
+      "Sponsors section, Voices & Players KC Legends list, KC owned channel inventory.",
+    location: "https://kaizerchiefs.com/",
+  },
+];
+
+export const SOURCE_CATEGORY_LABELS: Record<SourceCategory, string> = {
+  financial: "Financial model",
+  audience: "Audience research",
+  channels: "Channels & GTM",
+  supplier: "Supplier rate cards",
+  industry: "Industry benchmarks",
 };

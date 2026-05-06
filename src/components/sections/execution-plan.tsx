@@ -21,7 +21,6 @@ const CATEGORY_ACCENT: Record<string, string> = {
   "pr-radio": "bg-indigo-400",
   incentives: "bg-amber-300",
   "branding-kits": "bg-yellow-300",
-  "township-co-branding": "bg-rose-400",
   "design-production": "bg-orange-400",
 };
 

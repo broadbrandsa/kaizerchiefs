@@ -7,21 +7,12 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChiefMark } from "@/components/chief-mark";
-
-const NAV = [
-  { label: "Overview", href: "/#overview" },
-  { label: "Audience", href: "/#audience" },
-  { label: "Model", href: "/#model" },
-  { label: "Plan", href: "/#execution-plan" },
-  { label: "Voices & Players", href: "/#voices-and-players" },
-  { label: "Ideas", href: "/#ideas" },
-  { label: "Loyalty", href: "/#loyalty" },
-  { label: "Journey", href: "/#customer-journey" },
-];
+import { CHAPTER_REGISTRY, SECTION_REGISTRY } from "@/data/section-registry";
 
 export function Header() {
   return (
@@ -40,28 +31,50 @@ export function Header() {
         </Link>
 
         <div className="hidden items-center gap-3 lg:flex">
-          {/* Sections dropdown */}
+          {/* Chapters dropdown — hierarchical */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button
                 type="button"
                 className="inline-flex items-center gap-1.5 rounded-md border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 px-3 py-1.5 text-[12px] font-medium uppercase tracking-wider text-[var(--kc-paper)] transition hover:border-[var(--kc-gold)]/60 hover:text-[var(--kc-gold)]"
               >
-                Sections
+                Chapters
                 <ChevronDown className="size-3.5 opacity-70" />
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
-              {NAV.map((n) => (
-                <DropdownMenuItem key={n.href} asChild>
-                  <a
-                    href={n.href}
-                    className="cursor-pointer text-[12px] font-medium uppercase tracking-wider"
-                  >
-                    {n.label}
-                  </a>
-                </DropdownMenuItem>
-              ))}
+            <DropdownMenuContent align="end" className="w-[320px]">
+              {CHAPTER_REGISTRY.map((c, i) => {
+                const subSections = c.subSectionIds
+                  .map((id) => SECTION_REGISTRY.find((s) => s.id === id))
+                  .filter((s): s is NonNullable<typeof s> => Boolean(s));
+                return (
+                  <div key={c.id} className={i > 0 ? "mt-1 border-t border-[var(--kc-line)]/40 pt-1" : undefined}>
+                    <DropdownMenuLabel className="px-2 py-1.5 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--kc-mute)]">
+                      Ch {String(i + 1).padStart(2, "0")}
+                    </DropdownMenuLabel>
+                    <DropdownMenuItem asChild>
+                      <a
+                        href={`/#${c.id}`}
+                        className="cursor-pointer text-[12px] font-semibold uppercase tracking-wider text-[var(--kc-paper)]"
+                      >
+                        {c.label}
+                      </a>
+                    </DropdownMenuItem>
+                    {subSections.length > 1
+                      ? subSections.map((s) => (
+                          <DropdownMenuItem key={s.id} asChild>
+                            <a
+                              href={`/#${s.id}`}
+                              className="ml-3 cursor-pointer text-[11px] font-normal text-[var(--kc-paper)]/65"
+                            >
+                              ↳ {s.label}
+                            </a>
+                          </DropdownMenuItem>
+                        ))
+                      : null}
+                  </div>
+                );
+              })}
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
                 <Link

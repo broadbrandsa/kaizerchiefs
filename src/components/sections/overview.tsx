@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Section } from "@/components/section";
+import { SourcesPanel } from "@/components/sources-panel";
 import { BRIEF_HIGHLIGHTS } from "@/data/proposal";
 
 export function Overview() {
@@ -79,6 +80,11 @@ export function Overview() {
             </div>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Sources & methodology — every number on this site is traceable */}
+      <div className="mt-10">
+        <SourcesPanel />
       </div>
     </Section>
   );

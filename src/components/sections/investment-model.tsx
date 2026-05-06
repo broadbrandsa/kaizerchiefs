@@ -423,7 +423,8 @@ export function InvestmentModel() {
             // Re-scale so the full year of gross profit fits on the chart.
             // Use max(gp) as the upper bound and min(np) as the lower bound so
             // both losing months (negative net profit) and the gross-profit
-            // ceiling (R9M+) are both visible.
+            // ceiling (peaks ~R9.1M monthly GP at M12 in the V2 model) are
+            // both visible.
             const maxGp = Math.max(...m.monthly.map((r) => r.gp));
             const minNp = Math.min(...m.monthly.map((r) => r.np));
             const upper = maxGp;                 // top of chart
