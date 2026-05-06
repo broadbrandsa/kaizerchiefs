@@ -10,8 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/section";
 import { SmartText } from "@/components/smart-text";
-import { EXECUTION_PLAN, GTM_CHANNELS } from "@/data/proposal";
-import { formatRand } from "@/lib/format";
+import { EXECUTION_PLAN } from "@/data/proposal";
 
 /** Per-category accent bar — keeps each card visually distinct */
 const CATEGORY_ACCENT: Record<string, string> = {
@@ -31,87 +30,8 @@ export function ExecutionPlan() {
     <Section
       id="execution-plan"
       eyebrow="Plan detail"
-      title="What R9M of marketing executes, line by line"
-      intro={
-        <>
-          The KCM Digital Mobile model V2 above is the financial picture. The full
-          plan below shows what KC Mobile gets at the ceiling — every line item,
-          every supplier, every spend and reach number behind the budget.
-        </>
-      }
+      title="Plan detail"
     >
-      {/* Top summary band */}
-      <div className="mb-10 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-6">
-        <SmartText>{plan.intro}</SmartText>
-
-        <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-5">
-          <SummaryStat label="Total" value={formatRand(plan.total)} />
-          <SummaryStat label="Duration" value={plan.duration} />
-          <SummaryStat label="SIM target" value={plan.simTarget} />
-          <SummaryStat label="eSIM target" value={plan.esimTarget} />
-          <SummaryStat label="Geo" value="National · 9 provinces" />
-        </div>
-
-        {/* Pillars */}
-        <ul className="mt-6 grid grid-cols-1 gap-2 md:grid-cols-2">
-          {plan.pillars.map((p) => (
-            <li
-              key={p}
-              className="flex items-start gap-2 text-sm text-[var(--kc-paper)]/85"
-            >
-              <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--kc-gold)]" />
-              <SmartText>{p}</SmartText>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* GTM channel allocation — wholesale-led monthly SIM split */}
-      <div className="mb-10 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-ink)]/40 p-6">
-        <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
-          GTM channel allocation · 16,200 SIMs / month
-        </div>
-        <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">
-          How the volume splits across the seven distribution channels
-        </h3>
-        <p className="mt-3 max-w-3xl text-sm text-[var(--kc-paper)]/75">{GTM_CHANNELS.intro}</p>
-        <div className="mt-6 overflow-hidden rounded-xl border border-[var(--kc-line)]">
-          <table className="w-full text-left text-sm">
-            <thead className="bg-[var(--kc-charcoal)]/80 text-[16px] uppercase tracking-wider text-[var(--kc-mute)]">
-              <tr>
-                <th className="px-4 py-3 font-semibold">Channel</th>
-                <th className="px-4 py-3 font-semibold">What ships there</th>
-                <th className="px-4 py-3 font-semibold">Lead persona(s)</th>
-                <th className="px-4 py-3 text-right font-semibold">Monthly SIM target</th>
-              </tr>
-            </thead>
-            <tbody>
-              {GTM_CHANNELS.channels.map((c, i) => (
-                <tr
-                  key={c.name}
-                  className={i % 2 === 0 ? "bg-[var(--kc-charcoal)]/30" : "bg-[var(--kc-charcoal)]/50"}
-                >
-                  <td className="px-4 py-3 font-semibold text-[var(--kc-paper)]">{c.name}</td>
-                  <td className="px-4 py-3 text-[16px] text-[var(--kc-paper)]/85">{c.kit}</td>
-                  <td className="px-4 py-3 text-[16px] text-[var(--kc-paper)]/85">{c.personas}</td>
-                  <td className="px-4 py-3 text-right font-mono text-[var(--kc-gold)]">
-                    {c.monthlyTarget.toLocaleString()}
-                  </td>
-                </tr>
-              ))}
-              <tr className="border-t border-[var(--kc-gold)]/40 bg-[var(--kc-ink)]">
-                <td className="px-4 py-3 font-semibold text-[var(--kc-paper)]" colSpan={3}>
-                  Total / month
-                </td>
-                <td className="px-4 py-3 text-right font-mono text-base font-semibold text-[var(--kc-gold)]">
-                  {GTM_CHANNELS.channels.reduce((acc, c) => acc + c.monthlyTarget, 0).toLocaleString()}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
       {/* Allocation strip — proportional bar (percentages only) */}
       <div className="mb-10 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-ink)]/40 p-6">
         <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
@@ -230,18 +150,5 @@ export function ExecutionPlan() {
         ))}
       </Accordion>
     </Section>
-  );
-}
-
-function SummaryStat({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
-        {label}
-      </div>
-      <div className="mt-1 text-base font-semibold leading-snug text-[var(--kc-paper)]">
-        {value}
-      </div>
-    </div>
   );
 }
