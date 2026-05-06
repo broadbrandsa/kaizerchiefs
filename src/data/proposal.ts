@@ -1,7 +1,7 @@
 // KC Mobile MVNO Launch Proposal — content model
 // Sources: KC Mobile MVNO Draft V3, Nielsen Sports SA NFI March 2025,
 // DMS Rate Card March 2026, Mediamark Digital Rate Card Sept 2025,
-// OnsideZA Show Deck, Polygon Network DOOH inventory,
+// OnsideZA Show Deck,
 
 export const BRIEF_HIGHLIGHTS = {
   client: "Kaizer Chiefs Mobile (KC Mobile)",
@@ -121,16 +121,6 @@ export const SUPPLIER_DIRECTORY = [
       "117k average monthly YouTube views, 86% male, 8.14 min AVD",
       "Bafana watchalongs hit 176k views with 98% like ratio",
       "Sponsored live reads, watchalong title sponsor, integration with PNC influencer roster (>11M combined reach)",
-    ],
-  },
-  {
-    name: "Polygon Network (DOOH)",
-    role: "Out-of-home digital screens — taxi ranks, gyms, hotels, in-vehicle minibus, malls",
-    sourceDoc: "Polygon Network screen list (Sport Nodes / Emerging Investor Corridors)",
-    standoutPackages: [
-      "1,400+ screens nationwide grouped by Sport Nodes (proximity to stadiums)",
-      "High-impact KC catchments: Bree, Noord, Bara taxi ranks (Soweto/Joburg CBD), Mbombela, Bloem Central, Polokwane",
-      "In-vehicle minibus screens across Durban (Straat KZN fleet) and Cape Town (Tafelsig/Grassy Park)",
     ],
   },
   {
@@ -1287,13 +1277,13 @@ export const EXECUTION_PLAN: {
   simTarget: "16,000 SIMs / month",
   esimTarget: "200 eSIMs / month",
   intro:
-    "All seven channels active. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, full Pause Screen, full SABC vernacular radio, 800-store retail footprint primed for the PEP / Shoprite Phase-2 launch in months 9–12, and a digital reach layer that has absorbed what used to be the OOH line.",
+    "All seven channels active. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, full Pause Screen, full SABC vernacular radio, 800-store retail footprint primed for the PEP / Shoprite Phase-2 launch in months 9–12, plus a heavy digital reach layer that carries the brand-presence load.",
   pillars: [
     "Premium TV anchor — DMS Premier League Tactical Sponsorship + full DStv Stream LIVE/VOD inventory inside SS PSL and Premier League broadcasts",
     "800-store national trade footprint, primed for PEP / Shoprite Phase 2 in H2",
     "Full SABC African-language radio + Jacaranda + ECR + OnsideZA full-season title",
     "12 months of stadium + sponsor + regional activation",
-    "Programmatic display + connected-TV reach inventory — measurable digital alternative absorbing what used to be the Polygon DOOH + tactical billboard line",
+    "Programmatic display + connected-TV reach inventory — measurable, fully attributable brand-presence layer across cross-publisher inventory",
   ],
   categories: [
     {
@@ -1302,16 +1292,16 @@ export const EXECUTION_PLAN: {
       total: 2_880_000,
       pct: 32,
       headline:
-        "Always-on for 12 months across Meta, Google, TikTok, plus DStv Stream LIVE/VOD inside SS PSL and Premier League windows. Now also carries the reach load that used to sit in OOH.",
+        "Always-on for 12 months across Meta, Google, TikTok, plus DStv Stream LIVE/VOD inside SS PSL and Premier League windows.",
       rationale:
-        "Digital is the largest single line because it is the only layer that can be measured to the activation. The R900K originally allocated to Out-of-Home (Polygon DOOH + tactical billboards) has been reallocated into digital reach inventory — programmatic display + connected-TV delivers measurable impressions at a fraction of the OOH effective CPM, with attribution back to SIM activation that OOH cannot offer. The PSL/Premier League streaming window inside DStv Stream remains the streaming anchor now that Showmax PL Mobile is being retired.",
+        "Digital is the largest single line because it is the only layer that can be measured to the activation. Programmatic display + connected-TV deliver measurable brand-presence impressions across cross-publisher inventory, while the PSL/Premier League streaming window inside DStv Stream is the streaming anchor.",
       lineItems: [
         {
           name: "Performance social — Meta + TikTok",
           supplier: "Direct (Meta + TikTok)",
           cost: 1_000_000,
           detail:
-            "52 weeks always-on, ≈R25K/week each platform after the OOH reallocation lifted the always-on layer. Lookalikes off the waitlist, retargeting from match-day pixels, post-purchase upsell flows.",
+            "52 weeks always-on, ≈R25K/week each platform. Lookalikes off the waitlist, retargeting from match-day pixels, post-purchase upsell flows.",
           reach: "≈22M impressions",
         },
         {
@@ -1319,15 +1309,15 @@ export const EXECUTION_PLAN: {
           supplier: "DMS (DStv Stream)",
           cost: 900_000,
           detail:
-            "Mid-roll non-skip + skippable VOD pre-roll inside SS PSL and Premier League windows. Sole streaming destination for paid-media exposure to the football audience after Showmax PL retirement; expanded inventory after the OOH reallocation.",
+            "Mid-roll non-skip + skippable VOD pre-roll inside SS PSL and Premier League windows. The sole streaming destination for paid-media exposure to the football audience after Showmax PL retirement.",
           reach: "≈3.8M impressions",
         },
         {
           name: "Programmatic display + connected-TV",
-          supplier: "DSP cross-publisher (replaces Polygon DOOH + billboards)",
+          supplier: "DSP cross-publisher",
           cost: 500_000,
           detail:
-            "Cross-publisher display + connected-TV reach inventory. Replaces the Polygon DOOH 600-screen footprint and tactical billboard bursts with measurable digital reach — same brand-presence job, fully attributable.",
+            "Cross-publisher display + connected-TV reach inventory across DSP networks. Measurable, attributable brand-presence layer that runs alongside the football streaming inventory.",
           reach: "≈25M impressions",
         },
         {
@@ -1335,7 +1325,7 @@ export const EXECUTION_PLAN: {
           supplier: "Google Ads + YouTube",
           cost: 480_000,
           detail:
-            "TrueView, bumpers, search — 12 months always-on. Search captures the high-intent 'KC Mobile SIM' / 'KC Mobile eSIM' query as it builds. YouTube reach lifted after OOH reallocation.",
+            "TrueView, bumpers, search — 12 months always-on. Search captures the high-intent 'KC Mobile SIM' / 'KC Mobile eSIM' query as it builds.",
           reach: "≈2.6M YouTube views",
         },
       ],
@@ -1527,7 +1517,7 @@ export const EXECUTION_PLAN: {
           supplier: "DSG production",
           cost: 180_000,
           detail:
-            "1-day shoot, 4-week edit, full content suite (TVC, social cuts, OOH stills, POS hero imagery).",
+            "1-day shoot, 4-week edit, full content suite (TVC, social cuts, fan-zone screens, POS hero imagery).",
         },
         {
           name: "Player shoot — mid-season refresh",
@@ -1615,13 +1605,13 @@ export const PLAYER_CHANNEL: {
     {
       title: "Pairs with every other channel",
       detail:
-        "The same player content fuels OOH stills, fan-zone screens, paid social ads, KC TV, dealer POS and the waitlist landing page. One shoot day produces 12 weeks of content across 8 channels.",
+        "The same player content fuels fan-zone screens, paid social ads, KC TV, dealer POS, programmatic display and the waitlist landing page. One shoot day produces 12 weeks of content across 8 channels.",
     },
   ],
   archetypes: [
     {
       role: "The captain / senior pro",
-      what: "Anchors the trust narrative. Solo hero film, voiceover for vernacular radio, OOH stills.",
+      what: "Anchors the trust narrative. Solo hero film, voiceover for vernacular radio, fan-zone screen stills.",
       why: "Highest credibility, lowest skip-through risk. Most likely to be quoted by Soccer Laduma + KickOff in earned media.",
     },
     {
@@ -1830,7 +1820,7 @@ export const CUSTOMER_JOURNEY: {
       mechanic:
         "Marketing-led — the R9M plan above. Captures into the waitlist (with email + cell + favourite-player capture).",
       channel:
-        "Paid social · DStv Stream · OOH (digital reallocation) · radio · stadium · player social",
+        "Paid social · DStv Stream · programmatic display · radio · stadium · player social",
       kpi: "Waitlist signups · target 30K–50K pre-launch",
     },
     {
@@ -2335,17 +2325,13 @@ export const XANITE: {
   },
 };
 
-/* ---------- KCM_MODEL · static numbers from the Digital Mobile model --------
+/* ---------- KCM_MODEL · the financial model behind the plan -----------------
  *
- * Source: 'KCM Digital Mobile model calculations 20260128 Final with marketing
- *          A+F+E EJW 20260312 (1).xlsx' — Calculations sheet (M1–M12) and
- *          Annual Calculations sheet (Yr1–Yr5).
- *
- * Fixed assumptions (no longer slider-driven):
+ * Fixed assumptions:
  *   ARPU: R116.51 / month (V2 — repriced under MTN MVNO Q1 2026 wholesale)
- *   Gross margin: 51–52% (V2 — ≥50% on every package)
- *   Churn: 5% / month (industry MVNO average — unchanged)
- *   Marketing OPEX line in JV model: R376,242 / month flat = R4,514,901 / year
+ *   Gross margin: 51–52% (≥50% on every package)
+ *   Churn: 5% / month (industry MVNO average)
+ *   Marketing OPEX: R376,242 / month flat = R4,514,901 / year
  *   Distribution ramp: 16K M1, 16K M2, then +90% then +46% then +30% etc.
  * ---------------------------------------------------------------------------*/
 
@@ -2356,7 +2342,7 @@ export const KCM_MODEL = {
     { label: "ARPU", value: "R116.51 / month", note: "V2 weighted ARPU ex VAT — voice + data + VAS attach (Yr-1 avg)" },
     { label: "Gross margin", value: "51–52%", note: "≥50% on every package after MTN Q1 2026 wholesale rates" },
     { label: "Monthly churn", value: "5%", note: "Industry MVNO average" },
-    { label: "Marketing cost", value: "R376K / month", note: "R4.51M per year — flat, straight from the KCM model (Calculations sheet, row 51)" },
+    { label: "Marketing cost", value: "R376K / month", note: "R4.51M per year — flat across all 12 months" },
     { label: "Yr-1 SIM monthly target", value: "16,000", note: "Per the KC brief" },
     { label: "eSIM target", value: "200 / month", note: "Travel-eSIM enabled" },
   ],
@@ -2376,8 +2362,7 @@ export const KCM_MODEL = {
     { m: 12, dist:   137_984, subs:   147_085, rev:  17_820_246, gp:  9_088_325, np:   1_055_144 },
   ],
   annual: [
-    // V2 model output — see Appendix D.3 of CVPs V2 doc. EBIT replaces "netProfit"
-    // semantically; we keep the field name for component compatibility.
+    // V2 5-year output. EBIT carried in `netProfit` field for component compatibility.
     { year: "Yr 1", revenue: 121_000_000, grossProfit:  61_710_000, netProfit:  3_600_000, kcmShare:  1_800_000 },
     { year: "Yr 2", revenue: 270_000_000, grossProfit: 141_210_000, netProfit: 21_100_000, kcmShare: 10_550_000 },
     { year: "Yr 3", revenue: 350_000_000, grossProfit: 183_400_000, netProfit: 30_100_000, kcmShare: 15_050_000 },
@@ -2802,7 +2787,7 @@ export const AMA_COIN = {
     "Earn-rate >85% of base · redemption >40% within 90 days · jersey/ticket attach lift >18%",
 };
 
-/* ---------- PRICING_PACKAGES · V2 packages from CVPs V2 Appendix D.1 -------*/
+/* ---------- PRICING_PACKAGES · the 7 KC Mobile base packages ---------------*/
 export type Package = {
   code: string;
   name: string;

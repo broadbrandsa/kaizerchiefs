@@ -1,9 +1,6 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import {
-  getSectionPosition,
-  getSectionMeta,
-} from "@/data/section-registry";
+import { getSectionPosition } from "@/data/section-registry";
 
 export function Section({
   id,
@@ -21,7 +18,6 @@ export function Section({
   className?: string;
 }) {
   const pos = id ? getSectionPosition(id) : null;
-  const meta = id ? getSectionMeta(id) : null;
 
   return (
     <section
@@ -33,16 +29,13 @@ export function Section({
     >
       <div className="mx-auto max-w-7xl px-6">
         {/* Chapter ribbon — only renders when section is in the registry */}
-        {pos && meta ? (
+        {pos ? (
           <div className="mb-10 flex items-center gap-3 text-[16px]">
             <span className="font-mono uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               Chapter {String(pos.index + 1).padStart(2, "0")}
               <span className="text-[var(--kc-mute)]"> / {String(pos.total).padStart(2, "0")}</span>
             </span>
             <span className="h-px flex-1 bg-gradient-to-r from-[var(--kc-gold)]/40 via-[var(--kc-line)] to-transparent" />
-            <span className="font-mono uppercase tracking-wider text-[var(--kc-mute)]">
-              ~{meta.readMin} min read
-            </span>
           </div>
         ) : null}
 

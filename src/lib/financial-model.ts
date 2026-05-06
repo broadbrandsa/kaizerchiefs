@@ -22,7 +22,7 @@ export const MODEL_DEFAULTS: ModelAssumptions = {
   grossMargin: 0.51,
   monthlyChurn: 0.05,
   reinvestmentRate: 0.05,
-  baselineMarketingPerYear: 4_500_000, // R376K/month × 12 ≈ R4.5M from the KCM model (Calculations sheet row 51)
+  baselineMarketingPerYear: 4_500_000, // R376K/month × 12 ≈ R4.5M baseline marketing OPEX
   cacPerNewUser: 150,        // Brief target R150 per activation
 };
 

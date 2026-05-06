@@ -3,6 +3,12 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Section } from "@/components/section";
 import { NIELSEN_INSIGHTS, PERSONAS } from "@/data/proposal";
 import { SmartText } from "@/components/smart-text";
@@ -26,29 +32,41 @@ export function Audience() {
       title="Six insights from the Nielsen Sports SA fan study"
       intro="Nielsen surveyed n=487 self-identified KC fans in March 2025. The numbers below shaped the channel mix more than any other input — they tell us where the Amakhosi base actually lives, listens, and decides."
     >
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {/* Nielsen insights — collapsible (first one open by default) */}
+      <Accordion
+        type="single"
+        collapsible
+        defaultValue={NIELSEN_INSIGHTS[0]?.headline}
+        className="overflow-hidden rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40"
+      >
         {NIELSEN_INSIGHTS.map((insight, i) => (
-          <Card key={insight.headline} className="flex flex-col">
-            <CardContent className="flex flex-1 flex-col p-6">
-              <div className="flex items-center justify-between">
+          <AccordionItem
+            key={insight.headline}
+            value={insight.headline}
+            className="px-6"
+          >
+            <AccordionTrigger className="py-5 hover:no-underline">
+              <div className="flex w-full flex-wrap items-center gap-3 pr-4 text-left">
                 <Badge variant="outline">Insight 0{i + 1}</Badge>
-                <span className="text-[17px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+                <span className="flex-1 text-base font-semibold leading-snug text-[var(--kc-paper)]">
+                  <SmartText>{insight.headline}</SmartText>
+                </span>
+                <span className="hidden text-[14px] uppercase tracking-[0.2em] text-[var(--kc-mute)] md:inline">
                   NFI · Mar &apos;25
                 </span>
               </div>
-              <h3 className="mt-5 text-xl font-semibold leading-snug text-[var(--kc-paper)]">
-                <SmartText>{insight.headline}</SmartText>
-              </h3>
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-[var(--kc-paper)]/80">
+            </AccordionTrigger>
+            <AccordionContent className="pb-5">
+              <p className="text-sm leading-relaxed text-[var(--kc-paper)]/80">
                 <SmartText>{insight.detail}</SmartText>
               </p>
-              <div className="mt-6 border-t border-[var(--kc-line)] pt-4 text-[18px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+              <div className="mt-4 border-t border-[var(--kc-line)] pt-3 text-[14px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
                 {insight.source}
               </div>
-            </CardContent>
-          </Card>
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
 
       {/* Year-on-year growth bar chart */}
       <div className="mt-12 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">

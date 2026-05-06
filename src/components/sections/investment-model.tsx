@@ -1,18 +1,22 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Slider } from "@/components/ui/slider";
 import { Section } from "@/components/section";
 import { KCM_MODEL } from "@/data/proposal";
 import { formatRand, formatRandFull, formatInt } from "@/lib/format";
 
 // ----------------------------------------------------------------------------
-// Marketing investment — straight from the KCM xlsx.
-// Baseline: R376,242/month flat = R4,514,901/year (R4.5M). This is the marketing
-// OPEX line in the JV financial model.
-// Reinvestment: 5% of monthly gross profit feeds back into marketing. The point
-// where 5% of GP overtakes the R376K baseline is the "self-funding" milestone —
-// after that month, marketing pays for itself out of profit.
+// Marketing investment.
+// Baseline: R376,242/month flat = R4,514,901/year (R4.5M).
+// Reinvestment: % of monthly gross profit feeds back into marketing. The point
+// where reinvestment overtakes the R376K baseline is the "self-funding"
+// milestone — after that month, marketing pays for itself out of profit. The
+// rate is interactive in the UI so stakeholders can stress-test the model.
 // ----------------------------------------------------------------------------
 const MARKETING_MONTHLY = 376_242;
-const REINVESTMENT_RATE = 0.05; // 5% of monthly gross profit
+const DEFAULT_REINVESTMENT_RATE_PCT = 5; // 5% of monthly gross profit
 
 export function InvestmentModel() {
   const m = KCM_MODEL;
@@ -20,13 +24,20 @@ export function InvestmentModel() {
   const maxSubs = Math.max(...m.monthly.map((r) => r.subs));
   const maxAbsNp = Math.max(...m.monthly.map((r) => Math.abs(r.np)));
 
-  // Build the marketing-spend series the chart needs — reinvestment is 5% of GP.
-  const mktgSeries = m.monthly.map((row) => {
-    const reinvest = row.gp > 0 ? row.gp * REINVESTMENT_RATE : 0;
-    const totalMktg = MARKETING_MONTHLY + reinvest;
-    const isSelfFunding = reinvest >= MARKETING_MONTHLY;
-    return { ...row, mktg: MARKETING_MONTHLY, reinvest, totalMktg, isSelfFunding };
-  });
+  const [reinvestmentPct, setReinvestmentPct] = useState<number>(DEFAULT_REINVESTMENT_RATE_PCT);
+  const reinvestmentRate = reinvestmentPct / 100;
+
+  // Build the marketing-spend series the chart needs.
+  const mktgSeries = useMemo(
+    () =>
+      m.monthly.map((row) => {
+        const reinvest = row.gp > 0 ? row.gp * reinvestmentRate : 0;
+        const totalMktg = MARKETING_MONTHLY + reinvest;
+        const isSelfFunding = reinvest >= MARKETING_MONTHLY;
+        return { ...row, mktg: MARKETING_MONTHLY, reinvest, totalMktg, isSelfFunding };
+      }),
+    [m.monthly, reinvestmentRate],
+  );
   // Find the first month reinvestment overtakes the baseline marketing
   const crossoverMonth = mktgSeries.find((r) => r.isSelfFunding)?.m ?? null;
   const totalReinvest = mktgSeries.reduce((acc, r) => acc + r.reinvest, 0);
@@ -40,7 +51,7 @@ export function InvestmentModel() {
     <Section
       id="model"
       eyebrow="Investment model · KCM Digital Mobile"
-      title="The numbers, exactly as they sit in the model"
+      title="The numbers behind the plan"
       intro={m.intro}
     >
       {/* Fixed assumptions row */}
@@ -77,7 +88,7 @@ export function InvestmentModel() {
                 R4.5M
               </div>
               <div className="mt-3 text-base font-semibold text-[var(--kc-black)]/85">
-                {formatRandFull(MARKETING_MONTHLY)} per month, flat — straight from the Calculations sheet, row 51
+                {formatRandFull(MARKETING_MONTHLY)} per month, flat across the year
               </div>
               <div className="mt-6 grid grid-cols-2 gap-3 text-[16px]">
                 <div className="rounded-lg border border-[var(--kc-black)]/15 bg-[var(--kc-paper)]/15 p-3">
@@ -85,7 +96,7 @@ export function InvestmentModel() {
                     Reinvestment rate
                   </div>
                   <div className="mt-1 font-mono text-base font-bold text-[var(--kc-black)]">
-                    5% of monthly GP
+                    {reinvestmentPct}% of monthly GP
                   </div>
                   <div className="mt-1 text-[var(--kc-black)]/70">
                     Yr-1 reinvestment total ≈ {formatRand(totalReinvest)}
@@ -99,8 +110,38 @@ export function InvestmentModel() {
                     {crossoverMonth ? `Month ${crossoverMonth}` : "Year 2+"}
                   </div>
                   <div className="mt-1 text-[var(--kc-black)]/70">
-                    {crossoverMonth ? "5% of GP overtakes the R376K baseline" : "Reinvestment doesn't cross within Yr-1 at 5%"}
+                    {crossoverMonth
+                      ? `${reinvestmentPct}% of GP overtakes the R376K baseline`
+                      : `Reinvestment doesn't cross within Yr-1 at ${reinvestmentPct}%`}
                   </div>
+                </div>
+              </div>
+
+              {/* Reinvestment-rate slider — drag to stress-test the model */}
+              <div className="mt-5 rounded-lg border border-[var(--kc-black)]/20 bg-[var(--kc-paper)]/10 p-3">
+                <div className="flex items-baseline justify-between gap-2">
+                  <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-black)]/75">
+                    Stress-test the rate
+                  </div>
+                  <div className="font-mono text-[13px] font-bold text-[var(--kc-black)]">
+                    {reinvestmentPct}%
+                  </div>
+                </div>
+                <Slider
+                  value={reinvestmentPct}
+                  min={0}
+                  max={20}
+                  step={1}
+                  onValueChange={setReinvestmentPct}
+                  className="mt-2"
+                  aria-label="Reinvestment rate"
+                />
+                <div className="mt-1 flex justify-between text-[11px] text-[var(--kc-black)]/60">
+                  <span>0%</span>
+                  <span>5%</span>
+                  <span>10%</span>
+                  <span>15%</span>
+                  <span>20%</span>
                 </div>
               </div>
             </div>
@@ -115,22 +156,21 @@ export function InvestmentModel() {
                 <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--kc-gold)]" />
                 <span>
                   <strong className="text-[var(--kc-paper)]">Baseline.</strong>{" "}
-                  KCM Mobile commits {formatRandFull(MARKETING_MONTHLY)}/month flat in marketing — the
-                  R4.5M annual line that sits inside the JV financial model. This is paid every month, regardless of profit.
+                  KCM Mobile commits {formatRandFull(MARKETING_MONTHLY)}/month flat in marketing — R4.5M for the year. This is paid every month, regardless of profit.
                 </span>
               </li>
               <li className="flex items-start gap-3 text-[16px] leading-relaxed text-[var(--kc-paper)]/85">
                 <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
                 <span>
                   <strong className="text-[var(--kc-paper)]">Reinvestment grows with the business.</strong>{" "}
-                  5% of monthly gross profit is redirected back into marketing. As GP scales (M1 R1.0M → M12 R9.1M), the reinvestment grows from R51K to R454K per month.
+                  {reinvestmentPct}% of monthly gross profit is redirected back into marketing. As GP scales (M1 R{(m.monthly[0].gp / 1_000_000).toFixed(1)}M → M12 R{(m.monthly[11].gp / 1_000_000).toFixed(1)}M), the reinvestment grows from R{Math.round(mktgSeries[0].reinvest / 1000)}K to R{Math.round(mktgSeries[11].reinvest / 1000)}K per month.
                 </span>
               </li>
               <li className="flex items-start gap-3 text-[16px] leading-relaxed text-[var(--kc-paper)]/85">
                 <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
                 <span>
                   <strong className="text-[var(--kc-paper)]">Crossover at {crossoverMonth ? `Month ${crossoverMonth}` : "Yr-2"}.</strong>{" "}
-                  This is the month the 5% reinvestment exceeds the R376K baseline. From this point on, marketing pays for itself out of profit — KCM Mobile no longer needs to commit cash to the marketing line.
+                  This is the month the {reinvestmentPct}% reinvestment exceeds the R376K baseline. From this point on, marketing pays for itself out of profit — KCM Mobile no longer needs to commit cash to the marketing line.
                 </span>
               </li>
             </ul>
@@ -144,7 +184,7 @@ export function InvestmentModel() {
       <Card className="mb-8">
         <CardContent className="p-6">
           <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
-            Year 1 · marketing baseline vs 5% gross-profit reinvestment
+            Year 1 · marketing baseline vs {reinvestmentPct}% gross-profit reinvestment
           </div>
           <h3 className="mt-3 text-xl font-semibold tracking-tight text-[var(--kc-paper)]">
             {crossoverMonth
@@ -153,11 +193,20 @@ export function InvestmentModel() {
           </h3>
 
           <svg viewBox="0 0 760 340" className="mt-6 h-auto w-full">
-            {/* gridlines */}
-            {[0, 0.25, 0.5, 0.75, 1].map((p) => (
-              <line key={`gh-${p}`} x1="50" y1={40 + 200 * p} x2="720" y2={40 + 200 * p} stroke="var(--kc-line)" strokeWidth="1" opacity="0.35" />
-            ))}
-            <text x="50" y="30" fontSize="11" fill="var(--kc-mute)">
+            {/* gridlines + y-axis value labels */}
+            {[0, 0.25, 0.5, 0.75, 1].map((p) => {
+              const y = 40 + 200 * p;
+              const value = maxMktgChart * (1 - p);
+              return (
+                <g key={`gh-${p}`}>
+                  <line x1="60" y1={y} x2="720" y2={y} stroke="var(--kc-line)" strokeWidth="1" opacity="0.35" />
+                  <text x="55" y={y + 3} fontSize="10" fill="var(--kc-mute)" textAnchor="end">
+                    {formatRand(value)}
+                  </text>
+                </g>
+              );
+            })}
+            <text x="14" y="30" fontSize="11" fill="var(--kc-mute)">
               R per month
             </text>
 
@@ -243,10 +292,10 @@ export function InvestmentModel() {
               <span className="inline-block h-1 w-5 rounded bg-[var(--kc-gold)]" /> Baseline marketing · {formatRand(MARKETING_MONTHLY)} flat
             </span>
             <span className="flex items-center gap-2">
-              <span className="inline-block h-2.5 w-3 rounded bg-orange-400 opacity-75" /> 5% of GP reinvestment (pre-crossover)
+              <span className="inline-block h-2.5 w-3 rounded bg-orange-400 opacity-75" /> {reinvestmentPct}% of GP reinvestment (pre-crossover)
             </span>
             <span className="flex items-center gap-2">
-              <span className="inline-block h-2.5 w-3 rounded bg-emerald-400 opacity-75" /> 5% of GP reinvestment (self-funding)
+              <span className="inline-block h-2.5 w-3 rounded bg-emerald-400 opacity-75" /> {reinvestmentPct}% of GP reinvestment (self-funding)
             </span>
           </div>
         </CardContent>
@@ -382,7 +431,7 @@ export function InvestmentModel() {
       {/* 5-year annual summary table */}
       <div className="rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
         <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
-          5-year annual summary · directly from the model
+          5-year annual summary
         </div>
         <div className="mt-5 overflow-x-auto">
           <table className="w-full text-left text-sm">
@@ -412,7 +461,7 @@ export function InvestmentModel() {
         {/* Yr-1 month-by-month underneath */}
         <details className="mt-6">
           <summary className="cursor-pointer text-[16px] uppercase tracking-wider text-[var(--kc-mute)] hover:text-[var(--kc-paper)]">
-            Show Yr-1 month-by-month (Calculations sheet, rows 5–65)
+            Show Yr-1 month-by-month
           </summary>
           <div className="mt-4 overflow-x-auto">
             <table className="w-full text-left text-sm">

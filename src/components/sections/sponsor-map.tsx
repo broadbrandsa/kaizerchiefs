@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { ChevronDownIcon } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -5,6 +9,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Section } from "@/components/section";
 import { SPONSOR_MAP } from "@/data/proposal";
 
@@ -14,7 +24,23 @@ const TIER_LABEL: Record<string, string> = {
   full: "Full",
 };
 
+type Filter = "all" | "pilot" | "targeted" | "full";
+
+const FILTER_LABEL: Record<Filter, string> = {
+  all: "All sponsors",
+  pilot: "Pilot tier",
+  targeted: "Targeted tier",
+  full: "Full tier",
+};
+
 export function SponsorMap() {
+  const [filter, setFilter] = useState<Filter>("all");
+
+  const filtered =
+    filter === "all"
+      ? SPONSOR_MAP
+      : SPONSOR_MAP.filter((s) => s.tierFit.includes(filter));
+
   return (
     <Section
       id="sponsors-collab"
@@ -22,11 +48,43 @@ export function SponsorMap() {
       title="Leveraging the sponsor stack KC already has"
       intro="KC's existing sponsors are the cheapest distribution KC Mobile will ever access. Below is the collaboration angle for each, the commercial logic of the exchange, and the concrete mechanics we'd run — sequenced by which budget tier they fit."
     >
+      {/* Tier filter dropdown */}
+      <div className="mb-5 flex flex-wrap items-center gap-3">
+        <span className="text-[14px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+          Filter by tier
+        </span>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button
+              type="button"
+              className="inline-flex items-center gap-2 rounded-lg border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/60 px-3 py-1.5 text-[14px] text-[var(--kc-paper)] transition hover:border-[var(--kc-gold)]/50"
+            >
+              {FILTER_LABEL[filter]}
+              <ChevronDownIcon className="size-4 text-[var(--kc-mute)]" />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start">
+            {(Object.keys(FILTER_LABEL) as Filter[]).map((key) => (
+              <DropdownMenuItem
+                key={key}
+                onSelect={() => setFilter(key)}
+                className={filter === key ? "text-[var(--kc-gold)]" : ""}
+              >
+                {FILTER_LABEL[key]}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <span className="ml-auto font-mono text-[13px] text-[var(--kc-mute)]">
+          Showing {filtered.length} / {SPONSOR_MAP.length}
+        </span>
+      </div>
+
       <Accordion
         type="multiple"
         className="rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 px-6 py-2"
       >
-        {SPONSOR_MAP.map((s) => (
+        {filtered.map((s) => (
           <AccordionItem key={s.name} value={s.name}>
             <AccordionTrigger>
               <div className="flex flex-1 items-start justify-between gap-4 pr-4">

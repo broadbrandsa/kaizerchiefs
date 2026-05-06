@@ -58,14 +58,16 @@ export function VoicesAndPlayers() {
             {EARNED_VOICES.legends.map((l) => (
               <Card key={l.name}>
                 <CardContent className="p-6">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <h3 className="text-xl font-semibold text-[var(--kc-paper)]">{l.name}</h3>
-                      <div className="mt-1 text-[16px] uppercase tracking-wider text-[var(--kc-mute)]">
-                        {l.era}
-                      </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-[var(--kc-paper)]">{l.name}</h3>
+                    <div className="mt-1 text-[16px] uppercase tracking-wider text-[var(--kc-mute)]">
+                      {l.era}
                     </div>
-                    <Badge variant="outline" className="text-[16px]">{l.role}</Badge>
+                    <div className="mt-3">
+                      <Badge variant="outline" className="whitespace-normal text-left text-[16px] leading-snug">
+                        {l.role}
+                      </Badge>
+                    </div>
                   </div>
                   <p className="mt-4 text-[16px] leading-relaxed text-[var(--kc-paper)]/85">
                     <strong className="text-[var(--kc-paper)]">Angle · </strong>{l.angle}

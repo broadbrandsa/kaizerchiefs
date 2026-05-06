@@ -273,13 +273,8 @@ export function QuickJump() {
                             </div>
 
                             <div className="min-w-0 flex-1">
-                              <div className="flex items-baseline justify-between gap-3">
-                                <div className={`text-[16px] font-semibold ${isActive ? "text-[var(--kc-gold)]" : "text-[var(--kc-paper)]"}`}>
-                                  {s.label}
-                                </div>
-                                <div className="font-mono text-[16px] text-[var(--kc-mute)]">
-                                  ~{s.readMin} min
-                                </div>
+                              <div className={`text-[16px] font-semibold ${isActive ? "text-[var(--kc-gold)]" : "text-[var(--kc-paper)]"}`}>
+                                {s.label}
                               </div>
                               <div className="mt-0.5 truncate text-[16px] text-[var(--kc-paper)]/65">
                                 {s.blurb}

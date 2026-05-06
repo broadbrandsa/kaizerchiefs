@@ -1,4 +1,7 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LaunchTimelineChart } from "@/components/charts/launch-timeline";
 import { Section } from "@/components/section";
 import { TIMING_FRAMEWORK, TRIBAL_PHASING, WAITLIST_PHASE } from "@/data/proposal";
@@ -11,8 +14,17 @@ export function Timing() {
       title="The full launch arc — from waitlist to lock-in"
       intro="The arc starts 8–12 weeks before the SIM goes on sale (the waitlist phase) and runs through 12 months of football-rhythm marketing. Below sits the Pre-launch programme, then the 12-month phasing, then the 6-month activation timeline, then the tribal phasing of CVPs."
     >
-      {/* Pre-launch · M-2 → M0 */}
-      <div className="mb-12 rounded-2xl border border-[var(--kc-gold)]/40 bg-[var(--kc-gold)]/5 p-6">
+      <Tabs defaultValue="pre-launch">
+        <TabsList className="mb-8 flex w-full flex-wrap">
+          <TabsTrigger value="pre-launch">Pre-launch · M-2 → M0</TabsTrigger>
+          <TabsTrigger value="phasing">12-month phasing</TabsTrigger>
+          <TabsTrigger value="tribal">Tribal phasing</TabsTrigger>
+          <TabsTrigger value="activation">6-month activation</TabsTrigger>
+        </TabsList>
+
+        {/* Pre-launch · M-2 → M0 */}
+        <TabsContent value="pre-launch">
+        <div className="rounded-2xl border border-[var(--kc-gold)]/40 bg-[var(--kc-gold)]/5 p-6">
         <div className="text-[16px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           Pre-launch · {WAITLIST_PHASE.duration}
         </div>
@@ -60,10 +72,12 @@ export function Timing() {
             </CardContent>
           </Card>
         </div>
-      </div>
+        </div>
+        </TabsContent>
 
-      {/* Football-rhythm phasing — M0 → M12 */}
-      <div className="mb-6">
+        {/* Football-rhythm phasing — M0 → M12 */}
+        <TabsContent value="phasing">
+        <div className="mb-6">
         <div className="text-[16px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           12-month phasing · M0 → M12
         </div>
@@ -146,65 +160,72 @@ export function Timing() {
           </Card>
         ))}
       </ol>
-          <div className="mt-12">
-        <div className="mb-12 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
-          <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
-            Tribal phasing · CVPs come live in waves
-          </div>
-          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">
-            A second view — when each persona cluster + CVP set turns on
-          </h3>
-          <p className="mt-3 max-w-3xl text-sm text-[var(--kc-paper)]/75">
-            {TRIBAL_PHASING.intro}
-          </p>
-          <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {TRIBAL_PHASING.phases.map((ph) => (
-              <div
-                key={ph.num}
-                className="rounded-xl border border-[var(--kc-line)] bg-[var(--kc-ink)]/60 p-5"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[var(--kc-gold)] font-mono text-[16px] font-bold text-[var(--kc-black)]">
-                    {ph.num}
-                  </span>
-                  <div className="text-base font-semibold text-[var(--kc-paper)]">
-                    {ph.name}
-                  </div>
-                </div>
-                <div className="mt-3 text-[16px] uppercase tracking-wider text-[var(--kc-mute)]">
-                  {ph.window}
-                </div>
-                <div className="mt-3">
-                  <div className="text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
-                    Personas
-                  </div>
-                  <p className="mt-1 text-[16px] leading-snug text-[var(--kc-paper)]/85">
-                    {ph.personas}
-                  </p>
-                </div>
-                <div className="mt-3">
-                  <div className="text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
-                    CVPs live
-                  </div>
-                  <p className="mt-1 text-[16px] leading-snug text-[var(--kc-paper)]/85">
-                    {ph.cvpsLive}
-                  </p>
-                </div>
-                <div className="mt-3">
-                  <div className="text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
-                    Lead KPI
-                  </div>
-                  <p className="mt-1 text-[16px] leading-snug text-emerald-200">
-                    {ph.leadKpi}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        </TabsContent>
 
-        <LaunchTimelineChart />
-      </div>
+        {/* Tribal phasing */}
+        <TabsContent value="tribal">
+          <div className="rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+              Tribal phasing · CVPs come live in waves
+            </div>
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">
+              A second view — when each persona cluster + CVP set turns on
+            </h3>
+            <p className="mt-3 max-w-3xl text-sm text-[var(--kc-paper)]/75">
+              {TRIBAL_PHASING.intro}
+            </p>
+            <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {TRIBAL_PHASING.phases.map((ph) => (
+                <div
+                  key={ph.num}
+                  className="rounded-xl border border-[var(--kc-line)] bg-[var(--kc-ink)]/60 p-5"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[var(--kc-gold)] font-mono text-[16px] font-bold text-[var(--kc-black)]">
+                      {ph.num}
+                    </span>
+                    <div className="text-base font-semibold text-[var(--kc-paper)]">
+                      {ph.name}
+                    </div>
+                  </div>
+                  <div className="mt-3 text-[16px] uppercase tracking-wider text-[var(--kc-mute)]">
+                    {ph.window}
+                  </div>
+                  <div className="mt-3">
+                    <div className="text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                      Personas
+                    </div>
+                    <p className="mt-1 text-[16px] leading-snug text-[var(--kc-paper)]/85">
+                      {ph.personas}
+                    </p>
+                  </div>
+                  <div className="mt-3">
+                    <div className="text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                      CVPs live
+                    </div>
+                    <p className="mt-1 text-[16px] leading-snug text-[var(--kc-paper)]/85">
+                      {ph.cvpsLive}
+                    </p>
+                  </div>
+                  <div className="mt-3">
+                    <div className="text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                      Lead KPI
+                    </div>
+                    <p className="mt-1 text-[16px] leading-snug text-emerald-200">
+                      {ph.leadKpi}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </TabsContent>
+
+        {/* 6-month activation timeline */}
+        <TabsContent value="activation">
+          <LaunchTimelineChart />
+        </TabsContent>
+      </Tabs>
     </Section>
   );
 }
