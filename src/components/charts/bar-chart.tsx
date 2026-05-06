@@ -9,7 +9,7 @@ export interface BarDatum {
   sub?: string;
   /** Override colour — defaults to KC gold */
   tone?: "gold" | "muted" | "ink";
-  /** Mark this row as retired (Showmax-style: line-through + 50% opacity + tooltip) */
+  /** Mark this row as retired — line-through + 50% opacity + tooltip */
   retired?: boolean;
 }
 

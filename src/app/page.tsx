@@ -16,11 +16,8 @@ import {
   ActivationIdeas,
   Loyalty,
   CustomerJourney,
-  Suppliers,
   RetailFuture,
   Timing,
-  Measure,
-  YearTwo,
 } from "@/components/sections";
 
 export default function Home() {
@@ -42,11 +39,8 @@ export default function Home() {
       <ActivationIdeas />
       <Loyalty />
       <CustomerJourney />
-      <Suppliers />
       <RetailFuture />
       <Timing />
-      <Measure />
-      <YearTwo />
       <Footer />
     </main>
   );

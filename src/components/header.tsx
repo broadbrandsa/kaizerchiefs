@@ -1,20 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { Download } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { ChiefMark } from "@/components/chief-mark";
 
 const NAV = [
-  { label: "Overview", href: "#overview" },
-  { label: "Audience", href: "#audience" },
-  { label: "Model", href: "#model" },
-  { label: "Plan", href: "#execution-plan" },
-  { label: "Voices & Players", href: "#voices-and-players" },
-  { label: "Ideas", href: "#ideas" },
-  { label: "Loyalty", href: "#loyalty" },
-  { label: "Journey", href: "#customer-journey" },
-  { label: "Year 2", href: "#year-2" },
+  { label: "Overview", href: "/#overview" },
+  { label: "Audience", href: "/#audience" },
+  { label: "Model", href: "/#model" },
+  { label: "Plan", href: "/#execution-plan" },
+  { label: "Voices & Players", href: "/#voices-and-players" },
+  { label: "Ideas", href: "/#ideas" },
+  { label: "Loyalty", href: "/#loyalty" },
+  { label: "Journey", href: "/#customer-journey" },
 ];
 
 export function Header() {
@@ -33,17 +39,49 @@ export function Header() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-4 lg:flex">
-          {NAV.map((n) => (
-            <a
-              key={n.href}
-              href={n.href}
-              className="text-[12px] font-medium uppercase tracking-wider text-[var(--kc-paper)]/80 transition hover:text-[var(--kc-gold)]"
-            >
-              {n.label}
-            </a>
-          ))}
-        </nav>
+        <div className="hidden items-center gap-3 lg:flex">
+          {/* Sections dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                className="inline-flex items-center gap-1.5 rounded-md border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 px-3 py-1.5 text-[12px] font-medium uppercase tracking-wider text-[var(--kc-paper)] transition hover:border-[var(--kc-gold)]/60 hover:text-[var(--kc-gold)]"
+              >
+                Sections
+                <ChevronDown className="size-3.5 opacity-70" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              {NAV.map((n) => (
+                <DropdownMenuItem key={n.href} asChild>
+                  <a
+                    href={n.href}
+                    className="cursor-pointer text-[12px] font-medium uppercase tracking-wider"
+                  >
+                    {n.label}
+                  </a>
+                </DropdownMenuItem>
+              ))}
+              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild>
+                <Link
+                  href="/annex"
+                  className="cursor-pointer text-[12px] font-medium uppercase tracking-wider text-[var(--kc-gold)]"
+                >
+                  Annex →
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Direct annex link as well */}
+          <Link
+            href="/annex"
+            className="text-[12px] font-medium uppercase tracking-wider text-[var(--kc-paper)]/70 transition hover:text-[var(--kc-gold)]"
+          >
+            Annex
+          </Link>
+        </div>
 
         <Button
           onClick={() => typeof window !== "undefined" && window.print()}

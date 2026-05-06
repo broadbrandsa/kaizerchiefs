@@ -46,9 +46,9 @@ export const NIELSEN_INSIGHTS = [
     source: "Nielsen NFI SA March 2025",
   },
   {
-    headline: "Showmax Premier League Mobile +88.5% YoY",
+    headline: "DStv Compact Stream +50.2% YoY",
     detail:
-      "DStv Compact Stream is up 50.2% and Showmax PL Mobile is up 88.5% YoY among KC fans. Mobile-first sports streaming is the breakout behaviour — the eSIM upgrade story writes itself here.",
+      "DStv Compact Stream is up 50.2% YoY among KC fan households. Mobile-first sports streaming is the breakout behaviour — the eSIM upgrade story writes itself here.",
     source: "Nielsen NFI SA March 2025",
   },
   {
@@ -91,11 +91,10 @@ export const STRATEGIC_PILLARS = [
 export const SUPPLIER_DIRECTORY = [
   {
     name: "DStv Media Sales (DMS)",
-    role: "Premium sport TV, DStv Stream, Showmax EPL, Pause Screen, Catch Up VOD",
+    role: "Premium sport TV, DStv Stream, Pause Screen, Catch Up VOD",
     sourceDoc: "DMS Rate Card March 2026",
     standoutPackages: [
       "Premier League Tactical Sponsorship — R1,621,688 (200 matches, squeezebacks + 30s TVC, 2.1M digital impressions)",
-      "Showmax EPL Season Pass — R1,089,000 (3.6M impressions across 12 months on Showmax + DStv Stream)",
       "DStv Stream LIVE non-skip mid-roll — R250 CPM at 50% off (R150K = 600,000 impressions)",
       "Pause Screen (Decoder Catch Up) — 4-week R500,000, 1-week R185,000",
       "Mass Market Sport 'Striker' Bundle (SEM 3–5) — R120,000 / 204 spots",
@@ -154,6 +153,18 @@ export const SUPPLIER_DIRECTORY = [
       "Coordinates player availability for press conferences and one-on-one interviews",
       "Manages the kaizerchiefs.com newsroom + KC TV bulletin slots",
       "Handles KC stadium media accreditation for KC Mobile launch moments",
+    ],
+  },
+  {
+    name: "Back to Front Media & Events Solutions",
+    role: "Township co-branding partner — hand-painted 3D/HD wall murals (2m × 10m), spazashop / tarven / motor-spares shopfront wraps, taxi-rank decals. Track record on SafeLine, Choose Circumcision, Diski Flava (Visa/FNB), BettaBets, Kellogg's, Ricoffy.",
+    sourceDoc: "Back to Front service proposal · TOWNSHIP OUT OF HOME ADVERTISING",
+    standoutPackages: [
+      "Hand-painted 2m × 10m wall murals: R10,000 production once-off + R5,500/month media rental per wall",
+      "All-in: travel, accommodation, flighting + de-flighting included; landlord approvals managed",
+      "20-day production lead time post artwork sign-off",
+      "Hustler-tier shopfront wrap execution: branded gazebo, signage, till-counter decals, taxi-rank stickers",
+      "Township supermarket + spazashop full-shop branding (Kellogg's-style takeover)",
     ],
   },
   {
@@ -1231,12 +1242,7 @@ export const YEAR_2_OUTLOOK = {
  * section shows what the spend actually executes when set at the ceiling.
  *
  * Notes vs the original "Full Launch" content:
- *  • Showmax EPL Season Pass dropped (Showmax PL Mobile retired). The R363K
- *    has been reallocated to DStv Stream LIVE + VOD inventory, which now
- *    becomes the sole streaming destination for SS PSL/Premier League
- *    paid-media exposure.
- *  • PEP / Checkers Phase 2 → PEP / Shoprite Phase 2 (terminology aligned
- *    with the rest of the proposal).
+ *  • PEP / Shoprite Phase 2 retail partnership is the H2 distribution lever.
  *  • Category totals are unchanged — only the line-item mix inside Digital
  *    and the narrative around streaming has shifted.
  * ---------------------------------------------------------------------------*/
@@ -1277,8 +1283,9 @@ export const EXECUTION_PLAN: {
   simTarget: "16,000 SIMs / month",
   esimTarget: "200 eSIMs / month",
   intro:
-    "All seven channels active. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, full Pause Screen, full SABC vernacular radio, 800-store retail footprint primed for the PEP / Shoprite Phase-2 launch in months 9–12, plus a heavy digital reach layer that carries the brand-presence load.",
+    "All eight channels active. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, full Pause Screen, full SABC vernacular radio, 800-store retail footprint primed for the PEP / Shoprite Phase-2 launch in months 9–12, a heavy digital reach layer carrying the brand-presence load, and 12 hand-painted township co-branding murals at high-traffic taxi-rank and spaza catchments.",
   pillars: [
+    "12 hand-painted township co-branding murals (Back to Front) at high-traffic taxi-rank and spaza catchments — Soweto, Mamelodi, Tembisa, KwaMashu, Mdantsane, Mbombela",
     "Premium TV anchor — DMS Premier League Tactical Sponsorship + full DStv Stream LIVE/VOD inventory inside SS PSL and Premier League broadcasts",
     "800-store national trade footprint, primed for PEP / Shoprite Phase 2 in H2",
     "Full SABC African-language radio + Jacaranda + ECR + OnsideZA full-season title",
@@ -1309,7 +1316,7 @@ export const EXECUTION_PLAN: {
           supplier: "DMS (DStv Stream)",
           cost: 900_000,
           detail:
-            "Mid-roll non-skip + skippable VOD pre-roll inside SS PSL and Premier League windows. The sole streaming destination for paid-media exposure to the football audience after Showmax PL retirement.",
+            "Mid-roll non-skip + skippable VOD pre-roll inside SS PSL and Premier League windows. The streaming destination for paid-media exposure to the football audience.",
           reach: "≈3.8M impressions",
         },
         {
@@ -1333,8 +1340,8 @@ export const EXECUTION_PLAN: {
     {
       key: "trade-retail",
       name: "Trade Partner & Retail POS",
-      total: 1_980_000,
-      pct: 22,
+      total: 1_570_000,
+      pct: 17,
       headline:
         "800 priority stores, 4 POS refresh waves, 12 months of dealer commission top-up, top-100 dealer hospitality.",
       rationale:
@@ -1343,9 +1350,9 @@ export const EXECUTION_PLAN: {
         {
           name: "POS production + install (4 waves)",
           supplier: "DSG production + installer network",
-          cost: 1_200_000,
+          cost: 790_000,
           detail:
-            "800 stores × 4 waves × R600/store. Wobblers, riser cards, jersey-week posters, A-frames, table-throws — full kit refresh each quarter.",
+            "800 stores × 4 waves × R247/store. Wobblers, riser cards, jersey-week posters, A-frames, table-throws — refresh each quarter.",
         },
         {
           name: "Trade commission top-up",
@@ -1472,8 +1479,8 @@ export const EXECUTION_PLAN: {
     {
       key: "branding-kits",
       name: "Branding Material & Promotion Kits",
-      total: 900_000,
-      pct: 10,
+      total: 400_000,
+      pct: 4,
       headline:
         "Strong KC branding across the entire physical retail and activation footprint.",
       rationale:
@@ -1482,23 +1489,50 @@ export const EXECUTION_PLAN: {
         {
           name: "Activation hardware",
           supplier: "DSG procurement",
-          cost: 350_000,
+          cost: 150_000,
           detail:
-            "Gazebos, telescopics, A-frames, table-throws, podiums (×4 sets nationwide).",
+            "Gazebos, telescopics, A-frames, table-throws, podiums — core kit only (×2 sets), augmented by hospitality from Trade Partner line.",
         },
         {
           name: "Supporter packs",
           supplier: "DSG procurement",
-          cost: 350_000,
+          cost: 150_000,
           detail:
-            "15,000 supporter packs (T-shirt + scarf + activation voucher).",
+            "6,500 supporter packs (T-shirt + scarf + activation voucher) — concentrated at hero match-days and Soweto Derby.",
         },
         {
           name: "POS replenishment",
           supplier: "DSG production",
-          cost: 200_000,
+          cost: 100_000,
           detail:
-            "Wobblers, posters, riser cards, jersey-week posters — 4 print runs across the year.",
+            "Wobblers, posters, riser cards, jersey-week posters — 2 print runs across the year.",
+        },
+      ],
+    },
+    {
+      key: "township-co-branding",
+      name: "Township Co-branding",
+      total: 912_000,
+      pct: 11,
+      headline:
+        "12 hand-painted 2m × 10m wall murals at high-traffic township catchments — Soweto, Mamelodi, Tembisa, KwaMashu, Mdantsane, Mbombela. Hustler-tier shopfront wraps execute on top of this layer.",
+      rationale:
+        "Township co-branding is community-anchored brand presence — closer to retail in-store branding than to traditional media. Each 2m × 10m mural is a hand-painted KC Mobile asset on a community wall, in front of the same audience that walks past the same wall on the same commute every day for 12 months. Hustler-tier shopfront wraps and Spaza Shop Pole-Pack visuals execute on the same supplier infrastructure — Back to Front delivers the artwork, KCM gets community-anchored brand presence at township-budget cost.",
+      lineItems: [
+        {
+          name: "12 hand-painted hero murals — production",
+          supplier: "Back to Front Media & Events Solutions",
+          cost: 120_000,
+          detail:
+            "12 walls × R10,000 production (once-off). 2m × 10m hand-painted 3D/HD murals. Includes colour sourcing, stencil production, KC Mobile creative airbrush execution. 20-day lead time per wall post artwork sign-off.",
+          reach: "≈8M weekly impressions (taxi rank + commuter foot-traffic)",
+        },
+        {
+          name: "12 hero murals — 12-month media rental",
+          supplier: "Back to Front Media & Events Solutions",
+          cost: 792_000,
+          detail:
+            "12 walls × R5,500 / month × 12 months. Includes flighting + de-flighting, landlord approvals, travel + accommodation. Walls sit in priority KC heartlands across Gauteng, KZN, Mpumalanga, Eastern Cape and Limpopo.",
         },
       ],
     },
@@ -2282,11 +2316,6 @@ export const XANITE: {
   ],
   whyForKCMobile: [
     {
-      title: "Built by DSG — already KC Mobile’s marketing partner",
-      detail:
-        "Zero vendor-onboarding cost, no procurement cycle, no integration sprint. The team standing up Xanite for KC Mobile is the same team that runs the rest of the marketing plan.",
-    },
-    {
       title: "MVNO-specific by design",
       detail:
         "The platform tagline is “The MVNO Value Engine” — not a retail or B2B SaaS retrofitted to telco. The data model already understands MSISDN identity, top-up cadence, port events, ARPU bands, network-side churn signals.",
@@ -2805,7 +2834,7 @@ export type Package = {
 export const PRICING_PACKAGES: Package[] = [
   { code: "K1.5", name: "Khosi 1.5GB",       priceInclVat:  90, priceExVat:  78.26, cogs:  38.44, grossMarginPct: 50.9, voiceMin: 10, dataMb: 1536,  sms: 20, anchorPersonas: "P1 Diehard · P3 Born-Free · P5 Hustler entry · P8 Elder", notes: "Entry tier — non-negotiable affordability anchor." },
   { code: "K3",   name: "Khosi 3GB",         priceInclVat: 165, priceExVat: 143.48, cogs:  70.40, grossMarginPct: 50.9, voiceMin: 20, dataMb: 3072,  sms: 50, anchorPersonas: "P2 Khosi Sister · P4 Family member line", notes: "Mid-tier with VAS room — Sisters Circle add-on bundles in cleanly." },
-  { code: "K5",   name: "Khosi 5GB",         priceInclVat: 245, priceExVat: 213.04, cogs: 105.70, grossMarginPct: 50.4, voiceMin: 30, dataMb: 5325,  sms: 50, anchorPersonas: "P4 Family lead · P5 Hustler core", notes: "Showmax PL Mobile bundles in here for Yr-1." },
+  { code: "K5",   name: "Khosi 5GB",         priceInclVat: 245, priceExVat: 213.04, cogs: 105.70, grossMarginPct: 50.4, voiceMin: 30, dataMb: 5325,  sms: 50, anchorPersonas: "P4 Family lead · P5 Hustler core", notes: "Premium tier — repriced from R175 to restore margin under MTN Q1 2026 rates." },
   { code: "K10",  name: "Khosi 10GB",        priceInclVat: 315, priceExVat: 273.91, cogs: 135.51, grossMarginPct: 50.5, voiceMin: 40, dataMb: 10445, sms: 50, anchorPersonas: "P3 Born-Free Pro · P5 Hustler Pro", notes: "Premium tier — repriced from R199 to restore margin under MTN Q1 2026 rates." },
   { code: "KH",   name: "Khosi Heritage",    priceInclVat:  30, priceExVat:  26.09, cogs:  11.87, grossMarginPct: 54.5, voiceMin: 10, dataMb: 50,    sms: 10, anchorPersonas: "P8 Elder — voice-first, big-button", notes: "Strong margin (54%) funds Elder-mode UX in 11 SA languages." },
   { code: "JK",   name: "Junior Khosi",      priceInclVat: 100, priceExVat:  86.96, cogs:  42.94, grossMarginPct: 50.6, voiceMin: 10, dataMb: 1536,  sms: 50, anchorPersonas: "P7 Junior — kid-safe, parent-purchased", notes: "Funds McAfee Safe Family pre-install + KCM Academy learning track." },
@@ -2816,7 +2845,6 @@ export const PRICING_PACKAGES: Package[] = [
 export const VAS_PACKAGES = [
   { name: "Khosi Sisters Circle",    uptake: 18, price: 49,  wholesale: 20, gmPct: 53.1, persona: "P2" },
   { name: "McAfee Multi-Access",     uptake: 12, price: 15,  wholesale:  5, gmPct: 61.7, persona: "All" },
-  { name: "Showmax PL Mobile",       uptake: 22, price: 29,  wholesale: 10, gmPct: 60.4, persona: "P1, P3, P4" },
   { name: "Diaspora travel eSIM",    uptake:  1, price: 249, wholesale: 85, gmPct: 60.7, persona: "P6" },
   { name: "MatchPass (prepaid)",     uptake:  8, price: 29,  wholesale:  3, gmPct: 88.1, persona: "P1, P3" },
 ];

@@ -16,8 +16,7 @@ export type SectionMeta = {
     | "channels"
     | "lifecycle"
     | "ops"
-    | "phasing"
-    | "future";
+    | "phasing";
 };
 
 export const SECTION_REGISTRY: SectionMeta[] = [
@@ -33,11 +32,8 @@ export const SECTION_REGISTRY: SectionMeta[] = [
   { id: "ideas",               label: "Launch ideas",     blurb: "23 activation mechanics — match-day, retail, AmaCoin, CVP-led.",             readMin: 8, group: "channels" },
   { id: "loyalty",             label: "Loyalty",          blurb: "Khosi tier ladder + AmaCoin currency + retention mechanics.",                readMin: 5, group: "lifecycle" },
   { id: "customer-journey",    label: "Customer journey", blurb: "1-to-1 lifecycle marketing, powered by Xanite.",                              readMin: 7, group: "lifecycle" },
-  { id: "suppliers",           label: "Suppliers",        blurb: "Rate-card-anchored vendor directory.",                                         readMin: 3, group: "ops" },
   { id: "retail-future",       label: "Retail futures",   blurb: "PEP / Shoprite Phase 2 partnership — Year 2 distribution.",                    readMin: 3, group: "ops" },
   { id: "timing",              label: "Phasing",          blurb: "M-2 waitlist → 12-month rhythm → 6-month launch timeline → tribal phasing.",   readMin: 8, group: "phasing" },
-  { id: "measure",             label: "Measurement",      blurb: "What we report on, on what cadence, to whom.",                                readMin: 2, group: "phasing" },
-  { id: "year-2",              label: "Year 2",           blurb: "Six themes for the year-2 expansion plan.",                                  readMin: 2, group: "future" },
 ];
 
 export const TOTAL_READ_MIN = SECTION_REGISTRY.reduce((acc, s) => acc + s.readMin, 0);
@@ -73,5 +69,4 @@ export const SECTION_GROUP_LABELS: Record<SectionMeta["group"], string> = {
   lifecycle: "Loyalty & lifecycle",
   ops:       "Suppliers & retail",
   phasing:   "Phasing & measurement",
-  future:    "What comes next",
 };

@@ -15,7 +15,6 @@ import { SmartText } from "@/components/smart-text";
 import { BarChart, type BarDatum } from "@/components/charts/bar-chart";
 
 const YOY_DATA: BarDatum[] = [
-  { label: "Showmax PL Mobile", value: 88.5, display: "+88.5% YoY", sub: "28.8% → 54.3% (2024 → 2025)", retired: true },
   { label: "DStv Compact Stream", value: 50.2, display: "+50.2% YoY", sub: "53.4% → 80.2%" },
   { label: "TikTok (sports content)", value: 37.9, display: "+37.9% YoY", sub: "62.0% → 85.5%" },
   { label: "Google (sports search)", value: 28.2, display: "+28.2% YoY", sub: "72.8% → 93.3%" },
@@ -36,7 +35,6 @@ export function Audience() {
       <Accordion
         type="single"
         collapsible
-        defaultValue={NIELSEN_INSIGHTS[0]?.headline}
         className="overflow-hidden rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40"
       >
         {NIELSEN_INSIGHTS.map((insight, i) => (

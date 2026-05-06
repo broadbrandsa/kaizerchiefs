@@ -17,7 +17,6 @@ const GROUP_ORDER: SectionMeta["group"][] = [
   "lifecycle",
   "ops",
   "phasing",
-  "future",
 ];
 
 export function QuickJump() {

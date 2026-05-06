@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -12,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/section";
 import { SmartText } from "@/components/smart-text";
 import { EXECUTION_PLAN, GTM_CHANNELS } from "@/data/proposal";
-import { formatRand, formatRandFull } from "@/lib/format";
+import { formatRand } from "@/lib/format";
 
 /** Per-category accent bar — keeps each card visually distinct */
 const CATEGORY_ACCENT: Record<string, string> = {
@@ -22,15 +21,12 @@ const CATEGORY_ACCENT: Record<string, string> = {
   "pr-radio": "bg-indigo-400",
   incentives: "bg-amber-300",
   "branding-kits": "bg-yellow-300",
+  "township-co-branding": "bg-rose-400",
   "design-production": "bg-orange-400",
 };
 
 export function ExecutionPlan() {
   const plan = EXECUTION_PLAN;
-  const [openCategory, setOpenCategory] = useState<string>(
-    plan.categories[0].key,
-  );
-
   return (
     <Section
       id="execution-plan"
@@ -116,16 +112,16 @@ export function ExecutionPlan() {
         </div>
       </div>
 
-      {/* Allocation strip — proportional bar */}
+      {/* Allocation strip — proportional bar (percentages only) */}
       <div className="mb-10 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-ink)]/40 p-6">
         <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
-          Allocation by category · R9M = 100%
+          Allocation by category · 100%
         </div>
         <div className="mt-5 flex h-9 w-full overflow-hidden rounded-md border border-[var(--kc-line)]">
           {plan.categories.map((c) => (
             <div
               key={c.key}
-              title={`${c.name} · ${formatRand(c.total)} · ${c.pct}%`}
+              title={`${c.name} · ${c.pct}%`}
               className={`${CATEGORY_ACCENT[c.key] ?? "bg-[var(--kc-gold)]"} flex items-center justify-center text-[17px] font-semibold text-[var(--kc-black)]`}
               style={{ width: `${c.pct}%` }}
             >
@@ -155,8 +151,6 @@ export function ExecutionPlan() {
       <Accordion
         type="single"
         collapsible
-        value={openCategory}
-        onValueChange={(v) => setOpenCategory(v)}
         className="space-y-4"
       >
         {plan.categories.map((c) => (
@@ -176,7 +170,7 @@ export function ExecutionPlan() {
                       {c.name}
                     </span>
                     <Badge variant="outline" className="text-[17px]">
-                      {formatRand(c.total)} · {c.pct}% of plan
+                      {c.pct}% of plan
                     </Badge>
                   </div>
                   <p className="mt-1 text-sm text-[var(--kc-paper)]/70">
@@ -205,7 +199,7 @@ export function ExecutionPlan() {
                         </div>
                         <div className="shrink-0 text-right">
                           <div className="font-mono text-sm font-semibold text-[var(--kc-gold)]">
-                            {formatRandFull(item.cost)}
+                            {Math.round((item.cost / c.total) * 100)}% of category
                           </div>
                         </div>
                       </div>
@@ -222,13 +216,13 @@ export function ExecutionPlan() {
                 ))}
               </div>
 
-              {/* Per-category footer total */}
+              {/* Per-category footer */}
               <div className="mt-5 flex items-center justify-between border-t border-[var(--kc-line)] pt-4 text-xs">
                 <span className="uppercase tracking-wider text-[var(--kc-mute)]">
-                  Category total
+                  Category share of plan
                 </span>
                 <span className="font-mono font-semibold text-[var(--kc-paper)]">
-                  {formatRandFull(c.total)}
+                  {c.pct}%
                 </span>
               </div>
             </AccordionContent>

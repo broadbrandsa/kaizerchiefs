@@ -22,7 +22,6 @@ export function InvestmentModel() {
   const m = KCM_MODEL;
   const maxRev = Math.max(...m.monthly.map((r) => r.rev));
   const maxSubs = Math.max(...m.monthly.map((r) => r.subs));
-  const maxAbsNp = Math.max(...m.monthly.map((r) => Math.abs(r.np)));
 
   const [reinvestmentPct, setReinvestmentPct] = useState<number>(DEFAULT_REINVESTMENT_RATE_PCT);
   const reinvestmentRate = reinvestmentPct / 100;
@@ -232,37 +231,77 @@ export function InvestmentModel() {
               );
             })()}
 
-            {/* 5% GP reinvestment line + bars */}
+            {/* Stacked bars: green = reinvestment from profit, orange = remaining
+                cash KCM still has to commit to hit the R376K baseline. Once
+                reinvestment overtakes the baseline (self-funding month), the
+                orange disappears and only the green grows. */}
             {mktgSeries.map((row, i) => {
               const x = 60 + i * 55;
-              const reinvY = 240 - (row.reinvest / maxMktgChart) * 200;
-              const next = mktgSeries[i + 1];
+              const baselineH = (MARKETING_MONTHLY / maxMktgChart) * 200;
+              const reinvestH = (row.reinvest / maxMktgChart) * 200;
               const isAfterCrossover = crossoverMonth !== null && row.m >= crossoverMonth;
-              const fill = isAfterCrossover ? "#34d399" : "#fb923c";
+              // Green portion (reinvestment) — always rendered
+              const greenY = 240 - Math.min(reinvestH, baselineH);
+              const greenH = Math.min(reinvestH, baselineH);
+              // Orange "gap to baseline" portion — only pre-crossover
+              const gapH = Math.max(0, baselineH - reinvestH);
+              const orangeY = 240 - baselineH;
+              // Excess green portion above baseline — only post-crossover
+              const excessH = Math.max(0, reinvestH - baselineH);
+              const excessY = 240 - baselineH - excessH;
+
+              const next = mktgSeries[i + 1];
+              const reinvY = 240 - reinvestH;
               return (
                 <g key={row.m}>
-                  {/* Reinvestment bar */}
-                  <rect
-                    x={x}
-                    y={reinvY}
-                    width="34"
-                    height={Math.max(2, 240 - reinvY)}
-                    fill={fill}
-                    opacity="0.7"
-                    rx="3"
-                  />
-                  {/* Reinvestment line segment */}
+                  {/* Green reinvestment bar (capped at baseline) */}
+                  {greenH > 0 && (
+                    <rect
+                      x={x}
+                      y={greenY}
+                      width="34"
+                      height={greenH}
+                      fill="#34d399"
+                      opacity="0.85"
+                      rx="3"
+                    />
+                  )}
+                  {/* Orange gap (pre-crossover) — KCM still committing this in cash */}
+                  {!isAfterCrossover && gapH > 0 && (
+                    <rect
+                      x={x}
+                      y={orangeY}
+                      width="34"
+                      height={gapH}
+                      fill="#fb923c"
+                      opacity="0.7"
+                      rx="3"
+                    />
+                  )}
+                  {/* Excess reinvestment above baseline (post-crossover) */}
+                  {isAfterCrossover && excessH > 0 && (
+                    <rect
+                      x={x}
+                      y={excessY}
+                      width="34"
+                      height={excessH}
+                      fill="#34d399"
+                      opacity="0.85"
+                      rx="3"
+                    />
+                  )}
+                  {/* Reinvestment trajectory line */}
                   {next && (
                     <line
                       x1={x + 17}
                       y1={reinvY}
                       x2={x + 17 + 55}
                       y2={240 - (next.reinvest / maxMktgChart) * 200}
-                      stroke={isAfterCrossover ? "#34d399" : "#fb923c"}
+                      stroke="#34d399"
                       strokeWidth="2.5"
                     />
                   )}
-                  <circle cx={x + 17} cy={reinvY} r="4" fill={fill} />
+                  <circle cx={x + 17} cy={reinvY} r="4" fill="#34d399" />
                   {/* Crossover marker */}
                   {crossoverMonth === row.m ? (
                     <g>
@@ -292,10 +331,7 @@ export function InvestmentModel() {
               <span className="inline-block h-1 w-5 rounded bg-[var(--kc-gold)]" /> Baseline marketing · {formatRand(MARKETING_MONTHLY)} flat
             </span>
             <span className="flex items-center gap-2">
-              <span className="inline-block h-2.5 w-3 rounded bg-orange-400 opacity-75" /> {reinvestmentPct}% of GP reinvestment (pre-crossover)
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="inline-block h-2.5 w-3 rounded bg-emerald-400 opacity-75" /> {reinvestmentPct}% of GP reinvestment (self-funding)
+              <span className="inline-block h-2.5 w-3 rounded bg-emerald-400 opacity-85" /> Reinvestment from profit ({reinvestmentPct}% of GP)
             </span>
           </div>
         </CardContent>
@@ -311,20 +347,36 @@ export function InvestmentModel() {
             16K → 147K active subscribers across 12 months
           </h3>
 
-          <svg viewBox="0 0 720 280" className="mt-6 h-auto w-full">
-            {/* gridlines */}
-            {[0, 0.25, 0.5, 0.75, 1].map((p) => (
-              <line key={p} x1="50" y1={40 + 200 * p} x2="700" y2={40 + 200 * p} stroke="var(--kc-line)" strokeWidth="1" />
-            ))}
-            {/* y-axis label (subscribers) */}
-            <text x="50" y="30" fontSize="11" fill="var(--kc-mute)">Subscribers (bars) · Revenue (line)</text>
+          <svg viewBox="0 0 800 280" className="mt-6 h-auto w-full">
+            {/* gridlines + dual y-axis labels (subs left, revenue right) */}
+            {[0, 0.25, 0.5, 0.75, 1].map((p) => {
+              const y = 40 + 200 * p;
+              const subsValue = maxSubs * (1 - p);
+              const revValue = maxRev * (1 - p);
+              return (
+                <g key={p}>
+                  <line x1="60" y1={y} x2="720" y2={y} stroke="var(--kc-line)" strokeWidth="1" opacity="0.4" />
+                  {/* left axis: subscribers */}
+                  <text x="55" y={y + 3} fontSize="10" fill="var(--kc-gold)" textAnchor="end">
+                    {Math.round(subsValue / 1000)}K
+                  </text>
+                  {/* right axis: revenue */}
+                  <text x="725" y={y + 3} fontSize="10" fill="#34d399" textAnchor="start">
+                    {formatRand(revValue)}
+                  </text>
+                </g>
+              );
+            })}
+            {/* axis titles */}
+            <text x="14" y="30" fontSize="11" fill="var(--kc-gold)">Subscribers</text>
+            <text x="725" y="30" fontSize="11" fill="#34d399">Revenue</text>
 
             {m.monthly.map((row, i) => {
-              const x = 60 + i * 54;
+              const x = 70 + i * 54;
               const barH = (row.subs / maxSubs) * 200;
               const lineY = 240 - (row.rev / maxRev) * 200;
               const nextLineY = i < m.monthly.length - 1 ? 240 - (m.monthly[i+1].rev / maxRev) * 200 : null;
-              const nextX = 60 + (i+1) * 54;
+              const nextX = 70 + (i+1) * 54;
               return (
                 <g key={row.m}>
                   {/* subscribers bar */}
@@ -367,39 +419,80 @@ export function InvestmentModel() {
             Net-profit positive from Month 5
           </h3>
 
-          <svg viewBox="0 0 720 320" className="mt-6 h-auto w-full">
-            {/* zero line */}
-            <line x1="50" y1="160" x2="700" y2="160" stroke="var(--kc-paper)" strokeWidth="1" opacity="0.5" />
-            <text x="50" y="155" fontSize="10" fill="var(--kc-paper)" opacity="0.6">R0</text>
+          {(() => {
+            // Re-scale so the full year of gross profit fits on the chart.
+            // Use max(gp) as the upper bound and min(np) as the lower bound so
+            // both losing months (negative net profit) and the gross-profit
+            // ceiling (R9M+) are both visible.
+            const maxGp = Math.max(...m.monthly.map((r) => r.gp));
+            const minNp = Math.min(...m.monthly.map((r) => r.np));
+            const upper = maxGp;                 // top of chart
+            const lower = Math.min(0, minNp);    // bottom of chart (loss zone)
+            const range = upper - lower;
+            const chartH = 240;                  // pixels of plotting area
+            const chartTop = 40;
+            const chartBottom = chartTop + chartH;
+            const yFor = (v: number) => chartBottom - ((v - lower) / range) * chartH;
+            const zeroY = yFor(0);
+            const ticks = [0, 0.25, 0.5, 0.75, 1];
 
-            {/* gridlines (above zero) */}
-            {[0.25, 0.5, 0.75, 1].map((p) => (
-              <line key={`gp-${p}`} x1="50" y1={160 - 130 * p} x2="700" y2={160 - 130 * p} stroke="var(--kc-line)" strokeWidth="1" opacity="0.4" />
-            ))}
+            return (
+              <svg viewBox="0 0 760 340" className="mt-6 h-auto w-full">
+                {/* gridlines + y-axis value labels */}
+                {ticks.map((p) => {
+                  const v = lower + range * (1 - p);
+                  const y = chartTop + chartH * p;
+                  const isZero = Math.abs(v) < 1;
+                  return (
+                    <g key={`prof-${p}`}>
+                      <line
+                        x1="70"
+                        y1={y}
+                        x2="720"
+                        y2={y}
+                        stroke={isZero ? "var(--kc-paper)" : "var(--kc-line)"}
+                        strokeWidth={isZero ? 1 : 1}
+                        opacity={isZero ? 0.5 : 0.4}
+                      />
+                      <text x="65" y={y + 3} fontSize="10" fill={isZero ? "var(--kc-paper)" : "var(--kc-mute)"} textAnchor="end">
+                        {formatRand(v)}
+                      </text>
+                    </g>
+                  );
+                })}
+                {/* explicit zero line if not on a tick */}
+                {ticks.every((p) => Math.abs(lower + range * (1 - p)) > 1) ? (
+                  <g>
+                    <line x1="70" y1={zeroY} x2="720" y2={zeroY} stroke="var(--kc-paper)" strokeWidth="1" opacity="0.5" />
+                    <text x="65" y={zeroY + 3} fontSize="10" fill="var(--kc-paper)" textAnchor="end" opacity="0.7">R0</text>
+                  </g>
+                ) : null}
+                <text x="14" y="30" fontSize="11" fill="var(--kc-mute)">R per month</text>
 
-            {m.monthly.map((row, i) => {
-              const x = 60 + i * 54;
-              // Gross profit (always positive in this model from M2)
-              const gpY = 160 - (row.gp / maxAbsNp) * 130;
-              const npY = 160 - (row.np / maxAbsNp) * 130;
-              const next = m.monthly[i + 1];
-              return (
-                <g key={row.m}>
-                  {next && (
-                    <>
-                      <line x1={x + 17} y1={gpY} x2={x + 17 + 54} y2={160 - (next.gp / maxAbsNp) * 130}
-                            stroke="#fbbf24" strokeWidth="2.5" />
-                      <line x1={x + 17} y1={npY} x2={x + 17 + 54} y2={160 - (next.np / maxAbsNp) * 130}
-                            stroke="#34d399" strokeWidth="2.5" />
-                    </>
-                  )}
-                  <circle cx={x + 17} cy={gpY} r="4" fill="#fbbf24" />
-                  <circle cx={x + 17} cy={npY} r="4" fill={row.np >= 0 ? "#34d399" : "#f87171"} />
-                  <text x={x + 17} y={300} fontSize="10" fill="var(--kc-mute)" textAnchor="middle">M{row.m}</text>
-                </g>
-              );
-            })}
-          </svg>
+                {m.monthly.map((row, i) => {
+                  const x = 80 + i * 54;
+                  const gpY = yFor(row.gp);
+                  const npY = yFor(row.np);
+                  const next = m.monthly[i + 1];
+                  return (
+                    <g key={row.m}>
+                      {next && (
+                        <>
+                          <line x1={x + 17} y1={gpY} x2={x + 17 + 54} y2={yFor(next.gp)}
+                                stroke="#fbbf24" strokeWidth="2.5" />
+                          <line x1={x + 17} y1={npY} x2={x + 17 + 54} y2={yFor(next.np)}
+                                stroke="#34d399" strokeWidth="2.5" />
+                        </>
+                      )}
+                      <circle cx={x + 17} cy={gpY} r="4" fill="#fbbf24" />
+                      <circle cx={x + 17} cy={npY} r="4" fill={row.np >= 0 ? "#34d399" : "#f87171"} />
+                      <text x={x + 17} y={chartBottom + 22} fontSize="10" fill="var(--kc-mute)" textAnchor="middle">M{row.m}</text>
+                    </g>
+                  );
+                })}
+              </svg>
+            );
+          })()}
 
           <div className="mt-4 flex flex-wrap items-center gap-6 text-[16px] text-[var(--kc-paper)]/75">
             <span className="flex items-center gap-2"><span className="inline-block h-0.5 w-4 bg-amber-400" /> Gross profit</span>
