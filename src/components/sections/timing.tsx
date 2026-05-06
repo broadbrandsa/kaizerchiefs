@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { LaunchTimelineChart } from "@/components/charts/launch-timeline";
 import { Section } from "@/components/section";
 import { TIMING_FRAMEWORK } from "@/data/proposal";
 
@@ -12,7 +13,7 @@ export function Timing() {
     >
       {/* Horizontal timeline strip */}
       <div className="mb-10 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
-        <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+        <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           12-month timeline · phase weights
         </div>
         <div className="relative mt-6">
@@ -42,7 +43,7 @@ export function Timing() {
               Lock-in · M9–12
             </div>
           </div>
-          <div className="mt-3 flex w-full justify-between text-[10px] uppercase tracking-wider text-[var(--kc-mute)]">
+          <div className="mt-3 flex w-full justify-between text-[17px] uppercase tracking-wider text-[var(--kc-mute)]">
             <span>M1</span>
             <span>M3</span>
             <span>M6</span>
@@ -69,7 +70,7 @@ export function Timing() {
               <div className="absolute right-5 top-5 text-5xl font-semibold tracking-tight text-[var(--kc-gold)]/20">
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+              <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
                 Phase 0{i + 1}
               </div>
               <h3 className="mt-3 text-lg font-semibold text-[var(--kc-paper)]">
@@ -85,6 +86,9 @@ export function Timing() {
           </Card>
         ))}
       </ol>
+          <div className="mt-12">
+        <LaunchTimelineChart />
+      </div>
     </Section>
   );
 }

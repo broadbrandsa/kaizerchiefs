@@ -14,7 +14,7 @@ export function Overview() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <Card>
           <CardContent className="p-6">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               Current challenges
             </div>
             <ul className="mt-4 space-y-3 text-[var(--kc-paper)]/85">
@@ -30,7 +30,7 @@ export function Overview() {
 
         <Card>
           <CardContent className="p-6">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               What success looks like
             </div>
             <ul className="mt-4 space-y-3 text-[var(--kc-paper)]/85">
@@ -61,7 +61,7 @@ export function Overview() {
 
         <Card className="md:col-span-2">
           <CardContent className="p-6">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               Primary audience
             </div>
             <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">

@@ -12,7 +12,7 @@ export function Hero() {
         <div className="flex flex-col items-start gap-4">
           <ChiefMark className="h-14 w-auto md:h-16" />
           <div>
-            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               Amakhosi · 4 Life
             </div>
             <div className="text-sm text-[var(--kc-paper)]/70">
@@ -57,7 +57,7 @@ function StatCard({ label, value, sub }: { label: string; value: string; sub: st
   return (
     <Card className="border-[var(--kc-line)] bg-[var(--kc-charcoal)]/60">
       <CardContent className="p-6">
-        <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+        <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           {label}
         </div>
         <div className="mt-3 text-4xl font-semibold tracking-tight text-[var(--kc-gold)] md:text-5xl">

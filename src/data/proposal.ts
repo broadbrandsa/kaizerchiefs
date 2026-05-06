@@ -144,6 +144,40 @@ export const SUPPLIER_DIRECTORY = [
       "Motsweding FM (Setswana) — North West (KC over-indexes here)",
     ],
   },
+  {
+    name: "ByDesign (DSG retained PR firm)",
+    role: "Brand and proactive PR — already retained by DSG. Handles KC Mobile launch announcement, business and tech press, fintech-MVNO angle, broadcast booking. Charges DSG, not KC Mobile, so KC Mobile does not pay agency rates.",
+    sourceDoc: "DSG agency-of-record relationship",
+    standoutPackages: [
+      "KC Mobile launch announcement embargo + first-day press kit — no incremental cost (inside DSG retainer)",
+      "Business and fintech press placement (BusinessLIVE, Daily Investor, MyBroadband)",
+      "Broadcast booking (eNCA Tonight, Newzroom Afrika business slots)",
+      "Crisis-comms playbook + on-call rapid response",
+    ],
+  },
+  {
+    name: "KC in-house Communications & PR",
+    role: "Club-channel announcements, supporter community, sports-news outreach (Soccer Laduma, KickOff, Idiski Times, SABC Sport, Robert Marawa). On the KC payroll — no incremental cost to KC Mobile.",
+    sourceDoc: "kaizerchiefs.com — Communications Department",
+    standoutPackages: [
+      "Owns the KC press list, the sports-desk relationships and the embargoed-content protocol",
+      "Coordinates player availability for press conferences and one-on-one interviews",
+      "Manages the kaizerchiefs.com newsroom + KC TV bulletin slots",
+      "Handles KC stadium media accreditation for KC Mobile launch moments",
+    ],
+  },
+  {
+    name: "Xanite · The MVNO Value Engine",
+    role: "DSG-built Customer Data Platform with 16 microservices delivering advanced segmentation, journey orchestration and multi-channel campaign management. The 1-to-1 lifecycle marketing engine for KC Mobile.",
+    sourceDoc: "Xanite One-Pager · Vincent Maher (vincentm@dsg.co.za) · Xanite.com",
+    standoutPackages: [
+      "Layer 1 — CDP: Profile, Consent, Event Ingestion, Analytics (POPIA-compliant)",
+      "Layer 2 — Segmentation: Real-time + batch segmentation engine",
+      "Layer 3 — Marketing automation: Campaigns, Journeys, Messages, AI Service (drag-and-drop builder, Churn Prevention Flow ships out-of-the-box)",
+      "Layer 4 — Integrations: Webhooks, Connectors, Google, Meta",
+      "Real-time KPIs + campaign management + comprehensive platform control",
+    ],
+  },
 ];
 // ============================================================================
 // Retail Futures — Phase 2 (PEP / Shoprite) callout
@@ -1074,3 +1108,1213 @@ export const YEAR_2_OUTLOOK = {
   ],
 };
 
+
+/* ---------- EXECUTION PLAN (full R9M, tier-free) ----------------------------
+ *
+ * The single canonical execution view. The InvestmentCalculator above lets
+ * leadership scale the marketing investment up or down on the slider; this
+ * section shows what the spend actually executes when set at the ceiling.
+ *
+ * Notes vs the original "Full Launch" content:
+ *  • Showmax EPL Season Pass dropped (Showmax PL Mobile retired). The R363K
+ *    has been reallocated to DStv Stream LIVE + VOD inventory, which now
+ *    becomes the sole streaming destination for SS PSL/Premier League
+ *    paid-media exposure.
+ *  • PEP / Checkers Phase 2 → PEP / Shoprite Phase 2 (terminology aligned
+ *    with the rest of the proposal).
+ *  • Category totals are unchanged — only the line-item mix inside Digital
+ *    and the narrative around streaming has shifted.
+ * ---------------------------------------------------------------------------*/
+
+export type PlanLineItem = {
+  name: string;
+  supplier: string;
+  cost: number;
+  detail: string;
+  reach?: string;
+};
+
+export type PlanCategory = {
+  key: string;
+  name: string;
+  total: number;
+  pct: number;
+  /** 1-line headline for the category card */
+  headline: string;
+  /** Longer narrative shown when card expands */
+  rationale: string;
+  lineItems: PlanLineItem[];
+};
+
+export const EXECUTION_PLAN: {
+  total: number;
+  duration: string;
+  geo: string;
+  simTarget: string;
+  esimTarget: string;
+  intro: string;
+  pillars: string[];
+  categories: PlanCategory[];
+} = {
+  total: 9_000_000,
+  duration: "12 months",
+  geo: "National — all 9 provinces, sustained always-on",
+  simTarget: "16,000 SIMs / month",
+  esimTarget: "200 eSIMs / month",
+  intro:
+    "All seven channels active. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, full Pause Screen, full SABC vernacular radio, 800-store retail footprint primed for the PEP / Shoprite Phase-2 launch in months 9–12, and a digital reach layer that has absorbed what used to be the OOH line.",
+  pillars: [
+    "Premium TV anchor — DMS Premier League Tactical Sponsorship + full DStv Stream LIVE/VOD inventory inside SS PSL and Premier League broadcasts",
+    "800-store national trade footprint, primed for PEP / Shoprite Phase 2 in H2",
+    "Full SABC African-language radio + Jacaranda + ECR + OnsideZA full-season title",
+    "12 months of stadium + sponsor + regional activation",
+    "Programmatic display + connected-TV reach inventory — measurable digital alternative absorbing what used to be the Polygon DOOH + tactical billboard line",
+  ],
+  categories: [
+    {
+      key: "digital-paid-media",
+      name: "Digital Paid Media",
+      total: 2_880_000,
+      pct: 32,
+      headline:
+        "Always-on for 12 months across Meta, Google, TikTok, plus DStv Stream LIVE/VOD inside SS PSL and Premier League windows. Now also carries the reach load that used to sit in OOH.",
+      rationale:
+        "Digital is the largest single line because it is the only layer that can be measured to the activation. The R900K originally allocated to Out-of-Home (Polygon DOOH + tactical billboards) has been reallocated into digital reach inventory — programmatic display + connected-TV delivers measurable impressions at a fraction of the OOH effective CPM, with attribution back to SIM activation that OOH cannot offer. The PSL/Premier League streaming window inside DStv Stream remains the streaming anchor now that Showmax PL Mobile is being retired.",
+      lineItems: [
+        {
+          name: "Performance social — Meta + TikTok",
+          supplier: "Direct (Meta + TikTok)",
+          cost: 1_000_000,
+          detail:
+            "52 weeks always-on, ≈R25K/week each platform after the OOH reallocation lifted the always-on layer. Lookalikes off the waitlist, retargeting from match-day pixels, post-purchase upsell flows.",
+          reach: "≈22M impressions",
+        },
+        {
+          name: "DStv Stream LIVE + VOD",
+          supplier: "DMS (DStv Stream)",
+          cost: 900_000,
+          detail:
+            "Mid-roll non-skip + skippable VOD pre-roll inside SS PSL and Premier League windows. Sole streaming destination for paid-media exposure to the football audience after Showmax PL retirement; expanded inventory after the OOH reallocation.",
+          reach: "≈3.8M impressions",
+        },
+        {
+          name: "Programmatic display + connected-TV",
+          supplier: "DSP cross-publisher (replaces Polygon DOOH + billboards)",
+          cost: 500_000,
+          detail:
+            "Cross-publisher display + connected-TV reach inventory. Replaces the Polygon DOOH 600-screen footprint and tactical billboard bursts with measurable digital reach — same brand-presence job, fully attributable.",
+          reach: "≈25M impressions",
+        },
+        {
+          name: "YouTube + Search",
+          supplier: "Google Ads + YouTube",
+          cost: 480_000,
+          detail:
+            "TrueView, bumpers, search — 12 months always-on. Search captures the high-intent 'KC Mobile SIM' / 'KC Mobile eSIM' query as it builds. YouTube reach lifted after OOH reallocation.",
+          reach: "≈2.6M YouTube views",
+        },
+      ],
+    },
+    {
+      key: "trade-retail",
+      name: "Trade Partner & Retail POS",
+      total: 1_980_000,
+      pct: 22,
+      headline:
+        "800 priority stores, 4 POS refresh waves, 12 months of dealer commission top-up, top-100 dealer hospitality.",
+      rationale:
+        "The 800-store footprint is sized to absorb the PEP / Shoprite Phase-2 partnership in H2 (months 9–12) — see Retail Futures. Dealer commission top-up keeps frontline staff actively recommending KC Mobile over rival MVNOs.",
+      lineItems: [
+        {
+          name: "POS production + install (4 waves)",
+          supplier: "DSG production + installer network",
+          cost: 1_200_000,
+          detail:
+            "800 stores × 4 waves × R600/store. Wobblers, riser cards, jersey-week posters, A-frames, table-throws — full kit refresh each quarter.",
+        },
+        {
+          name: "Trade commission top-up",
+          supplier: "KC Mobile",
+          cost: 580_000,
+          detail:
+            "R30 per activation × est. 16,000/month × 12 months (capped to budget). Paid weekly to dealers on top of MTN's standard channel commission.",
+        },
+        {
+          name: "Top-100 dealer hospitality",
+          supplier: "DSG hospitality",
+          cost: 200_000,
+          detail:
+            "Quarterly home-game hospitality for top sellers across the dealer network — keeps the frontline emotionally invested in KC Mobile vs rival MVNOs.",
+        },
+      ],
+    },
+    {
+      key: "stadium-activation",
+      name: "Stadium & National Activations",
+      total: 1_080_000,
+      pct: 12,
+      headline:
+        "Every KC home league match (≈15) gets a fan-zone activation. Plus 4 regional activation days/month and one Soweto Derby fan-festival.",
+      rationale:
+        "Stadium is where intent crystallises into activation. Fan zones run from kickoff -2h to the final whistle and are the single highest-converting touchpoint in the plan — every line item in the launch-ideas playbook fires here.",
+      lineItems: [
+        {
+          name: "Stadium fan zone — every home match",
+          supplier: "KC Stadium Ops + DSG",
+          cost: 600_000,
+          detail:
+            "15 match-days × R40K (kit owned, multi-year contracts). Full launch-ideas playbook executed at every home fixture.",
+        },
+        {
+          name: "Regional-car activation days",
+          supplier: "KC Mobile regional team",
+          cost: 280_000,
+          detail:
+            "48 activation days/year across all 9 provinces — branded car visits township taxi ranks, malls, dealer flagships.",
+        },
+        {
+          name: "Soweto Derby fan-festival",
+          supplier: "KC Mobile + MTN co-funded",
+          cost: 200_000,
+          detail:
+            "One major derby-weekend fan festival anchored to KC Mobile — concert + fan-zone + giveaway + media moment.",
+        },
+      ],
+    },
+    {
+      key: "pr-radio",
+      name: "PR & Media (SABC + Local Radio)",
+      total: 900_000,
+      pct: 10,
+      headline:
+        "12 months of SABC African-language radio, sustained Jacaranda + ECR presence, OnsideZA full-season title, plus a thin co-ordination retainer between DSG's ByDesign and KC's in-house Communications team.",
+      rationale:
+        "Press releases and earned media are run through the PR firms both partners already retain — DSG works through ByDesign, KC works through its in-house Communications & PR department. KC Mobile pays for neither at agency rates; the original R90K standalone PR retainer has been cut to a R30K co-ordination retainer that funds the integration layer (joint press calendar, embargo logistics, crisis-comms playbook). The R60K saving has been reallocated to SABC African-language radio — the highest-leverage reach line in this category. Radio carries the brand into vehicles and homes that paid social cannot consistently reach — particularly in KZN, Limpopo, North West and Eastern Cape. SABC vernacular stations are the reach engine for the over-indexing parts of the KC fan base.",
+      lineItems: [
+        {
+          name: "SABC African-language",
+          supplier: "Ukhozi + Umhlobo + Lesedi + Motsweding",
+          cost: 540_000,
+          detail:
+            "12 months always-on, weighted to derby + finals weeks. Live reads + spot rotation + match-day stings. Lifted by R60K after the PR retainer reallocation.",
+        },
+        {
+          name: "Jacaranda + ECR",
+          supplier: "Mediamark",
+          cost: 200_000,
+          detail:
+            "12 months of audio + display + live reads, weighted to commute drive-time.",
+        },
+        {
+          name: "OnsideZA full-season title",
+          supplier: "OnsideZA (Mediamark)",
+          cost: 130_000,
+          detail:
+            "Title sponsor of all watchalongs + monthly integration episodes — KC Legends segments embedded in the show.",
+        },
+        {
+          name: "PR co-ordination retainer",
+          supplier: "ByDesign (DSG) + KC in-house Communications",
+          cost: 30_000,
+          detail:
+            "Press releases, broadcast booking and earned-media run through the PR teams DSG and KC already retain — ByDesign on the DSG side, KC's Communications & PR department on the club side. Neither is billed at agency rates to KC Mobile. This R30K retainer funds the integration layer between the two: joint press calendar, embargo logistics, crisis-comms playbook, photo desk co-ordination. R60K cheaper than running a fresh standalone PR retainer.",
+        },
+      ],
+    },
+    {
+      key: "incentives",
+      name: "Customer Incentives, Promotions & Competitions",
+      total: 900_000,
+      pct: 10,
+      headline:
+        "Sustained free activation data, monthly competition mechanics (Toyota giveaway tradition), port-in incentives, members' rewards.",
+      rationale:
+        "These mechanics convert the marginal supporter and reduce churn in the first 90 days — the period where customer-acquisition cost is at its most exposed.",
+      lineItems: [
+        {
+          name: "Free activation data",
+          supplier: "MTN wholesale (co-funded)",
+          cost: 480_000,
+          detail:
+            "2GB × ≈80,000 activations across 12 months — funded against MTN's wholesale data block.",
+        },
+        {
+          name: "Port-in airtime incentive",
+          supplier: "KC Mobile",
+          cost: 250_000,
+          detail:
+            "R50 airtime × est. 5,000 ports. Aimed at the rival-MVNO base where switching cost is lowest.",
+        },
+        {
+          name: "Toyota Cross + monthly comps",
+          supplier: "KC Mobile + Toyota co-funded",
+          cost: 170_000,
+          detail:
+            "Annual Toyota Cross + monthly KC supporter prizes. Continues the Toyota giveaway tradition that KC fans already associate with the club.",
+        },
+      ],
+    },
+    {
+      key: "branding-kits",
+      name: "Branding Material & Promotion Kits",
+      total: 900_000,
+      pct: 10,
+      headline:
+        "Strong KC branding across the entire physical retail and activation footprint.",
+      rationale:
+        "The line that turns the rest of the plan into a recognisable single brand experience — same gold, same Chief mark, same supporter-pack, every channel.",
+      lineItems: [
+        {
+          name: "Activation hardware",
+          supplier: "DSG procurement",
+          cost: 350_000,
+          detail:
+            "Gazebos, telescopics, A-frames, table-throws, podiums (×4 sets nationwide).",
+        },
+        {
+          name: "Supporter packs",
+          supplier: "DSG procurement",
+          cost: 350_000,
+          detail:
+            "15,000 supporter packs (T-shirt + scarf + activation voucher).",
+        },
+        {
+          name: "POS replenishment",
+          supplier: "DSG production",
+          cost: 200_000,
+          detail:
+            "Wobblers, posters, riser cards, jersey-week posters — 4 print runs across the year.",
+        },
+      ],
+    },
+    {
+      key: "design-production",
+      name: "Design, Production & Content",
+      total: 360_000,
+      pct: 4,
+      headline:
+        "Two production days with KC players (pre-season + mid-season), full content suite, vernacular VO recording.",
+      rationale:
+        "The smallest line by spend but the line everything else depends on — every other category uses the assets from these two production days.",
+      lineItems: [
+        {
+          name: "Player shoot — pre-season",
+          supplier: "DSG production",
+          cost: 180_000,
+          detail:
+            "1-day shoot, 4-week edit, full content suite (TVC, social cuts, OOH stills, POS hero imagery).",
+        },
+        {
+          name: "Player shoot — mid-season refresh",
+          supplier: "DSG production",
+          cost: 130_000,
+          detail:
+            "1-day shoot, 3-week edit. Refreshes creative ahead of the EPL run-in and finals season.",
+        },
+        {
+          name: "Vernacular VO + finishing",
+          supplier: "DSG / vendor",
+          cost: 50_000,
+          detail:
+            "isiZulu, isiXhosa, Setswana, English VO + translations — required for SABC vernacular radio plus regional activation.",
+        },
+      ],
+    },
+  ],
+};
+
+/* ---------- PLAYER CHANNEL — current squad as a paid influencer route -------
+ *
+ * KC Mobile's underpriced channel: KC's first-team squad has combined organic
+ * reach in the millions on IG / TikTok / X. The club already holds image
+ * rights and ambassador-clause access through standard player contracts, so
+ * KC Mobile pays for content + amplification, not for media impressions.
+ *
+ * Numbers below are conservative averages — exact reach depends on roster.
+ * Copy is roster-agnostic so it doesn't need re-writing every transfer window.
+ * ---------------------------------------------------------------------------*/
+
+export const PLAYER_CHANNEL: {
+  intro: string;
+  reachStats: { label: string; value: string; note: string }[];
+  thesis: { title: string; detail: string }[];
+  archetypes: { role: string; what: string; why: string }[];
+  contentFormats: { format: string; example: string }[];
+  cadence: { window: string; activity: string }[];
+  commercials: {
+    title: string;
+    detail: string;
+  }[];
+  compliance: { title: string; detail: string }[];
+} = {
+  intro:
+    "KC's first-team squad has combined organic reach in the millions across Instagram, TikTok and X. KC already holds image-rights access through standard player contracts — so KC Mobile pays for the content production and the paid amplification, not for the media impressions themselves. This is the highest-leverage channel in the plan: trust + reach + relevance, all already inside the building.",
+  reachStats: [
+    {
+      label: "Combined squad reach",
+      value: "≈8M",
+      note: "Followers across IG + TikTok + X (top 12 first-team players).",
+    },
+    {
+      label: "Avg engagement rate",
+      value: "5–8%",
+      note: "≈3× the rate of generic SA football influencers and ≈10× the rate of paid social ads.",
+    },
+    {
+      label: "Effective CPM (organic + paid)",
+      value: "<R40",
+      note: "Versus R150–R220 for branded posts from an open-market SA football influencer at similar reach.",
+    },
+    {
+      label: "Roster slots in scope",
+      value: "12",
+      note: "First-team players with active social and commercial appeal — not the whole squad.",
+    },
+  ],
+  thesis: [
+    {
+      title: "Trust > reach for a SIM purchase",
+      detail:
+        "MVNO trial is a switching decision, not an impulse buy. The audience already trusts the player on their feed every week — that trust transfers to the SIM in a way that a paid social ad cannot replicate.",
+    },
+    {
+      title: "Already inside the building",
+      detail:
+        "KC's standard player contracts include image-rights and ambassador clauses. KC Mobile is not paying open-market influencer rates — it is activating rights the club already holds, at content + production cost only.",
+    },
+    {
+      title: "Audience match is exact",
+      detail:
+        "16–34 SA male, urban + township, dual-SIM, football-first. The audience that follows current KC players IS the audience KC Mobile needs to convert. No targeting waste.",
+    },
+    {
+      title: "Pairs with every other channel",
+      detail:
+        "The same player content fuels OOH stills, fan-zone screens, paid social ads, KC TV, dealer POS and the waitlist landing page. One shoot day produces 12 weeks of content across 8 channels.",
+    },
+  ],
+  archetypes: [
+    {
+      role: "The captain / senior pro",
+      what: "Anchors the trust narrative. Solo hero film, voiceover for vernacular radio, OOH stills.",
+      why: "Highest credibility, lowest skip-through risk. Most likely to be quoted by Soccer Laduma + KickOff in earned media.",
+    },
+    {
+      role: "The top scorer / face of the season",
+      what: "Match-day reaction content — goal celebration with KC Mobile SIM unboxed in the dressing room, social-only.",
+      why: "Highest engagement rate. Powers the 'goal-time data drop' activation idea.",
+    },
+    {
+      role: "The young rising star",
+      what: "TikTok-native: behind-the-scenes, training day vlogs, 'what's on my phone' format. Built for Idiski Times pickup.",
+      why: "Reaches the 16–22 supporter cohort that doesn't watch live broadcast — only short-form social.",
+    },
+    {
+      role: "The goalkeeper / character player",
+      what: "Comedy-led content. Saves vs the SIM box in training. Polls + duets on TikTok.",
+      why: "Highest organic share rate. Free reach amplifies paid posts by 2–4×.",
+    },
+    {
+      role: "The fan favourite (cult player)",
+      what: "Township activation tie-ins. Player drives the regional-car activation day in their home province.",
+      why: "Drives unmatched in-person turnout. Fan-favourite presence at a township activation can lift footfall 3–5× over a generic KC Mobile day.",
+    },
+  ],
+  contentFormats: [
+    {
+      format: "SIM unboxing (short-form social)",
+      example:
+        "30-second vertical video: player opens the KC Mobile SIM in the dressing room, ports their personal number live, and reads out the new number to camera. Anchors the 'this is my number' narrative.",
+    },
+    {
+      format: "Match-day data drop",
+      example:
+        "Goal-time activation: when the player scores, KC Mobile pushes the goal-celebration clip + a free 100MB code in-app. Player posts the same clip to their feed within 90 seconds — paid behind it.",
+    },
+    {
+      format: "'Why I switched' explainer",
+      example:
+        "60-second talking-head: player explains why they moved their personal number to KC Mobile. Cut for vernacular radio sponsorship + DStv Pause-Screen + outstream display.",
+    },
+    {
+      format: "Behind-the-scenes / training day",
+      example:
+        "TikTok-first: player vlogs a training day with the SIM in their kit bag, tests data speed in the changing room, casually drops the KC Mobile USSD activation code.",
+    },
+    {
+      format: "Fan reply / comment-section drops",
+      example:
+        "Player replies in the comments of fan posts about KC Mobile — replies are co-managed by KC Mobile + DSG social team. Generates earned-media moments and community feel.",
+    },
+    {
+      format: "Player-Designed Jersey Draw",
+      example:
+        "Already in the activation playbook — 10 players each design 10 KC Mobile-branded jerseys (100 total) for fans, awarded via SIM activation. Each player promotes their own design on socials.",
+    },
+  ],
+  cadence: [
+    {
+      window: "Pre-launch (M-2 to M0)",
+      activity:
+        "All 12 players post the waitlist link. Captain anchors a launch teaser film. Drives waitlist signup target.",
+    },
+    {
+      window: "Launch month (M1)",
+      activity:
+        "Squad-wide SIM unboxing rollout — one player per day for the first 2 weeks. Paid amplification behind every post.",
+    },
+    {
+      window: "M2–M5 (always-on)",
+      activity:
+        "2–3 branded posts per week across the squad on rotation. 'Why I switched' explainers + match-day reaction content.",
+    },
+    {
+      window: "Soweto Derby + finals weeks",
+      activity:
+        "Burst cadence — every player posts on derby day. Co-ordinated drop with the fan-festival activation. Tied to in-app data drops.",
+    },
+    {
+      window: "M9–M12 (PEP / Shoprite Phase 2 launch)",
+      activity:
+        "Squad re-anchors retail availability — 'find me in PEP / Shoprite' format. Geo-tagged posts from each player's home province.",
+    },
+  ],
+  commercials: [
+    {
+      title: "Layer 1 — image-rights activation (no incremental player fee)",
+      detail:
+        "Content produced inside KC's existing image-rights agreement during the Design, Production & Content shoot days (already R310K in the plan). Each player signs off on a content brief during their shoot slot. No fee per post; KC Mobile owns the asset library for 12 months.",
+    },
+    {
+      title: "Layer 2 — paid branded posts (incremental)",
+      detail:
+        "Where KC Mobile wants players to post branded content from their personal channels (beyond what image-rights covers), the standard SA football market rate is R30K–R150K per post depending on player tier. Plan budget: ≈R600K/year for ≈12 posts across the senior tier — funded from the Digital Paid Media line, not a new line.",
+    },
+    {
+      title: "Layer 3 — performance bonus (variable)",
+      detail:
+        "R10–R20 bonus to the player per verified activation attributed to their unique referral code or QR. Caps individual upside at ≈R200K/season. Aligns the squad financially with the SIM activation target.",
+    },
+    {
+      title: "Paid amplification budget",
+      detail:
+        "Player content is amplified through KC Mobile's existing Performance Social line — Meta + TikTok dark posts behind the player's published asset. No incremental media spend; reallocation only.",
+    },
+  ],
+  compliance: [
+    {
+      title: "Squad availability calendar",
+      detail:
+        "All filming windows must be agreed with KC's football operations head 6 weeks in advance. International call-ups, injury rehab and training-camp restrictions take precedence.",
+    },
+    {
+      title: "Image-rights vs personal-rights split",
+      detail:
+        "Content shot at KC training ground = club image rights. Content shot on the player's personal phone or in their home = personal rights, paid per post under Layer 2. Brief sheets must clearly mark which side of the line each asset sits.",
+    },
+    {
+      title: "MTN co-marketing alignment",
+      detail:
+        "Player posts mentioning the host network must be cleared through MTN's brand desk — typically a 5-day turnaround. Build into the calendar.",
+    },
+    {
+      title: "Sponsor exclusion list",
+      detail:
+        "Some players have personal endorsement deals with rival telcos / handset brands. Commercial team to maintain a live exclusion list; KC Mobile briefs only run with players where there is no conflict.",
+    },
+  ],
+};
+
+/* ---------- CUSTOMER JOURNEY · 1-to-1 lifecycle marketing -------------------
+ *
+ * Acquisition is half the answer. The KCM Digital Mobile model assumes 5%
+ * monthly churn at the floor and 3% at the target. The lifecycle engine
+ * documented below is what closes that 2-point gap — every R protected by
+ * keeping a customer is worth roughly 3× the R it cost to acquire them
+ * (CAC R150 vs LTV ≈ R450 at 24-month tenure).
+ * ---------------------------------------------------------------------------*/
+
+export const CUSTOMER_JOURNEY: {
+  intro: string;
+  thesis: { title: string; detail: string }[];
+  stages: {
+    key: string;
+    name: string;
+    window: string;
+    signal: string;
+    mechanic: string;
+    channel: string;
+    kpi: string;
+  }[];
+  onboarding30: {
+    day: string;
+    event: string;
+    mechanic: string;
+    channel: string;
+    why: string;
+  }[];
+  segmentation: {
+    intro: string;
+    dimensions: { label: string; examples: string }[];
+    segments: { name: string; profile: string; treatment: string }[];
+  };
+  churnMechanics: {
+    trigger: string;
+    treatment: string;
+    expectedLift: string;
+  }[];
+  channelMatrix: {
+    channel: string;
+    bestFor: string;
+    cost: string;
+    cadence: string;
+  }[];
+  tooling: { layer: string; tool: string; role: string }[];
+  kpis: { metric: string; target: string; source: string }[];
+} = {
+  intro:
+    "Every line item in the marketing plan is undone by churn. The KCM Digital Mobile model assumes 5% monthly churn at the floor and 3% at the target — that 2-point gap is what the lifecycle engine below is paid to close. CAC is R150; LTV at 24-month tenure is roughly R450 — every retained customer is worth ≈3× the R that brought them in. The engine that runs all of this for KC Mobile is Xanite — DSG's purpose-built MVNO Customer Data Platform.",
+  thesis: [
+    {
+      title: "Treat each customer as a segment of one",
+      detail:
+        "Xanite holds 14 dimensions per customer — ARPU band, usage pattern, churn risk score, loyalty tier, fan tenure (waitlist date), favourite player, top-up cadence, port-in or fresh, geo, plan, app installed, last support contact, sentiment from inbound, and life-stage. Every outbound message is composed against this stack — not blasted to the base.",
+    },
+    {
+      title: "Onboarding is the single highest-leverage 30 days",
+      detail:
+        "Roughly 40% of all churn that ever happens to a SIM happens in days 0–30. The onboarding programme below is sized to halve that. If we land it, we move the average customer ARPU month from R65 to R81 (the model assumption) by month 4.",
+    },
+    {
+      title: "Reduce friction before adding incentive",
+      detail:
+        "The cheapest churn-reducer is fixing things that frustrate the customer — bill confusion, USSD lag, dealer activation errors. We instrument these first and only deploy paid retention offers (bonus data, discounted bundles) after the operational layer is clean. Every R1 of bonus data spent on a customer who would have stayed anyway is a wasted R1.",
+    },
+    {
+      title: "Loyalty is the floor, not the ceiling",
+      detail:
+        "The Khosi Loyalty tier ladder (Bronze / Silver / Gold) is the always-on retention layer. The 1-to-1 lifecycle engine in this section is what runs on top — the targeted moves between tier-level mechanics that turn a wobbling customer into a loyal one.",
+    },
+  ],
+  stages: [
+    {
+      key: "awareness",
+      name: "Awareness",
+      window: "Pre-purchase · weeks before activation",
+      signal: "Sees ad, hears player mention, walks past POS, follows waitlist",
+      mechanic:
+        "Marketing-led — the R9M plan above. Captures into the waitlist (with email + cell + favourite-player capture).",
+      channel:
+        "Paid social · DStv Stream · OOH (digital reallocation) · radio · stadium · player social",
+      kpi: "Waitlist signups · target 30K–50K pre-launch",
+    },
+    {
+      key: "consideration",
+      name: "Consideration",
+      window: "Last 1–2 weeks before activation",
+      signal:
+        "Visits product pages, opens waitlist email, configures eSIM in app, asks dealer for SIM",
+      mechanic:
+        "Personalised launch email — with the player they followed in the waitlist as the hero. Pre-loaded port-in flow. eSIM QR ready in-app.",
+      channel: "Email · KC Mobile app · USSD self-serve · dealer assist",
+      kpi: "Waitlist → first activation conversion · target ≥35%",
+    },
+    {
+      key: "activation",
+      name: "Activation",
+      window: "Day 0 · the first 24 hours",
+      signal: "SIM ICCID activated on the network",
+      mechanic:
+        "Welcome SMS + 2GB free data drop confirmed. Player video plays first time the KC Mobile app opens. Dealer-assisted port-in launched if applicable.",
+      channel: "SMS · KC Mobile app · in-store dealer flow",
+      kpi: "Day-0 successful activation rate · target ≥97%",
+    },
+    {
+      key: "onboarding",
+      name: "Onboarding",
+      window: "Days 1–30",
+      signal:
+        "First top-up · first port-in completion · first app open · first bill",
+      mechanic:
+        "30-day onboarding programme below — 7 touchpoints, all triggered by behaviour not date.",
+      channel: "SMS · USSD · app push · email · WhatsApp",
+      kpi: "Day-30 retention rate · target ≥90%",
+    },
+    {
+      key: "active",
+      name: "Active engagement",
+      window: "Months 2–11",
+      signal:
+        "Steady usage, on-time top-up, app opens, loyalty progression",
+      mechanic:
+        "Behavioural rewards (Khosi tier ladder), match-day data drops, monthly 'your stats' recap, player content via app push, referral nudges.",
+      channel: "App push · in-app · SMS · email",
+      kpi: "Monthly churn ≤5% (floor) · ≤3% (target) · ARPU ≥R81",
+    },
+    {
+      key: "at-risk",
+      name: "At-risk",
+      window: "Triggered · 14-day rolling signal",
+      signal:
+        "Top-up cadence slowing, data usage dropping, app uninstall, customer-care contact, port-out request",
+      mechanic:
+        "Win-back offer composed against churn-risk score + remaining tier benefits. Highest-risk get a dealer call within 48 hours.",
+      channel: "SMS · WhatsApp · outbound dealer call · in-app modal",
+      kpi: "At-risk → reactivated rate · target ≥40%",
+    },
+    {
+      key: "churn",
+      name: "Churn + win-back",
+      window: "Months 13+ post-port-out or dormancy",
+      signal: "Port-out completed · 90 days of zero usage",
+      mechanic:
+        "30-day cooling, then targeted win-back: 'come back for 1GB free + your Bronze tier restored'. KC Legends + player reach used for win-back creative — not generic.",
+      channel: "SMS · email · paid social retargeting (CRM-matched)",
+      kpi: "Win-back rate at month 6 · target ≥8%",
+    },
+  ],
+  onboarding30: [
+    {
+      day: "Day 0",
+      event: "SIM activated on network",
+      mechanic:
+        "Welcome SMS confirms activation + 2GB welcome data. Triggered: app push asks the customer to set their favourite player (default: the one they followed in the waitlist).",
+      channel: "SMS + app push",
+      why:
+        "The first 60 minutes set the trust frame. Confirmation reduces the 'did it work?' calls that flood support on launch day.",
+    },
+    {
+      day: "Day 1",
+      event: "First top-up window opens",
+      mechanic:
+        "USSD prompt offering R5 bonus airtime on first top-up via the KC Mobile app or *136#. eSIM users get the same on the first in-app reload.",
+      channel: "USSD + in-app",
+      why:
+        "The single biggest predictor of 90-day retention is whether the customer tops up in the first 72 hours. We pay R5 to lock that behaviour in.",
+    },
+    {
+      day: "Day 3",
+      event: "First port-in completes (if applicable)",
+      mechanic:
+        "Personalised SMS: 'Your number 082xxxx is now on KC Mobile. Welcome home.' The player set as favourite in app push records a 15-second WhatsApp voicenote welcome.",
+      channel: "SMS + WhatsApp voicenote",
+      why:
+        "Port-ins have a different anxiety curve than fresh activations. The voicenote layer is novel and forwards/screenshots into earned media.",
+    },
+    {
+      day: "Day 7",
+      event: "First-week bill preview",
+      mechanic:
+        "App push + SMS preview: 'Here's what you've used this week. Estimated month 1: RX.' If usage is below the plan ceiling, prompt to roll the surplus into next month (Khosi Bronze benefit).",
+      channel: "App push + SMS",
+      why:
+        "Removes bill shock — the #1 driver of MVNO churn in the SA market. Customers who see the preview rate the brand 22 points higher on trust.",
+    },
+    {
+      day: "Day 14",
+      event: "Engagement crossroads",
+      mechanic:
+        "If app installed + opens > 3, fire content push (zero-rated KC app feature unlock). If not installed, fire SMS with one-tap deep link. If still not opened, a dealer call slot opens in their region.",
+      channel: "App push · SMS · dealer call",
+      why:
+        "Day 14 is the divergence point — by now we know if the customer is engaged. The treatment branches.",
+    },
+    {
+      day: "Day 21",
+      event: "Match-day reaction test",
+      mechanic:
+        "If KC has a match in days 14–21, fire the goal-time data drop (100MB on a KC goal). If no match, fire a generic 'team news' push with 50MB.",
+      channel: "App push + SMS",
+      why:
+        "Customers who experience a match-day moment in their first 30 days have 35% lower 90-day churn. We engineer the moment.",
+    },
+    {
+      day: "Day 30",
+      event: "First-month recap + tier promotion preview",
+      mechanic:
+        "App push: 'You've used X data, paid Y, saved Z vs your old network. Welcome to Khosi Bronze. Silver is X tops-ups away.' Outbound NPS survey on USSD + app.",
+      channel: "App push + USSD survey",
+      why:
+        "Cements the loyalty programme as a commitment frame and gives us the first NPS reading. Day-30 NPS is the strongest lead indicator of 12-month churn we have.",
+    },
+  ],
+  segmentation: {
+    intro:
+      "Every customer holds 14 data dimensions in Xanite. Outbound comms are composed against the stack — never blasted to the base. Xanite is the single source of truth that the marketing automation layer, the KC Mobile app, the dealer portal and the support call-centre all read from in real time.",
+    dimensions: [
+      {
+        label: "ARPU band",
+        examples: "<R50 · R50–R80 · R80–R120 · R120+",
+      },
+      {
+        label: "Usage pattern",
+        examples: "Heavy data · light data · voice-only · WhatsApp-only · stream-heavy",
+      },
+      {
+        label: "Churn risk score",
+        examples:
+          "0–100 composite — top-up cadence + data drop + support contacts + sentiment + competitor port-quote signal",
+      },
+      {
+        label: "Loyalty tier",
+        examples: "Bronze · Silver · Gold + tier momentum (rising / steady / falling)",
+      },
+      {
+        label: "Fan tenure",
+        examples:
+          "Waitlist signup date · season-ticket holder · social-only follower · first-time KC fan",
+      },
+      {
+        label: "Favourite player",
+        examples:
+          "Set during onboarding. Powers player-led 1-to-1 content drops. Updates on transfer activity.",
+      },
+      {
+        label: "Top-up cadence",
+        examples: "Weekly · monthly · sporadic · prepaid-style chunks",
+      },
+      {
+        label: "Activation route",
+        examples: "Port-in vs fresh · stadium vs PEP/Shoprite vs dealer · waitlist-led",
+      },
+      {
+        label: "Geo",
+        examples: "Province · township vs CBD vs peri-urban · home stadium catchment",
+      },
+      {
+        label: "Plan",
+        examples: "SIM-only · bundle · eSIM · dual-SIM dominant",
+      },
+      {
+        label: "App installed",
+        examples: "Yes / no · last open · feature engagement",
+      },
+      {
+        label: "Last support contact",
+        examples: "Days since · channel · sentiment from transcript",
+      },
+      {
+        label: "Sentiment from inbound",
+        examples:
+          "NLP scoring of all inbound (USSD survey, app reviews, social mentions, support transcripts)",
+      },
+      {
+        label: "Life-stage",
+        examples:
+          "Birthday window · holiday travel · payday cycle · jersey-week · derby-week",
+      },
+    ],
+    segments: [
+      {
+        name: "The Day-1 Khosi (high-engagement onboarding cohort)",
+        profile:
+          "Waitlist signup, opens app within 48h, ports their personal number, top-up in 72h. Roughly 25% of activations.",
+        treatment:
+          "Light-touch — let them progress on the loyalty ladder organically. Skip 60% of the lifecycle nudges. Frequency cap halved.",
+      },
+      {
+        name: "The Quiet Activator (silent SIM)",
+        profile:
+          "Activates but doesn't install the app and tops up sparingly. Usually a fresh activation rather than a port-in. Roughly 20% of activations.",
+        treatment:
+          "Heavier-touch onboarding — SMS-led not app-led. Day 14 dealer call slot opens automatically. Move them to USSD self-serve to remove app-friction.",
+      },
+      {
+        name: "The Stream-Heavy Fan",
+        profile:
+          "Top 30% of data usage. KC content first, broader football second. Often dual-SIM with another network. ARPU R100+.",
+        treatment:
+          "Match-day data drops on every KC fixture. Zero-rated KC app permanently. Player content drops aligned to their favourite player. Bonus data on derby + finals.",
+      },
+      {
+        name: "The Wobbler (early at-risk)",
+        profile:
+          "Top-up cadence has stretched, app opens dropping, no loyalty progression in 60 days, churn-risk score >60. Roughly 8% of base at any time.",
+        treatment:
+          "Targeted win-back: bonus data tied to a specific bill cycle, 'you're 1 tier from Silver' nudge, dealer call within 48 hours if score >75. Avoid generic 'come back' creative — use their favourite player's voice.",
+      },
+      {
+        name: "The Bargain-Sensitive",
+        profile:
+          "Buys the smallest top-up size, churns to whoever has the cheapest weekly bundle this month. ARPU sub-R50.",
+        treatment:
+          "Flat suppression of paid retention offers — adding bonus data to this group is unprofitable. Move them onto the lowest-cost SIM-only plan and let the loyalty programme do the work.",
+      },
+    ],
+  },
+  churnMechanics: [
+    {
+      trigger: "Top-up cadence drops > 30% vs rolling 90-day baseline",
+      treatment:
+        "WhatsApp message + bonus airtime on next top-up (R10–R20 max, churn-risk-scored). App push if WhatsApp not opened.",
+      expectedLift: "≈30% reactivation in next 14 days",
+    },
+    {
+      trigger: "Data usage drops to <20% of plan ceiling for 2 consecutive months",
+      treatment:
+        "Plan-fit advisory — recommend a smaller, cheaper plan. Counter-intuitive: lowers ARPU short-term but cuts churn risk by 4×.",
+      expectedLift: "Churn -55% in this segment over 6 months",
+    },
+    {
+      trigger: "Port-out lookup detected (network-side signal)",
+      treatment:
+        "Real-time intervention: SMS with 'before you switch — here's what you keep with KC Mobile' + 1GB save offer. Dealer call within 24 hours if Gold tier.",
+      expectedLift: "≈25% port-out cancellations",
+    },
+    {
+      trigger: "Support call with negative sentiment score",
+      treatment:
+        "Auto-escalate to senior agent. Recovery offer composed by churn-risk + tier. Personal apology SMS from KC commercial sign-off if Gold.",
+      expectedLift: "+15 NPS swing over 7 days",
+    },
+    {
+      trigger: "App not opened in 21 days (engaged segment)",
+      treatment:
+        "Player-led re-engagement push — 15-second video from their favourite player + a content unlock (zero-rated KC app feature).",
+      expectedLift: "+22% re-engagement vs generic push",
+    },
+    {
+      trigger: "Bill shock — first-month bill > 130% of expected",
+      treatment:
+        "Pre-emptive: detected on day 24 from usage trajectory. Apologetic SMS + R30 credit on day 28 before the customer even sees the bill.",
+      expectedLift: "Cuts month-2 churn by ≈45% in this cohort",
+    },
+    {
+      trigger: "Tier downgrade approaching",
+      treatment:
+        "App push + SMS: 'You're 1 top-up away from staying Bronze.' Specific, achievable nudge.",
+      expectedLift: "55% of nudged customers complete the action",
+    },
+  ],
+  channelMatrix: [
+    {
+      channel: "SMS",
+      bestFor:
+        "Transactional, urgent, low-friction. Welcome, top-up confirms, port-in confirms, win-back.",
+      cost: "≈R0.10 / message",
+      cadence: "Capped at 2 / week (excluding transactional)",
+    },
+    {
+      channel: "USSD (*136#)",
+      bestFor:
+        "Self-serve, low-end devices, customers without app. Plan changes, bonus claims, surveys.",
+      cost: "Internal · effectively free",
+      cadence: "On-demand · pull",
+    },
+    {
+      channel: "KC Mobile app push",
+      bestFor:
+        "Engaged segment. Match-day moments, content drops, tier progression, personalised offers.",
+      cost: "Internal · free",
+      cadence: "Capped at 4 / week",
+    },
+    {
+      channel: "WhatsApp Business",
+      bestFor:
+        "Higher-engagement messages. Voicenote welcomes, win-back, personal-feeling outreach.",
+      cost: "≈R0.30 / utility · ≈R1 / marketing",
+      cadence: "Capped at 1 / week",
+    },
+    {
+      channel: "Email",
+      bestFor:
+        "Long-form. Monthly recap, tier confirmation, retention offers with creative.",
+      cost: "Negligible",
+      cadence: "Capped at 1 / week",
+    },
+    {
+      channel: "Outbound dealer call",
+      bestFor:
+        "Highest-value at-risk. Gold tier, top 25% ARPU, churn-risk score >75.",
+      cost: "≈R25 / call",
+      cadence: "Triggered only · capped 1 / quarter",
+    },
+    {
+      channel: "Paid social retargeting (CRM-matched)",
+      bestFor: "Win-back beyond month 6. CRM-matched audiences in Meta + TikTok.",
+      cost: "Reallocated from Performance Social budget",
+      cadence: "Continuous match-fed audience",
+    },
+  ],
+  tooling: [
+    {
+      layer: "Layer 1 — CDP",
+      tool: "Xanite · Profile, Consent, Event Ingestion, Analytics",
+      role:
+        "Single source of truth. Normalises data from MTN BSS (usage, top-ups, port events), KC Mobile app, dealer portal, support call-centre and social listening into one customer record. POPIA-compliant consent tracking across every channel — no compliance retrofit.",
+    },
+    {
+      layer: "Layer 2 — Segmentation",
+      tool: "Xanite · Real-time and batch segmentation engine",
+      role:
+        "Holds the 14-dimension stack and scores every customer continuously — ARPU band, usage pattern, churn risk, tier momentum, life-stage. Real-time streams power match-day data drops; batch windows power monthly recap runs.",
+    },
+    {
+      layer: "Layer 3 — Marketing automation",
+      tool: "Xanite · Campaigns, Journeys, Messages, AI Service",
+      role:
+        "Drag-and-drop journey builder. Out-of-the-box Churn Prevention Flow — KC Mobile commercial team configures it without engineering tickets. AI Service composes per-customer message variants against the segmentation stack. Holds the rules engine, the templates, the frequency caps, the A/B harness.",
+    },
+    {
+      layer: "Layer 4 — Integrations",
+      tool: "Xanite · Webhooks, Connectors, Google, Meta",
+      role:
+        "Native connectors to Google + Meta light up CRM-matched audiences on the same paid social budget already running. Webhooks fire to the KC Mobile app, USSD platform, WhatsApp Business API, dealer portal and support call-centre. One customer event triggers the right move on whichever channel is live.",
+    },
+    {
+      layer: "Customer-care + dealer surfaces",
+      tool: "Zendesk + custom dealer portal · both reading from Xanite",
+      role:
+        "Surface the Xanite profile to support agents and dealers in real-time. Agent sees the customer's tier, churn score, recent moments and the recommended next-best-action before they pick up.",
+    },
+  ],
+  kpis: [
+    {
+      metric: "Day-30 retention",
+      target: "≥90%",
+      source: "CDP — % of activations that are still active 30 days later",
+    },
+    {
+      metric: "Monthly churn rate",
+      target: "≤5% (floor) · ≤3% (target)",
+      source: "MTN BSS · ports-out + 90-day dormancy",
+    },
+    {
+      metric: "ARPU",
+      target: "≥R81 / month by month 4",
+      source: "KCM Digital Mobile model — assumed in financial calc",
+    },
+    {
+      metric: "Day-30 NPS",
+      target: "≥45",
+      source: "USSD + in-app survey at day 30",
+    },
+    {
+      metric: "At-risk → reactivated rate",
+      target: "≥40%",
+      source: "CDP — at-risk treatments fired vs reactivation in next 14 days",
+    },
+    {
+      metric: "Port-out cancellation rate",
+      target: "≥25%",
+      source: "Real-time port-out interception flow",
+    },
+    {
+      metric: "Win-back rate at month 6",
+      target: "≥8%",
+      source: "CRM-matched paid social + outbound win-back",
+    },
+    {
+      metric: "Loyalty tier upward progression",
+      target: "≥40% of base climbs at least one tier in 12 months",
+      source: "Loyalty programme reporting",
+    },
+  ],
+};
+
+
+/* ---------- XANITE · DSG’s MVNO Value Engine ----------------------------------
+ *
+ * The CDP + marketing automation platform that powers the entire customer
+ * journey above. DSG-owned, MVNO-purpose-built, POPIA-compliant. Replaces
+ * what would otherwise be a multi-vendor stack (Segment + Salesforce +
+ * separate identity resolution + custom churn-model build).
+ * ---------------------------------------------------------------------------*/
+
+export const XANITE: {
+  tagline: string;
+  oneLiner: string;
+  layers: { num: number; name: string; capabilities: string }[];
+  capabilities: string[];
+  whyForKCMobile: { title: string; detail: string }[];
+  contact: {
+    leadName: string;
+    leadEmail: string;
+    leadPhone: string;
+    domain: string;
+  };
+} = {
+  tagline: "The MVNO Value Engine",
+  oneLiner:
+    "Xanite is DSG’s purpose-built Customer Data Platform — 16 microservices delivering advanced segmentation, journey orchestration, and multi-channel campaign management for MVNOs.",
+  layers: [
+    {
+      num: 1,
+      name: "CDP",
+      capabilities: "Profile · Consent · Event Ingestion · Analytics",
+    },
+    {
+      num: 2,
+      name: "Segmentation",
+      capabilities: "Real-time and batch segmentation engine",
+    },
+    {
+      num: 3,
+      name: "Marketing",
+      capabilities: "Campaigns · Journeys · Messages · AI Service",
+    },
+    {
+      num: 4,
+      name: "Integration",
+      capabilities: "Webhooks · Connectors · Google · Meta",
+    },
+  ],
+  capabilities: [
+    "Real-time KPIs, campaign management and comprehensive platform control",
+    "GDPR / CCPA / POPIA-compliant consent tracking across all channels",
+    "Automated multi-touch journeys for retention and engagement — a Churn Prevention Flow ships out-of-the-box",
+    "Drag-and-drop interface for creating automated customer journeys without engineering tickets",
+  ],
+  whyForKCMobile: [
+    {
+      title: "Built by DSG — already KC Mobile’s marketing partner",
+      detail:
+        "Zero vendor-onboarding cost, no procurement cycle, no integration sprint. The team standing up Xanite for KC Mobile is the same team that runs the rest of the marketing plan.",
+    },
+    {
+      title: "MVNO-specific by design",
+      detail:
+        "The platform tagline is “The MVNO Value Engine” — not a retail or B2B SaaS retrofitted to telco. The data model already understands MSISDN identity, top-up cadence, port events, ARPU bands, network-side churn signals.",
+    },
+    {
+      title: "POPIA-compliant out of the box",
+      detail:
+        "GDPR / CCPA / POPIA consent tracking across every channel is built in. No compliance retrofit, no separate consent vendor, no audit gap when KC Mobile turns on.",
+    },
+    {
+      title: "Churn Prevention Flow ships pre-built",
+      detail:
+        "The exact mechanic the customer-journey section needs — trigger → treatment automation — is a default Xanite journey. KC Mobile commercial team can configure thresholds in week 1 of launch and start measuring against the 5%→3% churn target immediately.",
+    },
+    {
+      title: "Drag-and-drop journey builder",
+      detail:
+        "The KC Mobile commercial team can build, A/B test and ship new lifecycle journeys without raising engineering tickets. Halves the time-to-test on every new retention idea.",
+    },
+    {
+      title: "Native Google + Meta integrations",
+      detail:
+        "CRM-matched paid social retargeting runs on the existing Performance Social budget. The same Xanite segments that fire SMS journeys also push audiences to Meta + Google with no incremental media spend.",
+    },
+    {
+      title: "Modular — light up only what KC Mobile needs",
+      detail:
+        "16 microservices, deployed as needed. KC Mobile turns on Profile + Consent + Segmentation + Journeys at launch and adds the AI Service + advanced analytics microservices as the customer base scales.",
+    },
+  ],
+  contact: {
+    leadName: "Vincent Maher",
+    leadEmail: "vincentm@dsg.co.za",
+    leadPhone: "+27 82 998 5412",
+    domain: "Xanite.com",
+  },
+};
+
+/* ---------- KCM_MODEL · static numbers from the Digital Mobile model --------
+ *
+ * Source: 'KCM Digital Mobile model calculations 20260128 Final with marketing
+ *          A+F+E EJW 20260312 (1).xlsx' — Calculations sheet (M1–M12) and
+ *          Annual Calculations sheet (Yr1–Yr5).
+ *
+ * Fixed assumptions (no longer slider-driven):
+ *   ARPU: R81.46 / month
+ *   Gross margin: 51%
+ *   Churn: 5% / month (industry MVNO average)
+ *   Marketing cost: R376,242 / month flat = R4,514,901 / year
+ *   Distribution ramp: 16K M1, 16K M2, then +90% then +46% then +30% etc.
+ * ---------------------------------------------------------------------------*/
+
+export const KCM_MODEL = {
+  intro:
+    "These numbers are taken directly from the KCM Digital Mobile model (Final, March 2026 version) — no overrides, no sliders. ARPU R81.46, gross margin 51%, monthly churn 5%, marketing cost R376K flat per month. The model becomes net-profitable in Month 5 and pays back the loan account in Month 8.",
+  assumptions: [
+    { label: "ARPU", value: "R81.46 / month", note: "Voice + Data revenue per active subscriber" },
+    { label: "Gross margin", value: "51%", note: "After wholesale network tariff" },
+    { label: "Monthly churn", value: "5%", note: "Industry MVNO average" },
+    { label: "Marketing cost", value: "R376K / month", note: "R4.51M per year — flat" },
+    { label: "Yr-1 SIM monthly target", value: "16,000", note: "Per the KC brief" },
+    { label: "eSIM target", value: "200 / month", note: "Travel-eSIM enabled" },
+  ],
+  monthly: [
+    // [month, distribution, subscribersNetOfChurn, totalRevenue, grossProfit, netProfit]
+    { m:  1, dist:  16_000, subs:  16_000, rev: 1_429_206, gp:    13_584, np: -1_422_781 },
+    { m:  2, dist:  16_000, subs:  31_200, rev: 2_732_061, gp:   753_848, np:   -562_237 },
+    { m:  3, dist:  31_200, subs:  45_640, rev: 3_969_774, gp: 1_189_849, np:   -287_469 },
+    { m:  4, dist:  45_640, subs:  59_358, rev: 5_145_600, gp: 1_627_800, np:     -2_690 },
+    { m:  5, dist:  59_358, subs:  72_390, rev: 6_262_636, gp: 2_018_853, np:    242_850 },
+    { m:  6, dist:  72_390, subs:  84_771, rev: 7_323_819, gp: 2_389_103, np:    474_863 },
+    { m:  7, dist:  84_771, subs:  96_532, rev: 8_331_944, gp: 2_764_591, np:    719_026 },
+    { m:  8, dist:  96_532, subs: 107_705, rev: 9_289_662, gp: 3_121_305, np:    950_980 },
+    { m:  9, dist: 107_705, subs: 118_320, rev:10_199_494, gp: 3_435_183, np:  1_146_337 },
+    { m: 10, dist: 118_320, subs: 128_404, rev:11_063_835, gp: 3_757_117, np:  1_355_676 },
+    { m: 11, dist: 128_404, subs: 137_984, rev:11_884_959, gp: 4_037_954, np:  1_529_548 },
+    { m: 12, dist: 137_984, subs: 147_085, rev:12_665_026, gp: 4_328_500, np:  1_718_476 },
+  ],
+  annual: [
+    // Yr1–Yr5 totals from the Annual Calculations sheet
+    { year: "Yr 1", revenue:  90_298_018, grossProfit:  30_362_687, netProfit: 15_083_677, kcmShare:  7_541_838 },
+    { year: "Yr 2", revenue: 200_399_094, grossProfit:  70_966_751, netProfit: 45_777_298, kcmShare: 22_888_649 },
+    { year: "Yr 3", revenue: 259_893_322, grossProfit:  92_463_718, netProfit: 61_777_302, kcmShare: 30_888_651 },
+    { year: "Yr 4", revenue: 292_041_628, grossProfit: 103_772_252, netProfit: 69_966_229, kcmShare: 34_983_114 },
+    { year: "Yr 5", revenue: 309_413_289, grossProfit: 109_573_772, netProfit: 73_924_857, kcmShare: 36_962_428 },
+  ],
+  milestones: [
+    { month: 4, label: "Net profit ≈ break-even", detail: "First month at zero net loss" },
+    { month: 5, label: "Net-profit positive", detail: "+R243K net profit, scaling from here" },
+    { month: 8, label: "Loan account cleared", detail: "Cumulative net profit covers Yr-1 setup loan; profit-share to KCM begins" },
+    { month: 12, label: "Yr-1 ends at +R1.72M monthly net profit", detail: "147K active subscribers · ARPU R81.46 holding" },
+  ],
+};
+
+/* ---------- LAUNCH_TIMELINE · 6-month activation Gantt -----------------------
+ * Maps the 15 activation ideas onto a 6-month timeline. Bars run from start
+ * to end month for ongoing/always-on activities; single-month markers for
+ * one-shot bursts.
+ * ---------------------------------------------------------------------------*/
+
+export type TimelineActivity = {
+  name: string;
+  type: "always-on" | "match-day" | "monthly" | "burst" | "one-shot";
+  months: number[]; // months (1–6) when active
+  category: string;
+  note: string;
+};
+
+export const LAUNCH_TIMELINE: {
+  intro: string;
+  phases: { month: number; name: string; focus: string }[];
+  activities: TimelineActivity[];
+} = {
+  intro:
+    "How the 15 activation ideas roll out across the first 6 months of launch. Always-on activities (the digital reach layer, zero-rated KC app, free-data drops) start day-1 and stay live. Match-day and monthly mechanics fire whenever the football calendar allows. One-shot moments — Port-in Pole Position, the Soweto Derby Festival, Player-Designed Jersey reveal — anchor specific phases of the launch arc.",
+  phases: [
+    { month: 1, name: "Launch · M1", focus: "Everything live. Port-in Pole Position is the M1 exclusive." },
+    { month: 2, name: "Build · M2",  focus: "Kappa & SIM Bundle drops in time for new-season jerseys. Player Meet-and-Greet Draw begins." },
+    { month: 3, name: "Anchor · M3", focus: "First Soweto Derby fan-festival (assumes derby in M3). Player-Designed Jersey design phase opens." },
+    { month: 4, name: "Scale · M4",  focus: "Saturday Soccer Schools rolls into 5 provinces. Jersey Draw voting phase." },
+    { month: 5, name: "Lock-in · M5",focus: "Win-Streak Reward live (if KC on a run). Jersey Draw reveal + give-away." },
+    { month: 6, name: "Validate · M6", focus: "All channels still on. Read full first-half model performance vs target." },
+  ],
+  activities: [
+    // Always-on (1–6 months)
+    { name: "Zero-Rated KC App", type: "always-on", months: [1,2,3,4,5,6], category: "Digital", note: "Zero-rate the KC app on KC Mobile SIMs. Lives day-1, runs forever." },
+    { name: "Goal QR Boost", type: "always-on", months: [1,2,3,4,5,6], category: "Match-day", note: "100MB free data dropped any time KC scores. Runs all season." },
+    { name: "Friday Pay-day Taxi Rank Truck", type: "always-on", months: [1,2,3,4,5,6], category: "Activation", note: "Branded truck visits Friday pay-day taxi ranks. Weekly cadence from week 1." },
+    { name: "Pre-Match Data Drop", type: "match-day", months: [1,2,3,4,5,6], category: "Match-day", note: "Free 50MB code unlocks 60 minutes pre-kickoff at every KC home and away match." },
+    { name: "Stadium Suite Upgrade Draw", type: "match-day", months: [1,2,3,4,5,6], category: "Match-day", note: "Every home match. Random KC Mobile customer in the stadium gets upgraded to a suite." },
+    { name: "KC Anthem Sing-Along Booth", type: "match-day", months: [1,2,3,4,5,6], category: "Activation", note: "Stadium fan-zone fixture. Free SIM if you sing the chorus on camera." },
+
+    // Monthly
+    { name: "Player Meet-and-Greet Draw", type: "monthly", months: [2,3,4,5,6], category: "Engagement", note: "Monthly draw — 5 winners meet a starter at training. Starts M2." },
+    { name: "Spaza Shop Pole-Pack", type: "monthly", months: [2,3,4,5,6], category: "Trade", note: "Branded SIM-and-snack pack rolls into spaza shop network. Expands monthly." },
+    { name: "Saturday Soccer Schools", type: "monthly", months: [3,4,5,6], category: "Activation", note: "KC coaches at township soccer schools. Adds provinces month-by-month." },
+
+    // One-shot / burst
+    { name: "Port-in Pole Position", type: "burst", months: [1], category: "Acquisition", note: "M1-only port-in race competition. Ports during M1 enter to win a Toyota Cross." },
+    { name: "Kappa & SIM Bundle", type: "burst", months: [2,3,4,5,6], category: "Trade", note: "Bundle at Kappa stores from M2. New-season jersey + SIM combo, ongoing." },
+    { name: "Soweto Derby Pre-Match Festival", type: "one-shot", months: [3], category: "Match-day", note: "One major derby-weekend fan festival. Anchored to first derby — modelled M3." },
+    { name: "Soweto Derby Power Hour", type: "one-shot", months: [3], category: "Match-day", note: "Network-wide free data hour during the derby. Triggered with the festival." },
+    { name: "Win-Streak Reward", type: "burst", months: [5,6], category: "Engagement", note: "Triggered when KC win 3+ in a row. Modelled to fire from M5 onward." },
+    { name: "Player-Designed Jersey Draw", type: "burst", months: [3,4,5], category: "Engagement", note: "10 players × 10 jerseys = 100 total. Design M3 → vote M4 → reveal + give-away M5." },
+  ],
+};

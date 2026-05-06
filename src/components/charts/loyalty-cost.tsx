@@ -31,7 +31,7 @@ export function LoyaltyCostChart() {
 
   return (
     <div className="rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
-      <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+      <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
         Annual cost per customer · range
       </div>
       <h3 className="mt-2 text-xl font-semibold text-[var(--kc-paper)]">
@@ -87,7 +87,7 @@ export function LoyaltyCostChart() {
           })}
         </div>
         {/* Axis labels */}
-        <div className="mt-3 flex justify-between text-[10px] uppercase tracking-wider text-[var(--kc-mute)]">
+        <div className="mt-3 flex justify-between text-[17px] uppercase tracking-wider text-[var(--kc-mute)]">
           <span>R0</span>
           <span>R{Math.round(ceiling * 0.4)}</span>
           <span>R{ceiling}</span>

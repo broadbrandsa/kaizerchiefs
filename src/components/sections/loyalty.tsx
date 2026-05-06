@@ -41,7 +41,7 @@ export function Loyalty() {
 
       {/* Always-on rewards */}
       <div className="mt-12">
-        <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+        <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           Always-on rewards · open to every tier
         </div>
         <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">
@@ -58,7 +58,7 @@ export function Loyalty() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between gap-3">
                   <Badge variant="outline">Always-on</Badge>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+                  <span className="text-[17px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
                     {r.eligibility.split(".")[0]}
                   </span>
                 </div>
@@ -70,7 +70,7 @@ export function Loyalty() {
                 </p>
                 <div className="mt-4 space-y-3">
                   <div>
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                    <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                       Why it works
                     </div>
                     <p className="mt-1 text-xs leading-relaxed text-[var(--kc-paper)]/75">
@@ -78,14 +78,14 @@ export function Loyalty() {
                     </p>
                   </div>
                   <div className="rounded-lg bg-[var(--kc-ink)]/60 p-3">
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                    <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                       Mechanic
                     </div>
                     <p className="mt-1 text-xs leading-relaxed text-[var(--kc-paper)]/85">
                       {r.mechanic}
                     </p>
                   </div>
-                  <div className="text-[11px] uppercase tracking-wider text-[var(--kc-mute)]">
+                  <div className="text-[18px] uppercase tracking-wider text-[var(--kc-mute)]">
                     Eligibility · {r.eligibility}
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export function Loyalty() {
 
       {/* Stay-with-KC retention mechanics */}
       <div className="mt-12">
-        <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+        <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           Stay with KC · retention mechanics
         </div>
         <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">
@@ -117,7 +117,7 @@ export function Loyalty() {
                   <div className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--kc-gold)]/15 font-mono text-xs font-semibold text-[var(--kc-gold)]">
                     {String(i + 1).padStart(2, "0")}
                   </div>
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+                  <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-mute)]">
                     Retention mechanic
                   </div>
                 </div>
@@ -137,7 +137,7 @@ export function Loyalty() {
       <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Card>
           <CardContent className="p-6">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               How the programme runs
             </div>
             <ul className="mt-5 space-y-5">
@@ -163,7 +163,7 @@ export function Loyalty() {
         <Card className="relative overflow-hidden">
           <div className="bg-stripes absolute inset-0 opacity-40" />
           <CardContent className="relative p-6">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               Why loyalty matters here
             </div>
             <ul className="mt-5 space-y-5">
@@ -204,7 +204,7 @@ function TierCard({
       <CardContent className="relative p-7">
         <div className="flex items-center justify-between">
           <span
-            className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] ${tone.chip}`}
+            className={`rounded-full border px-2 py-0.5 text-[17px] font-semibold uppercase tracking-[0.2em] ${tone.chip}`}
           >
             Tier · {tier.position}
           </span>
@@ -236,7 +236,7 @@ function TierCard({
           }`}
         >
           <div
-            className={`text-[10px] font-semibold uppercase tracking-[0.2em] ${
+            className={`text-[17px] font-semibold uppercase tracking-[0.2em] ${
               isGold ? "text-[var(--kc-black)]/70" : "text-[var(--kc-gold)]"
             }`}
           >

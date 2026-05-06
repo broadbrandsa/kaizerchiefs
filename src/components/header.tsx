@@ -9,9 +9,12 @@ const NAV = [
   { label: "Overview", href: "#overview" },
   { label: "Audience", href: "#audience" },
   { label: "Model", href: "#model" },
+  { label: "Plan", href: "#execution-plan" },
   { label: "Voices", href: "#earned-voices" },
+  { label: "Players", href: "#player-channel" },
   { label: "Ideas", href: "#ideas" },
   { label: "Loyalty", href: "#loyalty" },
+  { label: "Journey", href: "#customer-journey" },
   { label: "Waitlist", href: "#waitlist" },
   { label: "Year 2", href: "#year-2" },
 ];
@@ -23,7 +26,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-3">
           <ChiefMark className="h-8 w-auto" />
           <div className="hidden border-l border-[var(--kc-line)] pl-3 leading-none sm:block">
-            <div className="text-[10px] uppercase tracking-[0.32em] text-[var(--kc-mute)]">
+            <div className="text-[17px] uppercase tracking-[0.32em] text-[var(--kc-mute)]">
               Mobile · MVNO Launch
             </div>
             <div className="text-sm font-semibold tracking-tight text-[var(--kc-paper)]">

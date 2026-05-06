@@ -29,7 +29,7 @@ export function Audience() {
             <CardContent className="flex flex-1 flex-col p-6">
               <div className="flex items-center justify-between">
                 <Badge variant="outline">Insight 0{i + 1}</Badge>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+                <span className="text-[17px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
                   NFI · Mar &apos;25
                 </span>
               </div>
@@ -39,7 +39,7 @@ export function Audience() {
               <p className="mt-4 flex-1 text-sm leading-relaxed text-[var(--kc-paper)]/80">
                 <SmartText>{insight.detail}</SmartText>
               </p>
-              <div className="mt-6 border-t border-[var(--kc-line)] pt-4 text-[11px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+              <div className="mt-6 border-t border-[var(--kc-line)] pt-4 text-[18px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
                 {insight.source}
               </div>
             </CardContent>
@@ -51,14 +51,14 @@ export function Audience() {
       <div className="mt-12 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
         <div className="flex items-baseline justify-between gap-4">
           <div>
-            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               Year-on-year growth — KC fan platform usage
             </div>
             <h3 className="mt-2 text-xl font-semibold text-[var(--kc-paper)]">
               The fastest-moving channels in the Amakhosi base
             </h3>
           </div>
-          <div className="text-right text-[10px] uppercase tracking-wider text-[var(--kc-mute)]">
+          <div className="text-right text-[17px] uppercase tracking-wider text-[var(--kc-mute)]">
             Source · Nielsen NFI SA Mar &apos;25
           </div>
         </div>

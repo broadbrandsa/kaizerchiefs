@@ -134,7 +134,7 @@ export function GrowthChart({
         ))}
       </svg>
       {caption ? (
-        <p className="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+        <p className="mt-3 text-center text-[18px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
           {caption}
         </p>
       ) : null}

@@ -67,7 +67,7 @@ export function ActivationIdeas() {
     >
       <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="flex flex-wrap items-center gap-2 rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/60 p-4">
-          <span className="mr-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+          <span className="mr-2 text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-mute)]">
             By audience
           </span>
           <Badge className={TYPE_TONE.activation}>
@@ -79,7 +79,7 @@ export function ActivationIdeas() {
           <Badge className={TYPE_TONE.both}>Both · {totalBoth}</Badge>
         </div>
         <div className="flex flex-wrap items-center gap-2 rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/60 p-4">
-          <span className="mr-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+          <span className="mr-2 text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-mute)]">
             By SIM format
           </span>
           <Badge className={SIM_TONE.physical}>
@@ -118,7 +118,7 @@ function IdeaGrid({ ideas }: { ideas: ActivationIdea[] }) {
         <Card key={idea.name} className="flex flex-col">
           <CardContent className="flex flex-1 flex-col p-6">
             <div className="flex items-center justify-between gap-3">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+              <span className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-mute)]">
                 Idea · {String(i + 1).padStart(2, "0")}
               </span>
               <Badge className={COST_TONE[idea.costBand]}>
@@ -141,7 +141,7 @@ function IdeaGrid({ ideas }: { ideas: ActivationIdea[] }) {
             </p>
             <div className="mt-4 space-y-3">
               <div>
-                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                   Why it works
                 </div>
                 <p className="mt-1 text-xs leading-relaxed text-[var(--kc-paper)]/75">
@@ -149,7 +149,7 @@ function IdeaGrid({ ideas }: { ideas: ActivationIdea[] }) {
                 </p>
               </div>
               <div className="rounded-lg bg-[var(--kc-ink)]/60 p-3">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                   Conversion mechanic
                 </div>
                 <p className="mt-1 text-xs leading-relaxed text-[var(--kc-paper)]/85">

@@ -13,7 +13,7 @@ export function EarnedVoices() {
     >
       {/* KC Legends */}
       <div className="mt-2">
-        <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+        <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           KC Legends · cultural authority
         </div>
         <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">
@@ -31,7 +31,7 @@ export function EarnedVoices() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between gap-3">
                   <Badge variant="outline">Legend</Badge>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+                  <span className="text-[17px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
                     {l.era}
                   </span>
                 </div>
@@ -45,7 +45,7 @@ export function EarnedVoices() {
                   {l.angle}
                 </p>
                 <div className="mt-4 rounded-lg bg-[var(--kc-ink)]/60 p-3">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                  <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                     The ask
                   </div>
                   <p className="mt-1 text-xs leading-relaxed text-[var(--kc-paper)]/85">
@@ -60,7 +60,7 @@ export function EarnedVoices() {
 
       {/* SA football media */}
       <div className="mt-14">
-        <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+        <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           SA football media · editorial reach
         </div>
         <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">
@@ -84,14 +84,14 @@ export function EarnedVoices() {
                 <h4 className="mt-4 text-base font-semibold leading-snug text-[var(--kc-paper)]">
                   {m.title}
                 </h4>
-                <div className="mt-2 text-[10px] uppercase tracking-[0.18em] text-[var(--kc-mute)]">
+                <div className="mt-2 text-[17px] uppercase tracking-[0.18em] text-[var(--kc-mute)]">
                   {m.role}
                 </div>
                 <p className="mt-3 text-xs leading-relaxed text-[var(--kc-paper)]/80">
                   {m.angle}
                 </p>
                 <div className="mt-4 rounded-lg bg-[var(--kc-ink)]/60 p-3">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                  <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                     The ask
                   </div>
                   <p className="mt-1 text-xs leading-relaxed text-[var(--kc-paper)]/85">

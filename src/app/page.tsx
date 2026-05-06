@@ -1,16 +1,21 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SideMenu } from "@/components/side-menu";
+import { ReadingProgress } from "@/components/reading-progress";
+import { QuickJump } from "@/components/quick-jump";
 import {
   Hero,
   Overview,
   Audience,
   Strategy,
-  InvestmentCalculator,
+  InvestmentModel,
+  ExecutionPlan,
   SponsorMap,
   EarnedVoices,
+  PlayerChannel,
   ActivationIdeas,
   Loyalty,
+  CustomerJourney,
   Suppliers,
   RetailFuture,
   Waitlist,
@@ -22,17 +27,21 @@ import {
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--kc-ink)] text-[var(--kc-paper)]">
+      <ReadingProgress />
       <Header />
       <SideMenu />
       <Hero />
       <Overview />
       <Audience />
       <Strategy />
-      <InvestmentCalculator />
+      <InvestmentModel />
+      <ExecutionPlan />
       <SponsorMap />
       <EarnedVoices />
+      <PlayerChannel />
       <ActivationIdeas />
       <Loyalty />
+      <CustomerJourney />
       <Suppliers />
       <RetailFuture />
       <Waitlist />
@@ -40,6 +49,7 @@ export default function Home() {
       <Measure />
       <YearTwo />
       <Footer />
+      <QuickJump />
     </main>
   );
 }

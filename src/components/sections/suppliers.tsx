@@ -43,7 +43,7 @@ export function Suppliers() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-4 text-[11px] uppercase tracking-wider text-[var(--kc-mute)]">
+              <div className="mt-4 text-[18px] uppercase tracking-wider text-[var(--kc-mute)]">
                 Source · {s.sourceDoc}
               </div>
             </AccordionContent>

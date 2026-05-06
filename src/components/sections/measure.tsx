@@ -13,7 +13,7 @@ export function Measure() {
     >
       <div className="overflow-hidden rounded-2xl border border-[var(--kc-line)]">
         <table className="w-full text-left text-sm">
-          <thead className="bg-[var(--kc-ink)]/60 text-[11px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
+          <thead className="bg-[var(--kc-ink)]/60 text-[18px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
             <tr>
               <th className="px-5 py-4 font-semibold">KPI</th>
               <th className="px-5 py-4 font-semibold">Target</th>
@@ -35,7 +35,7 @@ export function Measure() {
       <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
         <Card>
           <CardContent className="p-6">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               Next steps · for sign-off
             </div>
             <Separator className="my-5" />
@@ -55,7 +55,7 @@ export function Measure() {
         <Card className="relative overflow-hidden">
           <div className="bg-stripes absolute inset-0 opacity-50" />
           <CardContent className="relative p-6">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               Closing thought
             </div>
             <p className="mt-5 text-lg leading-relaxed text-[var(--kc-paper)]">

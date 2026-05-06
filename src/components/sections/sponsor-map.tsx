@@ -53,13 +53,13 @@ export function SponsorMap() {
             <AccordionContent>
               <div className="space-y-4 pt-2">
                 <p className="text-sm leading-relaxed text-[var(--kc-paper)]/90">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                  <span className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                     Headline ·{" "}
                   </span>
                   {s.headline}
                 </p>
                 <div className="rounded-lg border border-[var(--kc-line)] bg-[var(--kc-ink)]/40 p-4">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                  <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                     Exchange
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--kc-paper)]/85">
@@ -67,7 +67,7 @@ export function SponsorMap() {
                   </p>
                 </div>
                 <div>
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                  <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                     Mechanics
                   </div>
                   <ul className="mt-2 space-y-2">
@@ -84,7 +84,7 @@ export function SponsorMap() {
                 </div>
                 {s.note ? (
                   <div className="rounded-lg border border-[var(--kc-gold)]/30 bg-[var(--kc-gold)]/5 p-3">
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                    <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                       Compliance
                     </div>
                     <p className="mt-1 text-xs leading-relaxed text-[var(--kc-paper)]/85">

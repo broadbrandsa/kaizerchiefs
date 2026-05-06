@@ -15,7 +15,7 @@ export function Waitlist() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <Card className="border-[var(--kc-gold)]/30 bg-[var(--kc-gold)]/5">
           <CardContent className="p-6">
-            <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+            <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
               Duration
             </div>
             <div className="mt-2 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">
@@ -25,7 +25,7 @@ export function Waitlist() {
         </Card>
         <Card className="border-[var(--kc-gold)]/30 bg-[var(--kc-gold)]/5">
           <CardContent className="p-6">
-            <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+            <div className="text-[17px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
               Goal
             </div>
             <div className="mt-2 text-base font-semibold tracking-tight text-[var(--kc-paper)]">
@@ -37,7 +37,7 @@ export function Waitlist() {
 
       {/* Six pillars */}
       <div className="mt-10">
-        <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+        <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           Six pillars of the build-up
         </div>
         <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">
@@ -68,7 +68,7 @@ export function Waitlist() {
 
       {/* Why it matters */}
       <div className="mt-12">
-        <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+        <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           Why this layer matters
         </div>
         <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">

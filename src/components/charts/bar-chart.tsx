@@ -67,7 +67,7 @@ export function BarChart({
                 />
               </div>
               {d.sub ? (
-                <div className="mt-1 text-[11px] uppercase tracking-wider text-[var(--kc-mute)]">
+                <div className="mt-1 text-[18px] uppercase tracking-wider text-[var(--kc-mute)]">
                   {d.sub}
                 </div>
               ) : null}
