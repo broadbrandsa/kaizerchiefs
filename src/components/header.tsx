@@ -65,6 +65,14 @@ export function Header() {
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
                 <Link
+                  href="/brand-language"
+                  className="cursor-pointer text-[12px] font-medium uppercase tracking-wider text-[var(--kc-gold)]"
+                >
+                  Brand language →
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link
                   href="/annex"
                   className="cursor-pointer text-[12px] font-medium uppercase tracking-wider text-[var(--kc-gold)]"
                 >

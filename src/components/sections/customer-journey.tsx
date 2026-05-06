@@ -277,10 +277,9 @@ export function CustomerJourney() {
               Every customer = 14 data dimensions in Xanite
             </h3>
 
-            {/* Hub-and-spoke style */}
+            {/* Compact summary — full grid hidden behind disclosure */}
             <div className="mt-8 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
-              {/* Center pill */}
-              <div className="mx-auto mb-6 max-w-md rounded-2xl border-2 border-[var(--kc-gold)] bg-[var(--kc-ink)] p-5 text-center">
+              <div className="mx-auto max-w-md rounded-2xl border-2 border-[var(--kc-gold)] bg-[var(--kc-ink)] p-5 text-center">
                 <div className="text-[16px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
                   Single customer record
                 </div>
@@ -288,21 +287,26 @@ export function CustomerJourney() {
                   All 14 dimensions, real-time
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-7">
-                {j.segmentation.dimensions.map((d, i) => (
-                  <div
-                    key={d.label}
-                    className="rounded-lg border border-[var(--kc-line)] bg-[var(--kc-ink)]/60 p-3"
-                  >
-                    <div className="font-mono text-[16px] text-[var(--kc-gold)]">
-                      {String(i + 1).padStart(2, "0")}
+              <details className="mt-6">
+                <summary className="cursor-pointer text-[14px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)] hover:text-[var(--kc-paper)]">
+                  Show all 14 dimensions held in Xanite
+                </summary>
+                <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-7">
+                  {j.segmentation.dimensions.map((d, i) => (
+                    <div
+                      key={d.label}
+                      className="rounded-lg border border-[var(--kc-line)] bg-[var(--kc-ink)]/60 p-3"
+                    >
+                      <div className="font-mono text-[16px] text-[var(--kc-gold)]">
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
+                      <div className="mt-1 text-[16px] font-semibold leading-tight text-[var(--kc-paper)]">
+                        {d.label}
+                      </div>
                     </div>
-                    <div className="mt-1 text-[16px] font-semibold leading-tight text-[var(--kc-paper)]">
-                      {d.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              </details>
             </div>
 
             {/* 5 segments — keep simpler — show 3 most important inline */}

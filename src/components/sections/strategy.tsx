@@ -87,6 +87,40 @@ export function Strategy() {
                 {p.pillar}
               </h3>
               <p className="mt-4 text-[var(--kc-paper)]/85">{p.summary}</p>
+
+              {/* Ladders to which CVPs + personas */}
+              <div className="mt-6 grid grid-cols-1 gap-3 border-t border-[var(--kc-line)]/50 pt-4 sm:grid-cols-2">
+                <div>
+                  <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                    Delivers via
+                  </div>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {p.cvps.map((c) => (
+                      <span
+                        key={c}
+                        className="rounded-full border border-[var(--kc-gold)]/40 bg-[var(--kc-gold)]/10 px-2 py-0.5 text-[12px] font-medium text-[var(--kc-gold)]"
+                      >
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                    Lands on
+                  </div>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {p.personas.map((per) => (
+                      <span
+                        key={per}
+                        className="rounded-full border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/60 px-2 py-0.5 font-mono text-[12px] font-semibold text-[var(--kc-paper)]/85"
+                      >
+                        {per}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
         ))}

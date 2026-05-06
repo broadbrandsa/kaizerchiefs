@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/section";
 import { SmartText } from "@/components/smart-text";
+import { ConversionFunnel } from "@/components/charts/conversion-funnel";
 import { EXECUTION_PLAN } from "@/data/proposal";
 
 /** Per-category accent bar — keeps each card visually distinct */
@@ -65,6 +66,11 @@ export function ExecutionPlan() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Conversion funnel — impressions to activations */}
+      <div className="mb-10">
+        <ConversionFunnel />
       </div>
 
       {/* Category cards with line items */}

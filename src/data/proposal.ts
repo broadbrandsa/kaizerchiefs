@@ -70,21 +70,29 @@ export const STRATEGIC_PILLARS = [
     pillar: "Trade muscle, fan voice",
     summary:
       "Wholesale distribution does the volume; the KC fan voice does the persuasion. Every channel either drives sell-through at a MTN/independent counter, or drives an eSIM activation in-app.",
+    cvps: ["CVP-1 AmaCoin", "CVP-5 Eskhotini Hustler"],
+    personas: ["P1", "P5"],
   },
   {
     pillar: "Earned camaraderie, not interruption",
     summary:
       "KC fans show up to feel something together. Activations belong inside that ritual — pre-match, derby, supporters' bus, regional rally — not as ad-overlays.",
+    cvps: ["CVP-2 MatchPass", "CVP-7 Stadium Mode", "CVP-3 Khosi Sisters Circle"],
+    personas: ["P1", "P2", "P3"],
   },
   {
     pillar: "Mobile-first, vernacular-led",
     summary:
       "TikTok, WhatsApp and YouTube reach the KC base far better than English metro media. Build creative with vernacular at the centre, not the translation.",
+    cvps: ["CVP-4 Junior Khosi", "CVP-8 Khosi Heritage", "CVP-6 Diaspora Khosi"],
+    personas: ["P3", "P7", "P8", "P6"],
   },
   {
     pillar: "Always-on retail visibility",
     summary:
       "POS at MTN shops, independent dealers, and (Phase 2) PEP / Shoprite keeps KC Mobile in the field of view between match-days. The product needs to be reachable on a Tuesday afternoon, not just on a derby night.",
+    cvps: ["CVP-5 Eskhotini Hustler", "Township Co-branding"],
+    personas: ["P5", "P4", "P8"],
   },
 ];
 
@@ -1277,13 +1285,13 @@ export const EXECUTION_PLAN: {
   pillars: string[];
   categories: PlanCategory[];
 } = {
-  total: 9_000_000,
+  total: 4_500_000,
   duration: "12 months",
   geo: "National — all 9 provinces, sustained always-on",
   simTarget: "16,000 SIMs / month",
   esimTarget: "200 eSIMs / month",
   intro:
-    "All eight channels active. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, full Pause Screen, full SABC vernacular radio, 800-store retail footprint primed for the PEP / Shoprite Phase-2 launch in months 9–12, a heavy digital reach layer carrying the brand-presence load, and 12 hand-painted township co-branding murals at high-traffic taxi-rank and spaza catchments.",
+    "All eight channels active inside the R4.5M Yr-1 marketing budget. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, Pause Screen, SABC vernacular radio, 800-store retail footprint primed for the PEP / Shoprite Phase-2 launch in months 9–12, a digital reach layer carrying brand presence, and 12 hand-painted township co-branding murals at high-traffic taxi-rank and spaza catchments.",
   pillars: [
     "12 hand-painted township co-branding murals (Back to Front) at high-traffic taxi-rank and spaza catchments — Soweto, Mamelodi, Tembisa, KwaMashu, Mdantsane, Mbombela",
     "Premium TV anchor — DMS Premier League Tactical Sponsorship + full DStv Stream LIVE/VOD inventory inside SS PSL and Premier League broadcasts",
@@ -1296,7 +1304,7 @@ export const EXECUTION_PLAN: {
     {
       key: "digital-paid-media",
       name: "Digital Paid Media",
-      total: 2_880_000,
+      total: 1_440_000,
       pct: 32,
       headline:
         "Always-on for 12 months across Meta, Google, TikTok, plus DStv Stream LIVE/VOD inside SS PSL and Premier League windows.",
@@ -1306,7 +1314,7 @@ export const EXECUTION_PLAN: {
         {
           name: "Performance social — Meta + TikTok",
           supplier: "Direct (Meta + TikTok)",
-          cost: 1_000_000,
+          cost: 500_000,
           detail:
             "52 weeks always-on, ≈R25K/week each platform. Lookalikes off the waitlist, retargeting from match-day pixels, post-purchase upsell flows.",
           reach: "≈22M impressions",
@@ -1314,7 +1322,7 @@ export const EXECUTION_PLAN: {
         {
           name: "DStv Stream LIVE + VOD",
           supplier: "DMS (DStv Stream)",
-          cost: 900_000,
+          cost: 450_000,
           detail:
             "Mid-roll non-skip + skippable VOD pre-roll inside SS PSL and Premier League windows. The streaming destination for paid-media exposure to the football audience.",
           reach: "≈3.8M impressions",
@@ -1322,7 +1330,7 @@ export const EXECUTION_PLAN: {
         {
           name: "Programmatic display + connected-TV",
           supplier: "DSP cross-publisher",
-          cost: 500_000,
+          cost: 250_000,
           detail:
             "Cross-publisher display + connected-TV reach inventory across DSP networks. Measurable, attributable brand-presence layer that runs alongside the football streaming inventory.",
           reach: "≈25M impressions",
@@ -1330,7 +1338,7 @@ export const EXECUTION_PLAN: {
         {
           name: "YouTube + Search",
           supplier: "Google Ads + YouTube",
-          cost: 480_000,
+          cost: 240_000,
           detail:
             "TrueView, bumpers, search — 12 months always-on. Search captures the high-intent 'KC Mobile SIM' / 'KC Mobile eSIM' query as it builds.",
           reach: "≈2.6M YouTube views",
@@ -1340,7 +1348,7 @@ export const EXECUTION_PLAN: {
     {
       key: "trade-retail",
       name: "Trade Partner & Retail POS",
-      total: 1_570_000,
+      total: 785_000,
       pct: 17,
       headline:
         "800 priority stores, 4 POS refresh waves, 12 months of dealer commission top-up, top-100 dealer hospitality.",
@@ -1350,21 +1358,21 @@ export const EXECUTION_PLAN: {
         {
           name: "POS production + install (4 waves)",
           supplier: "DSG production + installer network",
-          cost: 790_000,
+          cost: 395_000,
           detail:
             "800 stores × 4 waves × R247/store. Wobblers, riser cards, jersey-week posters, A-frames, table-throws — refresh each quarter.",
         },
         {
           name: "Trade commission top-up",
           supplier: "KC Mobile",
-          cost: 580_000,
+          cost: 290_000,
           detail:
             "R30 per activation × est. 16,000/month × 12 months (capped to budget). Paid weekly to dealers on top of MTN's standard channel commission.",
         },
         {
           name: "Top-100 dealer hospitality",
           supplier: "DSG hospitality",
-          cost: 200_000,
+          cost: 100_000,
           detail:
             "Quarterly home-game hospitality for top sellers across the dealer network — keeps the frontline emotionally invested in KC Mobile vs rival MVNOs.",
         },
@@ -1373,7 +1381,7 @@ export const EXECUTION_PLAN: {
     {
       key: "stadium-activation",
       name: "Stadium & National Activations",
-      total: 1_080_000,
+      total: 540_000,
       pct: 12,
       headline:
         "Every KC home league match (≈15) gets a fan-zone activation. Plus 4 regional activation days/month and one Soweto Derby fan-festival.",
@@ -1383,21 +1391,21 @@ export const EXECUTION_PLAN: {
         {
           name: "Stadium fan zone — every home match",
           supplier: "KC Stadium Ops + DSG",
-          cost: 600_000,
+          cost: 300_000,
           detail:
             "15 match-days × R40K (kit owned, multi-year contracts). Full launch-ideas playbook executed at every home fixture.",
         },
         {
           name: "Regional-car activation days",
           supplier: "KC Mobile regional team",
-          cost: 280_000,
+          cost: 140_000,
           detail:
             "48 activation days/year across all 9 provinces — branded car visits township taxi ranks, malls, dealer flagships.",
         },
         {
           name: "Soweto Derby fan-festival",
           supplier: "KC Mobile + MTN co-funded",
-          cost: 200_000,
+          cost: 100_000,
           detail:
             "One major derby-weekend fan festival anchored to KC Mobile — concert + fan-zone + giveaway + media moment.",
         },
@@ -1406,7 +1414,7 @@ export const EXECUTION_PLAN: {
     {
       key: "pr-radio",
       name: "PR & Media (SABC + Local Radio)",
-      total: 900_000,
+      total: 450_000,
       pct: 10,
       headline:
         "12 months of SABC African-language radio, sustained Jacaranda + ECR presence, OnsideZA full-season title, plus a thin co-ordination retainer between DSG's ByDesign and KC's in-house Communications team.",
@@ -1416,28 +1424,28 @@ export const EXECUTION_PLAN: {
         {
           name: "SABC African-language",
           supplier: "Ukhozi + Umhlobo + Lesedi + Motsweding",
-          cost: 540_000,
+          cost: 270_000,
           detail:
             "12 months always-on, weighted to derby + finals weeks. Live reads + spot rotation + match-day stings. Lifted by R60K after the PR retainer reallocation.",
         },
         {
           name: "Jacaranda + ECR",
           supplier: "Mediamark",
-          cost: 200_000,
+          cost: 100_000,
           detail:
             "12 months of audio + display + live reads, weighted to commute drive-time.",
         },
         {
           name: "OnsideZA full-season title",
           supplier: "OnsideZA (Mediamark)",
-          cost: 130_000,
+          cost: 65_000,
           detail:
             "Title sponsor of all watchalongs + monthly integration episodes — KC Legends segments embedded in the show.",
         },
         {
           name: "PR co-ordination retainer",
           supplier: "ByDesign (DSG) + KC in-house Communications",
-          cost: 30_000,
+          cost: 15_000,
           detail:
             "Press releases, broadcast booking and earned-media run through the PR teams DSG and KC already retain — ByDesign on the DSG side, KC's Communications & PR department on the club side. Neither is billed at agency rates to KC Mobile. This R30K retainer funds the integration layer between the two: joint press calendar, embargo logistics, crisis-comms playbook, photo desk co-ordination. R60K cheaper than running a fresh standalone PR retainer.",
         },
@@ -1446,7 +1454,7 @@ export const EXECUTION_PLAN: {
     {
       key: "incentives",
       name: "Customer Incentives, Promotions & Competitions",
-      total: 900_000,
+      total: 450_000,
       pct: 10,
       headline:
         "Sustained free activation data, monthly competition mechanics (Toyota giveaway tradition), port-in incentives, members' rewards.",
@@ -1456,21 +1464,21 @@ export const EXECUTION_PLAN: {
         {
           name: "Free activation data",
           supplier: "MTN wholesale (co-funded)",
-          cost: 480_000,
+          cost: 240_000,
           detail:
             "2GB × ≈80,000 activations across 12 months — funded against MTN's wholesale data block.",
         },
         {
           name: "Port-in airtime incentive",
           supplier: "KC Mobile",
-          cost: 250_000,
+          cost: 125_000,
           detail:
             "R50 airtime × est. 5,000 ports. Aimed at the rival-MVNO base where switching cost is lowest.",
         },
         {
           name: "Toyota Cross + monthly comps",
           supplier: "KC Mobile + Toyota co-funded",
-          cost: 170_000,
+          cost: 85_000,
           detail:
             "Annual Toyota Cross + monthly KC supporter prizes. Continues the Toyota giveaway tradition that KC fans already associate with the club.",
         },
@@ -1479,7 +1487,7 @@ export const EXECUTION_PLAN: {
     {
       key: "branding-kits",
       name: "Branding Material & Promotion Kits",
-      total: 400_000,
+      total: 200_000,
       pct: 4,
       headline:
         "Strong KC branding across the entire physical retail and activation footprint.",
@@ -1489,21 +1497,21 @@ export const EXECUTION_PLAN: {
         {
           name: "Activation hardware",
           supplier: "DSG procurement",
-          cost: 150_000,
+          cost: 75_000,
           detail:
             "Gazebos, telescopics, A-frames, table-throws, podiums — core kit only (×2 sets), augmented by hospitality from Trade Partner line.",
         },
         {
           name: "Supporter packs",
           supplier: "DSG procurement",
-          cost: 150_000,
+          cost: 75_000,
           detail:
             "6,500 supporter packs (T-shirt + scarf + activation voucher) — concentrated at hero match-days and Soweto Derby.",
         },
         {
           name: "POS replenishment",
           supplier: "DSG production",
-          cost: 100_000,
+          cost: 50_000,
           detail:
             "Wobblers, posters, riser cards, jersey-week posters — 2 print runs across the year.",
         },
@@ -1512,7 +1520,7 @@ export const EXECUTION_PLAN: {
     {
       key: "township-co-branding",
       name: "Township Co-branding",
-      total: 912_000,
+      total: 456_000,
       pct: 11,
       headline:
         "12 hand-painted 2m × 10m wall murals at high-traffic township catchments — Soweto, Mamelodi, Tembisa, KwaMashu, Mdantsane, Mbombela. Hustler-tier shopfront wraps execute on top of this layer.",
@@ -1522,7 +1530,7 @@ export const EXECUTION_PLAN: {
         {
           name: "12 hand-painted hero murals — production",
           supplier: "Back to Front Media & Events Solutions",
-          cost: 120_000,
+          cost: 60_000,
           detail:
             "12 walls × R10,000 production (once-off). 2m × 10m hand-painted 3D/HD murals. Includes colour sourcing, stencil production, KC Mobile creative airbrush execution. 20-day lead time per wall post artwork sign-off.",
           reach: "≈8M weekly impressions (taxi rank + commuter foot-traffic)",
@@ -1530,7 +1538,7 @@ export const EXECUTION_PLAN: {
         {
           name: "12 hero murals — 12-month media rental",
           supplier: "Back to Front Media & Events Solutions",
-          cost: 792_000,
+          cost: 396_000,
           detail:
             "12 walls × R5,500 / month × 12 months. Includes flighting + de-flighting, landlord approvals, travel + accommodation. Walls sit in priority KC heartlands across Gauteng, KZN, Mpumalanga, Eastern Cape and Limpopo.",
         },
@@ -1539,7 +1547,7 @@ export const EXECUTION_PLAN: {
     {
       key: "design-production",
       name: "Design, Production & Content",
-      total: 360_000,
+      total: 180_000,
       pct: 4,
       headline:
         "Two production days with KC players (pre-season + mid-season), full content suite, vernacular VO recording.",
@@ -1549,21 +1557,21 @@ export const EXECUTION_PLAN: {
         {
           name: "Player shoot — pre-season",
           supplier: "DSG production",
-          cost: 180_000,
+          cost: 90_000,
           detail:
             "1-day shoot, 4-week edit, full content suite (TVC, social cuts, fan-zone screens, POS hero imagery).",
         },
         {
           name: "Player shoot — mid-season refresh",
           supplier: "DSG production",
-          cost: 130_000,
+          cost: 65_000,
           detail:
             "1-day shoot, 3-week edit. Refreshes creative ahead of the EPL run-in and finals season.",
         },
         {
           name: "Vernacular VO + finishing",
           supplier: "DSG / vendor",
-          cost: 50_000,
+          cost: 25_000,
           detail:
             "isiZulu, isiXhosa, Setswana, English VO + translations — required for SABC vernacular radio plus regional activation.",
         },
@@ -2901,5 +2909,105 @@ export const TRIBAL_PHASING = {
       cvpsLive: "Premium tiers · fan-token economy · stadium concessions · content rights",
       leadKpi: "Cumulative EBIT R126.7M+ by Y5 (V2 model)",
     },
+  ],
+};
+
+
+/* ---------- BRAND_LANGUAGE · canonical KCM lexicon -------------------------*/
+export const BRAND_LANGUAGE = {
+  intro:
+    "The canonical KCM vocabulary. Use these terms verbatim across creative, CRM, retail, and PR. Anything else is off-brand.",
+  currency: [
+    { term: "AmaCoin", note: "The KCM tribal currency. Singular: 'one AmaCoin'. Used as 'I earned 50 AmaCoin on derby day'. Never 'AmaCoins'." },
+    { term: "MatchPass", note: "The match-day mode. Capitalised. Verb-able noun: 'switch on MatchPass'." },
+    { term: "Stadium Mode", note: "The geofenced in-stadium experience layer." },
+    { term: "Khosi for Life", note: "Campaign signature line. Reserved for high-emotion moments." },
+  ],
+  personaTiers: [
+    { term: "Khosi 1.5 / Khosi 3 / Khosi 5 / Khosi 10", note: "The package family. Ladder of belonging." },
+    { term: "Born-Free", note: "The Gen-Z tier. Capitalised. Avoid using outside Gen-Z marketing." },
+    { term: "Hustler / Hustler Pro", note: "The SME tier. Always paired with margin and merchant story." },
+    { term: "Khosi Sisters Circle", note: "The female-first community + bundle. Plural and capitalised." },
+    { term: "Junior Khosi", note: "The kids' SIM and content track." },
+    { term: "Diaspora Khosi", note: "The global supporter offer." },
+    { term: "Khosi Heritage", note: "The elder-respect tier. Tone: gentle, dignified, in mother tongue." },
+    { term: "Founder Khosi", note: "First 1,000 pre-launch alpha members. Permanent badge in app, double data forever." },
+  ],
+  clubLexicon: [
+    { term: "Amakhosi", note: "The fans. The tribe. Plural noun for the supporter base." },
+    { term: "Phefeni Glamour Boys", note: "Iconic Chiefs nickname rooted in Soweto heritage. High-emotion only." },
+    { term: "Naturena", note: "The KC training ground. Sacred territory." },
+    { term: "Soweto Derby", note: "Capitalised. Always two words." },
+    { term: "Yebo Yebo Naturena", note: "Pre-match call. Use sparingly — high-emotion." },
+  ],
+  wordsToAvoid: [
+    { term: "Subscriber", note: "Use Khosi, Sister, Junior, Hustler. 'Subscriber' is telco-coded and breaks the tribal frame." },
+    { term: "Out-of-bundle", note: "Replace with the explicit Rand value and a clear cap message." },
+    { term: "Free data weekend", note: "Don't use generic free-data language. Tie every drop to a Chiefs ritual hook." },
+    { term: "Customer", note: "Use Khosi or persona name. 'Customer' is corporate." },
+    { term: "MVNO", note: "Internal term only. Customer-facing: 'KC Mobile'." },
+    { term: "Anything that infantilises", note: "Township customers and Gen-Z are sophisticated buyers. Don't talk down." },
+  ],
+};
+
+
+/* ---------- CONVERSION_FUNNEL · impressions → activations -------------------
+ * Channel-level impression estimates and a single conversion path from
+ * impressions → waitlist signups → SIM activations → active Day-30+ subscribers.
+ * Numbers are illustrative annual estimates calibrated against media plans
+ * elsewhere in the proposal.
+ * ---------------------------------------------------------------------------*/
+
+export type FunnelChannel = {
+  key: string;
+  label: string;
+  group: "digital" | "match-day" | "retail" | "radio-pr" | "ooh-walls" | "player-social";
+  /** Annual impressions / reach (Yr-1) */
+  impressions: number;
+  /** % of impressions that land a waitlist signup */
+  toWaitlistPct: number;
+  /** % of waitlist signups that activate a SIM (within 60 days of opt-in) */
+  waitlistToActivationPct: number;
+  /** % of activations that survive Day-30 (retention) */
+  activationToActivePct: number;
+};
+
+export const CONVERSION_FUNNEL: {
+  intro: string;
+  channels: FunnelChannel[];
+  groupLabels: Record<FunnelChannel["group"], string>;
+} = {
+  intro:
+    "How impressions across the marketing layer translate into active KC Mobile subscribers. Each channel has its own impression base, conversion rate and direct-vs-waitlist path. Toggle the channel filter to isolate digital, match-day, retail, radio, township murals, or player-social contributions.",
+  groupLabels: {
+    digital:        "Digital paid",
+    "match-day":    "Match-day · stadium",
+    retail:         "Retail / trade",
+    "radio-pr":     "Radio + PR",
+    "ooh-walls":    "Township co-branding",
+    "player-social":"Player social",
+  },
+  channels: [
+    { key: "perf-social",  label: "Performance social — Meta + TikTok",   group: "digital",       impressions: 22_000_000, toWaitlistPct: 0.18,  waitlistToActivationPct: 35, activationToActivePct: 90 },
+    { key: "dstv-stream",  label: "DStv Stream LIVE + VOD",                group: "digital",       impressions:  3_800_000, toWaitlistPct: 0.12,  waitlistToActivationPct: 35, activationToActivePct: 90 },
+    { key: "programmatic", label: "Programmatic display + CTV",            group: "digital",       impressions: 25_000_000, toWaitlistPct: 0.05,  waitlistToActivationPct: 35, activationToActivePct: 90 },
+    { key: "yt-search",    label: "YouTube + Search",                       group: "digital",       impressions:  2_600_000, toWaitlistPct: 0.40,  waitlistToActivationPct: 40, activationToActivePct: 90 },
+
+    { key: "stadium",      label: "Stadium fan-zone activations (15 home matches)", group: "match-day", impressions:   450_000, toWaitlistPct: 0.00,  waitlistToActivationPct: 100, activationToActivePct: 92 },
+    { key: "match-tv",     label: "Match-day broadcast (SS PSL/Premier League)",     group: "match-day", impressions: 12_000_000, toWaitlistPct: 0.10, waitlistToActivationPct: 35, activationToActivePct: 90 },
+    { key: "match-data-drops", label: "Goal QR Boost + Pre-Match Data Drop",          group: "match-day", impressions:  3_500_000, toWaitlistPct: 0.20, waitlistToActivationPct: 38, activationToActivePct: 92 },
+
+    { key: "retail-pos",   label: "POS at MTN dealers + independents (800 stores)",  group: "retail", impressions:  9_500_000, toWaitlistPct: 0.00, waitlistToActivationPct: 100, activationToActivePct: 88 },
+    { key: "hustler",      label: "Hustler network (spaza / salon / taxi rank)",     group: "retail", impressions:  5_200_000, toWaitlistPct: 0.00, waitlistToActivationPct: 100, activationToActivePct: 88 },
+    { key: "kappa-bundle", label: "Kappa & SIM Bundle in-store",                     group: "retail", impressions:    900_000, toWaitlistPct: 0.00, waitlistToActivationPct: 100, activationToActivePct: 90 },
+
+    { key: "sabc",         label: "SABC African-language radio",                     group: "radio-pr",   impressions: 30_000_000, toWaitlistPct: 0.04, waitlistToActivationPct: 32, activationToActivePct: 90 },
+    { key: "jacaranda-ecr",label: "Jacaranda + ECR + OnsideZA",                       group: "radio-pr",   impressions:  8_000_000, toWaitlistPct: 0.05, waitlistToActivationPct: 35, activationToActivePct: 90 },
+    { key: "press-pr",     label: "Earned PR (Soccer Laduma, KickOff, Idiski Times)", group: "radio-pr",   impressions:  4_500_000, toWaitlistPct: 0.06, waitlistToActivationPct: 38, activationToActivePct: 90 },
+
+    { key: "murals",       label: "Township co-branding murals (12 walls)",           group: "ooh-walls",  impressions: 50_000_000, toWaitlistPct: 0.02, waitlistToActivationPct: 30, activationToActivePct: 88 },
+
+    { key: "player-paid",  label: "Player social — paid branded posts (12 senior posts)", group: "player-social", impressions:  6_000_000, toWaitlistPct: 0.30, waitlistToActivationPct: 40, activationToActivePct: 92 },
+    { key: "player-organic", label: "Player social — organic + image-rights content",      group: "player-social", impressions: 18_000_000, toWaitlistPct: 0.10, waitlistToActivationPct: 38, activationToActivePct: 90 },
   ],
 };

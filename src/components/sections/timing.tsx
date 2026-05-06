@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LaunchTimelineChart } from "@/components/charts/launch-timeline";
 import { Section } from "@/components/section";
 import { TIMING_FRAMEWORK, TRIBAL_PHASING, WAITLIST_PHASE } from "@/data/proposal";
@@ -12,18 +11,10 @@ export function Timing() {
       id="timing"
       eyebrow="Phasing · M-2 → M12"
       title="The full launch arc — from waitlist to lock-in"
-      intro="The arc starts 8–12 weeks before the SIM goes on sale (the waitlist phase) and runs through 12 months of football-rhythm marketing. Below sits the Pre-launch programme, then the 12-month phasing, then the 6-month activation timeline, then the tribal phasing of CVPs."
+      intro="The arc starts 8–12 weeks before the SIM goes on sale (the waitlist phase) and runs through 12 months of football-rhythm marketing."
     >
-      <Tabs defaultValue="pre-launch">
-        <TabsList className="mb-8 flex w-full flex-wrap">
-          <TabsTrigger value="pre-launch">Pre-launch · M-2 → M0</TabsTrigger>
-          <TabsTrigger value="phasing">12-month phasing</TabsTrigger>
-          <TabsTrigger value="tribal">Tribal phasing</TabsTrigger>
-          <TabsTrigger value="activation">6-month activation</TabsTrigger>
-        </TabsList>
-
-        {/* Pre-launch · M-2 → M0 */}
-        <TabsContent value="pre-launch">
+      {/* === Pre-launch · M-2 → M0 (always visible) === */}
+      <div className="mb-10">
         <div className="rounded-2xl border border-[var(--kc-gold)]/40 bg-[var(--kc-gold)]/5 p-6">
         <div className="text-[16px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           Pre-launch · {WAITLIST_PHASE.duration}
@@ -73,10 +64,19 @@ export function Timing() {
           </Card>
         </div>
         </div>
-        </TabsContent>
+      </div>
 
-        {/* Football-rhythm phasing — M0 → M12 */}
-        <TabsContent value="phasing">
+      {/* === 6-month launch activation Gantt — primary view === */}
+      <div className="mb-10">
+        <LaunchTimelineChart />
+      </div>
+
+      {/* === Optional deeper views — folded behind disclosure === */}
+      <details className="rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/30">
+        <summary className="cursor-pointer px-6 py-4 text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)] hover:text-[var(--kc-paper)]">
+          Show 12-month football-rhythm + tribal-phasing detail
+        </summary>
+        <div className="border-t border-[var(--kc-line)] p-6">
         <div className="mb-6">
         <div className="text-[16px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           12-month phasing · M0 → M12
@@ -160,10 +160,9 @@ export function Timing() {
           </Card>
         ))}
       </ol>
-        </TabsContent>
 
-        {/* Tribal phasing */}
-        <TabsContent value="tribal">
+      {/* === Tribal phasing nested inside the disclosure === */}
+      <div className="mt-10">
           <div className="rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
             <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
               Tribal phasing · CVPs come live in waves
@@ -219,13 +218,9 @@ export function Timing() {
               ))}
             </div>
           </div>
-        </TabsContent>
-
-        {/* 6-month activation timeline */}
-        <TabsContent value="activation">
-          <LaunchTimelineChart />
-        </TabsContent>
-      </Tabs>
+      </div>
+        </div>
+      </details>
     </Section>
   );
 }
