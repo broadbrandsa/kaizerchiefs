@@ -3,11 +3,38 @@ import { Section } from "@/components/section";
 import { KCM_MODEL } from "@/data/proposal";
 import { formatRand, formatRandFull, formatInt } from "@/lib/format";
 
+// ----------------------------------------------------------------------------
+// Marketing investment — straight from the KCM xlsx.
+// Baseline: R376,242/month flat = R4,514,901/year (R4.5M). This is the marketing
+// OPEX line in the JV financial model.
+// Reinvestment: 5% of monthly gross profit feeds back into marketing. The point
+// where 5% of GP overtakes the R376K baseline is the "self-funding" milestone —
+// after that month, marketing pays for itself out of profit.
+// ----------------------------------------------------------------------------
+const MARKETING_MONTHLY = 376_242;
+const REINVESTMENT_RATE = 0.05; // 5% of monthly gross profit
+
 export function InvestmentModel() {
   const m = KCM_MODEL;
   const maxRev = Math.max(...m.monthly.map((r) => r.rev));
   const maxSubs = Math.max(...m.monthly.map((r) => r.subs));
   const maxAbsNp = Math.max(...m.monthly.map((r) => Math.abs(r.np)));
+
+  // Build the marketing-spend series the chart needs — reinvestment is 5% of GP.
+  const mktgSeries = m.monthly.map((row) => {
+    const reinvest = row.gp > 0 ? row.gp * REINVESTMENT_RATE : 0;
+    const totalMktg = MARKETING_MONTHLY + reinvest;
+    const isSelfFunding = reinvest >= MARKETING_MONTHLY;
+    return { ...row, mktg: MARKETING_MONTHLY, reinvest, totalMktg, isSelfFunding };
+  });
+  // Find the first month reinvestment overtakes the baseline marketing
+  const crossoverMonth = mktgSeries.find((r) => r.isSelfFunding)?.m ?? null;
+  const totalReinvest = mktgSeries.reduce((acc, r) => acc + r.reinvest, 0);
+  // y-axis bound for the marketing chart — biggest of any series
+  const maxMktgChart = Math.max(
+    ...mktgSeries.map((r) => Math.max(r.totalMktg, r.np, r.reinvest)),
+    MARKETING_MONTHLY,
+  );
 
   return (
     <Section
@@ -34,6 +61,196 @@ export function InvestmentModel() {
           </Card>
         ))}
       </div>
+
+      {/* ============================================================
+          R4.5M / R376K marketing baseline + self-funding milestone
+          ============================================================ */}
+      <Card className="mb-8 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1.4fr]">
+          <div className="relative overflow-hidden bg-gradient-to-br from-[var(--kc-gold)] via-[var(--kc-gold-deep)] to-[var(--kc-black)] p-8">
+            <div className="bg-stripes absolute inset-0 opacity-25" />
+            <div className="relative">
+              <div className="text-[16px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-black)]/75">
+                Marketing investment · per the KCM model
+              </div>
+              <div className="mt-3 font-mono text-6xl font-bold tracking-tight text-[var(--kc-black)]">
+                R4.5M
+              </div>
+              <div className="mt-3 text-base font-semibold text-[var(--kc-black)]/85">
+                {formatRandFull(MARKETING_MONTHLY)} per month, flat — straight from the Calculations sheet, row 51
+              </div>
+              <div className="mt-6 grid grid-cols-2 gap-3 text-[16px]">
+                <div className="rounded-lg border border-[var(--kc-black)]/15 bg-[var(--kc-paper)]/15 p-3">
+                  <div className="font-semibold uppercase tracking-[0.2em] text-[var(--kc-black)]/70">
+                    Reinvestment rate
+                  </div>
+                  <div className="mt-1 font-mono text-base font-bold text-[var(--kc-black)]">
+                    5% of monthly GP
+                  </div>
+                  <div className="mt-1 text-[var(--kc-black)]/70">
+                    Yr-1 reinvestment total ≈ {formatRand(totalReinvest)}
+                  </div>
+                </div>
+                <div className="rounded-lg border border-[var(--kc-black)]/15 bg-[var(--kc-paper)]/15 p-3">
+                  <div className="font-semibold uppercase tracking-[0.2em] text-[var(--kc-black)]/70">
+                    Self-funding milestone
+                  </div>
+                  <div className="mt-1 font-mono text-base font-bold text-[var(--kc-black)]">
+                    {crossoverMonth ? `Month ${crossoverMonth}` : "Year 2+"}
+                  </div>
+                  <div className="mt-1 text-[var(--kc-black)]/70">
+                    {crossoverMonth ? "5% of GP overtakes the R376K baseline" : "Reinvestment doesn't cross within Yr-1 at 5%"}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-[var(--kc-ink)]/60 p-8">
+            <div className="text-[16px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+              How marketing becomes self-funding
+            </div>
+            <ul className="mt-4 space-y-3">
+              <li className="flex items-start gap-3 text-[16px] leading-relaxed text-[var(--kc-paper)]/85">
+                <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--kc-gold)]" />
+                <span>
+                  <strong className="text-[var(--kc-paper)]">Baseline.</strong>{" "}
+                  KCM Mobile commits {formatRandFull(MARKETING_MONTHLY)}/month flat in marketing — the
+                  R4.5M annual line that sits inside the JV financial model. This is paid every month, regardless of profit.
+                </span>
+              </li>
+              <li className="flex items-start gap-3 text-[16px] leading-relaxed text-[var(--kc-paper)]/85">
+                <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                <span>
+                  <strong className="text-[var(--kc-paper)]">Reinvestment grows with the business.</strong>{" "}
+                  5% of monthly gross profit is redirected back into marketing. As GP scales (M1 R1.0M → M12 R9.1M), the reinvestment grows from R51K to R454K per month.
+                </span>
+              </li>
+              <li className="flex items-start gap-3 text-[16px] leading-relaxed text-[var(--kc-paper)]/85">
+                <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
+                <span>
+                  <strong className="text-[var(--kc-paper)]">Crossover at {crossoverMonth ? `Month ${crossoverMonth}` : "Yr-2"}.</strong>{" "}
+                  This is the month the 5% reinvestment exceeds the R376K baseline. From this point on, marketing pays for itself out of profit — KCM Mobile no longer needs to commit cash to the marketing line.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Card>
+
+      {/* ============================================================
+          Marketing spend vs profit vs reinvestment — chart
+          ============================================================ */}
+      <Card className="mb-8">
+        <CardContent className="p-6">
+          <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+            Year 1 · marketing baseline vs 5% gross-profit reinvestment
+          </div>
+          <h3 className="mt-3 text-xl font-semibold tracking-tight text-[var(--kc-paper)]">
+            {crossoverMonth
+              ? `Reinvestment overtakes the R376K baseline at Month ${crossoverMonth} — marketing self-funds from there`
+              : "Reinvestment doesn't overtake the R376K baseline within Yr-1"}
+          </h3>
+
+          <svg viewBox="0 0 760 340" className="mt-6 h-auto w-full">
+            {/* gridlines */}
+            {[0, 0.25, 0.5, 0.75, 1].map((p) => (
+              <line key={`gh-${p}`} x1="50" y1={40 + 200 * p} x2="720" y2={40 + 200 * p} stroke="var(--kc-line)" strokeWidth="1" opacity="0.35" />
+            ))}
+            <text x="50" y="30" fontSize="11" fill="var(--kc-mute)">
+              R per month
+            </text>
+
+            {/* Baseline R376K horizontal line */}
+            {(() => {
+              const yBase = 240 - (MARKETING_MONTHLY / maxMktgChart) * 200;
+              return (
+                <g>
+                  <line
+                    x1="60"
+                    y1={yBase}
+                    x2="720"
+                    y2={yBase}
+                    stroke="var(--kc-gold)"
+                    strokeWidth="2.5"
+                    strokeDasharray="6 4"
+                  />
+                  <rect x="62" y={yBase - 18} width="170" height="16" rx="3" fill="var(--kc-charcoal)" />
+                  <text x="68" y={yBase - 5} fontSize="11" fontWeight="600" fill="var(--kc-gold)">
+                    Baseline · {formatRand(MARKETING_MONTHLY)} / mo
+                  </text>
+                </g>
+              );
+            })()}
+
+            {/* 5% GP reinvestment line + bars */}
+            {mktgSeries.map((row, i) => {
+              const x = 60 + i * 55;
+              const reinvY = 240 - (row.reinvest / maxMktgChart) * 200;
+              const next = mktgSeries[i + 1];
+              const isAfterCrossover = crossoverMonth !== null && row.m >= crossoverMonth;
+              const fill = isAfterCrossover ? "#34d399" : "#fb923c";
+              return (
+                <g key={row.m}>
+                  {/* Reinvestment bar */}
+                  <rect
+                    x={x}
+                    y={reinvY}
+                    width="34"
+                    height={Math.max(2, 240 - reinvY)}
+                    fill={fill}
+                    opacity="0.7"
+                    rx="3"
+                  />
+                  {/* Reinvestment line segment */}
+                  {next && (
+                    <line
+                      x1={x + 17}
+                      y1={reinvY}
+                      x2={x + 17 + 55}
+                      y2={240 - (next.reinvest / maxMktgChart) * 200}
+                      stroke={isAfterCrossover ? "#34d399" : "#fb923c"}
+                      strokeWidth="2.5"
+                    />
+                  )}
+                  <circle cx={x + 17} cy={reinvY} r="4" fill={fill} />
+                  {/* Crossover marker */}
+                  {crossoverMonth === row.m ? (
+                    <g>
+                      <circle cx={x + 17} cy={reinvY} r="9" fill="none" stroke="#34d399" strokeWidth="2" />
+                      <line x1={x + 17} y1={reinvY - 12} x2={x + 17} y2="38" stroke="#34d399" strokeWidth="1" strokeDasharray="3 3" />
+                      <rect x={x - 35} y={20} width="100" height="18" rx="3" fill="#34d399" />
+                      <text x={x + 17} y={33} fontSize="11" fontWeight="700" fill="var(--kc-black)" textAnchor="middle">
+                        SELF-FUNDING
+                      </text>
+                    </g>
+                  ) : null}
+                  {/* Month label */}
+                  <text x={x + 17} y={262} fontSize="10" fill="var(--kc-mute)" textAnchor="middle">
+                    M{row.m}
+                  </text>
+                  {/* Reinvestment value */}
+                  <text x={x + 17} y={reinvY - 8} fontSize="9" fill="var(--kc-paper)" textAnchor="middle" opacity="0.85">
+                    {Math.round(row.reinvest / 1000)}K
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+
+          <div className="mt-4 flex flex-wrap items-center gap-6 text-[16px] text-[var(--kc-paper)]/75">
+            <span className="flex items-center gap-2">
+              <span className="inline-block h-1 w-5 rounded bg-[var(--kc-gold)]" /> Baseline marketing · {formatRand(MARKETING_MONTHLY)} flat
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="inline-block h-2.5 w-3 rounded bg-orange-400 opacity-75" /> 5% of GP reinvestment (pre-crossover)
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="inline-block h-2.5 w-3 rounded bg-emerald-400 opacity-75" /> 5% of GP reinvestment (self-funding)
+            </span>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Subscribers + Revenue chart */}
       <Card className="mb-8">

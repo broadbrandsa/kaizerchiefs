@@ -1,3 +1,6 @@
+// NOTE: This module is currently unused after the InvestmentModel rewrite.
+// Kept as a reference for any future re-introduction of an interactive model.
+
 /**
  * KC Mobile MVNO investment calculator — parametric monthly model.
  * Anchored to KCM Digital Mobile model calculations (Final 20260128, EJW 20260312).
@@ -15,11 +18,11 @@ export interface ModelAssumptions {
 }
 
 export const MODEL_DEFAULTS: ModelAssumptions = {
-  arpuMonthly: 81,           // R81.46 rounded to whole rand
+  arpuMonthly: 117,          // V2 ARPU R116.51 rounded to whole rand (was R81 in V1)
   grossMargin: 0.51,
   monthlyChurn: 0.05,
   reinvestmentRate: 0.05,
-  baselineMarketingPerYear: 4_500_000, // R376k/month × 12 ≈ R4.5M from the KCM model
+  baselineMarketingPerYear: 4_500_000, // R376K/month × 12 ≈ R4.5M from the KCM model (Calculations sheet row 51)
   cacPerNewUser: 150,        // Brief target R150 per activation
 };
 

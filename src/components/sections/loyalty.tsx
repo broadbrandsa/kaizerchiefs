@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/section";
-import { LOYALTY_PROGRAMME } from "@/data/proposal";
+import { LOYALTY_PROGRAMME, AMA_COIN } from "@/data/proposal";
 
 const TIER_TONE: Record<string, { ring: string; text: string; bg: string; chip: string }> = {
   Bronze: {
@@ -37,6 +37,68 @@ export function Loyalty() {
         {LOYALTY_PROGRAMME.tiers.map((tier) => (
           <TierCard key={tier.name} tier={tier} />
         ))}
+      </div>
+
+      {/* AmaCoin — the named loyalty currency */}
+      <div className="mt-12 overflow-hidden rounded-2xl border border-[var(--kc-gold)]/40">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr]">
+          <div className="relative overflow-hidden bg-gradient-to-br from-[var(--kc-gold)] via-[var(--kc-gold-deep)] to-[var(--kc-black)] p-8">
+            <div className="bg-stripes absolute inset-0 opacity-30" />
+            <div className="relative">
+              <div className="text-[16px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-black)]/75">
+                {AMA_COIN.tagline}
+              </div>
+              <div className="mt-3 font-mono text-5xl font-bold tracking-tight text-[var(--kc-black)]">
+                {AMA_COIN.name}
+              </div>
+              <p className="mt-4 text-base leading-relaxed text-[var(--kc-black)]/85">
+                {AMA_COIN.oneLiner}
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 gap-5 bg-[var(--kc-ink)]/60 p-8 sm:grid-cols-2">
+            <div>
+              <div className="text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                Earn
+              </div>
+              <ul className="mt-3 space-y-2">
+                {AMA_COIN.earn.map((e) => (
+                  <li
+                    key={e}
+                    className="flex items-start gap-2 text-[16px] leading-snug text-[var(--kc-paper)]/85"
+                  >
+                    <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                    <span>{e}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div className="text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                Burn
+              </div>
+              <ul className="mt-3 space-y-2">
+                {AMA_COIN.burn.map((b) => (
+                  <li
+                    key={b}
+                    className="flex items-start gap-2 text-[16px] leading-snug text-[var(--kc-paper)]/85"
+                  >
+                    <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--kc-gold)]" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="sm:col-span-2 rounded-lg bg-[var(--kc-charcoal)]/60 p-4">
+              <div className="text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                KPIs
+              </div>
+              <p className="mt-1 text-[16px] leading-relaxed text-[var(--kc-paper)]/85">
+                {AMA_COIN.kpis}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Always-on rewards */}

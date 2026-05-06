@@ -10,12 +10,10 @@ const NAV = [
   { label: "Audience", href: "#audience" },
   { label: "Model", href: "#model" },
   { label: "Plan", href: "#execution-plan" },
-  { label: "Voices", href: "#earned-voices" },
-  { label: "Players", href: "#player-channel" },
+  { label: "Voices & Players", href: "#voices-and-players" },
   { label: "Ideas", href: "#ideas" },
   { label: "Loyalty", href: "#loyalty" },
   { label: "Journey", href: "#customer-journey" },
-  { label: "Waitlist", href: "#waitlist" },
   { label: "Year 2", href: "#year-2" },
 ];
 

@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "KC Mobile MVNO Launch Proposal",
   description:
-    "Kaizer Chiefs Mobile (KC Mobile) MVNO launch proposal — interactive financial model anchored to the KCM Digital Mobile numbers, with named-supplier costings, audience research and downloadable PDF.",
+    "Kaizer Chiefs Mobile (KC Mobile) MVNO launch proposal — V2 financial model anchored to the KCM Digital Mobile numbers, with named-supplier costings, persona research, 8 non-comparable CVPs and downloadable PDF.",
   authors: [{ name: "DSG (Digital Strategy Group)" }],
 };
 

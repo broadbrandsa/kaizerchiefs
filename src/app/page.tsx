@@ -2,23 +2,22 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SideMenu } from "@/components/side-menu";
 import { ReadingProgress } from "@/components/reading-progress";
-import { QuickJump } from "@/components/quick-jump";
 import {
   Hero,
   Overview,
   Audience,
   Strategy,
+  ProductCvps,
   InvestmentModel,
+  Pricing,
   ExecutionPlan,
   SponsorMap,
-  EarnedVoices,
-  PlayerChannel,
+  VoicesAndPlayers,
   ActivationIdeas,
   Loyalty,
   CustomerJourney,
   Suppliers,
   RetailFuture,
-  Waitlist,
   Timing,
   Measure,
   YearTwo,
@@ -34,22 +33,21 @@ export default function Home() {
       <Overview />
       <Audience />
       <Strategy />
+      <ProductCvps />
       <InvestmentModel />
+      <Pricing />
       <ExecutionPlan />
       <SponsorMap />
-      <EarnedVoices />
-      <PlayerChannel />
+      <VoicesAndPlayers />
       <ActivationIdeas />
       <Loyalty />
       <CustomerJourney />
       <Suppliers />
       <RetailFuture />
-      <Waitlist />
       <Timing />
       <Measure />
       <YearTwo />
       <Footer />
-      <QuickJump />
     </main>
   );
 }

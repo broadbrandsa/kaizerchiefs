@@ -56,33 +56,14 @@ export function SideMenu() {
     return () => observer.disconnect();
   }, []);
 
-  const completedCount = completed.size;
-  const completedPct = Math.round((completedCount / SECTION_REGISTRY.length) * 100);
-
   return (
     <nav
       aria-label="Section navigation"
-      className="no-print pointer-events-none fixed left-0 top-24 z-30 hidden h-[calc(100vh-6rem)] w-56 lg:block"
+      className="no-print group/nav pointer-events-none fixed left-0 top-24 z-30 hidden h-[calc(100vh-6rem)] w-12 transition-[width] duration-300 ease-out hover:w-56 lg:block"
     >
-      <div className="pointer-events-auto h-full overflow-y-auto px-4 py-4">
-        {/* Read progress mini-meter */}
-        <div className="mb-4 rounded-md border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/50 p-3">
-          <div className="flex items-baseline justify-between text-[16px] uppercase tracking-[0.2em] text-[var(--kc-mute)]">
-            <span>Progress</span>
-            <span className="font-mono text-[var(--kc-gold)]">{completedPct}%</span>
-          </div>
-          <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-[var(--kc-ink)]">
-            <div
-              className="h-full bg-[var(--kc-gold)] transition-all duration-300"
-              style={{ width: `${completedPct}%` }}
-            />
-          </div>
-          <div className="mt-1 text-[16px] text-[var(--kc-mute)]">
-            {completedCount} / {SECTION_REGISTRY.length} sections
-          </div>
-        </div>
-
-        <div className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-mute)]">
+      <div className="pointer-events-auto h-full overflow-hidden py-4 transition-[padding] duration-300 ease-out group-hover/nav:px-4 px-2">
+        {/* Section header — fades in on hover */}
+        <div className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-mute)] opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100 whitespace-nowrap">
           Sections
         </div>
 
@@ -94,8 +75,9 @@ export function SideMenu() {
               <li key={s.id}>
                 <a
                   href={`#${s.id}`}
+                  title={s.label}
                   className={cn(
-                    "group flex items-center gap-2.5 rounded px-2 py-1.5 text-[13px] transition",
+                    "group/item flex items-center gap-2.5 rounded px-2 py-1.5 text-[13px] transition",
                     isActive
                       ? "text-[var(--kc-gold)]"
                       : isSeen
@@ -103,11 +85,9 @@ export function SideMenu() {
                         : "text-[var(--kc-paper)]/60 hover:text-[var(--kc-gold)]",
                   )}
                 >
-                  {/* Status indicator */}
+                  {/* Status indicator — always visible */}
                   <span
-                    className={cn(
-                      "relative flex h-4 w-4 shrink-0 items-center justify-center",
-                    )}
+                    className="relative flex h-4 w-4 shrink-0 items-center justify-center"
                     aria-hidden="true"
                   >
                     {isActive ? (
@@ -138,26 +118,18 @@ export function SideMenu() {
                     )}
                   </span>
 
-                  {/* Number + label */}
-                  <span className="font-mono text-[10px] tabular-nums text-[var(--kc-mute)] group-hover:text-[var(--kc-paper)]/70">
+                  {/* Number + label — hidden until hover, then fade in */}
+                  <span className="font-mono text-[10px] tabular-nums text-[var(--kc-mute)] opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100 group-hover/item:text-[var(--kc-paper)]/70 whitespace-nowrap">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="truncate">{s.label}</span>
+                  <span className="truncate opacity-0 transition-opacity duration-200 group-hover/nav:opacity-100">
+                    {s.label}
+                  </span>
                 </a>
               </li>
             );
           })}
         </ul>
-
-        {/* Keyboard hints */}
-        <div className="mt-6 rounded-md border border-[var(--kc-line)]/60 bg-[var(--kc-charcoal)]/30 p-3 text-[16px] text-[var(--kc-mute)]">
-          <div className="font-semibold uppercase tracking-[0.2em]">Tips</div>
-          <ul className="mt-2 space-y-1">
-            <li><kbd className="rounded border border-[var(--kc-line)] bg-[var(--kc-ink)] px-1 font-mono text-[16px]">J</kbd> next chapter</li>
-            <li><kbd className="rounded border border-[var(--kc-line)] bg-[var(--kc-ink)] px-1 font-mono text-[16px]">K</kbd> previous chapter</li>
-            <li><kbd className="rounded border border-[var(--kc-line)] bg-[var(--kc-ink)] px-1 font-mono text-[16px]">/</kbd> search sections</li>
-          </ul>
-        </div>
       </div>
     </nav>
   );

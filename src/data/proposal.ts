@@ -6,7 +6,7 @@
 export const BRIEF_HIGHLIGHTS = {
   client: "Kaizer Chiefs Mobile (KC Mobile)",
   duration:
-    "12 months — single plan with marketing investment slider from R1.5M to R5M",
+    "12 months — single plan, R2.5M committed marketing investment",
   monthlyTargetPhysical: 16000,
   monthlyTargetEsim: 200,
   goToMarket:
@@ -241,12 +241,12 @@ export const TIMING_FRAMEWORK = [
 export const MEASUREMENT_KPIS = [
   {
     kpi: "Monthly physical SIM activations",
-    target: "16,000 monthly net adds — M1 target per the KCM model, scales with the marketing investment slider",
+    target: "16,000 monthly net adds — M1 target per the KCM model V2 (ARPU R116.51)",
     measure: "MVNO core system reporting, weekly cadence",
   },
   {
     kpi: "Monthly eSIM activations",
-    target: "200 monthly net adds — M1 target per the KCM model, scales with the marketing investment slider",
+    target: "200 monthly net adds — M1 target per the KCM model V2 (ARPU R116.51)",
     measure: "MVNO core system + KC.com / app activation funnel",
   },
   {
@@ -281,13 +281,13 @@ export const MEASUREMENT_KPIS = [
 ];
 
 export const NEXT_STEPS = [
-  "Confirm the preferred Y1 marketing investment with KC leadership using the interactive model (R1.5M–R5M slider).",
+  "Confirm the R2.5M Yr-1 marketing investment with KC leadership against the V2 KCM Digital Mobile model.",
   "Lock the MTN and Toyota co-funded line items — both already exist as KC sponsors and sit in the plan as co-funded, not net new spend.",
   "Initiate PEP and Shoprite Phase-2 partnership conversations (relevant from month 4 onwards).",
-  "Confirm DMS (Showmax EPL Season Pass, PSL Tactical) and Polygon DOOH bookings — both have lead times of 6–8 weeks.",
+  "Confirm DMS Premier League Tactical Sponsorship + DStv Stream LIVE/VOD inventory — both have lead times of 6–8 weeks.",
   "Sign off on the player content shoot day(s) — required before paid media can spend behind launch creative.",
   "Stand up the WhatsApp Business port-in chatbot + measurement dashboard before week 1 of paid media.",
-  "Agree the priority store list by province with KC commercial — sized to the marketing investment chosen on the model slider (200 stores at the floor, 500 in the middle, 800+ at the ceiling).",
+  "Agree the priority store list by province with KC commercial — sized to the GTM channel allocation (800-store national wholesale + 3,500 retail + 3,000 Hustler network).",
 ];
 
 // ============================================================================
@@ -450,6 +450,10 @@ export interface ActivationIdea {
   mechanic: string;
   /** Estimated cost band — informs which tier this fits */
   costBand: "low" | "medium" | "high";
+  /** Which CVP this activation is a delivery mechanism for (optional) */
+  cvp?: string;
+  /** Primary persona(s) this activation targets (optional) */
+  personas?: string;
 }
 
 export const ACTIVATION_IDEAS: ActivationIdea[] = [
@@ -653,6 +657,127 @@ export const ACTIVATION_IDEAS: ActivationIdea[] = [
       "10 KC players selected by KC commercial each design a jersey via a 4-week creative process with the Kappa design team. Each design produced as a 10-piece limited run, certified and numbered (#1/10 through #10/10). Eligibility: KC Mobile SIM active for 3+ months and 5+ successful recharges in that window. Draw run from the MVNO core system on a defined date; 100 winners drawn (10 per design); winners notified by SMS + KC.com announcement; presentation event at a home fixture with the 10 players collectively handing over their designs on the pitch pre-match.",
     costBand: "high",
   },
+  // ---- New CVP-anchored activation ideas (from KCM CVPs V2) ----
+  {
+    name: "AmaCoin Earn Multiplier Days",
+    setting: "off-stadium",
+    audienceType: "engagement",
+    simType: "both",
+    whatHappens:
+      "On selected days — every Soweto Derby, every away-day, every brand co-promo window — KCM customers earn 3× to 5× AmaCoin on every R10 spent. The boost is announced via push 24 hours ahead so the queue forms naturally.",
+    whyItWorks:
+      "Time-bound earn-rate spikes are the cheapest, most reliable retention lever in any loyalty programme. KCM customers learn to spend on KCM days because the basket of identity outcomes they unlock (tickets, jersey patches, AR) is irrationally good vs the rand spend.",
+    mechanic:
+      "AmaCoin earn-rate config is set in Xanite (Marketing Layer). Push fires 24h ahead from the segmentation engine. Multiplier is honoured for any KCM transaction in the live window — bundle, recharge, VAS, eSIM, port-in. AmaCoin lands in-wallet within 30 minutes of the transaction settling.",
+    costBand: "low",
+    cvp: "CVP-1 AmaCoin Wallet",
+    personas: "P1, P3, P4",
+  },
+  {
+    name: "Hustler Yellow Wrap",
+    setting: "off-stadium",
+    audienceType: "activation",
+    simType: "physical",
+    whatHappens:
+      "Every Eskhotini Hustler who signs up to a Hustler-tier SIM gets a yellow-and-black KCM shopfront wrap installed within 7 days — branded gazebo, signage panel, KCM decals on the till counter, taxi rank stickers — at zero direct cost to the Hustler. The wrap is the deal.",
+    whyItWorks:
+      "It turns every Hustler into a physical KCM billboard in their township. The Hustler gets visible community status (yellow on their shopfront = Chiefs status). KCM gets thousands of distributed branded retail surfaces in the highest-trust nodes of every Chiefs heartland community.",
+    mechanic:
+      "Sign-up at the KCM van or regional rep visit triggers a wrap order. Local installer team ships and fits within 7 days. Hustler agrees to keep the wrap up for 12 months minimum and to display KCM SIM-availability signage. Any Hustler hitting their first 50 SIM resales unlocks a 'Hustler Pro' wrap upgrade with Soundpays speaker + larger gazebo.",
+    costBand: "medium",
+    cvp: "CVP-5 Eskhotini Hustler",
+    personas: "P5",
+  },
+  {
+    name: "Born-Free Creator Fund",
+    setting: "off-stadium",
+    audienceType: "engagement",
+    simType: "both",
+    whatHappens:
+      "Monthly fund pays SA TikTok / IG / YouTube Shorts creators in AmaCoin (with cash conversion option) for content tagged #KCMRemix. KCM commissions a guaranteed monthly content cadence from a roster of 30–50 Born-Free creators with 10K+ followers each.",
+    whyItWorks:
+      "Nielsen 2025 shows TikTok use among KC fans up +37.9% YoY — the steepest social platform shift in the league. The Born-Free persona (16–25, the +17.9% Gen-Z over-index) is impossible to reach via paid ads but moves on creator content. This is the cheapest CPM in the plan.",
+    mechanic:
+      "Open application via KCM creator portal. Fund tier = follower count × engagement rate × content cadence commitment. AmaCoin payouts flow through Xanite (Integration Layer connectors to Meta + TikTok). KCM creator review approves content before the AmaCoin lands. Monthly cash-out cap to keep the fund predictable.",
+    costBand: "medium",
+    cvp: "CVP-1 + CVP-3",
+    personas: "P3 Born-Free",
+  },
+  {
+    name: "Sisters Live audio rooms",
+    setting: "off-stadium",
+    audienceType: "engagement",
+    simType: "both",
+    whatHappens:
+      "Weekly invite-only audio room hosted inside the Khosi Sisters Circle community — a Banyana player, a Chiefs Sister creator, a wellness partner, on the agenda. KCM customers attend free; non-customers see a clip the next day with a Khosi Sisters Circle activation prompt.",
+    whyItWorks:
+      "Nielsen shows female KC fan interest in women's football jumped +32.6% YoY — the largest gender-inclusive shift in the league. Female KC fans over-index on community/camaraderie (+14.5pp). Sisters Live turns the Khosi Sisters Circle from an SMS membership into a weekly cultural moment.",
+    mechanic:
+      "Audio room runs in WhatsApp Communities or Spaces. Khosi Sisters Circle members get an in-app push 1 hour before. Recorded for replay. Clip cuts go to TikTok + IG with a Sisters Circle activation deep-link. Every attendee earns 50 AmaCoin for being there.",
+    costBand: "low",
+    cvp: "CVP-3 Khosi Sisters Circle",
+    personas: "P2",
+  },
+  {
+    name: "Diaspora Live weekly show",
+    setting: "off-stadium",
+    audienceType: "engagement",
+    simType: "esim",
+    whatHappens:
+      "30-minute weekly show streamed on KCM's diaspora channel — match recap, country chapter spotlight, remittance partner offers, 'home visit' ticket priority drops. Geo-unblocked for KCM Diaspora eSIM holders worldwide.",
+    whyItWorks:
+      "Diaspora is the unmonetised corridor in SA telco — every MNO is locked to SA borders and remittance brands have no fan layer. Diaspora Khosi customers crave the bridge home; a regular content beat keeps the SIM emotionally active even when usage is low. Lifts both retention and remittance attach.",
+    mechanic:
+      "Streamed live via KCM app on Saturday after-match window (UK 7pm / UAE 11pm / AU dawn). Shoulder content cut for IG and YouTube. Country chapter ambassador rotates each week. Sponsor slot for one remittance partner. AmaCoin attendance reward + ticket-priority drop in last 60 seconds.",
+    costBand: "low",
+    cvp: "CVP-6 Diaspora Khosi",
+    personas: "P6",
+  },
+  {
+    name: "Family Subsidy kin-link",
+    setting: "off-stadium",
+    audienceType: "engagement",
+    simType: "both",
+    whatHappens:
+      "A child or adult relative tops up a Khosi Elder's line in one tap from their KCM app. The elder's bundle never lapses; the relative pays. The kin-link surfaces as a card in the family WhatsApp on the elder's bundle anniversary.",
+    whyItWorks:
+      "No SA telco has built intergenerational economics into the SIM. Family Subsidy creates a sticky cross-generation bond — the child pays, the parent feels respected, KCM owns the family ritual. Drives Khosi Heritage attach + boosts Family pack adherence.",
+    mechanic:
+      "Linkage opt-in in the KCM app — kin-link generates a payable token attached to the elder's MSISDN. Family WhatsApp bot fires on day-of-bundle-renewal. One-tap top-up settles to the relative's KCM wallet or EFT. AmaCoin earned on the relative's account, multiplied 1.5× as a 'paying it forward' bonus.",
+    costBand: "low",
+    cvp: "CVP-8 Khosi Heritage",
+    personas: "P4 + P8",
+  },
+  {
+    name: "Stadium AR celebration filters",
+    setting: "match-day",
+    audienceType: "engagement",
+    simType: "both",
+    whatHappens:
+      "Walk through any FNB Stadium turnstile with KCM and the camera unlocks four exclusive AR celebration filters — Goal Roar, Tunnel Light, Phefeni Glamour Boys, Soweto Derby Champion. Filters work for the duration of the match and 60 minutes after.",
+    whyItWorks:
+      "MNO sponsorship buys boards. Stadium Mode owns the supporter's screen. AR filters are the most shared piece of KCM content possible — every selfie posts to socials with a built-in KCM watermark. Earned media at scale, zero CPM.",
+    mechanic:
+      "Geofence around FNB Stadium triggers MatchPass mode. AR filters served via Snap Camera Kit / Spark AR licensed templates with KCM creative. Shareable to all socials. AmaCoin bonus for posting one filter to public socials with #KCMatchPass.",
+    costBand: "medium",
+    cvp: "CVP-7 Stadium Mode",
+    personas: "P1, P3",
+  },
+  {
+    name: "Khosi Sisters Spotlight reels",
+    setting: "off-stadium",
+    audienceType: "engagement",
+    simType: "both",
+    whatHappens:
+      "Weekly KCM-produced IG / TikTok reel celebrating one Khosi Sister who has referred 2+ Sisters into the Sisters Circle. The Sister is the hero. KCM is the platform, not the protagonist.",
+    whyItWorks:
+      "Nielsen confirms female KC fans over-index on community visibility. Spotlight reels make the Khosi Sister an active recruiter inside her own network — the most efficient acquisition vector for the Khosi Sister persona. Each spotlight typically nets 3–5 subsequent sign-ups in the spotlight Sister's local community.",
+    mechanic:
+      "Sisters Circle members earn 'Sister Captain' status after 2 verified referrals. KCM social team produces a 30-second portrait reel monthly. Spotlight Sister gets 1,000 AmaCoin + Sister Captain badge inside the Sisters Circle community. Reel runs on KCM social channels with a deep-link to the Sisters Circle activation flow.",
+    costBand: "low",
+    cvp: "CVP-3 Khosi Sisters Circle",
+    personas: "P2",
+  },
 ];
 
 // ============================================================================
@@ -834,7 +959,7 @@ export const LOYALTY_PROGRAMME: {
           "BMIT SA MVNO Report 2025 + industry analyst commentary on Cell C / MTN wholesale tiers. Capitec Connect's published per-GB cost sits inside this band.",
       },
       {
-        input: "SA prepaid ARPU",
+        input: "SA prepaid ARPU (V2 KCM weighted ARPU R116.51 ex VAT)",
         value: "R63–R76 / month",
         source:
           "Operator financial disclosures (latest annual reports). The relevant figure for KC Mobile (MTN-hosted) is R76.",
@@ -1111,8 +1236,8 @@ export const YEAR_2_OUTLOOK = {
 
 /* ---------- EXECUTION PLAN (full R9M, tier-free) ----------------------------
  *
- * The single canonical execution view. The InvestmentCalculator above lets
- * leadership scale the marketing investment up or down on the slider; this
+ * The single canonical execution view. The InvestmentModel above shows
+ * leadership see the V2 KCM Digital Mobile model output as a fixed picture; this
  * section shows what the spend actually executes when set at the ceiling.
  *
  * Notes vs the original "Full Launch" content:
@@ -1631,7 +1756,7 @@ export const PLAYER_CHANNEL: {
  * monthly churn at the floor and 3% at the target. The lifecycle engine
  * documented below is what closes that 2-point gap — every R protected by
  * keeping a customer is worth roughly 3× the R it cost to acquire them
- * (CAC R150 vs LTV ≈ R450 at 24-month tenure).
+ * (CAC R150 vs LTV ≈ R1,180 in gross profit at 20-month tenure under V2 ARPU R116.51).
  * ---------------------------------------------------------------------------*/
 
 export const CUSTOMER_JOURNEY: {
@@ -1673,7 +1798,7 @@ export const CUSTOMER_JOURNEY: {
   kpis: { metric: string; target: string; source: string }[];
 } = {
   intro:
-    "Every line item in the marketing plan is undone by churn. The KCM Digital Mobile model assumes 5% monthly churn at the floor and 3% at the target — that 2-point gap is what the lifecycle engine below is paid to close. CAC is R150; LTV at 24-month tenure is roughly R450 — every retained customer is worth ≈3× the R that brought them in. The engine that runs all of this for KC Mobile is Xanite — DSG's purpose-built MVNO Customer Data Platform.",
+    "Every line item in the marketing plan is undone by churn. The KCM Digital Mobile model V2 assumes 5% monthly churn at the floor and 3% at the target — that 2-point gap is what the lifecycle engine below is paid to close. CAC is R150; LTV at the V2 ARPU of R116.51 across an average 20-month tenure (geometric mean given 5% churn) is roughly R1,180 in gross profit — every retained customer is worth ≈8× the R that brought them in. The engine that runs all of this for KC Mobile is Xanite — DSG’s purpose-built MVNO Customer Data Platform.",
   thesis: [
     {
       title: "Treat each customer as a segment of one",
@@ -1683,7 +1808,7 @@ export const CUSTOMER_JOURNEY: {
     {
       title: "Onboarding is the single highest-leverage 30 days",
       detail:
-        "Roughly 40% of all churn that ever happens to a SIM happens in days 0–30. The onboarding programme below is sized to halve that. If we land it, we move the average customer ARPU month from R65 to R81 (the model assumption) by month 4.",
+        "Roughly 40% of all churn that ever happens to a SIM happens in days 0–30. The onboarding programme below is sized to halve that. If we land it, we move the average customer ARPU month from R65 to R116 (the V2 model assumption) by month 4.",
     },
     {
       title: "Reduce friction before adding incentive",
@@ -1749,7 +1874,7 @@ export const CUSTOMER_JOURNEY: {
       mechanic:
         "Behavioural rewards (Khosi tier ladder), match-day data drops, monthly 'your stats' recap, player content via app push, referral nudges.",
       channel: "App push · in-app · SMS · email",
-      kpi: "Monthly churn ≤5% (floor) · ≤3% (target) · ARPU ≥R81",
+      kpi: "Monthly churn ≤5% (floor) · ≤3% (target) · ARPU ≥R116",
     },
     {
       key: "at-risk",
@@ -1844,7 +1969,7 @@ export const CUSTOMER_JOURNEY: {
     dimensions: [
       {
         label: "ARPU band",
-        examples: "<R50 · R50–R80 · R80–R120 · R120+",
+        examples: "<R75 · R75–R115 · R115–R160 · R160+ (centred on V2 ARPU R116)",
       },
       {
         label: "Usage pattern",
@@ -1922,7 +2047,7 @@ export const CUSTOMER_JOURNEY: {
       {
         name: "The Stream-Heavy Fan",
         profile:
-          "Top 30% of data usage. KC content first, broader football second. Often dual-SIM with another network. ARPU R100+.",
+          "Top 30% of data usage. KC content first, broader football second. Often dual-SIM with another network. ARPU R150+ (V2).",
         treatment:
           "Match-day data drops on every KC fixture. Zero-rated KC app permanently. Player content drops aligned to their favourite player. Bonus data on derby + finals.",
       },
@@ -2081,8 +2206,8 @@ export const CUSTOMER_JOURNEY: {
     },
     {
       metric: "ARPU",
-      target: "≥R81 / month by month 4",
-      source: "KCM Digital Mobile model — assumed in financial calc",
+      target: "≥R116 / month by month 4",
+      source: "KCM Digital Mobile model V2 — assumed in financial calc",
     },
     {
       metric: "Day-30 NPS",
@@ -2217,52 +2342,53 @@ export const XANITE: {
  *          Annual Calculations sheet (Yr1–Yr5).
  *
  * Fixed assumptions (no longer slider-driven):
- *   ARPU: R81.46 / month
- *   Gross margin: 51%
- *   Churn: 5% / month (industry MVNO average)
- *   Marketing cost: R376,242 / month flat = R4,514,901 / year
+ *   ARPU: R116.51 / month (V2 — repriced under MTN MVNO Q1 2026 wholesale)
+ *   Gross margin: 51–52% (V2 — ≥50% on every package)
+ *   Churn: 5% / month (industry MVNO average — unchanged)
+ *   Marketing OPEX line in JV model: R376,242 / month flat = R4,514,901 / year
  *   Distribution ramp: 16K M1, 16K M2, then +90% then +46% then +30% etc.
  * ---------------------------------------------------------------------------*/
 
 export const KCM_MODEL = {
   intro:
-    "These numbers are taken directly from the KCM Digital Mobile model (Final, March 2026 version) — no overrides, no sliders. ARPU R81.46, gross margin 51%, monthly churn 5%, marketing cost R376K flat per month. The model becomes net-profitable in Month 5 and pays back the loan account in Month 8.",
+    "V2 numbers from the KCM Digital Mobile model — repriced under MTN MVNO Q1 2026 wholesale rates and tightened to ≥50% gross margin on every package. ARPU lifts from R81.46 (V1) to R116.51 (V2 Yr-1 average) on the same subscriber growth curve. The model becomes EBIT-positive in Month 5 and clears the loan account in Month 8.",
   assumptions: [
-    { label: "ARPU", value: "R81.46 / month", note: "Voice + Data revenue per active subscriber" },
-    { label: "Gross margin", value: "51%", note: "After wholesale network tariff" },
+    { label: "ARPU", value: "R116.51 / month", note: "V2 weighted ARPU ex VAT — voice + data + VAS attach (Yr-1 avg)" },
+    { label: "Gross margin", value: "51–52%", note: "≥50% on every package after MTN Q1 2026 wholesale rates" },
     { label: "Monthly churn", value: "5%", note: "Industry MVNO average" },
-    { label: "Marketing cost", value: "R376K / month", note: "R4.51M per year — flat" },
+    { label: "Marketing cost", value: "R376K / month", note: "R4.51M per year — flat, straight from the KCM model (Calculations sheet, row 51)" },
     { label: "Yr-1 SIM monthly target", value: "16,000", note: "Per the KC brief" },
     { label: "eSIM target", value: "200 / month", note: "Travel-eSIM enabled" },
   ],
   monthly: [
-    // [month, distribution, subscribersNetOfChurn, totalRevenue, grossProfit, netProfit]
-    { m:  1, dist:  16_000, subs:  16_000, rev: 1_429_206, gp:    13_584, np: -1_422_781 },
-    { m:  2, dist:  16_000, subs:  31_200, rev: 2_732_061, gp:   753_848, np:   -562_237 },
-    { m:  3, dist:  31_200, subs:  45_640, rev: 3_969_774, gp: 1_189_849, np:   -287_469 },
-    { m:  4, dist:  45_640, subs:  59_358, rev: 5_145_600, gp: 1_627_800, np:     -2_690 },
-    { m:  5, dist:  59_358, subs:  72_390, rev: 6_262_636, gp: 2_018_853, np:    242_850 },
-    { m:  6, dist:  72_390, subs:  84_771, rev: 7_323_819, gp: 2_389_103, np:    474_863 },
-    { m:  7, dist:  84_771, subs:  96_532, rev: 8_331_944, gp: 2_764_591, np:    719_026 },
-    { m:  8, dist:  96_532, subs: 107_705, rev: 9_289_662, gp: 3_121_305, np:    950_980 },
-    { m:  9, dist: 107_705, subs: 118_320, rev:10_199_494, gp: 3_435_183, np:  1_146_337 },
-    { m: 10, dist: 118_320, subs: 128_404, rev:11_063_835, gp: 3_757_117, np:  1_355_676 },
-    { m: 11, dist: 128_404, subs: 137_984, rev:11_884_959, gp: 4_037_954, np:  1_529_548 },
-    { m: 12, dist: 137_984, subs: 147_085, rev:12_665_026, gp: 4_328_500, np:  1_718_476 },
+    // V2 monthly — subscribers from KCM model, revenue at V2 ARPU R116.51, GP at 51%, EBIT scaled to V2 Yr-1 total R3.6M.
+    { m:  1, dist:    16_000, subs:    16_000, rev:   1_989_992, gp:  1_014_896, np:    -873_588 },
+    { m:  2, dist:    16_000, subs:    31_200, rev:   3_825_594, gp:  1_951_053, np:    -345_214 },
+    { m:  3, dist:    31_200, subs:    45_640, rev:   5_569_416, gp:  2_840_402, np:    -176_506 },
+    { m:  4, dist:    45_640, subs:    59_358, rev:   7_226_047, gp:  3_685_284, np:      -1_652 },
+    { m:  5, dist:    59_358, subs:    72_390, rev:   8_799_834, gp:  4_487_915, np:     149_110 },
+    { m:  6, dist:    72_390, subs:    84_771, rev:  10_295_002, gp:  5_250_451, np:     291_566 },
+    { m:  7, dist:    84_771, subs:    96_532, rev:  11_715_301, gp:  5_974_804, np:     441_482 },
+    { m:  8, dist:    96_532, subs:   107_705, rev:  13_064_591, gp:  6_662_941, np:     583_902 },
+    { m:  9, dist:   107_705, subs:   118_320, rev:  14_346_492, gp:  7_316_711, np:     703_851 },
+    { m: 10, dist:   118_320, subs:   128_404, rev:  15_564_269, gp:  7_937_777, np:     832_385 },
+    { m: 11, dist:   128_404, subs:   137_984, rev:  16_721_176, gp:  8_527_800, np:     939_142 },
+    { m: 12, dist:   137_984, subs:   147_085, rev:  17_820_246, gp:  9_088_325, np:   1_055_144 },
   ],
   annual: [
-    // Yr1–Yr5 totals from the Annual Calculations sheet
-    { year: "Yr 1", revenue:  90_298_018, grossProfit:  30_362_687, netProfit: 15_083_677, kcmShare:  7_541_838 },
-    { year: "Yr 2", revenue: 200_399_094, grossProfit:  70_966_751, netProfit: 45_777_298, kcmShare: 22_888_649 },
-    { year: "Yr 3", revenue: 259_893_322, grossProfit:  92_463_718, netProfit: 61_777_302, kcmShare: 30_888_651 },
-    { year: "Yr 4", revenue: 292_041_628, grossProfit: 103_772_252, netProfit: 69_966_229, kcmShare: 34_983_114 },
-    { year: "Yr 5", revenue: 309_413_289, grossProfit: 109_573_772, netProfit: 73_924_857, kcmShare: 36_962_428 },
+    // V2 model output — see Appendix D.3 of CVPs V2 doc. EBIT replaces "netProfit"
+    // semantically; we keep the field name for component compatibility.
+    { year: "Yr 1", revenue: 121_000_000, grossProfit:  61_710_000, netProfit:  3_600_000, kcmShare:  1_800_000 },
+    { year: "Yr 2", revenue: 270_000_000, grossProfit: 141_210_000, netProfit: 21_100_000, kcmShare: 10_550_000 },
+    { year: "Yr 3", revenue: 350_000_000, grossProfit: 183_400_000, netProfit: 30_100_000, kcmShare: 15_050_000 },
+    { year: "Yr 4", revenue: 393_000_000, grossProfit: 205_932_000, netProfit: 34_800_000, kcmShare: 17_400_000 },
+    { year: "Yr 5", revenue: 417_000_000, grossProfit: 218_925_000, netProfit: 37_100_000, kcmShare: 18_550_000 },
   ],
   milestones: [
-    { month: 4, label: "Net profit ≈ break-even", detail: "First month at zero net loss" },
-    { month: 5, label: "Net-profit positive", detail: "+R243K net profit, scaling from here" },
-    { month: 8, label: "Loan account cleared", detail: "Cumulative net profit covers Yr-1 setup loan; profit-share to KCM begins" },
-    { month: 12, label: "Yr-1 ends at +R1.72M monthly net profit", detail: "147K active subscribers · ARPU R81.46 holding" },
+    { month: 4, label: "EBIT ≈ break-even", detail: "First month at zero net loss" },
+    { month: 5, label: "EBIT-positive", detail: "+R149K EBIT, scaling from here" },
+    { month: 8, label: "Loan account cleared", detail: "Cumulative EBIT covers Yr-1 setup loan; profit-share to KCM begins" },
+    { month: 12, label: "Yr-1 ends at +R1.05M monthly EBIT", detail: "147K active subscribers · ARPU R116.51 · cumulative Yr-1 EBIT R3.6M" },
   ],
 };
 
@@ -2316,5 +2442,451 @@ export const LAUNCH_TIMELINE: {
     { name: "Soweto Derby Power Hour", type: "one-shot", months: [3], category: "Match-day", note: "Network-wide free data hour during the derby. Triggered with the festival." },
     { name: "Win-Streak Reward", type: "burst", months: [5,6], category: "Engagement", note: "Triggered when KC win 3+ in a row. Modelled to fire from M5 onward." },
     { name: "Player-Designed Jersey Draw", type: "burst", months: [3,4,5], category: "Engagement", note: "10 players × 10 jerseys = 100 total. Design M3 → vote M4 → reveal + give-away M5." },
+  ],
+};
+
+/* ---------- PERSONAS · 8 personas from the KCM CVPs V2 doc -------------------
+ * Source: KCM CVPs V2 — sections 5.1 to 5.8.
+ * ---------------------------------------------------------------------------*/
+export type Persona = {
+  code: string;
+  name: string;
+  tag: string;
+  shareOfBase: string;
+  anchorCvp: string;
+  snapshot: string;
+  archetype: string;
+  needs: string;
+  motivations: string;
+  barriers: string;
+  successKpi: string;
+  briefForAgency: string;
+};
+
+export const PERSONAS: Persona[] = [
+  {
+    code: "P1",
+    name: "The Diehard Khosi",
+    tag: "Stadium Loyalist",
+    shareOfBase: "28–32%",
+    anchorCvp: "MatchPass + AmaCoin",
+    snapshot:
+      "Lives in gold and black. Phefeni-section emotional. Won't miss a Soweto Derby. Spends on jerseys, away-days and DStv. Telco is his means to follow Amakhosi: WhatsApp banter, live commentary, betting predictions, social rivalry.",
+    archetype:
+      "The Believer — tribal identity comes first. Wears the badge. Defends the brand.",
+    needs:
+      "Cheap voice and WhatsApp, big data on weekends, never miss kick-off, stadium connectivity, betting/odds reliability.",
+    motivations:
+      "Status in his crew. Bragging rights. Match-day belonging. Being first to know team news.",
+    barriers:
+      "Distrust of MNO billing. Out-of-bundle shock. Network drops at FNB Stadium. Monday-morning data desert.",
+    successKpi:
+      "Activation cost <R45 · ARPU R110+ · weekend data multiplier 2.3× · NPS post-Derby >65",
+    briefForAgency:
+      "Speak in his crew's language — match-day, derby, kasi pride. Avoid corporate sanitisation. Yellow drip, packed away-day buses, FNB Stadium tunnel light. Channels: WhatsApp, Metro FM, billboard near taxi ranks, KCM activations at fixtures, players-as-influencers in match-week.",
+  },
+  {
+    code: "P2",
+    name: "The Khosi Sister",
+    tag: "Rising Female Fan",
+    shareOfBase: "18–22%",
+    anchorCvp: "Khosi Sisters Circle",
+    snapshot:
+      "Fast-growing, under-served Chiefs supporter. Nielsen 2025 shows interest in BOTH men's and women's local football jumped 32.6% YoY among KC fans — the steepest gender-inclusive shift in the league. Combines fandom with strong views on safety, wellness and community.",
+    archetype:
+      "The Connector — fandom plus family plus wellness plus community.",
+    needs:
+      "Reliable data, safe-mobility tools (panic button, share-trip), wellness/clinic content, female-creator Chiefs content, savings on essentials.",
+    motivations:
+      "Belonging without macho gatekeeping. Visibility for women in the Chiefs story. Safety for herself and her children.",
+    barriers:
+      "Telco brands feel masculine and transactional. Existing Chiefs content rarely speaks to her.",
+    successKpi:
+      "Female activation share >38% · Khosi Sisters Circle MAU >55% · panic-button installs >70%",
+    briefForAgency:
+      "Drop the male gaze. Centre real Chiefs Sisters as creators and protagonists. Channels: TikTok, Instagram, Cosmo SA, women-led WhatsApp communities, wellness clinics.",
+  },
+  {
+    code: "P3",
+    name: "The Born-Free Khosi",
+    tag: "Gen-Z Digital Native",
+    shareOfBase: "16–20%",
+    anchorCvp: "AmaCoin + Creator economy",
+    snapshot:
+      "18–25, born after 1994. KC fans show the SA market's sharpest social-platform shifts (Nielsen NFI 2025): TikTok +37.9% YoY, WhatsApp +24.9%, YouTube +21.6%, Google +28.2%. Discovers Chiefs via TikTok, FIFA/EAFC, YouTube Shorts, parents' stories.",
+    archetype:
+      "The Remixer — takes the Chiefs codes (anthems, players, history) and makes them current.",
+    needs:
+      "Massive social-data, zero-rated TikTok/IG, esports/FIFA tournaments, creator monetisation, instalment phone deals.",
+    motivations:
+      "Self-expression. Following the team without burning data. Earning from Chiefs creator economy.",
+    barriers:
+      "Cannot afford big bundles. Sceptical of telco gimmicks. Will leave instantly for a hotter brand.",
+    successKpi:
+      "TikTok-led activations >40% · sub-30s onboarding completion >85% · zero-rated app DAU >60%",
+    briefForAgency:
+      "Hand the brand to creators. Born-Free creator-fund where AmaCoin payouts make participation viable. Meme-fluent, fast-cut, archive-meets-now. Channels: TikTok, IG Reels, YouTube Shorts, FIFA streams, Discord — players as creator collaborators, not corporate spokespeople.",
+  },
+  {
+    code: "P4",
+    name: "The Khosi Family",
+    tag: "Household Decision-Maker",
+    shareOfBase: "12–15%",
+    anchorCvp: "Family pack + Junior add-on",
+    snapshot:
+      "Buys SIMs for the whole family — partner, kids, sometimes a parent. Wants a single, predictable bill that lets them be Chiefs supporters together: family WiFi, kids' learning data, parental controls, match-day plans.",
+    archetype:
+      "The Provider — fandom is the family glue, expressed through shared rituals.",
+    needs:
+      "Multi-line plans, data sharing, McAfee Safe Family for kids, Chiefs Junior content, low-cost match-day family pack.",
+    motivations:
+      "Keep the family safe online. Make Chiefs the household ritual. Stretch the rand.",
+    barriers:
+      "MNO family plans are confusing and expensive. Loyalty pricing penalises them.",
+    successKpi:
+      "Multi-line activation >25% of household sales · Safe Family attach >35% · churn <12% annual",
+    briefForAgency:
+      "Family, ritual, predictability. Three generations watching a match together. Avoid 'big telco' coldness. Channels: vernacular radio, school PTA partnerships, community church, stokvel days, in-store family demos.",
+  },
+  {
+    code: "P5",
+    name: "Eskhotini Hustler",
+    tag: "Township SME",
+    shareOfBase: "10–14%",
+    anchorCvp: "Hustler SIM (merchant tools)",
+    snapshot:
+      "Runs a spaza, cab, hair salon, scrapyard or food stall in a Chiefs heartland community. Phone is the till, the supplier line, the marketing platform. Wants telco that doubles as a business platform — and lets him rep the team.",
+    archetype:
+      "The Hustler — Chiefs energy translated into on-the-ground commerce.",
+    needs:
+      "Reliable data, USSD self-service, airtime resale margin, mobile till, SME bundles, branded retail collateral.",
+    motivations:
+      "Margin. Community status. Being the spaza everyone tops up at. Visible Chiefs presence in the community.",
+    barriers:
+      "Limited banking. Time-poor. Doesn't trust app-only experiences. Wants paper too.",
+    successKpi:
+      "Hustler-tier activations >18% of base · merchant network 15K+ within 24 months · USSD share >55%",
+    briefForAgency:
+      "Speak hustle, not consumer. Lead with margin and visibility. Branded retail collateral — KCM yellow on the spaza wall — is the most powerful media. Channels: vernacular radio, taxi rank, KCM van activations, township ambassador networks, USSD.",
+  },
+  {
+    code: "P6",
+    name: "The Diaspora Khosi",
+    tag: "Global Amakhosi",
+    shareOfBase: "3–5%",
+    anchorCvp: "Diaspora travel eSIM",
+    snapshot:
+      "South African abroad — UK, UAE, Australia, US, Pan-Africa. Watches every match on whatever stream they can find. Sends money home. Wants to feel close to the badge and to family.",
+    archetype:
+      "The Exile — distance intensifies tribal pride.",
+    needs:
+      "Travel eSIM with SA number retention, low-cost IDD, live KCM content, remittance integration, ticket-priority on home visits.",
+    motivations:
+      "Emotional bridge to home. Status as 'still loyal Chiefs'. Practical: cheap calls home, data abroad.",
+    barriers:
+      "SA SIM lapses. Roaming bill shock. Geo-blocked SA content.",
+    successKpi:
+      "Diaspora SIM base 35K+ by Y3 · eSIM travel-pack ARPU R380+ · remittance attach >12%",
+    briefForAgency:
+      "Sell the bridge home, not just the data abroad. Diaspora communities celebrating a goal at 3am London time. Channels: SA-expat Facebook groups, OR Tambo airport, remittance partner co-marketing, diaspora WhatsApp groups, KCM diaspora newsletter.",
+  },
+  {
+    code: "P7",
+    name: "Junior Khosi",
+    tag: "Tween & Schoolkid",
+    shareOfBase: "8–12%",
+    anchorCvp: "Junior Khosi safe-fan SIM",
+    snapshot:
+      "Age 8–17. Daily smartphone user. Loves FIFA, TikTok, YouTube. Parent owns the contract. Chiefs is inherited identity, becoming personal as players become heroes.",
+    archetype:
+      "The Apprentice — learning fandom from family, making it their own.",
+    needs:
+      "Schoolwork data, gamified Chiefs content, McAfee Safe Family controls, kid-safe entertainment, AmaCoin rewards.",
+    motivations:
+      "Be cool with friends. Have phone autonomy. Earn rewards. Meet players.",
+    barriers:
+      "Not the buyer. Cannot fix issues. Needs parent permission.",
+    successKpi:
+      "Junior-tier active SIMs >12% of base · parent control opt-in >80% · AmaCoin redemption >2 / quarter",
+    briefForAgency:
+      "Sell to the parent through trust and to the kid through aspiration. Players visiting schools — players are an asset for school-day campaigns. Channels: school day events, kid-safe YouTube, parent influencers, community football academy days.",
+  },
+  {
+    code: "P8",
+    name: "The Khosi Elder",
+    tag: "Heritage Loyalist",
+    shareOfBase: "5–8%",
+    anchorCvp: "Khosi Heritage UX",
+    snapshot:
+      "55+. Lived through the 1970s–80s glory years. Doc Khumalo, Ace Khuse, Lucas Radebe. Still talks about the legendary moments. Wants simplicity, voice clarity, low cost, and respect.",
+    archetype:
+      "The Keeper — guardian of the team's myth and the family's memory.",
+    needs:
+      "Big-button UX, voice-first navigation, low-cost voice, easy USSD, no surprise charges, family-line subsidy from kids.",
+    motivations:
+      "Stay in touch with family. Listen to matches. Pass the legacy down.",
+    barriers:
+      "Tech anxiety. Doesn't trust apps. Suspicious of out-of-bundle billing.",
+    successKpi:
+      "Elder-tier ARPU R55–R75 · USSD share >70% · complaint rate <2.5%",
+    briefForAgency:
+      "Respect first, simplicity always. The product must look easy from the outside of the box. Channels: vernacular radio, community halls, funeral society partnerships, in-person retail demos with patient agents.",
+  },
+];
+
+/* ---------- PRODUCT_CVPS · 8 non-comparable CVPs from CVPs V2 doc -----------*/
+export type ProductCvp = {
+  code: string;
+  name: string;
+  tag: string;
+  primaryPersonas: string;
+  promise: string;
+  mechanic: string;
+  whyNonComparable: string;
+  pricingAnchor: string;
+  kpis: string;
+  firstInSa: boolean;
+};
+
+export const PRODUCT_CVPS: ProductCvp[] = [
+  {
+    code: "CVP-1",
+    name: "AmaCoin Wallet",
+    tag: "The Chiefs tribe currency",
+    primaryPersonas: "All — anchored on P1, P3, P4",
+    promise:
+      "Every rand spent on KCM earns AmaCoin — the only currency that buys Chiefs tickets, jerseys, AR experiences, meet-and-greets and digital collectibles. Connectivity becomes club equity.",
+    mechanic:
+      "Earn 1 AmaCoin per R10 of recharge or bundle spend. Bonus multipliers for match-day spend, away-days, brand co-promos. Burn on official KC Store, ticket priority, fan-token drops, exclusive content.",
+    whyNonComparable:
+      "Vodacom VodaBucks and MTN 1Up are commoditised utility points. AmaCoin is identity capital — it buys outcomes you can wear and post.",
+    pricingAnchor:
+      "Built into all packages, zero extra cost. Margin protected via ticket allocation and merchandise margin share.",
+    kpis: "Earn-rate >85% of base · redemption >40% within 90 days · jersey/ticket attach lift >18%",
+    firstInSa: false,
+  },
+  {
+    code: "CVP-2",
+    name: "MatchPass",
+    tag: "Stadium-grade match-day mode",
+    primaryPersonas: "P1 Diehard, P2 Sister, P3 Born-Free, P4 Family",
+    promise:
+      "From kick-off −2 hours to full-time +1, the phone goes into Chiefs mode: free 5GB match-data, zero-rated live commentary and stats, push-to-talk fan chants, fast-track ticket QR, geofenced stadium WiFi access.",
+    mechanic:
+      "Auto-activated by geofence (FNB Stadium, Peter Mokaba, Loftus, Moses Mabhida) or by login on match-day. Includes ticket NFT proof-of-presence and bonus AmaCoin for stadium check-in.",
+    whyNonComparable:
+      "No SA telco bundles a geofenced, time-bound, club-aligned match-day pack. MatchPass turns a game into a network event you can only get with KCM.",
+    pricingAnchor:
+      "Free for active KCM postpaid · R29 unlock for prepaid match-by-match.",
+    kpis: "Activation share >55% on derby days · ticket-buy-through >9% · post-match retention +14%",
+    firstInSa: false,
+  },
+  {
+    code: "CVP-3",
+    name: "Khosi Sisters Circle",
+    tag: "Female-first fan & safety bundle",
+    primaryPersonas: "P2 Khosi Sister",
+    promise:
+      "A bundle and content layer built around women's reality: panic button + live trip-share, driver-safety scoring, women-creator Chiefs content channel, wellness partner credits, period-cycle data tools, and a private Khosi Sisters WhatsApp community.",
+    mechanic:
+      "R49/m add-on or included in higher-tier packages. Integrates safety, McAfee Safe Family Lite, partnered women's-clinic content, KCM women's-football coverage.",
+    whyNonComparable:
+      "No SA MNO has a female-first proposition tied to a sports brand. First time fandom, safety and wellness ride on the same SIM.",
+    pricingAnchor: "R49/m or bundled at no extra cost above the R165 tier.",
+    kpis: "Female activation share lift +18 pp · MAU >55% · NPS women cohort >70",
+    firstInSa: true,
+  },
+  {
+    code: "CVP-4",
+    name: "Junior Khosi",
+    tag: "Kid-safe, fan-powered SIM",
+    primaryPersonas: "P7 Junior Khosi (parent-purchased)",
+    promise:
+      "A SIM designed for children with McAfee Safe Family pre-installed — app filtering, time controls, location alerts — gamified Chiefs learning content, schoolwork-data zero-rating, and AmaCoin rewards for healthy screen-time and study streaks.",
+    mechanic:
+      "Parent provisions through KCM app. Kid earns AmaCoin for completing learning modules co-developed with Maharishi Institute and KCM Academy. Redeemable for jersey patches, club-experience days.",
+    whyNonComparable:
+      "Combines a Tier-1 cybersecurity stack, a club-co-branded learning track, and a rewards economy. No competitor packages all three on a sports brand.",
+    pricingAnchor:
+      "R100/m, including McAfee Safe Family pre-installed and the KCM Academy learning content track.",
+    kpis: "12% of base · Safe Family opt-in >80% · monthly schoolwork zero-rating use >65%",
+    firstInSa: true,
+  },
+  {
+    code: "CVP-5",
+    name: "Eskhotini Hustler",
+    tag: "Township SME-as-a-SIM",
+    primaryPersonas: "P5 Eskhotini Hustler",
+    promise:
+      "Your spaza phone is now your business platform. Audio-payments-enabled, mobile till, instant airtime resale margin, supplier USSD shortcuts, KCM-branded retail collateral, and fast-cash micro-loans against your KCM transaction history.",
+    mechanic:
+      "Hustler SIM unlocks merchant tools. Resell airtime/data with auto-margin. Audio payments accept transactions tone-broadcast. KCM signage in exchange for sign-ups. Loan facility via DSG fintech partner with KCM activity scoring.",
+    whyNonComparable:
+      "Capitec Connect is a SIM. MTN Pulse is a youth bundle. KCM Hustler is a business-in-a-SIM with club brand halo and township credit access.",
+    pricingAnchor: "R99/m. Earns 3% airtime resale, 1.8% data resale margin.",
+    kpis: "Activations 18%+ of base · merchant network 15K by Y3 · micro-loan attach >7%",
+    firstInSa: false,
+  },
+  {
+    code: "CVP-6",
+    name: "Diaspora Khosi",
+    tag: "Always-A-Chief, anywhere",
+    primaryPersonas: "P6 Diaspora Khosi",
+    promise:
+      "Keep your SA Chiefs identity alive abroad. One eSIM holds your home number for incoming calls, plus a regional travel data profile. Cheapest calls home, geo-unblocked KCM live audio and content, ticket priority for home visits, easy remittance to family wallets.",
+    mechanic:
+      "Dual eSIM via the Digital Mobile travel platform. Regional packs (UK/EU, Middle East, Australasia, Pan-Africa, US). KCM audio commentary geo-unblocked. Tickets reservable from abroad. Diaspora WhatsApp community.",
+    whyNonComparable:
+      "No SA MNO can credibly serve diaspora — they are MNO-locked. Travel eSIM brands have no SA fan emotional product. KCM owns this corridor by uniting connectivity, identity and remittance.",
+    pricingAnchor: "R249 base travel pack · R380 ARPU target inclusive of voice + remittance.",
+    kpis: "35K SIMs by Y3 · ARPU R380 · remittance attach 12% · content stream MAU >40%",
+    firstInSa: true,
+  },
+  {
+    code: "CVP-7",
+    name: "Stadium Mode",
+    tag: "The network inside the walls",
+    primaryPersonas: "P1 Diehard, P3 Born-Free",
+    promise:
+      "Walk into FNB Stadium with KCM and the phone gets superpowers: free WiFi at the turnstile, ticket scan-and-shout AR effect, live MOTM voting, on-seat cashless food/drink ordering, and bonus AmaCoin for being there.",
+    mechanic:
+      "KCM-branded stadium WiFi backbone (in partnership with venue and host MNO MTN), branded AR camera filters, on-seat ordering integration with stadium concessions, AmaCoin geofence reward.",
+    whyNonComparable:
+      "MNOs sponsor stadium boards. KCM owns stadium-day digital experience as its native product. Stadium becomes a media channel only KCM customers fully unlock.",
+    pricingAnchor: "Included on all KCM SIMs.",
+    kpis: "Stadium-day WiFi sessions >70% of attendees · on-seat order GMV per match R0.5M+ at maturity",
+    firstInSa: true,
+  },
+  {
+    code: "CVP-8",
+    name: "Khosi Heritage",
+    tag: "Voice-first, big-button, big-heart",
+    primaryPersonas: "P8 Khosi Elder",
+    promise:
+      "A simple, dignified mobile experience for the supporters who built the legend. Big-button menus, voice-first USSD, audio match commentary delivered via call, no out-of-bundle surprises, and a 'Family Subsidy' link letting children top-up the elder's line in one tap.",
+    mechanic:
+      "Curated UI overlay on entry-level Android, voice-driven USSD menus in 11 SA languages, weekly audio match-pack push, hard out-of-bundle cap, kin-link top-up.",
+    whyNonComparable:
+      "No SA telco has built a senior-respectful product around club heritage. Dignity-as-CVP earns multi-generational loyalty.",
+    pricingAnchor: "R30/m starter · zero-cost when subsidised via the kin-link top-up.",
+    kpis: "8% of base · complaint rate <2.5% · family-subsidy attach >40%",
+    firstInSa: true,
+  },
+];
+
+/* ---------- AmaCoin currency — drilldown for Loyalty section ---------------*/
+export const AMA_COIN = {
+  name: "AmaCoin",
+  tagline: "The Chiefs tribe currency",
+  oneLiner:
+    "Every rand spent on KCM earns AmaCoin — KCM's named loyalty currency, sitting inside the Khosi Bronze / Silver / Gold tier ladder. AmaCoin is what makes the loyalty programme feel like club equity, not telco points.",
+  earn: [
+    "1 AmaCoin per R10 of recharge or bundle spend (every package)",
+    "3× multiplier on match-day spend (Saturday + Sunday around fixtures)",
+    "5× multiplier on Soweto Derby days",
+    "Bonus drops for away-day attendance, brand co-promos, referrals",
+  ],
+  burn: [
+    "Match tickets — Block 28 priority for Diehards, family pack for P4",
+    "Jersey patches and KC Store drops — wearable AmaCoin output",
+    "AR celebration filters and digital collectibles",
+    "Player meet-and-greet raffles — Naturena access",
+    "Stadium concessions on-seat ordering (Stadium Mode integration)",
+  ],
+  whyVsCompetitors: [
+    "VodaBucks / MTN 1Up — utility points. Burn on more data. AmaCoin burns on identity outcomes.",
+    "eBucks (Discovery / FNB) — wellness-led, aspirational LSM. AmaCoin is fandom-led, inclusive across LSMs.",
+    "Capitec eBucks tier — banking-gated. AmaCoin earns from telco usage alone, no banking minimum.",
+  ],
+  kpis:
+    "Earn-rate >85% of base · redemption >40% within 90 days · jersey/ticket attach lift >18%",
+};
+
+/* ---------- PRICING_PACKAGES · V2 packages from CVPs V2 Appendix D.1 -------*/
+export type Package = {
+  code: string;
+  name: string;
+  priceInclVat: number;
+  priceExVat: number;
+  cogs: number;
+  grossMarginPct: number;
+  voiceMin: number;
+  dataMb: number;
+  sms: number;
+  anchorPersonas: string;
+  notes: string;
+};
+
+export const PRICING_PACKAGES: Package[] = [
+  { code: "K1.5", name: "Khosi 1.5GB",       priceInclVat:  90, priceExVat:  78.26, cogs:  38.44, grossMarginPct: 50.9, voiceMin: 10, dataMb: 1536,  sms: 20, anchorPersonas: "P1 Diehard · P3 Born-Free · P5 Hustler entry · P8 Elder", notes: "Entry tier — non-negotiable affordability anchor." },
+  { code: "K3",   name: "Khosi 3GB",         priceInclVat: 165, priceExVat: 143.48, cogs:  70.40, grossMarginPct: 50.9, voiceMin: 20, dataMb: 3072,  sms: 50, anchorPersonas: "P2 Khosi Sister · P4 Family member line", notes: "Mid-tier with VAS room — Sisters Circle add-on bundles in cleanly." },
+  { code: "K5",   name: "Khosi 5GB",         priceInclVat: 245, priceExVat: 213.04, cogs: 105.70, grossMarginPct: 50.4, voiceMin: 30, dataMb: 5325,  sms: 50, anchorPersonas: "P4 Family lead · P5 Hustler core", notes: "Showmax PL Mobile bundles in here for Yr-1." },
+  { code: "K10",  name: "Khosi 10GB",        priceInclVat: 315, priceExVat: 273.91, cogs: 135.51, grossMarginPct: 50.5, voiceMin: 40, dataMb: 10445, sms: 50, anchorPersonas: "P3 Born-Free Pro · P5 Hustler Pro", notes: "Premium tier — repriced from R199 to restore margin under MTN Q1 2026 rates." },
+  { code: "KH",   name: "Khosi Heritage",    priceInclVat:  30, priceExVat:  26.09, cogs:  11.87, grossMarginPct: 54.5, voiceMin: 10, dataMb: 50,    sms: 10, anchorPersonas: "P8 Elder — voice-first, big-button", notes: "Strong margin (54%) funds Elder-mode UX in 11 SA languages." },
+  { code: "JK",   name: "Junior Khosi",      priceInclVat: 100, priceExVat:  86.96, cogs:  42.94, grossMarginPct: 50.6, voiceMin: 10, dataMb: 1536,  sms: 50, anchorPersonas: "P7 Junior — kid-safe, parent-purchased", notes: "Funds McAfee Safe Family pre-install + KCM Academy learning track." },
+  { code: "EH",   name: "Eskhotini Hustler", priceInclVat:  99, priceExVat:  86.09, cogs:  36.82, grossMarginPct: 57.2, voiceMin: 20, dataMb: 1200,  sms: 30, anchorPersonas: "P5 Hustler — SME tier", notes: "Held flat at R99. Already at 57% GM with tightened bundle." },
+];
+
+/* ---------- VAS_PACKAGES — add-ons that lift ARPU --------------------------*/
+export const VAS_PACKAGES = [
+  { name: "Khosi Sisters Circle",    uptake: 18, price: 49,  wholesale: 20, gmPct: 53.1, persona: "P2" },
+  { name: "McAfee Multi-Access",     uptake: 12, price: 15,  wholesale:  5, gmPct: 61.7, persona: "All" },
+  { name: "Showmax PL Mobile",       uptake: 22, price: 29,  wholesale: 10, gmPct: 60.4, persona: "P1, P3, P4" },
+  { name: "Diaspora travel eSIM",    uptake:  1, price: 249, wholesale: 85, gmPct: 60.7, persona: "P6" },
+  { name: "MatchPass (prepaid)",     uptake:  8, price: 29,  wholesale:  3, gmPct: 88.1, persona: "P1, P3" },
+];
+
+/* ---------- GTM_CHANNELS — wholesale-led monthly SIM allocation -----------*/
+export const GTM_CHANNELS = {
+  intro:
+    "The MVNO Marketing Brief mandates wholesale-distribution-led GTM at 80% physical / 20% eSIM, 16,000 physical SIMs/month + 200 eSIMs/month. Below is how those volumes split across the seven distribution channels — totalling 16,200 SIMs/month at full Yr-1 run-rate.",
+  channels: [
+    { name: "National wholesale (FMCG)",        kit: "Physical SIM kits with R30 starter airtime + AmaCoin onboarding card", personas: "P1 · P3 · P4 · P5 · P8", monthlyTarget: 6000 },
+    { name: "Retail (independent + chain)",     kit: "SIM + Junior pack endcaps · KCM yellow merchandising",                  personas: "P3 · P4 · P7",                monthlyTarget: 3500 },
+    { name: "Eskhotini Hustler network",        kit: "Hustler-as-distributor: spaza, salon, taxi rank, scrapyard",            personas: "P5 · P1 · P8",                monthlyTarget: 3000 },
+    { name: "Stadium activations",              kit: "FNB Stadium / Peter Mokaba / away-day pop-ups · on-seat eSIM",          personas: "P1 · P3 · P2",                monthlyTarget: 1500 },
+    { name: "Sponsor co-activations",           kit: "Joint activations with shirt sponsor + KC partners (Toyota, FNB-style)", personas: "All",                         monthlyTarget: 1200 },
+    { name: "KC owned (support only)",          kit: "Club app · social · matchday programme",                                personas: "All",                         monthlyTarget:  800 },
+    { name: "Digital eSIM",                     kit: "KCM app · web · creator referrals (TikTok / IG / YouTube)",             personas: "P3 · P6 · P2",                monthlyTarget:  200 },
+  ],
+};
+
+/* ---------- TRIBAL_PHASING — 4-phase Belonging Arc rollout -----------------*/
+export const TRIBAL_PHASING = {
+  intro:
+    "The CVPs roll out across a 4-phase tribal arc that sits alongside the football-rhythm phasing above. Each phase activates a specific persona cluster + CVP set, with a lead KPI to hit before the next phase opens.",
+  phases: [
+    {
+      num: 1,
+      name: "Tribe Ignition",
+      window: "Months 0–4",
+      personas: "P1 Diehard · P3 Born-Free · P4 Family",
+      cvpsLive: "AmaCoin · MatchPass · Stadium Mode · Khosi 1.5/3/5/10 packages",
+      leadKpi: "64K SIMs (16K/m) · AmaCoin attach >85% · brand-recall lift +25 pp",
+    },
+    {
+      num: 2,
+      name: "Lifestyle VAS Layer",
+      window: "Months 4–8",
+      personas: "P2 Khosi Sister · P7 Junior Khosi · P8 Elder",
+      cvpsLive: "Khosi Sisters Circle · Junior Khosi · Khosi Heritage · McAfee · cyber-insurance VAS",
+      leadKpi: "VAS attach >35% · female share >35% · churn <14%",
+    },
+    {
+      num: 3,
+      name: "Hustler & Diaspora",
+      window: "Months 8–12",
+      personas: "P5 Hustler · P6 Diaspora Khosi",
+      cvpsLive: "Eskhotini Hustler · Diaspora Khosi · merchant-tools layer",
+      leadKpi: "4K+ Hustler merchants live · 8K+ Diaspora SIMs · 200+ eSIMs / month",
+    },
+    {
+      num: 4,
+      name: "Compounding tribe",
+      window: "Months 12–60",
+      personas: "All — focus on cross-sell and lifetime value",
+      cvpsLive: "Premium tiers · fan-token economy · stadium concessions · content rights",
+      leadKpi: "Cumulative EBIT R126.7M+ by Y5 (V2 model)",
+    },
   ],
 };

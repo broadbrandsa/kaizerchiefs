@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import {
-  getNextSection,
   getSectionPosition,
   getSectionMeta,
 } from "@/data/section-registry";
@@ -23,7 +22,6 @@ export function Section({
 }) {
   const pos = id ? getSectionPosition(id) : null;
   const meta = id ? getSectionMeta(id) : null;
-  const next = id ? getNextSection(id) : null;
 
   return (
     <section
@@ -61,46 +59,6 @@ export function Section({
         </div>
 
         <div className="mt-12">{children}</div>
-
-        {/* Continue-reading footer */}
-        {next ? (
-          <a
-            href={`#${next.id}`}
-            className="group mt-16 flex items-center justify-between gap-6 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6 transition hover:border-[var(--kc-gold)]/50 hover:bg-[var(--kc-charcoal)]/70"
-          >
-            <div className="min-w-0 flex-1">
-              <div className="text-[16px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-mute)] group-hover:text-[var(--kc-gold)]">
-                Continue to chapter {pos ? String(pos.index + 2).padStart(2, "0") : ""}
-              </div>
-              <div className="mt-2 text-xl font-semibold tracking-tight text-[var(--kc-paper)]">
-                {next.label}
-              </div>
-              <p className="mt-1 text-sm text-[var(--kc-paper)]/70">{next.blurb}</p>
-            </div>
-            <div className="flex shrink-0 items-center gap-3 text-[var(--kc-paper)]/60 group-hover:text-[var(--kc-gold)]">
-              <span className="font-mono text-[16px] uppercase tracking-wider">
-                ~{next.readMin} min
-              </span>
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                className="transition-transform group-hover:translate-x-1"
-                aria-hidden="true"
-              >
-                <circle cx="20" cy="20" r="19.5" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-                <path
-                  d="M16 14l8 6-8 6"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </a>
-        ) : null}
       </div>
     </section>
   );

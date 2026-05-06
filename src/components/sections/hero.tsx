@@ -28,13 +28,13 @@ export function Hero() {
 
         <p className="mt-6 max-w-2xl text-lg text-[var(--kc-paper)]/80 md:text-xl">
           Wholesale-led, fan-fuelled. A 12-month plan to put a KC Mobile SIM
-          (and an eSIM) in every Amakhosi supporter&apos;s hand — with an interactive financial model anchored to the KCM Digital Mobile numbers.
+          (and an eSIM) in every Amakhosi supporter&apos;s hand — anchored to the KCM Digital Mobile model V2 numbers.
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
           <StatCard label="Monthly physical SIM net adds" value="16,000" sub="Month-1 target per the KCM model" />
           <StatCard label="Monthly eSIM net adds" value="200" sub="Month-1 target per the KCM model" />
-          <StatCard label="Investment range" value="R1.5M–R5M" sub="Interactive monthly model" />
+          <StatCard label="Marketing investment" value="R4.5M" sub="R376K/m flat · self-funding from M10" />
         </div>
 
         <div className="mt-12 flex flex-wrap items-center gap-3">
