@@ -22,14 +22,14 @@ export function ChapterPlan() {
       id="ch-plan"
       eyebrow="The R4.5M marketing plan"
       title={<>How the R4,514,901 deploys</>}
-      intro="The plan is line-by-line. Seven categories, 18 channels, 23 activation mechanics. Anchored to the KCM Digital Mobile model V2 marketing line — R376,242/month flat, R4,514,901 across the year."
+      intro="The plan is line-by-line. Eight categories, 18 channels, 16 candidate activation mechanics. Anchored to the KCM Digital Mobile model V2 marketing line — R376,242/month flat, R4,514,901 baseline across the year (R5.30M after operational additions per the audit pass). The 16 ideas are a candidate library — KC's brand and fan-insight teams pick which of those actually launch in Yr-1; 13 are wired into the timeline as launch defaults, the rest are reserves."
       audienceHint="CMO · marketing director · account leads"
       skimStats={[
         { label: "Yr-1 marketing", value: "R4,514,901" },
         { label: "Monthly", value: "R376,242 flat" },
         { label: "Categories", value: "7" },
         { label: "Channels", value: "18" },
-        { label: "Activation ideas", value: "23" },
+        { label: "Activation ideas", value: "16" },
         { label: "Yr-1 SIM target", value: "192,000" },
       ]}
       skimSummary={[
@@ -61,9 +61,9 @@ export function ChapterPlan() {
         },
         {
           id: "ideas",
-          label: "Launch ideas — 23 activation mechanics",
+          label: "Launch ideas — 16 candidate mechanics (KC chooses)",
           blurb:
-            "Match-day, retail, AmaCoin, CVP-led — every mechanic tagged with persona, channel, sim type, KPI.",
+            "Match-day, retail, CVP-led. KC selects which of the 16 candidates actually launch in Yr-1 — 13 are wired into the timeline as defaults; the rest are reserves to swap in/out as the season unfolds.",
           content: <ActivationIdeas />,
         },
       ]}

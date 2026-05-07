@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ReadingProgress } from "@/components/reading-progress";
-import { YearTwo, Suppliers, Measure } from "@/components/sections";
+import { YearTwo, Suppliers, MediaProposals, Measure, DocumentLibrary, LeadTimes } from "@/components/sections";
 
 export const metadata = {
   title: "Annex · KC Mobile MVNO Launch Proposal",
@@ -32,16 +32,45 @@ export default function AnnexPage() {
             Reference material
           </h1>
           <p className="mt-5 max-w-3xl text-lg text-[var(--kc-paper)]/75">
-            Three reference sections that sit alongside the main proposal — the
-            Year-2 outlook, the rate-card-anchored supplier directory, and the
-            measurement framework. They&apos;re housed here so the main read stays
-            tight.
+            The reference layer for the proposal. Six sections — the Document
+            Library (every source file as a direct download + every external
+            citation), the Lead Times & Critical Path (when each piece of
+            work has to start), the Year-2 outlook, the supplier directory,
+            the two township-OOH media proposals (Cider Point + Back to
+            Front) the Plan Detail anchors to, and the measurement framework.
           </p>
+
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {[
+              { id: "document-library", label: "Document library", desc: "All sources" },
+              { id: "lead-times", label: "Lead times", desc: "Critical path" },
+              { id: "year-2", label: "Year-2 outlook", desc: "Yr-2 expansion" },
+              { id: "suppliers", label: "Suppliers", desc: "Partner directory" },
+              { id: "media-proposals", label: "Media proposals", desc: "Cider Point + B2F" },
+              { id: "measure", label: "Measurement", desc: "KPIs + rhythm" },
+            ].map((nav) => (
+              <a
+                key={nav.id}
+                href={`#${nav.id}`}
+                className="group rounded-lg border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-3 transition hover:border-[var(--kc-gold)]/40"
+              >
+                <div className="text-[12px] font-semibold uppercase tracking-wider text-[var(--kc-gold)] transition group-hover:text-[var(--kc-paper)]">
+                  {nav.label}
+                </div>
+                <div className="mt-0.5 text-[11px] text-[var(--kc-paper)]/55">
+                  {nav.desc}
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
+      <DocumentLibrary />
+      <LeadTimes />
       <YearTwo />
       <Suppliers />
+      <MediaProposals />
       <Measure />
       <Footer />
     </main>

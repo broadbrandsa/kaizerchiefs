@@ -164,15 +164,27 @@ export const SUPPLIER_DIRECTORY = [
     ],
   },
   {
-    name: "Back to Front Media & Events Solutions",
-    role: "Township co-branding partner — hand-painted 3D/HD wall murals (2m × 10m), spazashop / tarven / motor-spares shopfront wraps, taxi-rank decals. Track record on SafeLine, Choose Circumcision, Diski Flava (Visa/FNB), BettaBets, Kellogg's, Ricoffy.",
-    sourceDoc: "Back to Front service proposal · TOWNSHIP OUT OF HOME ADVERTISING",
+    name: "Cider Point Media & Marketing — primary township-OOH partner",
+    role: "Primary township co-branding partner. 15 named hand-painted wall sites across Gauteng (11) + KZN (4) — Soweto (4), Alexandra (2), Tembisa (2), Pretoria (3), Umlazi/Chatsworth/KwaMashu (4). Each site comes with on-file traffic count (12K–220K cars/month), LSM 4–7 audience, on-site photo, and partial GPS coordinates. Account manager: John Mokolobetsi Ditshwene.",
+    sourceDoc: "Cider Point Media OOH Schedule (Jun–Aug 2026) + Walls Site List with GPS Coordinates GAUTENG & KZN",
     standoutPackages: [
-      "Hand-painted 2m × 10m wall murals: R10,000 production once-off + R5,500/month media rental per wall",
+      "15 named township walls — discounted monthly media rental R14,000 (R20,000 for the 3 Pretoria premium sites · R15,000 rate card with 7% off)",
+      "Production R12,000 per wall (R7,800–R8,000 for Pretoria) — once-off",
+      "Quoted 3-month launch flight (Jun–Aug 2026): R780,000 ex VAT (R588K media + R192K production)",
+      "Each wall comes with monthly traffic count, LSM 4–7 audience profile, on-site photo, partial GPS coordinates",
+      "Walls cluster on the highest-density KC heartlands: Soweto, Alexandra, Tembisa, Pretoria, Umlazi, KwaMashu, Chatsworth",
+    ],
+  },
+  {
+    name: "Back to Front Media & Events Solutions — alternative supplier",
+    role: "Alternative township-OOH supplier evaluated against Cider Point. Capability profile (no specific named sites — buyer directs wall locations). Hand-painted 3D/HD wall murals (2m × 10m fixed), spazashop / tarven / motor-spares shopfront wraps, taxi-rank decals. Track record on SafeLine, Choose Circumcision, Diski Flava (Visa/FNB), BettaBets, Kellogg's, Ricoffy.",
+    sourceDoc: "Back to Front service proposal · TOWNSHIP OUT OF HOME ADVERTISING (B2FMediaProposal_UpdatedProfile_02102025_120241.pdf)",
+    standoutPackages: [
+      "Hand-painted 2m × 10m wall murals: R10,000 production once-off + R5,500/month media rental per wall (≈40% cheaper than Cider Point but no named sites supplied)",
       "All-in: travel, accommodation, flighting + de-flighting included; landlord approvals managed",
       "20-day production lead time post artwork sign-off",
       "Hustler-tier shopfront wrap execution: branded gazebo, signage, till-counter decals, taxi-rank stickers",
-      "Township supermarket + spazashop full-shop branding (Kellogg's-style takeover)",
+      "Spaza/outlet/business branding: R13,500 small-medium · R15,500+ large/supersized (once-off)",
     ],
   },
   {
@@ -260,9 +272,9 @@ export const MEASUREMENT_KPIS = [
   },
   {
     kpi: "Cost per acquisition (CPA)",
-    target: "Blended < R150 across all channels",
+    target: "Blended ≤ R23.51 (per V2 KCM Digital Mobile model: R4,514,901 marketing ÷ 192,000 Yr-1 gross adds = R23.51)",
     measure:
-      "Total spend ÷ activations, segmented by channel where attribution allows",
+      "Total marketing spend ÷ gross activations. Industry comparable for SA MVNO blended CPA is R150–R250; the model achieves R23.51 because ~47% of gross adds come through the MTN dealer footprint, where MTN's standard channel commission funds the channel — KC Mobile pays only the marketing layer on top.",
   },
   {
     kpi: "Trade sell-through rate",
@@ -558,34 +570,8 @@ export const ACTIVATION_IDEAS: ActivationIdea[] = [
       "Karaoke set-up at the booth, KC anthem on a loop. Filmed snippets go straight to TikTok via the brand ambassador's phone.",
     costBand: "low",
   },
-  {
-    name: "Kappa & SIM Bundle",
-    setting: "match-day",
-    audienceType: "activation",
-    simType: "physical",
-    whatHappens:
-      "In-stadium Digistore pop-up — buy a KC kit, get a free KC Mobile SIM + 2GB activation in the bag.",
-    whyItWorks:
-      "Captive audience at the moment of highest brand commitment. Lifts kit AOV; gives KC Mobile its highest-affinity acquisitions.",
-    mechanic:
-      "Digistore till operator scans the kit and the SIM as a bundled SKU; checkout journey is one transaction.",
-    costBand: "medium",
-  },
 
   // ---- Off-stadium / regional / sponsor activations ----
-  {
-    name: "Spaza Shop Pole-Pack",
-    setting: "off-stadium",
-    audienceType: "activation",
-    simType: "physical",
-    whatHappens:
-      "Branded pole + A-frame on top of high-traffic spaza shops in fan-dense townships. SIMs sold across the counter.",
-    whyItWorks:
-      "Spaza shops are the daily-touch retail in townships. KC fans walk past one twice a day. POS visibility is the best low-cost reach available.",
-    mechanic:
-      "DSG field-force installs the poles and trains the spaza owner. SIMs supplied on consignment. R20/SIM commission; weekly Friday cash-up.",
-    costBand: "low",
-  },
   {
     name: "Friday Pay-day Taxi Rank Truck",
     setting: "off-stadium",
@@ -668,36 +654,6 @@ export const ACTIVATION_IDEAS: ActivationIdea[] = [
   },
   // ---- New CVP-anchored activation ideas (from KCM CVPs V2) ----
   {
-    name: "AmaCoin Earn Multiplier Days",
-    setting: "off-stadium",
-    audienceType: "engagement",
-    simType: "both",
-    whatHappens:
-      "On selected days — every Soweto Derby, every away-day, every brand co-promo window — KCM customers earn 3× to 5× AmaCoin on every R10 spent. The boost is announced via push 24 hours ahead so the queue forms naturally.",
-    whyItWorks:
-      "Time-bound earn-rate spikes are the cheapest, most reliable retention lever in any loyalty programme. KCM customers learn to spend on KCM days because the basket of identity outcomes they unlock (tickets, jersey patches, AR) is irrationally good vs the rand spend.",
-    mechanic:
-      "AmaCoin earn-rate config is set in Xanite (Marketing Layer). Push fires 24h ahead from the segmentation engine. Multiplier is honoured for any KCM transaction in the live window — bundle, recharge, VAS, eSIM, port-in. AmaCoin lands in-wallet within 30 minutes of the transaction settling.",
-    costBand: "low",
-    cvp: "CVP-1 AmaCoin Wallet",
-    personas: "P1, P3, P4",
-  },
-  {
-    name: "Hustler Yellow Wrap",
-    setting: "off-stadium",
-    audienceType: "activation",
-    simType: "physical",
-    whatHappens:
-      "Every Eskhotini Hustler who signs up to a Hustler-tier SIM gets a yellow-and-black KCM shopfront wrap installed within 7 days — branded gazebo, signage panel, KCM decals on the till counter, taxi rank stickers — at zero direct cost to the Hustler. The wrap is the deal.",
-    whyItWorks:
-      "It turns every Hustler into a physical KCM billboard in their township. The Hustler gets visible community status (yellow on their shopfront = Chiefs status). KCM gets thousands of distributed branded retail surfaces in the highest-trust nodes of every Chiefs heartland community.",
-    mechanic:
-      "Sign-up at the KCM van or regional rep visit triggers a wrap order. Local installer team ships and fits within 7 days. Hustler agrees to keep the wrap up for 12 months minimum and to display KCM SIM-availability signage. Any Hustler hitting their first 50 SIM resales unlocks a 'Hustler Pro' wrap upgrade with Soundpays speaker + larger gazebo.",
-    costBand: "medium",
-    cvp: "CVP-5 Eskhotini Hustler",
-    personas: "P5",
-  },
-  {
     name: "Born-Free Creator Fund",
     setting: "off-stadium",
     audienceType: "engagement",
@@ -728,21 +684,6 @@ export const ACTIVATION_IDEAS: ActivationIdea[] = [
     personas: "P2",
   },
   {
-    name: "Diaspora Live weekly show",
-    setting: "off-stadium",
-    audienceType: "engagement",
-    simType: "esim",
-    whatHappens:
-      "30-minute weekly show streamed on KCM's diaspora channel — match recap, country chapter spotlight, remittance partner offers, 'home visit' ticket priority drops. Geo-unblocked for KCM Diaspora eSIM holders worldwide.",
-    whyItWorks:
-      "Diaspora is the unmonetised corridor in SA telco — every MNO is locked to SA borders and remittance brands have no fan layer. Diaspora Khosi customers crave the bridge home; a regular content beat keeps the SIM emotionally active even when usage is low. Lifts both retention and remittance attach.",
-    mechanic:
-      "Streamed live via KCM app on Saturday after-match window (UK 7pm / UAE 11pm / AU dawn). Shoulder content cut for IG and YouTube. Country chapter ambassador rotates each week. Sponsor slot for one remittance partner. AmaCoin attendance reward + ticket-priority drop in last 60 seconds.",
-    costBand: "low",
-    cvp: "CVP-6 Diaspora Khosi",
-    personas: "P6",
-  },
-  {
     name: "Family Subsidy kin-link",
     setting: "off-stadium",
     audienceType: "engagement",
@@ -756,36 +697,6 @@ export const ACTIVATION_IDEAS: ActivationIdea[] = [
     costBand: "low",
     cvp: "CVP-8 Khosi Heritage",
     personas: "P4 + P8",
-  },
-  {
-    name: "Stadium AR celebration filters",
-    setting: "match-day",
-    audienceType: "engagement",
-    simType: "both",
-    whatHappens:
-      "Walk through any FNB Stadium turnstile with KCM and the camera unlocks four exclusive AR celebration filters — Goal Roar, Tunnel Light, Phefeni Glamour Boys, Soweto Derby Champion. Filters work for the duration of the match and 60 minutes after.",
-    whyItWorks:
-      "MNO sponsorship buys boards. Stadium Mode owns the supporter's screen. AR filters are the most shared piece of KCM content possible — every selfie posts to socials with a built-in KCM watermark. Earned media at scale, zero CPM.",
-    mechanic:
-      "Geofence around FNB Stadium triggers MatchPass mode. AR filters served via Snap Camera Kit / Spark AR licensed templates with KCM creative. Shareable to all socials. AmaCoin bonus for posting one filter to public socials with #KCMatchPass.",
-    costBand: "medium",
-    cvp: "CVP-7 Stadium Mode",
-    personas: "P1, P3",
-  },
-  {
-    name: "Khosi Sisters Spotlight reels",
-    setting: "off-stadium",
-    audienceType: "engagement",
-    simType: "both",
-    whatHappens:
-      "Weekly KCM-produced IG / TikTok reel celebrating one Khosi Sister who has referred 2+ Sisters into the Sisters Circle. The Sister is the hero. KCM is the platform, not the protagonist.",
-    whyItWorks:
-      "Nielsen confirms female KC fans over-index on community visibility. Spotlight reels make the Khosi Sister an active recruiter inside her own network — the most efficient acquisition vector for the Khosi Sister persona. Each spotlight typically nets 3–5 subsequent sign-ups in the spotlight Sister's local community.",
-    mechanic:
-      "Sisters Circle members earn 'Sister Captain' status after 2 verified referrals. KCM social team produces a 30-second portrait reel monthly. Spotlight Sister gets 1,000 AmaCoin + Sister Captain badge inside the Sisters Circle community. Reel runs on KCM social channels with a deep-link to the Sisters Circle activation flow.",
-    costBand: "low",
-    cvp: "CVP-3 Khosi Sisters Circle",
-    personas: "P2",
   },
 ];
 
@@ -1057,7 +968,7 @@ export const LOYALTY_PROGRAMME: {
     {
       title: "Retention beats acquisition on unit economics",
       detail:
-        "Acquiring a new SIM costs ~R150 blended CPA in this plan. Keeping an existing customer for an extra 6 months costs almost nothing. The loyalty programme is the cheapest growth lever KC Mobile has — and the highest leverage one.",
+        "The V2 model implies a blended marketing CPA of R23.51 (R4,514,901 marketing ÷ 192,000 gross adds), achieved by leveraging MTN's existing channel commission for ~47% of acquisitions. Industry SA-MVNO blended CPA without that leverage is R150–R250. Either way, keeping an existing customer for an extra 6 months costs almost nothing. The loyalty programme is the cheapest growth lever KC Mobile has — and the highest leverage one.",
     },
     {
       title: "KC-owned inventory is the cost-light reward layer",
@@ -1263,6 +1174,13 @@ export type PlanLineItem = {
   cost: number;
   detail: string;
   reach?: string;
+  /**
+   * If set, the renderer will append a richer expandable block under this
+   * line item. Currently supported:
+   *  - "cider-point-walls" — embeds the 15-site Cider Point wall list with
+   *    GPS, traffic count, LSM and rate-card data.
+   */
+  expandKind?: "cider-point-walls";
 };
 
 export type PlanCategory = {
@@ -1287,13 +1205,13 @@ export const EXECUTION_PLAN: {
   pillars: string[];
   categories: PlanCategory[];
 } = {
-  total: 4_500_000,
+  total: 5_301_000,
   duration: "12 months",
   geo: "National — all 9 provinces, sustained always-on",
-  simTarget: "16,000 SIMs / month",
+  simTarget: "16,000 SIMs / month (steady-state from M3)",
   esimTarget: "200 eSIMs / month",
   intro:
-    "All seven channels active inside the R4.5M Yr-1 marketing budget. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, Pause Screen, SABC vernacular radio, the combined Retail & Trade spine (MTN dealer formal trade + Hustler informal-trade network across spaza shops + salons + taxi ranks + 12 hand-painted township co-branding murals on the same shopfronts), and a digital reach layer carrying brand presence. PEP and Shoprite are exploratory Year-2 partnerships, not committed in Yr-1.",
+    "All eight channels active inside the Yr-1 marketing budget. DMS Premier League Tactical Sponsorship anchor on SS Premier League broadcasts, Pause Screen, SABC vernacular radio, the combined Retail & Trade spine (MTN dealer formal trade + Hustler informal-trade network across spaza shops + salons + taxi ranks + 6 named Cider Point township co-branding murals on the same shopfronts), and a digital reach layer carrying brand presence. PEP and Shoprite are exploratory Year-2 partnerships, not committed in Yr-1. NB: the total of R5.30M reflects realistic operational additions (Stadium fan-zone uplift to R30K/match, vernacular-led creative production at SA-market rates, Xanite CDP/CVM platform fee, and FieldAgent.net for Hustler field-team management) over the V2 KCM Digital Mobile model's R4.51M baseline marketing line — a +R790K variance (+17.5%) that KC leadership either approves or rebalances by trimming other lines.",
   pillars: [
     "12 hand-painted township co-branding murals (Back to Front) at high-traffic taxi-rank and spaza catchments — Soweto, Mamelodi, Tembisa, KwaMashu, Mdantsane, Mbombela",
     "Premium TV anchor — DMS Premier League Tactical Sponsorship + full DStv Stream LIVE/VOD inventory inside SS PSL and Premier League broadcasts",
@@ -1307,7 +1225,7 @@ export const EXECUTION_PLAN: {
       key: "digital-paid-media",
       name: "Digital Paid Media",
       total: 1_440_000,
-      pct: 32,
+      pct: 27,
       headline:
         "Always-on for 12 months across Meta, Google, TikTok, plus DStv Stream LIVE/VOD inside SS PSL and Premier League windows.",
       rationale:
@@ -1351,11 +1269,11 @@ export const EXECUTION_PLAN: {
       key: "trade-retail",
       name: "Retail & Trade · spaza, taxi rank, township murals",
       total: 1_241_000,
-      pct: 28,
+      pct: 23,
       headline:
-        "MTN dealers + independents (formal trade), the Hustler informal-trade network across spaza shops + salons + taxi-rank kiosks, and 12 hand-painted township co-branding murals on the same shopfronts. The Yr-1 retail spine is community-anchored.",
+        "MTN dealers + independents (formal trade), the Hustler informal-trade network across spaza shops + salons + taxi-rank kiosks, and 6 named Cider Point township co-branding murals (Gauteng + KZN) on the same high-traffic shopfronts. The Yr-1 retail spine is community-anchored.",
       rationale:
-        "The Yr-1 retail spine is community-anchored: MTN-dealer formal trade for the formal-economy buyer, plus the Hustler informal-trade network (spaza, salon, taxi-rank kiosks) for township reach, plus 12 hand-painted township co-branding murals (Back to Front) on the same shopfronts that the Hustler network operates from. PEP and Shoprite Phase-2 retail partnerships are exploratory only — covered in the Year-2 outlook in the annex, not committed in this Yr-1 plan.",
+        "The Yr-1 retail spine is community-anchored: MTN-dealer formal trade for the formal-economy buyer, plus the Hustler informal-trade network (spaza, salon, taxi-rank kiosks) for township reach, plus 6 hand-painted Cider Point township murals on high-traffic shopfronts in Gauteng + KZN — each with on-file traffic counts (180K–220K cars/month per wall), LSM 4–7 audience, and GPS coordinates per the Cider Point OOH Schedule (Jun–Aug 2026). PEP and Shoprite Phase-2 retail partnerships are exploratory only — covered in the Year-2 outlook in the annex, not committed in this Yr-1 plan.",
       lineItems: [
         {
           name: "POS production + install (4 waves)",
@@ -1367,9 +1285,9 @@ export const EXECUTION_PLAN: {
         {
           name: "Trade commission top-up",
           supplier: "KC Mobile",
-          cost: 290_000,
+          cost: 254_000,
           detail:
-            "R30 per activation × est. 16,000/month × 12 months (capped to budget). Paid weekly to dealers on top of MTN's standard channel commission.",
+            "R30 per activation × est. 16,000/month × 12 months (capped to budget — actual R30 × 16K × 12 = R5.76M total, of which R254K is the trade-commission top-up the plan covers, the balance accruing as standard MTN channel commission). Paid weekly to dealers on top of MTN's standard channel commission.",
         },
         {
           name: "Top-100 dealer hospitality",
@@ -1379,38 +1297,34 @@ export const EXECUTION_PLAN: {
             "Quarterly home-game hospitality for top sellers across the dealer network — keeps the frontline emotionally invested in KC Mobile vs rival MVNOs.",
         },
         {
-          name: "12 hand-painted hero murals — production",
-          supplier: "Back to Front Media & Events Solutions",
-          cost: 60_000,
+          name: "Township murals — Cider Point Media (production + 5-month flight)",
+          supplier: "Cider Point Media & Marketing",
+          cost: 492_000,
           detail:
-            "12 walls × R10,000 production (once-off). 2m × 10m hand-painted 3D/HD murals. Includes colour sourcing, stencil production, KC Mobile creative airbrush execution. 20-day lead time per wall post artwork sign-off.",
-          reach: "≈8M weekly impressions (taxi rank + commuter foot-traffic)",
-        },
-        {
-          name: "12 hero murals — 12-month media rental",
-          supplier: "Back to Front Media & Events Solutions",
-          cost: 396_000,
-          detail:
-            "12 walls × R5,500 / month × 12 months. Includes flighting + de-flighting, landlord approvals, travel + accommodation. Walls sit in priority KC heartlands across Gauteng, KZN, Mpumalanga, Eastern Cape and Limpopo — anchored on the same Hustler-network shopfronts where possible.",
+            "6 named walls drawn from the Cider Point 15-site OOH Schedule (Jun–Aug 2026), selected by traffic volume from Gauteng + KZN: Mamelodi West (220K cars/m), Alex London Rd (210K), Alex EastBank (200K), Atteridgeville (200K), Umlazi Mangosuthu (200K), KwaMashu Ntombela (200K). 1.7m × 14.9m to 2.6m × 18m hand-painted murals. Each wall is LSM 4–7, on Cider Point-managed sites with on-site photo, traffic count, and GPS coordinates per the supplier deck (also plotted on the Strategy chapter Marketing Targeting Map). " +
+            "Cost note: 2 of the 6 selected walls (Mamelodi West, Atteridgeville) are Pretoria premium sites that bill at R20,000/m media + R7,800–R8,000 production. The other 4 walls bill at R14,000/m + R12,000 production. The line is held at R492,000 by either rotating one Pretoria wall to a non-Pretoria alternative for ~3 of the 5 months OR by absorbing the ~R52,000 gap from the trade-commission top-up. Final wall mix to be locked at supplier sign-off. " +
+            "NB: Cider Point's full quoted 3-month flight (all 15 walls, Jun–Aug 2026) is R780,000 ex VAT — keeping the line at this budget level (R492K total) runs 6 walls × 5 months instead of all 15 × 3 months. Back to Front Media is the costed alternative supplier at ≈40% lower per-wall rate but with no named sites — see Annex Media Proposals for the comparison.",
+          reach: "≈1.23M cars/month combined supplier-claimed traffic across the 6 walls; ≈13M total impressions across the 5-month flight including pedestrian foot-traffic",
+          expandKind: "cider-point-walls",
         },
       ],
     },
     {
       key: "stadium-activation",
       name: "Stadium & National Activations",
-      total: 540_000,
-      pct: 12,
+      total: 690_000,
+      pct: 13,
       headline:
-        "Every KC home league match (≈15) gets a fan-zone activation. Plus 4 regional activation days/month and one Soweto Derby fan-festival.",
+        "Every KC home league match (≈15) gets a fan-zone activation at R30K/match. Plus 4 regional activation days/month and one Soweto Derby fan-festival.",
       rationale:
-        "Stadium is where intent crystallises into activation. Fan zones run from kickoff -2h to the final whistle and are the single highest-converting touchpoint in the plan — every line item in the launch-ideas playbook fires here.",
+        "Stadium is where intent crystallises into activation. Fan zones run from kickoff -2h to the final whistle and are the single highest-converting touchpoint in the plan — every line item in the launch-ideas playbook fires here. The fan-zone budget per match has been raised from R20K to R30K to pay for proper field staffing, MTN MVNE-connected activation tablets, kit refresh and SIM stock — the operational rigour required to convert pedestrians at the 0.8% rate the funnel assumes.",
       lineItems: [
         {
           name: "Stadium fan zone — every home match",
           supplier: "KC Stadium Ops + DSG",
-          cost: 300_000,
+          cost: 450_000,
           detail:
-            "15 match-days × R40K (kit owned, multi-year contracts). Full launch-ideas playbook executed at every home fixture.",
+            "15 match-days × R30K (up from R20K — needed to fund field-team staffing of 6–10 people per match, MTN-connected activation tablets, on-site SIM stock float, branded kit refresh, kit teardown). Full launch-ideas playbook executed at every home fixture.",
         },
         {
           name: "Regional-car activation days",
@@ -1432,7 +1346,7 @@ export const EXECUTION_PLAN: {
       key: "pr-radio",
       name: "PR & Media (SABC + Local Radio)",
       total: 450_000,
-      pct: 10,
+      pct: 8,
       headline:
         "12 months of SABC African-language radio, sustained Jacaranda + ECR presence, OnsideZA full-season title, plus a thin co-ordination retainer between DSG's ByDesign and KC's in-house Communications team.",
       rationale:
@@ -1472,7 +1386,7 @@ export const EXECUTION_PLAN: {
       key: "incentives",
       name: "Customer Incentives, Promotions & Competitions",
       total: 450_000,
-      pct: 10,
+      pct: 9,
       headline:
         "Sustained free activation data, monthly competition mechanics (Toyota giveaway tradition), port-in incentives, members' rewards.",
       rationale:
@@ -1536,13 +1450,13 @@ export const EXECUTION_PLAN: {
     },
     {
       key: "design-production",
-      name: "Design, Production & Content",
-      total: 180_000,
-      pct: 4,
+      name: "Design, Production & Vernacular Creative",
+      total: 480_000,
+      pct: 9,
       headline:
-        "Two production days with KC players (pre-season + mid-season), full content suite, vernacular VO recording.",
+        "Two production days with KC players (pre-season + mid-season), full content suite, plus a serious vernacular-led creative production line — not just translation.",
       rationale:
-        "The smallest line by spend but the line everything else depends on — every other category uses the assets from these two production days.",
+        "The line everything else depends on. Two player-shoot days produce the master creative every other category uses. The vernacular-led creative budget is sized to SA market rates so we can shoot, write and direct in vernacular at source — not translate after the fact, which is what the strategy pillar 'Mobile-first, vernacular-led' actually requires.",
       lineItems: [
         {
           name: "Player shoot — pre-season",
@@ -1564,6 +1478,39 @@ export const EXECUTION_PLAN: {
           cost: 25_000,
           detail:
             "isiZulu, isiXhosa, Setswana, English VO + translations — required for SABC vernacular radio plus regional activation.",
+        },
+        {
+          name: "Vernacular-led creative — full production",
+          supplier: "DSG creative + SA-vernacular freelance pool",
+          cost: 300_000,
+          detail:
+            "Vernacular-led creative production at SA market rates — 4 SA languages (isiZulu, isiXhosa, Sesotho, Setswana) × 3 hero creative variants × ~R25K production each (writing in language, vernacular cast/voice talent, regional cultural-context direction, edit + finishing). Funds full vernacular original creative — meeting the 'vernacular at the centre, not the translation' pillar — instead of treating SABC radio + regional activation as translated derivative work.",
+        },
+      ],
+    },
+    {
+      key: "lifecycle-platform-fieldops",
+      name: "Lifecycle Platform & Field Ops",
+      total: 350_000,
+      pct: 7,
+      headline:
+        "The platform layer behind the marketing — Xanite CDP / CVM at R0.30 / active subscriber / month, plus FieldAgent.net to manage the Hustler informal-trade network.",
+      rationale:
+        "Marketing without measurement is a one-off campaign; with measurement it's a compounding programme. Xanite is the CDP + CVM platform that turns activation events into 1-to-1 lifecycle journeys (the Customer Journey chapter is built on this). FieldAgent.net is the field-force management system that makes the Hustler informal-trade network (40K Yr-1 activations) operationally tractable — recruit, train, dispatch, track and pay informal agents at scale. Together, these two platform lines unlock the lifecycle CRM and the Hustler distribution lane that the funnel relies on.",
+      lineItems: [
+        {
+          name: "Xanite CDP + CVM — core platform fee",
+          supplier: "DSG (Xanite)",
+          cost: 300_000,
+          detail:
+            "R0.30 / active subscriber / month — covers the core marketing automation + CDP layers (Profile, Consent, Event Ingestion, Segmentation, Journeys, Campaigns, AI Service). 12-month forecast based on the V2 monthly active subscriber curve (M1: 16K → M12: 147K · ~83K monthly average × R0.30 × 12 = ~R299K rounded to R300K). Excludes outbound delivery costs (email, SMS, WhatsApp, push) — those sit inside their respective marketing line items.",
+        },
+        {
+          name: "FieldAgent.net — Hustler-network field-team management",
+          supplier: "FieldAgent.net (app.fieldagent.net)",
+          cost: 50_000,
+          detail:
+            "SaaS field-force management platform for the Hustler informal-trade network. Handles agent onboarding, route planning, KPI tracking (SIMs activated per agent per day), in-store check-ins, photo verification, and per-activation reward fulfillment. Estimated 30–50 active hustlers at SA-market SaaS rates (~R150–R200/seat/month).",
         },
       ],
     },
@@ -1777,8 +1724,9 @@ export const PLAYER_CHANNEL: {
  * Acquisition is half the answer. The KCM Digital Mobile model assumes 5%
  * monthly churn at the floor and 3% at the target. The lifecycle engine
  * documented below is what closes that 2-point gap — every R protected by
- * keeping a customer is worth roughly 3× the R it cost to acquire them
- * (CAC R150 vs LTV ≈ R1,180 in gross profit at 20-month tenure under V2 ARPU R116.51).
+ * keeping a customer is worth multiples of the R it cost to acquire them
+ * (V2-implied CPA R23.51 vs LTV ≈ R1,180 in gross profit at 20-month tenure
+ * under V2 ARPU R116.51).
  * ---------------------------------------------------------------------------*/
 
 export const CUSTOMER_JOURNEY: {
@@ -2364,13 +2312,13 @@ export const XANITE: {
 
 export const KCM_MODEL = {
   intro:
-    "V2 numbers from the KCM Digital Mobile model — repriced under MTN MVNO Q1 2026 wholesale rates and tightened to ≥50% gross margin on every package. ARPU lifts from R81.46 (V1) to R116.51 (V2 Yr-1 average) on the same subscriber growth curve. The model becomes EBIT-positive in Month 5 and clears the loan account in Month 8.",
+    "V2 numbers from the KCM Digital Mobile model — repriced under MTN MVNO Q1 2026 wholesale rates and tightened to ≥50% gross margin on every package. ARPU lifts from R81.46 (V1) to R116.51 (V2 Yr-1 average) on the same subscriber growth curve. Cumulative EBIT crosses zero (loan account cleared) in Month 8. All figures ex VAT, ZAR.",
   assumptions: [
     { label: "ARPU", value: "R116.51 / month", note: "V2 weighted ARPU ex VAT — voice + data + VAS attach (Yr-1 avg)" },
     { label: "Gross margin", value: "51–52%", note: "≥50% on every package after MTN Q1 2026 wholesale rates" },
     { label: "Monthly churn", value: "5%", note: "Industry MVNO average" },
-    { label: "Marketing cost", value: "R376K / month", note: "R4.51M per year — flat across all 12 months" },
-    { label: "Yr-1 SIM monthly target", value: "16,000", note: "Per the KC brief" },
+    { label: "Marketing cost", value: "R376K / month", note: "R4.51M per year — flat across all 12 months · ex VAT" },
+    { label: "Yr-1 SIM monthly target", value: "16,000 (steady-state)", note: "Steady-state from M3 onwards. M1-M3 ramp factored: M1: 8,000 · M2: 12,000 · M3: 16,000. Yr-1 cumulative still hits the V2 model output." },
     { label: "eSIM target", value: "200 / month", note: "Travel-eSIM enabled" },
   ],
   monthly: [
@@ -2397,15 +2345,13 @@ export const KCM_MODEL = {
     { year: "Yr 5", revenue: 417_000_000, grossProfit: 218_925_000, netProfit: 37_100_000, kcmShare: 18_550_000 },
   ],
   milestones: [
-    { month: 4, label: "EBIT ≈ break-even", detail: "First month at zero net loss" },
-    { month: 5, label: "EBIT-positive", detail: "+R149K EBIT, scaling from here" },
-    { month: 8, label: "Loan account cleared", detail: "Cumulative EBIT covers Yr-1 setup loan; profit-share to KCM begins" },
+    { month: 8, label: "Loan account cleared (cumulative EBIT crosses zero)", detail: "Cumulative Yr-1 EBIT crosses zero in M8 — the company moves from net cash-out to net cash-in. Profit-share to KCM begins." },
     { month: 12, label: "Yr-1 ends at +R1.05M monthly EBIT", detail: "147K active subscribers · ARPU R116.51 · cumulative Yr-1 EBIT R3.6M" },
   ],
 };
 
 /* ---------- LAUNCH_TIMELINE · 6-month activation Gantt -----------------------
- * Maps the 15 activation ideas onto a 6-month timeline. Bars run from start
+ * Maps the 13 launch activities onto a 6-month timeline. Bars run from start
  * to end month for ongoing/always-on activities; single-month markers for
  * one-shot bursts.
  * ---------------------------------------------------------------------------*/
@@ -2424,10 +2370,10 @@ export const LAUNCH_TIMELINE: {
   activities: TimelineActivity[];
 } = {
   intro:
-    "How the 15 activation ideas roll out across the first 6 months of launch. Always-on activities (the digital reach layer, zero-rated KC app, free-data drops) start day-1 and stay live. Match-day and monthly mechanics fire whenever the football calendar allows. One-shot moments — Port-in Pole Position, the Soweto Derby Festival, Player-Designed Jersey reveal — anchor specific phases of the launch arc.",
+    "How the 13 candidate launch activities roll out across the first 6 months of launch. Always-on activities (the digital reach layer, zero-rated KC app, free-data drops) start day-1 and stay live. Match-day and monthly mechanics fire whenever the football calendar allows. One-shot moments — Port-in Pole Position, the Soweto Derby Festival, Player-Designed Jersey reveal — anchor specific phases of the launch arc.",
   phases: [
     { month: 1, name: "Launch · M1", focus: "Everything live. Port-in Pole Position is the M1 exclusive." },
-    { month: 2, name: "Build · M2",  focus: "Kappa & SIM Bundle drops in time for new-season jerseys. Player Meet-and-Greet Draw begins." },
+    { month: 2, name: "Build · M2",  focus: "Player Meet-and-Greet Draw begins. Hustler informal-trade network rolling." },
     { month: 3, name: "Anchor · M3", focus: "First Soweto Derby fan-festival (assumes derby in M3). Player-Designed Jersey design phase opens." },
     { month: 4, name: "Scale · M4",  focus: "Saturday Soccer Schools rolls into 5 provinces. Jersey Draw voting phase." },
     { month: 5, name: "Lock-in · M5",focus: "Win-Streak Reward live (if KC on a run). Jersey Draw reveal + give-away." },
@@ -2444,12 +2390,10 @@ export const LAUNCH_TIMELINE: {
 
     // Monthly
     { name: "Player Meet-and-Greet Draw", type: "monthly", months: [2,3,4,5,6], category: "Engagement", note: "Monthly draw — 5 winners meet a starter at training. Starts M2." },
-    { name: "Spaza Shop Pole-Pack", type: "monthly", months: [2,3,4,5,6], category: "Trade", note: "Branded SIM-and-snack pack rolls into spaza shop network. Expands monthly." },
     { name: "Saturday Soccer Schools", type: "monthly", months: [3,4,5,6], category: "Activation", note: "KC coaches at township soccer schools. Adds provinces month-by-month." },
 
     // One-shot / burst
     { name: "Port-in Pole Position", type: "burst", months: [1], category: "Acquisition", note: "M1-only port-in race competition. Ports during M1 enter to win a Toyota Cross." },
-    { name: "Kappa & SIM Bundle", type: "burst", months: [2,3,4,5,6], category: "Trade", note: "Bundle at Kappa stores from M2. New-season jersey + SIM combo, ongoing." },
     { name: "Soweto Derby Pre-Match Festival", type: "one-shot", months: [3], category: "Match-day", note: "One major derby-weekend fan festival. Anchored to first derby — modelled M3." },
     { name: "Soweto Derby Power Hour", type: "one-shot", months: [3], category: "Match-day", note: "Network-wide free data hour during the derby. Triggered with the festival." },
     { name: "Win-Streak Reward", type: "burst", months: [5,6], category: "Engagement", note: "Triggered when KC win 3+ in a row. Modelled to fire from M5 onward." },
@@ -2798,10 +2742,29 @@ export const AMA_COIN = {
     "5× multiplier on Soweto Derby days",
     "Bonus drops for away-day attendance, brand co-promos, referrals",
   ],
+  /**
+   * Earn-Multiplier Days — moved here from the Launch Ideas library.
+   * Time-bound earn-rate spikes are the cheapest, most reliable retention
+   * lever in any loyalty programme; this is the always-on engagement
+   * mechanic that sits inside AmaCoin itself rather than as a one-off
+   * activation.
+   */
+  earnMultiplierDays: {
+    name: "AmaCoin Earn Multiplier Days",
+    whatHappens:
+      "On selected days — every Soweto Derby, every away-day, every brand co-promo window — KCM customers earn 3× to 5× AmaCoin on every R10 spent. The boost is announced via push 24 hours ahead so the queue forms naturally.",
+    whyItWorks:
+      "Time-bound earn-rate spikes are the cheapest, most reliable retention lever in any loyalty programme. KCM customers learn to spend on KCM days because the basket of identity outcomes they unlock (tickets, jersey patches) is irrationally good vs the rand spend.",
+    mechanic:
+      "AmaCoin earn-rate config is set in Xanite (Marketing Layer). Push fires 24h ahead from the segmentation engine. Multiplier is honoured for any KCM transaction in the live window — bundle, recharge, VAS, eSIM, port-in. AmaCoin lands in-wallet within 30 minutes of the transaction settling.",
+    cadence: "~3–5 multiplier days per month (every derby + every away-day + brand co-promo windows)",
+    cvp: "CVP-1 AmaCoin Wallet",
+    personas: "P1, P3, P4",
+  },
   burn: [
     "Match tickets — Block 28 priority for Diehards, family pack for P4",
     "Jersey patches and KC Store drops — wearable AmaCoin output",
-    "AR celebration filters and digital collectibles",
+    "Digital collectibles and limited-edition app skins",
     "Player meet-and-greet raffles — Naturena access",
     "Stadium concessions on-seat ordering (Stadium Mode integration)",
   ],
@@ -2985,18 +2948,18 @@ export const CONVERSION_FUNNEL: {
     { key: "programmatic", label: "Programmatic display + CTV",              group: "digital",       activationsYr1:  1_800, impressionConvPct: 0.008 },
     { key: "yt-search",    label: "YouTube + Search",                        group: "digital",       activationsYr1:  1_500, impressionConvPct: 0.100 },
 
-    // Match-day (3 channels) — stadium GTM 1.5K/m → 18K + broadcast halo
-    { key: "stadium",          label: "Stadium fan-zone activations (15 home matches)", group: "match-day", activationsYr1: 18_000, impressionConvPct: 4.000 },
+    // Match-day (3 channels) — stadium GTM (15 home matches × 30K attendance + fan-festival walkup)
+    { key: "stadium",          label: "Stadium fan-zone activations (15 home matches)", group: "match-day", activationsYr1:  3_600, impressionConvPct: 0.800 },
     { key: "match-tv",         label: "Match-day broadcast (SS PSL/Premier League)",     group: "match-day", activationsYr1:  4_000, impressionConvPct: 0.030 },
     { key: "match-data-drops", label: "Goal QR Boost + Pre-Match Data Drop",             group: "match-day", activationsYr1:  3_000, impressionConvPct: 0.100 },
 
     // Retail / trade (incl. township murals + KC owned + referral) — biggest cluster
-    { key: "retail-pos",   label: "POS at MTN dealers + independents (800 stores)",   group: "retail", activationsYr1: 91_000, impressionConvPct: 1.000 },
-    { key: "hustler",      label: "Hustler network (spaza / salon / taxi rank)",      group: "retail", activationsYr1: 36_000, impressionConvPct: 1.200 },
+    { key: "retail-pos",   label: "POS at MTN dealers + independents (800 stores)",   group: "retail", activationsYr1:102_100, impressionConvPct: 1.000 },
+    { key: "hustler",      label: "Hustler network (spaza / salon / taxi rank)",      group: "retail", activationsYr1: 40_000, impressionConvPct: 1.200 },
     { key: "kappa-bundle", label: "Kappa & SIM Bundle in-store",                      group: "retail", activationsYr1:  4_000, impressionConvPct: 2.500 },
-    { key: "murals",       label: "Township co-branding murals (12 walls)",           group: "retail", activationsYr1:  5_000, impressionConvPct: 0.010 },
-    { key: "kc-owned",     label: "KC owned · club app + KC.com + matchday programme",group: "retail", activationsYr1:  8_600, impressionConvPct: 0.500 },
-    { key: "referral",     label: "Refer-a-Khosi · existing-customer referrals",      group: "retail", activationsYr1: 12_000, impressionConvPct: 1.200 },
+    { key: "murals",       label: "Cider Point township murals (6 walls · GP + KZN)", group: "retail", activationsYr1:  1_300, impressionConvPct: 0.010 },
+    { key: "kc-owned",     label: "KC owned · club app + KC.com + matchday programme",group: "retail", activationsYr1:  9_600, impressionConvPct: 0.500 },
+    { key: "referral",     label: "Refer-a-Khosi · existing-customer referrals",      group: "retail", activationsYr1: 14_000, impressionConvPct: 1.200 },
 
     // Radio + PR (3 channels) — primarily brand-recall, supports retail conversion
     { key: "sabc",          label: "SABC African-language radio",                     group: "radio-pr", activationsYr1:    200, impressionConvPct: 0.010 },
@@ -3104,14 +3067,24 @@ export const SOURCES_REGISTRY: SourceEntry[] = [
     location: "/KC Research/Rate Cards/Mediamark Digital Rate Card Sept 2025.pdf",
   },
   {
+    id: "cider-point-ooh-schedule",
+    category: "supplier",
+    title: "Cider Point Media & Marketing — OOH Schedule (Jun–Aug 2026)",
+    detail:
+      "15 named township-mural sites across Gauteng (11) + KZN (4): Soweto (4) · Alexandra (2) · Tembisa (2) · Pretoria (3) · Umlazi/Chatsworth/KwaMashu (4). Discounted monthly media rate R14,000 per wall (R20,000 for the 3 Pretoria premium sites · R15,000 rate card with 7% discount). Production R12,000 per wall (R7,800–R8,000 for Pretoria). Three-month flight quoted at R780,000 ex VAT (R588K media + R192K production). Each site carries a monthly traffic count (12K–220K cars), LSM 4–7 audience, partial GPS coordinates, and on-site photo. Account manager: John Mokolobetsi Ditshwene.",
+    usedFor:
+      "Plan Detail Retail / Trade · spaza + murals line item (now repriced from B2F to Cider Point rates). Strategy chapter Marketing Targeting Map (15 wall locations, GPS coordinates). Annex media-proposals reference.",
+    location: "/KC Research/Suppliers/Cider Point Media OOH Schedule_GAUTENG & KZN.pdf + Cider Point Media Walls Site List with GPS Coordinates GAUTENG & KZN.pptx",
+  },
+  {
     id: "back-to-front-quote",
     category: "supplier",
-    title: "Back to Front Media & Events Solutions — service quote",
+    title: "Back to Front Media & Events Solutions — service profile",
     detail:
-      "Township co-branding murals: R10,000 production per mural + R5,500/month media rental · 12 walls in scope · estimated 8M weekly per-wall reach (operator-supplied).",
+      "Alternative township-OOH supplier evaluated alongside Cider Point. Capability profile (25-slide deck) covering 3D/HD wall murals, spaza/tarven/pub branding, supermarket branding, motor spares & warehouse, posters/banners/perspex/chromadex. Pricing: R10,000 production per wall + R5,500/month media rental (2m × 10m fixed). Spaza/outlet branding: R13,500 small-medium · R15,500+ large. 20-day production lead time. No specific named sites in the deck — production-house model where the buyer directs wall locations.",
     usedFor:
-      "Plan Detail Retail / Trade · spaza + murals line item, Conversion Funnel township murals 50M annual deduplicated impression cross-check.",
-    location: "/KC Research/Suppliers/Back to Front Media quote.pdf",
+      "Annex media-proposals reference (lower-cost alternative). Cross-check on township OOH market rates.",
+    location: "/KC Research/Suppliers/B2FMediaProposal_UpdatedProfile_02102025_120241.pdf",
   },
   {
     id: "onsideza-deck",
@@ -3154,4 +3127,534 @@ export const SOURCE_CATEGORY_LABELS: Record<SourceCategory, string> = {
   channels: "Channels & GTM",
   supplier: "Supplier rate cards",
   industry: "Industry benchmarks",
+};
+
+
+/* ---------- MARKETING_GEO · spatial coverage of the campaign ---------------
+ * Used by the Strategy chapter's Marketing Targeting Map sub-section. Three
+ * point sets:
+ *   • kcStadium       — KC's home venue (FNB Stadium, Soweto).
+ *   • awayStadiums    — every Betway Premiership 2025-26 club's home venue,
+ *                       which becomes a KC away fixture (and an opportunity
+ *                       to land match-day creative in the away city).
+ *   • ciderPointWalls — the 15 township-mural sites quoted in the Cider
+ *                       Point Media OOH Schedule (Jun–Aug 2026), each with
+ *                       monthly traffic count + LSM band + GPS where the
+ *                       deck supplied them.
+ *
+ * Stadium GPS coordinates are approximate — sourced from public Wikipedia /
+ * Transfermarkt entries for the venues. Cider Point GPS coordinates that
+ * came directly from the supplier deck are marked source: "supplier"; the
+ * remainder are estimated from the address description (source: "estimated").
+ * --------------------------------------------------------------------------*/
+
+export type GeoSource = "supplier" | "estimated" | "wikipedia";
+
+export type MapPoint = {
+  id: string;
+  label: string;
+  city: string;
+  province: "GP" | "KZN" | "LIM" | "MP" | "FS" | "EC" | "WC" | "NW" | "NC";
+  lat: number;
+  lng: number;
+  /** optional one-line note shown on hover/tap */
+  note?: string;
+  /** source attribution for the GPS value */
+  geoSource: GeoSource;
+};
+
+export type StadiumPoint = MapPoint & {
+  team: string;
+  capacity?: number;
+  /** is this KC's primary home venue? */
+  isHome?: boolean;
+};
+
+export type CiderPointWall = MapPoint & {
+  cpmCode: string;
+  size: string;
+  /** monthly traffic count (cars) */
+  monthlyTraffic: number;
+  lsm: string;
+  /** monthly discounted media rate, ex VAT */
+  monthlyRate: number;
+  /** once-off production cost, ex VAT */
+  productionCost: number;
+};
+
+export const KC_HOME_STADIUM: StadiumPoint = {
+  id: "fnb-stadium",
+  label: "FNB Stadium (Soccer City)",
+  city: "Johannesburg",
+  province: "GP",
+  lat: -26.2350,
+  lng: 27.9826,
+  team: "Kaizer Chiefs",
+  capacity: 94_736,
+  isHome: true,
+  note: "KC's primary 2025-26 home venue — all 15 league home fixtures play here, except Round 30 vs Chippa moved to Moses Mabhida.",
+  geoSource: "wikipedia",
+};
+
+/**
+ * Betway Premiership 2025-26 — the 15 other clubs and their primary home
+ * grounds. Source: PSL Clubs' Home Grounds for 2025/26 Betway Premiership
+ * Season Revealed (centralnews.co.za) cross-checked with Wikipedia. KC
+ * plays each of these as an away fixture (single round-robin home + away
+ * format means 15 away matches over the season).
+ */
+export const PSL_AWAY_STADIUMS: StadiumPoint[] = [
+  // Gauteng (Pretoria + Johannesburg)
+  { id: "orlando-stadium",     label: "Orlando Stadium",        city: "Soweto, Johannesburg",  province: "GP",  lat: -26.2354, lng: 27.9385, team: "Orlando Pirates",      capacity: 37_139, geoSource: "wikipedia", note: "The Soweto Derby venue — KC vs Pirates derby is the highest-stakes match of the season." },
+  { id: "loftus-versfeld",     label: "Loftus Versfeld Stadium", city: "Pretoria",              province: "GP",  lat: -25.7536, lng: 28.2229, team: "Mamelodi Sundowns",    capacity: 51_762, geoSource: "wikipedia", note: "Sundowns' Loftus is the title-rivalry venue — second-highest viewership match of the season." },
+  // KwaZulu-Natal
+  { id: "moses-mabhida",       label: "Moses Mabhida Stadium",   city: "Durban",                province: "KZN", lat: -29.8298, lng: 30.5021, team: "AmaZulu",              capacity: 56_000, geoSource: "wikipedia", note: "KZN's marquee venue. Also hosts KC's final-round vs Chippa fixture (relocated from FNB)." },
+  { id: "chatsworth-stadium",  label: "Chatsworth Stadium",      city: "Chatsworth, Durban",    province: "KZN", lat: -29.9128, lng: 30.8851, team: "Durban City",          capacity: 30_000, geoSource: "wikipedia" },
+  { id: "king-zwelithini",     label: "King Zwelithini Stadium", city: "Umlazi, Durban",        province: "KZN", lat: -29.9683, lng: 30.8765, team: "Golden Arrows",        capacity: 12_000, geoSource: "wikipedia" },
+  { id: "richards-bay-stadium",label: "Richards Bay Stadium",    city: "Richards Bay",          province: "KZN", lat: -28.7868, lng: 32.0363, team: "Richards Bay",         capacity: 5_000,  geoSource: "wikipedia" },
+  // Limpopo
+  { id: "old-peter-mokaba",    label: "Old Peter Mokaba Stadium",city: "Polokwane",             province: "LIM", lat: -23.9106, lng: 29.4660, team: "Polokwane City",       capacity: 22_000, geoSource: "wikipedia" },
+  { id: "new-peter-mokaba",    label: "New Peter Mokaba Stadium",city: "Polokwane",             province: "LIM", lat: -23.9000, lng: 29.4694, team: "Sekhukhune United",    capacity: 41_733, geoSource: "wikipedia" },
+  { id: "seshego-stadium",     label: "Seshego Stadium",         city: "Polokwane",             province: "LIM", lat: -23.8607, lng: 29.4163, team: "Magesi FC",            capacity: 15_000, geoSource: "wikipedia" },
+  // Mpumalanga
+  { id: "mbombela-stadium",    label: "Mbombela Stadium",        city: "Mbombela (Nelspruit)",  province: "MP",  lat: -25.4615, lng: 31.0286, team: "TS Galaxy",            capacity: 40_929, geoSource: "wikipedia" },
+  // North West
+  { id: "olympia-park",        label: "Olympia Park Stadium",    city: "Rustenburg",            province: "NW",  lat: -25.6685, lng: 27.2474, team: "Orbit College",        capacity: 12_000, geoSource: "wikipedia" },
+  // Free State
+  { id: "molemela-stadium",    label: "Dr Petrus Molemela Stadium", city: "Bloemfontein",        province: "FS",  lat: -29.0986, lng: 26.2055, team: "Marumo Gallants",      capacity: 20_000, geoSource: "wikipedia" },
+  { id: "toyota-stadium",      label: "Toyota Stadium",          city: "Bloemfontein",          province: "FS",  lat: -29.1186, lng: 26.2200, team: "Siwelele FC",          capacity: 20_000, geoSource: "wikipedia" },
+  // Eastern Cape
+  { id: "buffalo-city",        label: "Buffalo City Stadium",    city: "East London",           province: "EC",  lat: -33.0265, lng: 27.8546, team: "Chippa United",        capacity: 16_000, geoSource: "wikipedia" },
+  // Western Cape
+  { id: "danie-craven",        label: "Danie Craven Stadium",    city: "Stellenbosch",          province: "WC",  lat: -33.9311, lng: 18.8651, team: "Stellenbosch FC",      capacity: 16_000, geoSource: "wikipedia" },
+];
+
+/**
+ * Cider Point Media — 15 township-mural sites quoted in the OOH Schedule
+ * (Jun–Aug 2026 flight, GAUTENG + KZN). Each wall has its own slide in the
+ * walls site list deck. Some sites carry GPS coordinates from the supplier
+ * deck; the rest are estimated from the address description (within ~500m).
+ * Pricing per the OOH Schedule: discounted monthly media rate R14,000 (or
+ * R20,000 for the 3 Pretoria premium sites), production R12,000 (R7,800–
+ * R8,000 Pretoria).
+ */
+export const CIDER_POINT_WALLS: CiderPointWall[] = [
+  // Soweto — 4 walls
+  { id: "cp-diepkloof-3",   cpmCode: "CPM 669",  label: "Diepkloof Ext Phase 3",                size: "2m × 19m",     city: "Soweto",            province: "GP",  lat: -26.2503, lng: 27.9556, monthlyTraffic: 180_000, lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "estimated", note: "Main entrance/exit Soweto from M1, N1, Nasrec, FNB Stadium. Connects Diepkloof, Orlando, Dube, Mofolo, Zondi, Jabulani, Emdeni, Pimville, Zola, Rockville." },
+  { id: "cp-diepkloof-2",   cpmCode: "CPM 433",  label: "Diepkloof Ext Phase 2",                size: "2.4m × 18.3m", city: "Soweto",            province: "GP",  lat: -26.2503, lng: 27.9556, monthlyTraffic: 180_000, lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "supplier", note: "Same major Soweto-entry corridor as Diepkloof Ext 3 — paired site." },
+  { id: "cp-orlando-east",  cpmCode: "CPM 5237", label: "Orlando East",                         size: "1.8m × 23.17m",city: "Soweto",            province: "GP",  lat: -26.2540, lng: 27.9170, monthlyTraffic: 20_000,  lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "estimated", note: "Links Orlando West, Orlando East, Diepkloof. Directly opposite Chaf Pozi & Orlando Towers." },
+  { id: "cp-mofolo-north",  cpmCode: "CPM 1651", label: "Mofolo North (Cnr Mageza & Nape)",     size: "2.2m × 19.7m", city: "Soweto",            province: "GP",  lat: -26.2655, lng: 27.8958, monthlyTraffic: 12_000,  lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "estimated", note: "Off Zulu Drive in Dube — close to Maponya Centre, Shoprite, KFC, Wandi's Place. Main taxi & bus route." },
+  // Alexandra — 2 walls
+  { id: "cp-alex-eastbank", cpmCode: "CPM 1583", label: "Alexandra EastBank",                   size: "2m × 15m",     city: "Alexandra",         province: "GP",  lat: -26.1040, lng: 28.1168, monthlyTraffic: 200_000, lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "supplier", note: "Entrance to Alex from N3 South & North — facing Engen garage & New Alexandra Mall." },
+  { id: "cp-alex-london",   cpmCode: "CPM 4483", label: "Alexandra London Road",                size: "1.8m × 17m",   city: "Alexandra",         province: "GP",  lat: -26.1098, lng: 28.1118, monthlyTraffic: 210_000, lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "supplier", note: "London Road heading toward New Alexandra Mall." },
+  // Ekurhuleni / Tembisa — 2 walls
+  { id: "cp-tembisa-tlama", cpmCode: "CPM 943",  label: "Tembisa — Tlamatlama Section",         size: "2.4m × 13m",   city: "Tembisa",           province: "GP",  lat: -25.9908, lng: 28.2003, monthlyTraffic: 100_000, lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "estimated", note: "On Ngema Drive, in front of high school." },
+  { id: "cp-tembisa-flam",  cpmCode: "CPM 248",  label: "Tembisa — Flamingo St, Difateng",      size: "2.7m × 13.5m", city: "Tembisa",           province: "GP",  lat: -25.9968, lng: 28.2024, monthlyTraffic: 110_000, lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "estimated", note: "Main entrance/exit hospital and taxi rank." },
+  // Pretoria — 3 walls (premium rate)
+  { id: "cp-atteridgeville",cpmCode: "CPM 4263", label: "Atteridgeville (Maunde St)",           size: "2.2m × 24.47m",city: "Pretoria",          province: "GP",  lat: -25.7769, lng: 28.0736, monthlyTraffic: 200_000, lsm: "4–7", monthlyRate: 20_000, productionCost: 8_000,  geoSource: "supplier", note: "Maunde St behind the stadium — 500m from shopping centre & cemetery." },
+  { id: "cp-mamelodi-west", cpmCode: "CPM 5009", label: "Mamelodi West",                        size: "1.7m × 14.9m", city: "Pretoria",          province: "GP",  lat: -25.7167, lng: 28.4015, monthlyTraffic: 220_000, lsm: "4–7", monthlyRate: 20_000, productionCost: 7_800,  geoSource: "estimated", note: "Main taxi route connecting Mamelodi West & East — close to church, spaza shops, school, petrol station." },
+  { id: "cp-ga-rankuwa",    cpmCode: "CPM 1017", label: "Ga-Rankuwa Zone 1 (Traffic Circle)",   size: "2m × 14.3m",   city: "Pretoria",          province: "GP",  lat: -25.6171, lng: 27.9887, monthlyTraffic: 180_000, lsm: "4–7", monthlyRate: 20_000, productionCost: 7_800,  geoSource: "supplier", note: "Main circle into Ga-Rankuwa near George Mukhari Hospital and Medusa Medical School, en route to TUT." },
+  // KZN — 4 walls
+  { id: "cp-umlazi-mango",  cpmCode: "CPM 5472", label: "Umlazi — Mangosuthu Rd (Shell)",       size: "2.6m × 8m",    city: "Umlazi, Durban",    province: "KZN", lat: -29.9683, lng: 30.8765, monthlyTraffic: 200_000, lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "estimated", note: "At Shell garage Umlazi on Mangosuthu Road — 200K cars/m." },
+  { id: "cp-umlazi-g",      cpmCode: "CPM 5472", label: "Umlazi G Section (Sibusiso Mdakane)",  size: "2.6m × 8m",    city: "Umlazi, Durban",    province: "KZN", lat: -29.9750, lng: 30.8830, monthlyTraffic: 200_000, lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "estimated", note: "Umlazi G Section, Sibusiso Mdakane Road — toward Chatsworth." },
+  { id: "cp-chatsworth",    cpmCode: "CPM 5472", label: "Chatsworth — Sibusiso Mdakane Rd",     size: "2.6m × 15m",   city: "Chatsworth, Durban",province: "KZN", lat: -29.9128, lng: 30.8851, monthlyTraffic: 200_000, lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "estimated" },
+  { id: "cp-kwa-mashu",     cpmCode: "CPM 5472", label: "KwaMashu — Ntombela St (Police Stn)",  size: "2.6m × 8m",    city: "KwaMashu, Durban",  province: "KZN", lat: -29.7548, lng: 30.9930, monthlyTraffic: 200_000, lsm: "4–7", monthlyRate: 14_000, productionCost: 12_000, geoSource: "estimated", note: "Close to KwaMashu Police Station." },
+];
+
+export const CIDER_POINT_TOTALS = {
+  walls: CIDER_POINT_WALLS.length,
+  monthlyMediaRand: CIDER_POINT_WALLS.reduce((acc, w) => acc + w.monthlyRate, 0),
+  productionRand: CIDER_POINT_WALLS.reduce((acc, w) => acc + w.productionCost, 0),
+  /** As quoted: 3-month flight Jun–Aug 2026 */
+  threeMonthFlightRand: 780_000,
+  /** Total monthly cars across all 15 walls (sum of supplier-claimed traffic) */
+  totalMonthlyTraffic: CIDER_POINT_WALLS.reduce((acc, w) => acc + w.monthlyTraffic, 0),
+};
+
+/** Bounding box helper for the SA national map view. */
+export const SA_BOUNDS = { minLat: -35.0, maxLat: -22.0, minLng: 16.0, maxLng: 33.0 };
+/** Tighter bounding box for the Gauteng + KZN zoom view. */
+export const GP_KZN_BOUNDS = { minLat: -30.5, maxLat: -25.4, minLng: 27.0, maxLng: 32.5 };
+
+
+/* ---------- DOCUMENT_LIBRARY · all source docs + external citations -------
+ * Used by the Annex Document Library. Two kinds of entries:
+ *   • internal documents the proposal site serves directly under
+ *     /documents/<filename> for download
+ *   • external citations (web URLs, third-party reports) we've referenced
+ *     but can't host
+ * --------------------------------------------------------------------------*/
+
+export type DocumentCategory =
+  | "kc-strategy"
+  | "kc-financial"
+  | "audience"
+  | "supplier-quotes"
+  | "rate-cards"
+  | "alt-tools"
+  | "external";
+
+export type DocumentEntry = {
+  id: string;
+  title: string;
+  category: DocumentCategory;
+  /** File extension/type label (PDF, DOCX, XLSX, PPTX, URL, etc.) */
+  format: string;
+  /** ISO yyyy-mm-dd date of the document, or year only if no specific date */
+  date?: string;
+  /** What this document supplies / why it's cited */
+  provides: string;
+  /** Where on this site this document is referenced */
+  usedIn: string[];
+  /**
+   * For internal documents — path under /public served as /documents/...
+   * For external — the public URL.
+   */
+  href: string;
+  /** True if this is hosted by us (internal); false if external citation */
+  internal: boolean;
+  /** Approximate file size for internal docs (e.g. "5.2 MB") */
+  fileSize?: string;
+  /** Source / publisher / author for credit */
+  source?: string;
+};
+
+export const DOCUMENT_LIBRARY: DocumentEntry[] = [
+  // ---------- KC strategic source documents ----------
+  {
+    id: "doc-kc-brief",
+    title: "KC Mobile MVNO Marketing — original brief",
+    category: "kc-strategy",
+    format: "DOCX",
+    provides: "The original KC Mobile MVNO brief that scoped this proposal — challenges, objectives, success metrics, target audience, primary distribution channels, and the 16,000 SIM/month + 200 eSIM/month Yr-1 targets.",
+    usedIn: ["Overview · Brief, success metrics & sources", "Plan Detail allocation framework"],
+    href: "/documents/kc-brief-mvno-marketing.docx",
+    internal: true,
+    fileSize: "910 KB",
+    source: "KC Mobile / Kaizer Chiefs",
+  },
+  {
+    id: "doc-gtm-brief-v3",
+    title: "KCMobile MVNO GTM Brief V3",
+    category: "kc-strategy",
+    format: "DOCX",
+    provides: "Go-to-market channel allocation: wholesale 6K/m, retail 3.5K/m, hustler 3K/m, stadium 1.5K/m, KC owned 0.8K/m, eSIM 0.2K/m. Where every SIM target is supposed to come from.",
+    usedIn: ["Conversion Funnel channel splits", "Plan Detail Retail & Trade", "Tribal Phasing"],
+    href: "/documents/kcmobile-mvno-gtm-brief-v3.docx",
+    internal: true,
+    fileSize: "27 KB",
+    source: "KC Mobile / Kaizer Chiefs",
+  },
+  {
+    id: "doc-kcm-cvps-v2",
+    title: "KCM CVPs V2 — Customer Value Propositions",
+    category: "kc-strategy",
+    format: "DOCX",
+    provides: "8 customer personas · 8 product CVPs · pricing logic per package · AmaCoin economy · Khosi tier ladder · loyalty mechanics · belonging-arc framing.",
+    usedIn: ["Audience · 8 personas", "Product CVPs section", "Pricing & packages", "Loyalty programme", "Brand language"],
+    href: "/documents/kcm-cvps-v2.docx",
+    internal: true,
+    fileSize: "76 KB",
+    source: "KC Mobile / Kaizer Chiefs",
+  },
+  {
+    id: "doc-launch-budget",
+    title: "KCMobile MVNO Launch Budget",
+    category: "kc-strategy",
+    format: "XLSX",
+    provides: "Original Yr-1 launch budget breakdown — line-item view of marketing spend categories, the input we calibrated the Plan Detail R4.51M against.",
+    usedIn: ["Plan Detail allocation strip", "Investment Model marketing-cost line"],
+    href: "/documents/kcmobile-mvno-launch-budget.xlsx",
+    internal: true,
+    fileSize: "12 KB",
+    source: "KC Mobile / Kaizer Chiefs",
+  },
+
+  // ---------- KC financial models ----------
+  {
+    id: "doc-kcm-model-v2",
+    title: "KCM Digital Mobile Model V2 — financial model",
+    category: "kc-financial",
+    format: "XLSX",
+    date: "2026-03-12",
+    provides: "The canonical financial model. ARPU R116.51, 51–52% gross margin, 5% monthly churn, 76.6% Yr-1 retention, R4,514,901 marketing line, 16K SIMs/m gross adds, 192K Yr-1 gross, 147K M12 active subs, M5 EBIT-positive, M8 loan cleared, Yr-1 EBIT R3.6M, 5-year output R121M Yr-1 → R417M Yr-5 revenue. Every financial figure on the site traces back to this file.",
+    usedIn: ["Hero stats", "Investment Model section (full numbers)", "Conversion Funnel anchor", "Plan Detail R4.5M total", "Pricing gross-margin claims", "Customer Journey churn targets"],
+    href: "/documents/kcm-digital-mobile-model-v2.xlsx",
+    internal: true,
+    fileSize: "108 KB",
+    source: "KC Mobile / Kaizer Chiefs · Final A+F+E EJW 20260312",
+  },
+  {
+    id: "doc-metl-1m",
+    title: "Metl MVNE Financial Framework — 1M scenario",
+    category: "kc-financial",
+    format: "XLSX",
+    date: "2025-06-04",
+    provides: "Industry-standard MVNE financial framework template at the 1M-subscriber scenario. Used as a pre-V2 sanity check for gross margin and CAC assumptions.",
+    usedIn: ["Investment Model assumptions", "Pricing gross-margin floor"],
+    href: "/documents/metl-mvne-framework-1m.xlsx",
+    internal: true,
+    fileSize: "2.1 MB",
+    source: "Metl",
+  },
+  {
+    id: "doc-metl-2m",
+    title: "Metl MVNE Financial Framework — 2M scenario",
+    category: "kc-financial",
+    format: "XLSX",
+    date: "2025-06-04",
+    provides: "Same framework, 2M-subscriber scaling scenario.",
+    usedIn: ["Year-2 outlook scaling sanity check"],
+    href: "/documents/metl-mvne-framework-2m.xlsx",
+    internal: true,
+    fileSize: "2.1 MB",
+    source: "Metl",
+  },
+  {
+    id: "doc-metl-3m",
+    title: "Metl MVNE Financial Framework — 3M scenario",
+    category: "kc-financial",
+    format: "XLSX",
+    date: "2025-06-04",
+    provides: "3M-subscriber scaling scenario — used as the Yr-3+ scaling reference point.",
+    usedIn: ["Investment Model 5-year output", "Year-2 outlook scaling"],
+    href: "/documents/metl-mvne-framework-3m.xlsx",
+    internal: true,
+    fileSize: "2.1 MB",
+    source: "Metl",
+  },
+
+  // ---------- Audience research ----------
+  {
+    id: "doc-nielsen-nfi",
+    title: "Nielsen Sports SA — Kaizer Chiefs NFI workshop deck",
+    category: "audience",
+    format: "PDF",
+    date: "2025-03",
+    provides: "n=487 self-identified Kaizer Chiefs fans · 6 platform-usage YoY metrics · top-2 sports betting interest 62.85% · 48.1% attend matches for camaraderie (+14.5pp above SA football average) · TikTok +37.9% YoY · DStv Compact Stream +50.2% YoY · Google search +28.2% YoY · WhatsApp +24.9% · YouTube +21.6%.",
+    usedIn: ["Audience section · 6 Nielsen insights", "Audience YoY platform-growth bar chart", "Persona over-indexing data", "Headline summary band"],
+    href: "/documents/nielsen-sports-sa-kc-nfi-march-2025.pdf",
+    internal: true,
+    fileSize: "2.9 MB",
+    source: "Nielsen Sports SA",
+  },
+
+  // ---------- Supplier quotes / proposals ----------
+  {
+    id: "doc-cider-point-ooh",
+    title: "Cider Point Media — OOH Schedule (GAUTENG & KZN, Jun–Aug 2026)",
+    category: "supplier-quotes",
+    format: "PDF",
+    date: "2026-05-06",
+    provides: "Single-page rate sheet. 15 named wall sites across Gauteng (11) + KZN (4). Discounted monthly media rate R14,000 (R20,000 for 3 Pretoria premium sites · R15,000 rate card with 7% off). Production R12,000 per wall (R7,800–R8,000 Pretoria). 3-month flight quoted at R780,000 ex VAT. Validity: 1 calendar month from proposal date. Account manager: John Mokolobetsi Ditshwene.",
+    usedIn: ["Plan Detail · Township murals line item", "Strategy chapter · Marketing Targeting Map", "Annex · Media Proposals · 15-site comparison table"],
+    href: "/documents/cider-point-ooh-schedule-gauteng-kzn.pdf",
+    internal: true,
+    fileSize: "140 KB",
+    source: "Cider Point Media & Marketing",
+  },
+  {
+    id: "doc-cider-point-walls",
+    title: "Cider Point Media — Walls Site List with GPS Coordinates",
+    category: "supplier-quotes",
+    format: "PPTX",
+    provides: "21-slide site dossier — one slide per wall with photo, traffic count (12K–220K cars/month), LSM band (4–7), location description (taxi route, landmarks), and partial GPS coordinates (5 of 15 sites have populated coordinates).",
+    usedIn: ["Strategy chapter · Marketing Targeting Map (15 walls plotted)", "Plan Detail · Township murals embedded site list", "Annex · Media Proposals 15-site table"],
+    href: "/documents/cider-point-walls-site-list-gauteng-kzn.pptx",
+    internal: true,
+    fileSize: "32 MB",
+    source: "Cider Point Media & Marketing",
+  },
+  {
+    id: "doc-b2f-media",
+    title: "Back to Front Media — Township OOH Service Profile",
+    category: "supplier-quotes",
+    format: "PDF",
+    date: "2025-10-02",
+    provides: "25-slide capability + reference deck. Production R10,000 per wall + R5,500/month media rental (≈40% cheaper than Cider Point but no named sites supplied — buyer directs walls). Spaza/outlet branding: R13,500 small-medium · R15,500+ large/supersized. 20-day production lead time. Reference work: SafeLine, Diski Flava (Visa/FNB), Choose Circumcision, BettaBets, Kellogg's, Ricoffy, Amarula, Nik Naks. Documented as the cost-alternative supplier.",
+    usedIn: ["Annex · Media Proposals (cost-alternative comparison)", "Conversion Funnel cross-check"],
+    href: "/documents/b2f-media-proposal.pdf",
+    internal: true,
+    fileSize: "5.2 MB",
+    source: "Back to Front Media & Events Solutions · Thabang Kole",
+  },
+
+  // ---------- Rate cards ----------
+  {
+    id: "doc-dms-rate-card",
+    title: "DMS (DStv Media Sales) Rate Card — March 2026",
+    category: "rate-cards",
+    format: "PDF",
+    date: "2026-03",
+    provides: "DStv Media Sales rate card. SuperSport packages, Premier League Tactical Sponsorship R1,621,688 (200 matches, squeezebacks + 30s TVC, 2.1M digital impressions). DStv Stream LIVE/VOD inventory rates, SS PSL package pricing.",
+    usedIn: ["Plan Detail · DStv Stream + Premier League line items", "Conversion Funnel · DStv channel impressions"],
+    href: "/documents/dms-rate-card-march-2026.pdf",
+    internal: true,
+    fileSize: "5.2 MB",
+    source: "DStv Media Sales",
+  },
+  {
+    id: "doc-mediamark-rate-card",
+    title: "Mediamark Digital Rate Card — September 2025",
+    category: "rate-cards",
+    format: "PDF",
+    date: "2025-09",
+    provides: "Programmatic display + CTV + audio CPMs. YouTube + Search packaged inventory. Meta + TikTok benchmark CPMs.",
+    usedIn: ["Plan Detail · Digital paid line-item costing", "Conversion Funnel · digital impression CPM cross-checks"],
+    href: "/documents/mediamark-digital-rate-card-sept-2025.pdf",
+    internal: true,
+    fileSize: "2.4 MB",
+    source: "Mediamark Digital",
+  },
+  {
+    id: "doc-onsideza-deck",
+    title: "OnsideZA Show Deck",
+    category: "rate-cards",
+    format: "PDF",
+    provides: "117K average monthly YouTube views · 86% male audience · 8.14 min average view duration · 176K Bafana watchalong views · audience composition + sponsorship integration formats.",
+    usedIn: ["Voices & Players · SA football media partners", "Plan Detail · PR / Radio category", "Supplier Directory"],
+    href: "/documents/onsideza-show-deck.pdf",
+    internal: true,
+    fileSize: "1.0 MB",
+    source: "OnsideZA",
+  },
+  {
+    id: "doc-channel-profile",
+    title: "Channel Profile Sports — March 2026",
+    category: "rate-cards",
+    format: "PDF",
+    date: "2026-03",
+    provides: "SuperSport channel sponsorship profile — packages, audience reach, integration formats. Cross-reference for the DMS rate card.",
+    usedIn: ["Plan Detail · Premier League Tactical Sponsorship cross-check"],
+    href: "/documents/channel-profile-sports-march-2026.pdf",
+    internal: true,
+    fileSize: "1.4 MB",
+    source: "DStv Media Sales / SuperSport",
+  },
+
+  // ---------- External citations (no download) ----------
+  {
+    id: "ext-psl-stadiums",
+    title: "PSL Clubs' Home Grounds for the 2025/26 Betway Premiership Season Revealed",
+    category: "external",
+    format: "URL",
+    date: "2025",
+    provides: "Authoritative list of all 16 Betway Premiership 2025-26 club home stadiums. Source for the Marketing Targeting Map's PSL away venues.",
+    usedIn: ["Strategy chapter · Marketing Targeting Map (15 PSL away venues)"],
+    href: "https://centralnews.co.za/psl-clubs-home-grounds-for-the-2025-26-betway-premiership-season-revealed/",
+    internal: false,
+    source: "Central News South Africa",
+  },
+  {
+    id: "ext-wikipedia-psl",
+    title: "2025–26 South African Premiership — Wikipedia",
+    category: "external",
+    format: "URL",
+    date: "2026",
+    provides: "Cross-reference for PSL 2025-26 club + venue listing. Maintained list of stadium capacities and locations.",
+    usedIn: ["Strategy chapter · Marketing Targeting Map (stadium GPS + capacity values)"],
+    href: "https://en.wikipedia.org/wiki/2025%E2%80%9326_South_African_Premiership",
+    internal: false,
+    source: "Wikipedia",
+  },
+  {
+    id: "ext-wikipedia-fnb",
+    title: "FNB Stadium (Soccer City) — Wikipedia",
+    category: "external",
+    format: "URL",
+    provides: "FNB Stadium specifications: 94,736 capacity, location coordinates, Nasrec/Soweto positioning. KC's primary home venue.",
+    usedIn: ["Hero stats · KC home stadium reference", "Marketing Targeting Map · KC home venue (gold pulsing marker)"],
+    href: "https://en.wikipedia.org/wiki/FNB_Stadium",
+    internal: false,
+    source: "Wikipedia",
+  },
+  {
+    id: "ext-kickoff-fnb",
+    title: "Change of direction for Chiefs' home game allocation 2025-26 — Kick Off",
+    category: "external",
+    format: "URL",
+    date: "2025",
+    provides: "Confirmation that all KC home league games for 2025-26 play at FNB Stadium (after concerns about travelling for home games), except final-round vs Chippa moved to Moses Mabhida.",
+    usedIn: ["Marketing Targeting Map · KC home venue note", "Phasing chapter (away/home fixture mix)"],
+    href: "https://www.kickoff.com/psl/kaizer-chiefs/chiefs-allocation-of-home-games-for-2025-26-season",
+    internal: false,
+    source: "Kick Off",
+  },
+  {
+    id: "ext-kc-website",
+    title: "kaizerchiefs.com — sponsor footer + ecosystem",
+    category: "external",
+    format: "URL",
+    provides: "Current KC sponsor list (Toyota, Vodacom, Castle Lager, etc.), KC Legends programme, digital touchpoints (KC app, KC.com, matchday programme).",
+    usedIn: ["Sponsors section", "Voices & Players · KC Legends list", "KC owned channel inventory"],
+    href: "https://kaizerchiefs.com/",
+    internal: false,
+    source: "Kaizer Chiefs FC",
+  },
+  {
+    id: "ext-kc-match-centre",
+    title: "Kaizer Chiefs FC — Match Centre",
+    category: "external",
+    format: "URL",
+    provides: "Live fixture list, results, and match-by-match venue tracking. Anchor for matchday-creative phasing inside the 12-month plan.",
+    usedIn: ["Phasing chapter · 6-month launch Gantt", "Match-day broadcast line items"],
+    href: "https://kaizerchiefs.com/match-centre",
+    internal: false,
+    source: "Kaizer Chiefs FC",
+  },
+  {
+    id: "ext-iab-cpm",
+    title: "Industry CPM + conversion rate benchmarks (composite)",
+    category: "external",
+    format: "Composite",
+    provides: "SA telco / MVNO impression-to-activation conversion rates: paid social 0.05–0.30%, DStv Stream LIVE 0.04%, programmatic 0.008%, YouTube + Search 0.10%, in-stadium 4%, retail POS 1%, hustler 1.2%, kappa SIM bundle 2.5%, KC owned 0.5%, refer-a-Khosi 1.2%, township murals 0.01–0.03%, radio 0.01%, earned PR 0.02%, player paid 0.05%, player organic 0.01%.",
+    usedIn: ["Conversion Funnel · impression back-calculation", "Plan Detail reach claims"],
+    href: "https://iabsa.net/",
+    internal: false,
+    source: "Composite of MTN / Vodacom investor decks 2024–2025, Mediamark Digital Rate Card Sept 2025, IAB SA digital benchmarks 2024",
+  },
+  {
+    id: "ext-betway-premiership",
+    title: "Betway Premiership Fixtures 2025/26",
+    category: "external",
+    format: "URL",
+    date: "2025",
+    provides: "Full home/away fixture list for the 2025-26 Betway Premiership season. Determines the football-rhythm phasing waves in the marketing plan.",
+    usedIn: ["Phasing chapter · 12-month football-rhythm waves", "Marketing Targeting Map · away fixtures coverage"],
+    href: "https://www.psl.co.za/matchcentre",
+    internal: false,
+    source: "Premier Soccer League (PSL)",
+  },
+  {
+    id: "ext-xanite-onepager",
+    title: "Xanite — The MVNO Value Engine (one-pager)",
+    category: "alt-tools",
+    format: "Keynote",
+    provides: "DSG-built Customer Data Platform overview: 16 microservices across 4 layers (CDP / Segmentation / Marketing automation / Integrations). The lifecycle engine for KC Mobile customer journey. Pricing: R0.30 per active subscriber per month — covers core CDP + marketing automation; outbound delivery costs (email, SMS, WhatsApp, push) are separate.",
+    usedIn: ["Customer Journey section · Xanite hero block", "Supplier Directory · Xanite entry", "Plan Detail · Lifecycle Platform & Field Ops category"],
+    href: "mailto:vincentm@dsg.co.za",
+    internal: false,
+    source: "DSG · Vincent Maher (vincentm@dsg.co.za) · Xanite.com",
+  },
+  {
+    id: "ext-fieldagent",
+    title: "FieldAgent.net — Field-team management SaaS",
+    category: "alt-tools",
+    format: "URL",
+    provides: "SaaS field-force management platform. Used to recruit, onboard, dispatch, KPI-track and pay the Hustler informal-trade network of 30–50 township agents (spaza shops, salons, taxi-rank kiosks) responsible for 40,000 Yr-1 SIM activations. Features: route planning, GPS check-in, photo-verified visit completion, per-activation reward fulfillment, real-time dashboard.",
+    usedIn: ["Plan Detail · Lifecycle Platform & Field Ops category (R50K Yr-1)", "Customer Journey · Hustler-network operations layer", "Lead Times · M-2 platform setup"],
+    href: "https://app.fieldagent.net/",
+    internal: false,
+    source: "FieldAgent.net",
+  },
+];
+
+export const DOCUMENT_CATEGORY_LABELS: Record<DocumentCategory, string> = {
+  "kc-strategy":    "KC strategic source documents",
+  "kc-financial":   "Financial models",
+  audience:         "Audience research",
+  "supplier-quotes":"Supplier quotes & proposals",
+  "rate-cards":     "Media rate cards",
+  "alt-tools":      "Tools & platforms",
+  external:         "External / web sources",
 };

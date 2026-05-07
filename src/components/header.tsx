@@ -92,6 +92,14 @@ export function Header() {
                   Annex →
                 </Link>
               </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link
+                  href="/annex#document-library"
+                  className="cursor-pointer text-[12px] font-medium uppercase tracking-wider text-[var(--kc-gold)]"
+                >
+                  Document library ↓
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 

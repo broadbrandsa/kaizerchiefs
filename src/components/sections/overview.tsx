@@ -80,6 +80,18 @@ export function Overview() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Platform layer — Xanite (CRM) + FieldAgent.net (field ops) ----- */}
+        <Card className="md:col-span-2 border-[var(--kc-gold)]/30 bg-[var(--kc-gold)]/5">
+          <CardContent className="p-6">
+            <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+              The platform layer behind the marketing
+            </div>
+            <p className="mt-3 max-w-3xl text-[14px] text-[var(--kc-paper)]/85">
+              Two platforms make the plan operational. <strong className="text-[var(--kc-paper)]">Xanite</strong> is the CDP + CVM engine that turns every SIM activation into a 1-to-1 lifecycle journey (R0.30 / active subscriber / month, covered in the Customer Journey chapter). <strong className="text-[var(--kc-paper)]">FieldAgent.net</strong> (<a href="https://app.fieldagent.net/" target="_blank" rel="noopener noreferrer" className="text-[var(--kc-gold)] underline-offset-2 hover:underline">app.fieldagent.net</a>) is the field-force management system that makes the Hustler informal-trade network of 30–50 township agents tractable — the operational backbone behind 40,000 Yr-1 SIM activations through spaza shops, salons and taxi-rank kiosks. Both are documented in full in the Annex.
+            </p>
+          </CardContent>
+        </Card>
       </div>
 
       {/* Sources & methodology — every number on this site is traceable */}

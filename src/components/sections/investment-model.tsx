@@ -416,7 +416,7 @@ export function InvestmentModel() {
             Year 1 · gross profit + net profit
           </div>
           <h3 className="mt-3 text-xl font-semibold tracking-tight text-[var(--kc-paper)]">
-            Net-profit positive from Month 5
+            Cumulative EBIT crosses zero in Month 8
           </h3>
 
           {(() => {

@@ -242,7 +242,7 @@ export function ConversionFunnel() {
           </div>
           <div>
             <div className="font-semibold text-[var(--kc-paper)]">Impressions back-calculated</div>
-            <p className="mt-1">Per-channel impressions = channel activations ÷ industry impression-to-activation conversion rate. Conversion benchmarks: paid social 0.05%, DStv Stream 0.04%, programmatic 0.008%, YouTube + Search 0.10%, in-stadium 4%, retail POS 1%, hustler 1.2%, kappa bundle 2.5%, KC owned 0.5%, refer-a-Khosi 1.2%, township murals 0.01%, radio 0.01%, press PR 0.02%, player paid 0.05%, player organic 0.01%.</p>
+            <p className="mt-1">Per-channel impressions = channel activations ÷ industry impression-to-activation conversion rate. Conversion benchmarks: paid social 0.05%, DStv Stream 0.04%, programmatic 0.008%, YouTube + Search 0.10%, in-stadium fan-zone 0.8%, retail POS 1%, hustler 1.2%, kappa bundle 2.5%, KC owned 0.5%, refer-a-Khosi 1.2%, township murals 0.01% (industry standard generic OOH rate — kept conservative even though Cider Point sites carry verified traffic counts), radio 0.01%, press PR 0.02%, player paid 0.05%, player organic 0.01%.</p>
           </div>
           <div>
             <div className="font-semibold text-[var(--kc-paper)]">Why activations is the anchor</div>
@@ -250,7 +250,7 @@ export function ConversionFunnel() {
           </div>
           <div className="md:col-span-2">
             <div className="font-semibold text-[var(--kc-paper)]">Cross-checks</div>
-            <p className="mt-1">Stadium fan-zone: 18,000 activations ÷ 4% conversion = 450,000 impressions, which equals 15 home matches × 30,000 attendance ✓. POS at MTN dealers: 91,000 activations ÷ 1% = 9.1M impressions, which equals 800 stores × 4 waves × ~2,800 visits/store/wave ✓. Township murals: 5,000 activations ÷ 0.01% = 50M impressions, consistent with Back to Front&apos;s 8M weekly per-wall reach × 12 walls deduplicated to annual unique ≈ 50M ✓.</p>
+            <p className="mt-1">Stadium fan-zone: 3,600 activations ÷ 0.8% conversion = 450,000 impressions, which equals 15 home matches × 30,000 attendance ✓ (the 0.8% conversion rate reflects realistic stadium walk-up to SIM activation; previous draft assumed 4% which is point-of-sale conversion, not pedestrian conversion). POS at MTN dealers: 102,100 activations ÷ 1% = 10.2M impressions, which equals 800 stores × 4 waves × ~3,200 visits/store/wave ✓. Cider Point township murals: 1,300 activations ÷ 0.01% = 13M impressions, consistent with 6 named walls × ~190K cars/m supplier-claimed traffic × 5 months × ~2.3× pedestrian multiplier ≈ 13M ✓.</p>
           </div>
         </div>
       </details>

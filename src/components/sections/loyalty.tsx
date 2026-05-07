@@ -92,6 +92,44 @@ export function Loyalty() {
                 ))}
               </ul>
             </div>
+            {/* Earn-Multiplier Days — moved out of the activation-ideas
+                library and home'd here, where it belongs as an always-on
+                AmaCoin mechanic. */}
+            <div className="sm:col-span-2 rounded-lg border border-emerald-400/30 bg-emerald-400/5 p-5">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-[16px] font-semibold uppercase tracking-[0.2em] text-emerald-300">
+                  Earn-Multiplier Days
+                </span>
+                <span className="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-2 py-0.5 text-[11px] uppercase tracking-wider text-emerald-300">
+                  {AMA_COIN.earnMultiplierDays.cadence}
+                </span>
+              </div>
+              <h4 className="mt-2 text-[16px] font-semibold text-[var(--kc-paper)]">
+                {AMA_COIN.earnMultiplierDays.name}
+              </h4>
+              <p className="mt-2 text-[14px] leading-relaxed text-[var(--kc-paper)]/85">
+                {AMA_COIN.earnMultiplierDays.whatHappens}
+              </p>
+              <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
+                <div>
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">
+                    Why it works
+                  </div>
+                  <p className="mt-1 text-[13px] leading-relaxed text-[var(--kc-paper)]/75">
+                    {AMA_COIN.earnMultiplierDays.whyItWorks}
+                  </p>
+                </div>
+                <div>
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">
+                    How it runs
+                  </div>
+                  <p className="mt-1 text-[13px] leading-relaxed text-[var(--kc-paper)]/75">
+                    {AMA_COIN.earnMultiplierDays.mechanic}
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="sm:col-span-2 rounded-lg bg-[var(--kc-charcoal)]/60 p-4">
               <div className="text-[16px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
                 KPIs

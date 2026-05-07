@@ -61,9 +61,9 @@ export function ActivationIdeas() {
   return (
     <Section
       id="ideas"
-      eyebrow="Launch ideas"
-      title="Putting SIMs in hands — and keeping them engaged"
-      intro="A practical playbook of mechanics we'd run on match-days and off-stadium. Each card is tagged Activation (acquisition) or Engagement (retention) — and Physical SIM, eSIM or both. Cost-band labels show which budget tier they sit in."
+      eyebrow="Launch ideas · candidates"
+      title="Candidate activation ideas — KC chooses which actually launch"
+      intro="A library of 16 candidate mechanics we'd love to run on match-days and off-stadium. These are not commitments — they are options. KC's fan-insight, brand and commercial teams know the supporter best, and KC selects which of these actually go to market in Yr-1. The 6-month launch Gantt and the budget anchor 13 of these as launch defaults; the rest are reserve ideas for KC to pull in or swap out as the season unfolds. Each card is tagged Activation (acquisition) or Engagement (retention), Physical SIM / eSIM / both, and shows the cost band so KC can size each option against the brief."
     >
       <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="flex flex-wrap items-center gap-2 rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/60 p-4">

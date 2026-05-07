@@ -32,9 +32,14 @@ export function Hero() {
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
-          <StatCard label="Monthly physical SIM net adds" value="16,000" sub="Month-1 target per the KCM model" />
+          <StatCard label="Monthly physical SIM net adds" value="16,000" sub="Steady-state target — 3-month launch ramp (M1: 8K · M2: 12K · M3: 16K)" />
           <StatCard label="Monthly eSIM net adds" value="200" sub="Month-1 target per the KCM model" />
           <StatCard label="Marketing investment" value="R4.5M" sub="R376K/m flat · self-funding from M10" />
+        </div>
+
+        <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--kc-paper)]/20 bg-[var(--kc-charcoal)]/40 px-3 py-1.5 text-[12px] uppercase tracking-wider text-[var(--kc-paper)]/70">
+          <span className="font-semibold text-[var(--kc-gold)]">Note ·</span>
+          All figures on this site are ex VAT unless explicitly noted. ZAR throughout.
         </div>
 
         <div className="mt-12 flex flex-wrap items-center gap-3">

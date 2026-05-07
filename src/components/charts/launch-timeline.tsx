@@ -32,7 +32,7 @@ export function LaunchTimelineChart() {
         6-month launch activation timeline
       </div>
       <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--kc-paper)]">
-        When each of the 15 activation ideas turns on
+        When each of the 13 launch activities turns on
       </h3>
       <p className="mt-3 max-w-3xl text-sm text-[var(--kc-paper)]/75">{t.intro}</p>
 
