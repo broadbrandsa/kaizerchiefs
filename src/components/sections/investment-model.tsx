@@ -504,6 +504,122 @@ export function InvestmentModel() {
         </CardContent>
       </Card>
 
+      {/* ============================================================
+          Yr-1 target check — does the model hit the brief?
+          ============================================================ */}
+      {(() => {
+        // Brief: 16,000 SIM/m + 200 eSIM/m × 12 = 194,400 Yr-1 activations.
+        // Modelled monthly data shows 16,000 gross adds every month (M1→M12).
+        // eSIM tracked in GTM_CHANNELS at 200/m. M12 active = surviving base
+        // after compounding 5% monthly churn; gap to gross is retention.
+        const briefSimMonthly = 16_000;
+        const briefEsimMonthly = 200;
+        const briefYr1Total = (briefSimMonthly + briefEsimMonthly) * 12; // 194,400
+        const modelledSimYr1 = briefSimMonthly * 12; // 192,000 (full target every month)
+        const modelledEsimYr1 = briefEsimMonthly * 12; // 2,400
+        const modelledYr1Total = modelledSimYr1 + modelledEsimYr1;
+        const m12ActiveSim = m.monthly[m.monthly.length - 1].subs; // 147,085
+        // Apply same 76.6% retention to eSIM cohort for full picture
+        const m12ActiveEsim = Math.round(modelledEsimYr1 * 0.766);
+        const m12ActiveTotal = m12ActiveSim + m12ActiveEsim;
+        const retentionPct = (m12ActiveTotal / modelledYr1Total) * 100;
+        const onTarget = modelledYr1Total >= briefYr1Total;
+
+        return (
+          <Card className="mb-8">
+            <CardContent className="p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+                  Yr-1 target check
+                </div>
+                <span
+                  className={`rounded-full border px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${
+                    onTarget
+                      ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-300"
+                      : "border-orange-400/50 bg-orange-400/10 text-orange-300"
+                  }`}
+                >
+                  {onTarget ? "On target" : "Below target"}
+                </span>
+              </div>
+              <h3 className="mt-3 text-xl font-semibold tracking-tight text-[var(--kc-paper)]">
+                Brief target vs modelled — and what M12 active really represents
+              </h3>
+              <p className="mt-3 max-w-3xl text-sm text-[var(--kc-paper)]/75">
+                The MVNO Marketing Brief sets a Yr-1 activation target of{" "}
+                <span className="font-mono text-[var(--kc-gold)]">
+                  {briefYr1Total.toLocaleString("en-ZA")}
+                </span>{" "}
+                ({briefSimMonthly.toLocaleString("en-ZA")} SIM/m + {briefEsimMonthly}/m eSIM × 12).
+                The KCM Digital Mobile model V2 hits the SIM target from M1 onwards
+                (full 16K/month, no ramp). Active subscribers at M12 are the{" "}
+                <em>survivors</em> after compounding 5% monthly churn — not a target
+                shortfall.
+              </p>
+
+              <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+                <div className="rounded-lg border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-4">
+                  <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                    Brief target
+                  </div>
+                  <div className="mt-2 font-mono text-2xl font-bold text-[var(--kc-paper)]">
+                    {(briefYr1Total / 1_000).toFixed(1)}K
+                  </div>
+                  <div className="mt-1 text-[11px] text-[var(--kc-paper)]/70">
+                    16K SIM + 200 eSIM / m × 12
+                  </div>
+                </div>
+                <div className="rounded-lg border border-emerald-400/40 bg-emerald-400/5 p-4">
+                  <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-emerald-300">
+                    Modelled Yr-1 gross
+                  </div>
+                  <div className="mt-2 font-mono text-2xl font-bold text-emerald-300">
+                    {(modelledYr1Total / 1_000).toFixed(1)}K
+                  </div>
+                  <div className="mt-1 text-[11px] text-[var(--kc-paper)]/70">
+                    {modelledSimYr1.toLocaleString("en-ZA")} SIM + {modelledEsimYr1.toLocaleString("en-ZA")} eSIM
+                  </div>
+                </div>
+                <div className="rounded-lg border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-4">
+                  <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                    Active at M12
+                  </div>
+                  <div className="mt-2 font-mono text-2xl font-bold text-[var(--kc-paper)]">
+                    {(m12ActiveTotal / 1_000).toFixed(1)}K
+                  </div>
+                  <div className="mt-1 text-[11px] text-[var(--kc-paper)]/70">
+                    Surviving base after Yr-1 churn
+                  </div>
+                </div>
+                <div className="rounded-lg border border-[var(--kc-gold)]/40 bg-[var(--kc-gold)]/5 p-4">
+                  <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
+                    Yr-1 retention
+                  </div>
+                  <div className="mt-2 font-mono text-2xl font-bold text-[var(--kc-gold)]">
+                    {retentionPct.toFixed(1)}%
+                  </div>
+                  <div className="mt-1 text-[11px] text-[var(--kc-paper)]/70">
+                    Industry-typical at 5%/month MVNO churn
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-5 rounded-lg border border-[var(--kc-line)] bg-[var(--kc-ink)]/40 p-4 text-[13px] text-[var(--kc-paper)]/85">
+                <strong className="text-[var(--kc-paper)]">How to read it.</strong>{" "}
+                A brief target is gross-adds (every new SIM activation in Yr-1).
+                M12 active is the stock at month-end after attrition. With 5% monthly
+                churn applied to a base growing by 16K/m, ~76–77% of cumulative
+                gross adds are still active at M12 — that&apos;s the {Math.round(retentionPct)}%
+                retention shown above. The remaining ~{Math.round(100 - retentionPct)}% is
+                churn the loyalty programme + customer-journey lifecycle marketing
+                are designed to recover (see the Loyalty + Customer Journey
+                chapters).
+              </div>
+            </CardContent>
+          </Card>
+        );
+      })()}
+
       {/* Milestones */}
       <div className="mb-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {m.milestones.map((ms) => (

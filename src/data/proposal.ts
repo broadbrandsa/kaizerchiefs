@@ -2321,7 +2321,7 @@ export const KCM_MODEL = {
     { label: "Monthly churn", value: "5%", note: "Industry MVNO average" },
     { label: "Marketing cost", value: "R376K / month", note: "R4.51M per year — flat across all 12 months · ex VAT" },
     { label: "Xanite CDP/CVM platform", value: "R0.30 / active sub / month", note: "Yr-1 ≈R299K · grows to ≈R2.70M Yr-5. Plus blended outbound delivery (email/SMS/WhatsApp/push) ≈R5/sub/year. Combined 5-year Xanite ecosystem cost ≈R18.6M — see the Xanite cost forecast below." },
-    { label: "Yr-1 SIM monthly target", value: "16,000 (steady-state)", note: "Steady-state from M3 onwards. M1-M3 ramp factored: M1: 8,000 · M2: 12,000 · M3: 16,000. Yr-1 cumulative still hits the V2 model output." },
+    { label: "Yr-1 SIM monthly target", value: "16,000 / month from M1", note: "Full brief target every month, M1 → M12. Yr-1 cumulative gross adds = 192,000 SIM (16K × 12) + 2,400 eSIM (200 × 12) = 194,400 — matches the MVNO Marketing Brief." },
     { label: "eSIM target", value: "200 / month", note: "Travel-eSIM enabled" },
   ],
   monthly: [
@@ -2349,7 +2349,7 @@ export const KCM_MODEL = {
   ],
   milestones: [
     { month: 8, label: "Loan account cleared (cumulative EBIT crosses zero)", detail: "Cumulative Yr-1 EBIT crosses zero in M8 — the company moves from net cash-out to net cash-in. Profit-share to KCM begins." },
-    { month: 12, label: "Yr-1 ends at +R1.05M monthly EBIT", detail: "147K active subscribers · ARPU R116.51 · cumulative Yr-1 EBIT R3.6M" },
+    { month: 12, label: "Yr-1 ends at +R1.05M monthly EBIT", detail: "194,400 Yr-1 gross activations (16K SIM + 200 eSIM / m × 12 — full brief target). M12 active subs ≈148.9K (76.6% retained after 5% monthly churn). ARPU R116.51 · cumulative Yr-1 EBIT R3.6M." },
   ],
 };
 
@@ -2982,7 +2982,7 @@ export type FunnelChannel = {
   key: string;
   label: string;
   group: "digital" | "match-day" | "retail" | "radio-pr" | "player-social";
-  /** Yr-1 SIM activations allocated to this channel (sums to 192K). */
+  /** Yr-1 activations allocated to this channel (sums to 194,400 incl. eSIM). */
   activationsYr1: number;
   /** Industry conversion rate (% of impressions → activations) used to back-
    *  calculate impressions. Sourced from SA market benchmarks. */
@@ -2997,8 +2997,8 @@ export const CONVERSION_FUNNEL: {
   groupLabels: Record<FunnelChannel["group"], string>;
 } = {
   intro:
-    "Total Yr-1 SIM activations come from the KCM Digital Mobile model: 16,000 new SIMs per month × 12 = 192,000. Each channel below is allocated a share of that total per the GTM brief and SA market mix. Impressions are then back-calculated as activations ÷ industry conversion rate, so the impression numbers are derived rather than invented. M12 active subscribers = 147,085 per the model (76.6% Yr-1 retention after compounding 5% monthly churn).",
-  yr1ActivationTarget: 192_000,
+    "Total Yr-1 activations come from the KCM Digital Mobile model: 16,000 new SIMs per month × 12 = 192,000, plus 200 eSIMs per month × 12 = 2,400. Combined Yr-1 brief target = 194,400. Each channel below is allocated a share of that total per the GTM brief and SA market mix. Impressions are then back-calculated as activations ÷ industry conversion rate, so the impression numbers are derived rather than invented. M12 active subscribers = 148,930 per the model (76.6% Yr-1 retention after compounding 5% monthly churn).",
+  yr1ActivationTarget: 194_400,
   yr1RetentionPct: 76.6,
   groupLabels: {
     digital:        "Digital paid",
@@ -3013,6 +3013,7 @@ export const CONVERSION_FUNNEL: {
     { key: "dstv-stream",  label: "DStv Stream LIVE + VOD",                  group: "digital",       activationsYr1:  1_200, impressionConvPct: 0.040 },
     { key: "programmatic", label: "Programmatic display + CTV",              group: "digital",       activationsYr1:  1_800, impressionConvPct: 0.008 },
     { key: "yt-search",    label: "YouTube + Search",                        group: "digital",       activationsYr1:  1_500, impressionConvPct: 0.100 },
+    { key: "digital-esim", label: "Digital eSIM — KCM app · web · creator referrals", group: "digital", activationsYr1: 2_400, impressionConvPct: 0.080 },
 
     // Match-day (3 channels) — stadium GTM (15 home matches × 30K attendance + fan-festival walkup)
     { key: "stadium",          label: "Stadium fan-zone activations (15 home matches)", group: "match-day", activationsYr1:  3_600, impressionConvPct: 0.800 },

@@ -24,7 +24,7 @@ const FILTERS: { id: Filter; label: string }[] = [
 
 /* ---------- Source-of-truth numbers from the KCM Digital Mobile model ------- */
 const KCM_YR1_BUDGET = 4_514_901;
-const KCM_YR1_GROSS = CONVERSION_FUNNEL.yr1ActivationTarget; // 192,000
+const KCM_YR1_GROSS = CONVERSION_FUNNEL.yr1ActivationTarget; // 194,400 (192K SIM + 2.4K eSIM)
 const KCM_YR1_RETENTION_PCT = CONVERSION_FUNNEL.yr1RetentionPct; // 76.6
 const KCM_YR1_ACTIVE_END = Math.round(KCM_YR1_GROSS * (KCM_YR1_RETENTION_PCT / 100));
 
@@ -85,13 +85,13 @@ export function ConversionFunnel() {
     },
     {
       key: "activations",
-      label: "SIM activations (Yr-1 gross)",
+      label: "Activations (Yr-1 gross)",
       value: totals.activations,
       color: "#fbbf24",
       note:
         filter === "all"
-          ? "192,000 — KCM model brief target (16,000 new SIMs/m × 12)"
-          : `${sharePct.toFixed(1)}% of the 192,000 KCM Yr-1 target`,
+          ? "194,400 — brief target (16,000 SIM/m + 200 eSIM/m, × 12)"
+          : `${sharePct.toFixed(1)}% of the 194,400 KCM Yr-1 target`,
     },
     {
       key: "active",
@@ -128,7 +128,7 @@ export function ConversionFunnel() {
         </div>
         <div>
           <div className="font-mono uppercase tracking-wider text-[var(--kc-gold)]">Yr-1 gross adds</div>
-          <div className="font-mono">{fmtBig(KCM_YR1_GROSS)} ({KCM_YR1_GROSS.toLocaleString("en-ZA")} · 16K/m × 12)</div>
+          <div className="font-mono">{fmtBig(KCM_YR1_GROSS)} ({KCM_YR1_GROSS.toLocaleString("en-ZA")} · 16,000 SIM + 200 eSIM / m × 12)</div>
         </div>
         <div>
           <div className="font-mono uppercase tracking-wider text-[var(--kc-gold)]">M12 active subs</div>
