@@ -4,8 +4,9 @@ import { useMemo, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { Section } from "@/components/section";
-import { KCM_MODEL } from "@/data/proposal";
+import { KCM_MODEL, XANITE_COST_FORECAST } from "@/data/proposal";
 import { formatRand, formatRandFull, formatInt } from "@/lib/format";
+import { XaniteCostForecast } from "@/components/charts/xanite-cost-forecast";
 
 // ----------------------------------------------------------------------------
 // Marketing investment.
@@ -522,7 +523,7 @@ export function InvestmentModel() {
         ))}
       </div>
 
-      {/* 5-year annual summary table */}
+      {/* 5-year annual summary table — with Xanite-disclosed EBIT */}
       <div className="rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
         <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
           5-year annual summary
@@ -534,26 +535,52 @@ export function InvestmentModel() {
                 <th className="px-3 py-2 font-semibold">Year</th>
                 <th className="px-3 py-2 text-right font-semibold">Revenue</th>
                 <th className="px-3 py-2 text-right font-semibold">Gross profit</th>
-                <th className="px-3 py-2 text-right font-semibold">Net profit</th>
+                <th className="px-3 py-2 text-right font-semibold">Net profit (V2 model)</th>
+                <th className="px-3 py-2 text-right font-semibold">Xanite cost</th>
+                <th className="px-3 py-2 text-right font-semibold">Net profit (after Xanite)</th>
                 <th className="px-3 py-2 text-right font-semibold">KCM share (50%)</th>
               </tr>
             </thead>
             <tbody>
-              {m.annual.map((y) => (
-                <tr key={y.year} className="border-t border-[var(--kc-line)]/50">
-                  <td className="px-3 py-3 font-semibold text-[var(--kc-paper)]">{y.year}</td>
-                  <td className="px-3 py-3 text-right font-mono text-[var(--kc-paper)]">{formatRand(y.revenue)}</td>
-                  <td className="px-3 py-3 text-right font-mono text-amber-300">{formatRand(y.grossProfit)}</td>
-                  <td className="px-3 py-3 text-right font-mono text-emerald-300">{formatRand(y.netProfit)}</td>
-                  <td className="px-3 py-3 text-right font-mono text-[var(--kc-gold)]">{formatRand(y.kcmShare)}</td>
-                </tr>
-              ))}
+              {m.annual.map((y, i) => {
+                const xanite = XANITE_COST_FORECAST.yearly[i];
+                const netAfterXanite = xanite ? y.netProfit - xanite.totalCost : y.netProfit;
+                const kcmShareAfterXanite = Math.round(netAfterXanite / 2);
+                return (
+                  <tr key={y.year} className="border-t border-[var(--kc-line)]/50">
+                    <td className="px-3 py-3 font-semibold text-[var(--kc-paper)]">{y.year}</td>
+                    <td className="px-3 py-3 text-right font-mono text-[var(--kc-paper)]">{formatRand(y.revenue)}</td>
+                    <td className="px-3 py-3 text-right font-mono text-amber-300">{formatRand(y.grossProfit)}</td>
+                    <td className="px-3 py-3 text-right font-mono text-emerald-300/70">{formatRand(y.netProfit)}</td>
+                    <td className="px-3 py-3 text-right font-mono text-violet-300">
+                      {xanite ? `(${formatRand(xanite.totalCost)})` : "—"}
+                    </td>
+                    <td className="px-3 py-3 text-right font-mono text-emerald-300">{formatRand(netAfterXanite)}</td>
+                    <td className="px-3 py-3 text-right font-mono text-[var(--kc-gold)]">{formatRand(kcmShareAfterXanite)}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
 
+        <p className="mt-4 max-w-3xl text-[12px] leading-relaxed text-[var(--kc-paper)]/65">
+          The V2 KCM Digital Mobile model&apos;s Net profit column is the official model output. The Xanite cost column shows the per-subscriber CDP + CVM platform fee plus blended outbound delivery (email · SMS · WhatsApp · push) at SA market rates, as a separate disclosure in case the V2 model&apos;s opex aggregate doesn&apos;t already include it. KC + DSG finance to confirm whether the V2 EBIT is struck before or after Xanite — if before, the right-hand "Net profit (after Xanite)" column is the real figure.
+        </p>
+      </div>
+
+      {/* Detailed Xanite cost forecast table */}
+      <div className="mt-6">
+        <XaniteCostForecast variant="full" />
+      </div>
+
+      <div className="mt-6 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-6">
+        <div className="text-[18px] font-semibold uppercase tracking-[0.32em] text-[var(--kc-gold)]">
+          Yr-1 month-by-month
+        </div>
+
         {/* Yr-1 month-by-month underneath */}
-        <details className="mt-6">
+        <details className="mt-2">
           <summary className="cursor-pointer text-[16px] uppercase tracking-wider text-[var(--kc-mute)] hover:text-[var(--kc-paper)]">
             Show Yr-1 month-by-month
           </summary>

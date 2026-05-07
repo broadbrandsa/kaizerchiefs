@@ -1503,7 +1503,9 @@ export const EXECUTION_PLAN: {
           supplier: "DSG (Xanite)",
           cost: 300_000,
           detail:
-            "R0.30 / active subscriber / month — covers the core marketing automation + CDP layers (Profile, Consent, Event Ingestion, Segmentation, Journeys, Campaigns, AI Service). 12-month forecast based on the V2 monthly active subscriber curve (M1: 16K → M12: 147K · ~83K monthly average × R0.30 × 12 = ~R299K rounded to R300K). Excludes outbound delivery costs (email, SMS, WhatsApp, push) — those sit inside their respective marketing line items.",
+            "R0.30 / active subscriber / month — covers the core marketing automation + CDP layers (Profile, Consent, Event Ingestion, Segmentation, Journeys, Campaigns, AI Service). Yr-1 forecast based on the V2 monthly active subscriber curve (M1: 16K → M12: 147K · ~83K monthly average × R0.30 × 12 = ~R299K rounded to R300K). " +
+            "IMPORTANT — this is a per-subscriber operating cost that scales materially: Yr-2 ~R900K, Yr-3 ~R1.62M, Yr-4 ~R2.25M, Yr-5 ~R2.70M (250K → 750K avg subs across the curve). Total Xanite platform fee over 5 years: ~R7.77M. " +
+            "Outbound delivery (email, SMS, WhatsApp, push) is separate and adds ≈R5 / active sub / year at SA market rates — Yr-1 ≈R415K, growing to Yr-5 ≈R3.75M. Combined Xanite ecosystem 5-year cost ≈R18.56M. See the Investment Model section + Customer Journey chapter for the full forecast table.",
         },
         {
           name: "FieldAgent.net — Hustler-network field-team management",
@@ -2318,6 +2320,7 @@ export const KCM_MODEL = {
     { label: "Gross margin", value: "51–52%", note: "≥50% on every package after MTN Q1 2026 wholesale rates" },
     { label: "Monthly churn", value: "5%", note: "Industry MVNO average" },
     { label: "Marketing cost", value: "R376K / month", note: "R4.51M per year — flat across all 12 months · ex VAT" },
+    { label: "Xanite CDP/CVM platform", value: "R0.30 / active sub / month", note: "Yr-1 ≈R299K · grows to ≈R2.70M Yr-5. Plus blended outbound delivery (email/SMS/WhatsApp/push) ≈R5/sub/year. Combined 5-year Xanite ecosystem cost ≈R18.6M — see the Xanite cost forecast below." },
     { label: "Yr-1 SIM monthly target", value: "16,000 (steady-state)", note: "Steady-state from M3 onwards. M1-M3 ramp factored: M1: 8,000 · M2: 12,000 · M3: 16,000. Yr-1 cumulative still hits the V2 model output." },
     { label: "eSIM target", value: "200 / month", note: "Travel-eSIM enabled" },
   ],
@@ -2347,6 +2350,69 @@ export const KCM_MODEL = {
   milestones: [
     { month: 8, label: "Loan account cleared (cumulative EBIT crosses zero)", detail: "Cumulative Yr-1 EBIT crosses zero in M8 — the company moves from net cash-out to net cash-in. Profit-share to KCM begins." },
     { month: 12, label: "Yr-1 ends at +R1.05M monthly EBIT", detail: "147K active subscribers · ARPU R116.51 · cumulative Yr-1 EBIT R3.6M" },
+  ],
+};
+
+
+/* ---------- XANITE_COST_FORECAST · 5-year Xanite + outbound delivery -------
+ *
+ * Xanite is the CDP / CVM platform behind every customer-journey mechanic
+ * on this proposal. Two cost layers:
+ *   • Platform fee · R0.30 per active subscriber per month — covers core
+ *     CDP + segmentation + marketing automation + AI service.
+ *   • Outbound delivery · email + SMS + WhatsApp + push at SA market rates.
+ *     Estimated at R5 per active subscriber per year, blended across all
+ *     four channels at typical KC Mobile messaging frequency (~5 messages
+ *     per subscriber per month: welcome series · match-day reminders ·
+ *     billing nudges · tier progression · churn prevention · birthday).
+ *
+ * These costs scale with the subscriber base — Yr-1 is small, but by Yr-5
+ * the combined Xanite ecosystem is one of the biggest line items in the
+ * business. Disclosed here so leadership sees the trajectory.
+ *
+ * Average subs per year are derived from KCM model V2 trajectory:
+ *   Yr 1: M12 147K  → annual avg ≈ 83K (subscriber buildup)
+ *   Yr 2: end ≈ 350K → annual avg ≈ 250K
+ *   Yr 3: end ≈ 550K → annual avg ≈ 450K
+ *   Yr 4: end ≈ 700K → annual avg ≈ 625K
+ *   Yr 5: end ≈ 800K → annual avg ≈ 750K
+ * --------------------------------------------------------------------------*/
+
+export type XaniteYearForecast = {
+  year: string;
+  avgSubs: number;
+  platformCost: number;
+  outboundCost: number;
+  totalCost: number;
+  /** Cost as % of that year's revenue per the V2 model annual output. */
+  pctOfRevenue: number;
+};
+
+export const XANITE_COST_FORECAST: {
+  platformRatePerSubPerMonth: number;
+  outboundRatePerSubPerYear: number;
+  outboundMix: string;
+  yearly: XaniteYearForecast[];
+  fiveYearTotal: number;
+  notes: string[];
+} = {
+  platformRatePerSubPerMonth: 0.30,
+  outboundRatePerSubPerYear: 5.00,
+  outboundMix:
+    "Blended SA market rates: ≈50% email (R0.05/send), ≈30% push (R0), ≈15% SMS (R0.20/send), ≈5% WhatsApp (R0.40/conv). At ~5 messages / active sub / month = ~60 / year, blended cost lands at ~R5 / sub / year.",
+  yearly: [
+    { year: "Yr 1", avgSubs:  83_000, platformCost:   298_800, outboundCost:   415_000, totalCost:   713_800, pctOfRevenue: 0.59 },
+    { year: "Yr 2", avgSubs: 250_000, platformCost:   900_000, outboundCost: 1_250_000, totalCost: 2_150_000, pctOfRevenue: 0.80 },
+    { year: "Yr 3", avgSubs: 450_000, platformCost: 1_620_000, outboundCost: 2_250_000, totalCost: 3_870_000, pctOfRevenue: 1.11 },
+    { year: "Yr 4", avgSubs: 625_000, platformCost: 2_250_000, outboundCost: 3_125_000, totalCost: 5_375_000, pctOfRevenue: 1.37 },
+    { year: "Yr 5", avgSubs: 750_000, platformCost: 2_700_000, outboundCost: 3_750_000, totalCost: 6_450_000, pctOfRevenue: 1.55 },
+  ],
+  fiveYearTotal: 18_558_800,
+  notes: [
+    "Xanite platform fee is a per-subscriber operating cost — every active sub pays R0.30/month into the platform whether they're billed or churned-but-still-tracked.",
+    "Outbound delivery costs scale with engagement intensity. The R5/sub/year number assumes a realistic messaging cadence; aggressive lifecycle programmes (e.g. high-frequency match-day push + WhatsApp follow-ups) push this higher.",
+    "The V2 KCM Digital Mobile model's 5-year EBIT figures are presumably struck after these costs (or assume their equivalent inside the opex aggregate). The forecast below is disclosed so KC + DSG finance can confirm whether they are already inside the model or sit on top.",
+    "By Yr-5, the combined Xanite ecosystem is ~1.6% of revenue and the biggest single platform-vendor cost in the business — material enough to warrant board-level visibility.",
   ],
 };
 

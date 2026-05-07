@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Section } from "@/components/section";
 import { CUSTOMER_JOURNEY, XANITE } from "@/data/proposal";
+import { XaniteCostForecast } from "@/components/charts/xanite-cost-forecast";
 
 const STAGE_COLOR: Record<string, string> = {
   awareness:     "#34d399",
@@ -121,6 +122,11 @@ export function CustomerJourney() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Xanite cost forecast — material operating cost over 5 years */}
+          <div className="mt-6">
+            <XaniteCostForecast variant="full" />
           </div>
         </TabsContent>
 

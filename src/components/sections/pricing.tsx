@@ -52,7 +52,7 @@ export function Pricing() {
       id="pricing"
       eyebrow="Pricing · packages & VAS"
       title="Seven packages, one Diaspora travel pack, five VAS add-ons"
-      intro="Re-cut to ≥50% gross margin on every base package under the MTN MVNO Q1 2026 wholesale rate card. The entry-tier (Khosi 1.5GB) holds the affordability anchor at R90 incl VAT; the premium tiers (Khosi 5GB, 10GB) and Junior Khosi were repriced to restore margin."
+      intro="Re-cut to ≥50% gross margin on every base package under the MTN MVNO Q1 2026 wholesale rate card. The entry-tier (Khosi 1.5GB) holds the affordability anchor at R90 incl VAT; the premium tiers (Khosi 5GB, 10GB) and Junior Khosi were repriced to restore margin. NB: the gross-margin figures shown below are after MTN wholesale only — they do not yet deduct the Xanite CDP/CVM platform fee (R0.30/active sub/month) or blended outbound delivery costs (~R0.42/sub/month). Together those add ~R0.72/sub/month to the effective COGS — see the Investment Model + Customer Journey for the full 5-year Xanite cost trajectory."
     >
       {/* Interactive controls — price ceiling slider + sort dropdown */}
       <div className="mb-6 grid grid-cols-1 gap-5 rounded-2xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-5 lg:grid-cols-[1.2fr_1fr]">
