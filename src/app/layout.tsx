@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LockScreen } from "@/components/lock-screen";
 
 export const metadata: Metadata = {
   title: "KC Mobile MVNO Launch Proposal",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="dark">
-      <body>{children}</body>
+      <body>
+        <LockScreen>{children}</LockScreen>
+      </body>
     </html>
   );
 }

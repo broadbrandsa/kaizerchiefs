@@ -180,3 +180,32 @@
   --text-9xl: 8.417rem;
   --text-9xl--line-height: 1;
 }
+
+/* ─── Lock screen animations ─── */
+@keyframes lockShake {
+  0%, 100% { transform: translateX(0); }
+  15%      { transform: translateX(-10px); }
+  30%      { transform: translateX(10px); }
+  45%      { transform: translateX(-8px); }
+  60%      { transform: translateX(8px); }
+  75%      { transform: translateX(-4px); }
+  90%      { transform: translateX(4px); }
+}
+@keyframes lockFadeOut {
+  0%   { opacity: 1; transform: scale(1); }
+  60%  { opacity: 0.9; transform: scale(1.03); }
+  100% { opacity: 0; transform: scale(1.06); pointer-events: none; }
+}
+@keyframes unlockStep {
+  0%   { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.lock-overlay {
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lock-shake {
+  animation: lockShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+.lock-exiting {
+  animation: lockFadeOut 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
