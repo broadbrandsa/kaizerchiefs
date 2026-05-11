@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Section } from "@/components/section";
 import { PRODUCT_CVPS } from "@/data/proposal";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon, InfoIcon } from "lucide-react";
 
 const CVP_ACCENT = [
   "#fbbf24", "#f472b6", "#34d399", "#60a5fa",
@@ -49,13 +49,25 @@ export function ProductCvps() {
       intro="Connectivity is the entry token. The product is belonging. Below sit the 8 non-comparable Customer Value Propositions that anchor the KCM commercial blueprint. Five of the eight are first-in-SA-market — open territory only KCM can credibly occupy."
     >
       {/* First-in-SA strip */}
-      <div className="mb-6 flex flex-wrap items-center gap-3 rounded-xl border border-[var(--kc-gold)]/40 bg-[var(--kc-gold)]/10 p-4 text-[16px]">
+      <div className="mb-3 flex flex-wrap items-center gap-3 rounded-xl border border-[var(--kc-gold)]/40 bg-[var(--kc-gold)]/10 p-4 text-[16px]">
         <span className="font-mono font-semibold uppercase tracking-[0.2em] text-[var(--kc-gold)]">
           5 of 8 first-in-SA
         </span>
         <span className="text-[var(--kc-paper)]/85">
           Khosi Sisters Circle · Junior Khosi · Diaspora Khosi · Stadium Mode · Khosi Heritage
         </span>
+      </div>
+
+      {/* Budget disclaimer */}
+      <div className="mb-6 flex items-start gap-3 rounded-xl border border-[var(--kc-line)] bg-[var(--kc-charcoal)]/40 p-4 text-[15px] leading-relaxed text-[var(--kc-paper)]/75">
+        <InfoIcon className="mt-0.5 size-4 shrink-0 text-[var(--kc-gold)]" />
+        <p>
+          <span className="font-semibold uppercase tracking-[0.18em] text-[var(--kc-gold)]">
+            Note ·
+          </span>{" "}
+          The budget for the CVPs is funded from the incentive budget — no
+          additional line item is added to the V2 financial model.
+        </p>
       </div>
 
       {/* Filter dropdown */}
