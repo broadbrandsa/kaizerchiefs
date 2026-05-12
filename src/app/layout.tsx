@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { VercelToolbar } from "@vercel/toolbar/next";
 import "./globals.css";
 import { LockScreen } from "@/components/lock-screen";
 
@@ -9,6 +10,10 @@ export const metadata: Metadata = {
   authors: [{ name: "DSG (Digital Strategy Group)" }],
 };
 
+const shouldInjectToolbar =
+  process.env.NODE_ENV === "development" ||
+  process.env.VERCEL_ENV === "preview";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -16,6 +21,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body>
         <LockScreen>{children}</LockScreen>
+        {shouldInjectToolbar && <VercelToolbar />}
       </body>
     </html>
   );
